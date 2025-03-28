@@ -5,7 +5,7 @@ import React from "react";
 export default function OurStory() {
   return (
     <div className="mt-10">
-      <h1 className="text-sm lg:text-4xl md:text-2xl my-5 ml-2">Iconic Elegance & Luxury</h1>
+      <h1 className="text-xl lg:text-4xl md:text-3xl my-5 ml-2">Iconic Elegance & Luxury</h1>
       <div className="flex w-full relative">
         <Image
           src="/images/spl5.jpg"
@@ -22,7 +22,7 @@ export default function OurStory() {
             the rich wildlife, unwind on pristine beaches,<br/> and share stories
             around a cozy lakeside campfire.
           </p>
-          <Link className="text-white text-xs lg:text-lg" href="/about">View more</Link>
+          <Link className="text-white text-xs lg:text-lg md:text-md" href="/about">View more</Link>
           </div>
         </div>
       </div>
