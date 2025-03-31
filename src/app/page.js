@@ -1,12 +1,12 @@
-import Card from "./(components)/(home)/Card";
-import Navbar from "./(components)/(home)/Navbar";
+import Navbar from "./(components)/Navbar";
+import Home from "./home/page";
 
 
-export default function Home() {
+export default function Main() {
   return (
     <div>
       <Navbar/>
-      <Card/>
+      <Home/>
       
       
     </div>

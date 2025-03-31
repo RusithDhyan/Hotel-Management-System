@@ -1,36 +1,23 @@
 import Image from "next/image";
 import React from "react";
-import OurStory from "./OurStory";
-import Services from "./Services";
-import PhotSlider from "./PhotSlider";
+import OurStory from "../(components)/(home)/OurStory";
+import ServiceCardSlider from "../(components)/(home)/ServiceCardSlider";
+import PhotSlider from "../(components)/(home)/PhotSlider";
 import Link from "next/link";
-import HomeSlider from "./HomeSlider";
+import HomeSlider from "../(components)/(home)/HomeSlider";
+import HotelNav from "../(components)/(home)/HotelNav";
 
-export default function Card() {
+export default function Home() {
   return (
     <div>
-      {/* <div className="bg-green-400 flex-1 relative">
+      <HomeSlider />
+      <div className="h-auto mt-10 w-full px-10 flex flex-col lg:flex-row items-center gap-2">
         <Image
-          src="/images/spl1.jpg"
-          alt="background image"
-          width={1500}
-          height={100}
-        />
-        <div className="absolute inset-0 flex items-end justify-center sm:pb-10 lg:pb-10 md:pb-10">
-          <h1 className=" text-center text-sm lg:text-5xl md:text-2xl text-white">
-            Relax, Unwind & Experience Luxury
-            <br />
-            in the Heart of Malawi{" "}
-          </h1>
-        </div>
-      </div> */}
-      <HomeSlider/>
-      <div className="h-auto mt-10 w-full px-10 flex flex-col lg:flex-row items-center gap-3">
-        <Image
-          src="/images/Malawi.jpeg"
+          src="/images/home3.jpg"
+          alt="card-image1"
           width={700}
           height={1000}
-          className="sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-130 lg:h-130"
+          className="sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-120 lg:h-130"
         />
         <div className="flex flex-col gap-3 text-xs lg:text-lg md:text-md">
           <h1 className="text-xl lg:text-4xl md:text-3xl">
@@ -45,12 +32,31 @@ export default function Card() {
             environment, celebrating the rich local culture, and showcasing
             Malawi’s extraordinary natural beauty and vibrant local cuisine.
           </p>
-          <Link href="/about" className="text-sm lg:text-lg md:text-md">Read more</Link>
-          <div className="flex flex-col md:flex-row items-center gap-3 mt-3 ">
-            <Image src="/images/home1.jpeg" width={250} height={20} className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-50 lg:h-50"/>
-            <Image src="/images/home2.jpeg" width={250} height={20} className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-50 lg:h-50"/>
-            <Image src="/images/home3.jpg" width={250} height={20} className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-50 lg:h-50"/>
-
+          <Link href="/about" className="text-sm lg:text-lg md:text-md">
+            Read more
+          </Link>
+          <div className="flex flex-col md:flex-row items-center gap-3">
+            <Image
+              src="/images/home1.jpeg"
+              alt="card-image2"
+              width={250}
+              height={20}
+              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60"
+            />
+            <Image
+              src="/images/home2.jpeg"
+              alt="card-image2"
+              width={250}
+              height={20}
+              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60"
+            />
+            <Image
+              src="/images/Malawi.jpeg"
+              alt="card-image2"
+              width={250}
+              height={20}
+              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60"
+            />
           </div>
         </div>
       </div>
@@ -61,9 +67,7 @@ export default function Card() {
       </div>
       <div className="h-auto mt-10 w-full p-2 lg:p-10 flex flex-col md:flex-row items-center justify-around">
         <div className="flex flex-col items-left gap-5 text-xs lg:text-lg md:text-md">
-          <h1 className="text-xl lg:text-4xl md:text-3xl">
-            Explore Malawi...
-          </h1>
+          <h1 className="text-xl lg:text-4xl md:text-3xl">Explore Malawi...</h1>
           <p>
             Malawi is a landlocked country in southeastern Africa, bordered by
             Tanzania,
@@ -76,12 +80,24 @@ export default function Card() {
             wildlife.
           </p>
         </div>
-        <div>
-          <Image src="/images/map2.png" width={350} height={10} />
+        <div className="flex relative items-center justify-center overflow-hidden group">
+          <Image
+            src="/images/map2.png"
+            alt="card-image2"
+            width={350}
+            height={10}
+            className="object-cover transition-transform duration-500 group-hover:scale-140"
+          />
+          <HotelNav />
         </div>
       </div>
       <div className=" h-auto flex flex-col md:flex-row items-center w-full px-2 lg:px-10 gap-5">
-        <Image src="/images/elephant.jpeg" width={500} height={100} />
+        <Image
+          src="/images/elephant.jpeg"
+          alt="card-image2"
+          width={500}
+          height={100}
+        />
         <div className="flex flex-col items-left gap-2 text-xs lg:text-lg md:text-md">
           <h1 className="text-xl lg:text-4xl md:text-3xl">
             Lakeside Adventure
@@ -99,11 +115,17 @@ export default function Card() {
             spirit and breathtaking beauty
           </p>
           <Link href="/" className="text-sm lg:text-lg md:text-md">
+          <button class="relative group text-black py-2 px-4 border-b-2 border-transparent">
             Discover
+            <span class="absolute left-0 bottom-0 w-15 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
+          </button>
           </Link>
+
+          
+
         </div>
       </div>
-      <Services />
+      <ServiceCardSlider />
       <PhotSlider />
       <OurStory />
     </div>

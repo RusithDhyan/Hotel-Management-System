@@ -12,7 +12,15 @@ export default function PhotoSlider() {
   return (
     <div className="w-full mt-5">
       <h1 className="text-4xl text-center">Offer</h1>
-      <Link href="/offers" className="items-center justify-center flex text-gray-400 text-sm lg:text-lg md:text-md">View more</Link>
+      <Link
+        href="/offers"
+        className="items-center justify-center flex text-sm lg:text-lg md:text-md"
+      >
+       <button class="relative group text-gray-400 py-2 px-4 border-b-2 border-transparent">
+                    View more
+                    <span class="absolute left-0 bottom-0 w-15 h-[2px] bg-gray-400 group-hover:w-full transition-all duration-300"></span>
+                  </button>
+      </Link>
       <Swiper
         modules={[Autoplay]} // Enable Autoplay module
         spaceBetween={0} // No space between slides
@@ -26,25 +34,33 @@ export default function PhotoSlider() {
         }}
       >
         {[1, 2, 3].map((num) => (
-          <SwiperSlide key={num} >
+          <SwiperSlide key={num}>
             <div className="flex flex-col sm:flex-row  items-center justify-center gap-5 mt-10 px-5">
-                <div className="w-1/2 h-50 md:h-100 lg:h-150 relative">
-              <Image
-                src={`/images/offer${num}.jpeg`} // Ensure the images exist
-                alt={`Slide ${num}`}
-                layout="fill" // Ensures the image fills the parent container
-                objectFit="cover" // Keeps the aspect ratio intact
-           
-              />
+              <div className="w-1/2 h-50 md:h-100 lg:h-150 relative">
+                <Image
+                  src={`/images/offer${num}.jpeg`} // Ensure the images exist
+                  alt={`Slide ${num}`}
+                  layout="fill" // Ensures the image fills the parent container
+                  objectFit="cover" // Keeps the aspect ratio intact
+                />
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2 text-sm md:text-md lg:text-lg ">
+                <h1>Get 50% Off Your Second Night</h1>
+                <h1 className="text-xl md:text-2xl lg:text-4xl text-gray-400">
+                  Just One More Night
+                </h1>
+                <h2>
+                  Stay 2 nights & get 50% off your second night at selection
+                  hotels
+                </h2>
+                <Link href="/">
+                  <button class="relative group text-black py-2 px-4 border-b-2 border-transparent">
+                    Explore
+                    <span class="absolute left-0 bottom-0 w-15 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
+                  </button>
+                </Link>
+              </div>
             </div>
-            <div className="flex flex-col items-center justify-center gap-2 text-sm md:text-md lg:text-lg ">
-              <h1>Get 50% Off Your Second Night</h1>
-              <h1 className="text-xl md:text-2xl lg:text-4xl text-gray-400">Just One More Night</h1>
-              <h2 >Stay 2 nights & get 50% off your second night at selection hotels</h2>
-              <button href="/" className=" mt-5">Explore</button>
-            </div>
-            </div>
-            
           </SwiperSlide>
         ))}
       </Swiper>

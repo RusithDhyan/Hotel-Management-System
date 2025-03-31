@@ -21,27 +21,25 @@ export default function HomeSlider() {
           1024: { slidesPerView: 1 }, // Show one slide on larger screens
         }}
       >
-        {[1, 2,3].map((num) => (
-          <SwiperSlide key={num} >
+        {[1, 2, 3,4].map((num) => (
+          <SwiperSlide key={num}>
             <div className="flex flex-col sm:flex-row  items-center justify-center gap-5">
-                <div className=" relative">
-              <Image
-                src={`/images/bg${num}.jpg`} // Ensure the images exist
-                alt={`Slide ${num}`}
-                width={1500}
-                height={100}
-           
-              />
+              <div className=" relative">
+                <Image
+                  src={`/images/bg${num}.jpg`} // Ensure the images exist
+                  alt={`Slide ${num}`}
+                  width={1500}
+                  height={100}
+                />
+              </div>
+              <div className="absolute inset-0 flex items-end justify-center sm:pb-10 lg:pb-10 md:pb-10">
+                <h1 className=" text-center text-xl lg:text-5xl md:text-3xl text-white">
+                  Relax, Unwind & Experience Luxury
+                  <br />
+                  in the Heart of Malawi{" "}
+                </h1>
+              </div>
             </div>
-            <div className="absolute inset-0 flex items-end justify-center sm:pb-10 lg:pb-10 md:pb-10">
-          <h1 className=" text-center text-xl lg:text-5xl md:text-3xl text-white">
-            Relax, Unwind & Experience Luxury
-            <br />
-            in the Heart of Malawi{" "}
-          </h1>
-        </div>
-            </div>
-            
           </SwiperSlide>
         ))}
       </Swiper>
