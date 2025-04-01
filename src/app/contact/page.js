@@ -36,8 +36,8 @@ function About() {
           height={100}
           className="w-full h-100 object-cover"
         />
-        <div className="absolute inset-0 top-[20%] px-10">
-          <div className="relative w-64 h-40 overflow-hidden group">
+        <div className="absolute inset-0 px-10 flex items-end">
+          <div className="relative w-100 h-50 overflow-hidden group">
             {/* Front Card (Visible by Default) */}
             <div className="absolute inset-0 flex justify-center items-center bg-gray-300 text-black text-2xl transition-all duration-500 group-hover:opacity-0">
               Reservations

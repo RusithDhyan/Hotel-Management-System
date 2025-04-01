@@ -32,9 +32,11 @@ export default function Home() {
             environment, celebrating the rich local culture, and showcasing
             Malawi’s extraordinary natural beauty and vibrant local cuisine.
           </p>
-          <div><Link href="/about" className="text-sm lg:text-lg md:text-md">
-            Read more
-          </Link></div>
+          <div>
+            <Link href="/about" className="text-sm lg:text-lg md:text-md">
+              Read more
+            </Link>
+          </div>
           <div className="flex flex-col md:flex-row items-center gap-3">
             <Image
               src="/images/home1.jpeg"
@@ -114,15 +116,14 @@ export default function Home() {
             waves against the shore sets the tone for a peaceful escape. vibrant
             spirit and breathtaking beauty
           </p>
-          <div><Link href="/" className="text-sm lg:text-lg md:text-md">
-          <button className="relative group text-black py-2 px-4 border-b-2 border-transparent">
-            Discover
-            <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
-          </button>
-          </Link>
-</div>
-          
-
+          <div>
+            <Link href="/" className="text-sm lg:text-lg md:text-md">
+              <button className="relative group text-black py-2 px-4 border-b-2 border-transparent">
+                Discover
+                <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
       <ServiceCardSlider />
