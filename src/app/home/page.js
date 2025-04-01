@@ -17,7 +17,7 @@ export default function Home() {
           alt="card-image1"
           width={700}
           height={1000}
-          className="sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-120 lg:h-130"
+          className="sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-120 lg:h-130 object-fill"
         />
         <div className="flex flex-col gap-3 text-xs lg:text-lg md:text-md">
           <h1 className="text-xl lg:text-4xl md:text-3xl">
@@ -32,30 +32,30 @@ export default function Home() {
             environment, celebrating the rich local culture, and showcasing
             Malawi’s extraordinary natural beauty and vibrant local cuisine.
           </p>
-          <Link href="/about" className="text-sm lg:text-lg md:text-md">
+          <div><Link href="/about" className="text-sm lg:text-lg md:text-md">
             Read more
-          </Link>
+          </Link></div>
           <div className="flex flex-col md:flex-row items-center gap-3">
             <Image
               src="/images/home1.jpeg"
               alt="card-image2"
               width={250}
               height={20}
-              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60"
+              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60 object-fill"
             />
             <Image
               src="/images/home2.jpeg"
               alt="card-image2"
               width={250}
               height={20}
-              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60"
+              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60 object-fill"
             />
             <Image
               src="/images/Malawi.jpeg"
               alt="card-image2"
               width={250}
               height={20}
-              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60"
+              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60 object-fill"
             />
           </div>
         </div>
@@ -114,13 +114,13 @@ export default function Home() {
             waves against the shore sets the tone for a peaceful escape. vibrant
             spirit and breathtaking beauty
           </p>
-          <Link href="/" className="text-sm lg:text-lg md:text-md">
-          <button class="relative group text-black py-2 px-4 border-b-2 border-transparent">
+          <div><Link href="/" className="text-sm lg:text-lg md:text-md">
+          <button className="relative group text-black py-2 px-4 border-b-2 border-transparent">
             Discover
-            <span class="absolute left-0 bottom-0 w-15 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
+            <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
           </button>
           </Link>
-
+</div>
           
 
         </div>

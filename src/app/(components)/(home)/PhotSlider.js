@@ -19,15 +19,15 @@ const slider=[
   return (
     <div className="w-full mt-5">
       <h1 className="text-4xl text-center">Offer</h1>
-      <Link
+      <div><Link
         href="/offers"
         className="items-center justify-center flex text-sm lg:text-lg md:text-md"
       >
-       <button class="relative group text-gray-400 py-2 px-4 border-b-2 border-transparent">
+       <button className="relative group text-gray-400 py-2 px-4 border-b-2 border-transparent">
                     View more
-                    <span class="absolute left-0 bottom-0 w-10 h-[2px] bg-gray-400 group-hover:w-full transition-all duration-300"></span>
+                    <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-gray-400 group-hover:w-full transition-all duration-300"></span>
                   </button>
-      </Link>
+      </Link></div>
       <Swiper
         modules={[Autoplay]} // Enable Autoplay module
         spaceBetween={0} // No space between slides

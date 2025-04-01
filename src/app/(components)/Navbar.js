@@ -33,8 +33,8 @@ export default function Navbar() {
       className={` ${
         isHomePage
           ? "bg-transparent fixed top-0 w-full text-black z-50"
-          : " text-black h-16 border border-1-solid"
-      } ${isScrolled ? "bg-white h-16 delay-200 boder border-b-1" : "bg-transparent"}`}
+          : " text-black border-1 border-b-white w-full top-0 z-50 fixed"
+      } ${isScrolled ? "bg-white delay-200 boder border-b-1" : "bg-transparent"}`}
     >
       <div className="w-full h-15 flex flex-row items-center justify-between px-2">
         <div className="w-25 md:w-35 lg:w-35">
@@ -49,7 +49,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="flex flex-row gap-10 ">
-          <ul className="hidden md:flex flex-row justify-center items-center gap-3 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl ">
+          <ul className="hidden md:flex flex-row justify-center items-center gap-3 text-xs sm:text-sm md:text-base lg:text-md xl:text-md ">
             <Link href="/">Home</Link>
             <Link href="/our-collections">Hotels</Link>
             <Link href="/offers">Offers</Link>

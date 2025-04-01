@@ -19,40 +19,35 @@ export default function Footer() {
             height={10}
           />
         </div>
-        <div className="flex-[1] flex flex-col items-center">
+        <div className="flex-[1] flex flex-col items-center text-xs sm:text-sm md:text-md xl:text-lg">
           <Link
             href="/"
-            className="text-xs sm:text-sm md:text-md lg:text-lg xl:text-xl"
           >
             Home
           </Link>
           <Link
             href="/our-collections"
-            className="text-xs sm:text-sm md:text-md lg:text-lg xl:text-xl"
+            
           >
             Our Collection
           </Link>
           <Link
             href="/offers"
-            className="text-xs sm:text-sm md:text-md lg:text-lg xl:text-xl"
           >
             Offers
           </Link>
           <Link
             href="/blogs"
-            className="text-xs sm:text-sm md:text-md lg:text-lg xl:text-xl"
           >
             Blogs
           </Link>
           <Link
             href="/about"
-            className="text-xs sm:text-sm md:text-md lg:text-lg xl:text-xl"
           >
             About
           </Link>
           <Link
             href="/contact"
-            className="text-xs sm:text-sm md:text-md lg:text-lg xl:text-xl"
           >
             Contact
           </Link>
