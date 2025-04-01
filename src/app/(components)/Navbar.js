@@ -34,7 +34,7 @@ export default function Navbar() {
         isHomePage
           ? "bg-transparent fixed top-0 w-full text-black z-50"
           : " text-black h-16 border border-1-solid"
-      } ${isScrolled ? "bg-white h-16" : "bg-transparent"}`}
+      } ${isScrolled ? "bg-white h-16 delay-200 boder border-b-1" : "bg-transparent"}`}
     >
       <div className="w-full h-15 flex flex-row items-center justify-between px-2">
         <div className="w-25 md:w-35 lg:w-35">
@@ -57,10 +57,10 @@ export default function Navbar() {
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
           </ul>
-          <Link href="/">
-            <button class="relative group text-black py-2 px-4 border-b-2 border-transparent">
+          <Link href="/" className="">
+            <button className="relative group text-black py-2 px-4  border-transparent">
               Book Now
-              <span className="absolute left-0 bottom-0 w-15 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
             </button>
           </Link>
           {/* <Menu className="text-blue-400" /> */}
