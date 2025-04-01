@@ -24,12 +24,14 @@ export default function OurStory() {
               waters. Explore the rich wildlife, unwind on pristine beaches,
               <br /> and share stories around a cozy lakeside campfire.
             </p>
+            <div>
             <Link
               className="text-white text-xs lg:text-lg md:text-md"
               href="/about"
             >
               View more
             </Link>
+            </div>
           </div>
         </div>
       </div>
