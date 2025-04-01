@@ -9,6 +9,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function PhotoSlider() {
+const slider=[
+  {url:"/images/offer1.jpeg",title:"Get 50% Off Your Second Night",offerType:"Just One More Night",description:"Stay 2 nights & get 50% off your second night at selection hotels"},
+  {url:"/images/offer2.jpeg",title:"Early Bird Discount",offerType:"Just One More Night",description:"Book 30 days in advance and get 15% off your stay,plus a welcome drink"},
+  {url:"/images/offer3.jpeg",title:"Spa & Stay Retreat",offerType:"Just One More Night",description:"Escape to paradise! Enjoy a 🌿✨  luxurious stay with exclusive spa treatments"}
+
+]
+
   return (
     <div className="w-full mt-5">
       <h1 className="text-4xl text-center">Offer</h1>
@@ -18,7 +25,7 @@ export default function PhotoSlider() {
       >
        <button class="relative group text-gray-400 py-2 px-4 border-b-2 border-transparent">
                     View more
-                    <span class="absolute left-0 bottom-0 w-15 h-[2px] bg-gray-400 group-hover:w-full transition-all duration-300"></span>
+                    <span class="absolute left-0 bottom-0 w-10 h-[2px] bg-gray-400 group-hover:w-full transition-all duration-300"></span>
                   </button>
       </Link>
       <Swiper
@@ -33,30 +40,29 @@ export default function PhotoSlider() {
           1024: { slidesPerView: 1 }, // Show one slide on larger screens
         }}
       >
-        {[1, 2, 3].map((num) => (
-          <SwiperSlide key={num}>
+        {slider.map((slide,index) => (
+          <SwiperSlide key={index}>
             <div className="flex flex-col sm:flex-row  items-center justify-center gap-5 mt-10 px-5">
               <div className="w-1/2 h-50 md:h-100 lg:h-150 relative">
                 <Image
-                  src={`/images/offer${num}.jpeg`} // Ensure the images exist
-                  alt={`Slide ${num}`}
+                  src={slide.url} 
+                  alt="slide-image"
                   layout="fill" // Ensures the image fills the parent container
                   objectFit="cover" // Keeps the aspect ratio intact
                 />
               </div>
               <div className="flex flex-col items-center justify-center gap-2 text-sm md:text-md lg:text-lg ">
-                <h1>Get 50% Off Your Second Night</h1>
+                <h1>{slide.title}</h1>
                 <h1 className="text-xl md:text-2xl lg:text-4xl text-gray-400">
-                  Just One More Night
+                  {slide.offerType}
                 </h1>
                 <h2>
-                  Stay 2 nights & get 50% off your second night at selection
-                  hotels
+                  {slide.description}
                 </h2>
                 <Link href="/">
-                  <button class="relative group text-black py-2 px-4 border-b-2 border-transparent">
+                  <button className="relative group text-black py-2 px-4 border-b-2 border-transparent">
                     Explore
-                    <span class="absolute left-0 bottom-0 w-15 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
+                    <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
                   </button>
                 </Link>
               </div>
