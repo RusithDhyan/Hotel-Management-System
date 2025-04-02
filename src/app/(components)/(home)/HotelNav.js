@@ -4,15 +4,15 @@ import React from "react";
 
 export default function HotelNav() {
     const hotels = [
-        { name: "Heritage Hotel", href: "/our-collections/", position: "top-[35%] left-[40%]" },
-        { name: "Blue Waters Lake Resort", href: "", position: "top-[16%] left-[25%]" },
-        { name: "Kambri Beach", href: "", position: "top-[40%] left-[18%]" },
-        { name: "Le Oroissant", href: "", position: "top-[70%] left-[55%]" },
-        { name: "Kara O Mula", href: "", position: "top-[25%] left-[35%]" },
-        { name: "Waters Edge", href: "", position: "top-[3%] left-[28%]" },
-        { name: "Lotus Hotel", href: "", position: "top-[48%] left-[30%]" },
-        { name: "Bamboo Boutique", href: "", position: "top-[80%] left-[48%]" },
-        { name: "Zaburi Lake Resort ", href: "", position: "top-[60%] left-[30%]" },
+        { name: "Heritage Hotel", href: "/hotels/heritage-hotel", position: "top-[35%] left-[40%]" },
+        { name: "Blue Waters Lake Resort", href: "/hotels/blue-waters", position: "top-[16%] left-[25%]" },
+        { name: "Kambri Beach", href: "/hotels/kambiri-beach", position: "top-[40%] left-[18%]" },
+        { name: "Le Oroissant", href: "/hotels/le-oroissant", position: "top-[70%] left-[55%]" },
+        { name: "Kara O Mula", href: "/hotels/kara-o-mula", position: "top-[25%] left-[35%]" },
+        { name: "Waters Edge", href: "/hotels/waters-edge", position: "top-[3%] left-[28%]" },
+        { name: "Lotus Hotel", href: "/hotels/lotus-hotel", position: "top-[48%] left-[30%]" },
+        { name: "Bamboo Boutique", href: "/hotels/bamboo-boutique", position: "top-[80%] left-[50%]" },
+        { name: "Zaburi Lake Resort ", href: "/hotels/zaburi-lake-resort", position: "top-[60%] left-[30%]" },
 
 
     ]
