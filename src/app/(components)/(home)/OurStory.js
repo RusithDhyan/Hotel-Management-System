@@ -10,7 +10,7 @@ export default function OurStory() {
       </h1>
       <div className="flex w-full relative">
         <Image
-          src="/images/spl5.jpg"
+          src="/images/our-story.jpg"
           alt="our-story-image"
           width={1500}
           height={50}

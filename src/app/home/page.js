@@ -6,8 +6,10 @@ import PhotSlider from "../(components)/(home)/PhotSlider";
 import Link from "next/link";
 import HomeSlider from "../(components)/(home)/HomeSlider";
 import HotelNav from "../(components)/(home)/HotelNav";
+import HotelSlider from "../(components)/(home)/HotelSlider";
 
 export default function Home() {
+
   return (
     <div>
       <HomeSlider />
@@ -62,10 +64,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-amber-300 h-50 mt-10 w-full p-3">
-        <h1 className="text-center text-xl lg:text-4xl md:text-3xl">
-          Find Your Place
-        </h1>
+      <div className=" h-auto mt-10 w-full">
+        <HotelSlider/>
       </div>
       <div className="h-auto mt-10 w-full p-2 lg:p-10 flex flex-col md:flex-row items-center justify-around">
         <div className="flex flex-col items-left gap-5 text-xs lg:text-lg md:text-md">
