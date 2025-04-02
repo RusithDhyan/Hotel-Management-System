@@ -9,7 +9,7 @@ import { FaFacebookF } from "react-icons/fa";
 export default function Footer() {
   return (
     <div className="w-full bottom-0 top-0">
-      <div className="w-full p-6 flex flex-col md:flex-row sm:items-center md:items-center lg:items-start justify-between md:justify-start gap-5 ">
+      <div className="border-t w-full p-6 flex flex-col md:flex-row sm:items-center md:items-center lg:items-start justify-between md:justify-start gap-5 ">
         <div className="flex sm:items-center">
           <Image
             className="  lg:items-center xs:justify-center"
