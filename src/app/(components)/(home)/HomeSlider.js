@@ -7,6 +7,12 @@ import "swiper/css/autoplay"; // Import autoplay styles
 import Image from "next/image";
 
 export default function HomeSlider() {
+  const homeSlider=[
+    {url:"/images/bg1.jpg",title:"Relax,Unwind & Expreience Luxury in the Heart of Malawi"},
+    {url:"/images/bg2.jpg",title:"A Pool with a View Unwind in Malawi's Hidden Oasis"},
+    {url:"/images/bg3.jpg",title:"Malawi's Safari Magic:Where Nature Comes Alive"},
+
+  ]
   return (
     <div className="w-full ">
       <Swiper
@@ -21,22 +27,20 @@ export default function HomeSlider() {
           1024: { slidesPerView: 1 }, // Show one slide on larger screens
         }}
       >
-        {[1, 2, 3,4].map((num) => (
-          <SwiperSlide key={num}>
+        {homeSlider.map((slide,index) => (
+          <SwiperSlide key={index}>
             <div className="flex flex-col sm:flex-row  items-center justify-center gap-5">
-              <div className=" relative">
+              <div className="relative">
                 <Image
-                  src={`/images/bg${num}.jpg`} // Ensure the images exist
-                  alt={`Slide ${num}`}
+                  src={slide.url} // Ensure the images exist
+                  alt="slide-img"
                   width={1500}
                   height={100}
                 />
               </div>
-              <div className="absolute inset-0 flex items-end justify-center sm:pb-10 lg:pb-10 md:pb-10">
-                <h1 className=" text-center text-xl lg:text-5xl md:text-3xl text-white">
-                  Relax, Unwind & Experience Luxury
-                  <br />
-                  in the Heart of Malawi{" "}
+              <div className="absolute inset-0 flex items-end justify-center sm:pb-20 lg:pb-20 md:pb-20">
+                <h1 className=" text-center text-xl lg:text-5xl md:text-3xl text-white overflow-hidden text-ellipsis max-h-12">
+                  {slide.title}
                 </h1>
               </div>
             </div>
