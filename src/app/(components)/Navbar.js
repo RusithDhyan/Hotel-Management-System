@@ -32,7 +32,7 @@ export default function Navbar() {
     <nav
       className={` ${
         isHomePage
-          ? "bg-transparent fixed top-0 w-full text-black z-50"
+          ? "bg-transparent fixed top-0 w-full z-50"
           : " text-black border-1 border-b-white w-full top-0 z-50 fixed"
       } ${isScrolled ? "bg-white delay-200 boder border-b-1" : "bg-transparent"}`}
     >
