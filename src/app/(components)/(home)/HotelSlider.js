@@ -1,12 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  CircleArrowLeft,
-  CircleArrowRight,
-} from "lucide-react";
+import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,6 +10,7 @@ const hotels = [
     id: 1,
     image: "/hotels/h1.jpeg",
     title: "Blue Waters Lake Resort",
+    url: "/hotels/blue-waters",
     location: "Senga Bay,Salima",
     description:
       "Our hotel offers a relaxing stay with modern amenities, warm hospitality, and a beautiful setting in Malawi.Enjoy a peaceful retreat with stunning views, cozy rooms, and a welcoming atmosphere in the heart of Africa",
@@ -23,6 +19,7 @@ const hotels = [
     id: 2,
     image: "/hotels/h2.jpeg",
     title: "Le Oroissant",
+    url: "/hotels/le-oroissant",
     location: "Limbe,Blantyre",
     description:
       "Le Croissant Patisserie is located within the Heritage by Serendib hotel on Milward Road in Limbe, Blantyre, Malawi.  This patisserie offers a taste of France, allowing guests to sip on a cup of Malawian tea while savoring freshly baked French baguettes and a selection of gourmet pastries.",
@@ -31,6 +28,7 @@ const hotels = [
     id: 3,
     image: "/hotels/h3.jpeg",
     title: "Heritage Hotel",
+    url: "/hotels/heritage-hotel",
     location: "Milward Road, Limbe, Blantyre, Malawi",
     description: "An escape from the city.",
   },
@@ -38,6 +36,7 @@ const hotels = [
     id: 4,
     image: "/hotels/h4.jpeg",
     title: "Kambiri Beach",
+    url: "/hotels/kambiri-beach",
     location: "Senga Bay,Salima",
     description: "Perfect for a family vacation.",
   },
@@ -45,6 +44,7 @@ const hotels = [
     id: 5,
     image: "/hotels/h5.jpeg",
     title: "Kara O Mula",
+    url: "/hotels/kara-o-mula",
     location: "Boma Path – Bush, Mulanje, Malawi",
     description: "A stunning beachside retreat.",
   },
@@ -52,6 +52,7 @@ const hotels = [
     id: 6,
     image: "/hotels/h6.jpeg",
     title: "Lotus Hotel",
+    url: "/hotels/lotus-hotel",
     location: "Glyn Jones Road, Namiwawa Avenue, Blantyre, Malawi",
     description: "Experience nature at its best.",
   },
@@ -59,6 +60,7 @@ const hotels = [
     id: 7,
     image: "/hotels/h7.jpeg",
     title: "Zaburi Lake Resort",
+    url: "/hotels/zaburi-lake-resort",
     location: "Bolera Village, Mangochi, Malawi",
     description: "A budget-friendly stay.",
   },
@@ -66,6 +68,7 @@ const hotels = [
     id: 8,
     image: "/hotels/h8.jpg",
     title: "Waters Edge",
+    url: "/hotels/waters-edge",
     location: "Senga Bay,Salima",
     description: "Unparalleled luxury.",
   },
@@ -73,10 +76,10 @@ const hotels = [
     id: 9,
     image: "/hotels/h9.jpg",
     title: "Bamboo Boutique",
+    url: "/hotels/bamboo-boutique",
     location: "Mdoka Street, Area 12, Lilongwe, Malawi",
     description: "A peaceful getaway.",
-  }
-  
+  },
 ];
 
 export default function HotelSlider() {
@@ -101,7 +104,7 @@ export default function HotelSlider() {
           className="items-center justify-center flex text-sm lg:text-lg md:text-md"
         >
           <button className="relative group text-gray-400 py-2 px-4 border-b-2 border-transparent">
-            View more
+            View All
             <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-gray-400 group-hover:w-full transition-all duration-300"></span>
           </button>
         </Link>
@@ -127,12 +130,25 @@ export default function HotelSlider() {
                   width={1000}
                   height={100}
                 />
-                <div className={`p-2 ${i === index ? "h-30" : "h-auto"}`}>
+                <div className={`p-1 ${i === index ? "h-40" : "h-auto"}`}>
                   <h3 className="text-lg font-semibold">{hotel.title}</h3>
                   <h4 className="text-gray-400">{hotel.location}</h4>
                   {i === index && (
                     <p className="text-sm">{hotel.description}</p>
                   )}
+                  <div className="flex flex-row justify-end pb-3">
+                    <Link
+                      href={`${hotel.url}`}
+                      className="text-sm lg:text-lg md:text-md"
+                    >
+                      {i === index && (
+                        <button className="relative group text-black pb-1">
+                          Explore
+                          <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
+                        </button>
+                      )}
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

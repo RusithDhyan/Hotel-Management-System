@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import OurStory from "../(components)/(home)/OurStory";
 import ServiceCardSlider from "../(components)/(home)/ServiceCardSlider";
-import PhotSlider from "../(components)/(home)/PhotSlider";
+import PhotSlider from "../(components)/(home)/OfferSlider";
 import Link from "next/link";
 import HomeSlider from "../(components)/(home)/HomeSlider";
 import HotelNav from "../(components)/(home)/HotelNav";
