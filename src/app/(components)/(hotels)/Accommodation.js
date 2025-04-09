@@ -17,7 +17,7 @@ const hotels = [
     id: 2,
     image: "/hotels/accommodations/family.jpg",
     title: "Family Twin Room",
-    url:"/",
+    url:"/hotels/heritage-hotel/accommodations/family-twin",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
   },
@@ -57,7 +57,7 @@ export default function Accommodation() {
       </h1>
       <div>
         <Link
-          href="/our-collections"
+          href="/hotels/heritage-hotel/accommodations"
           className="items-center justify-center flex text-sm lg:text-lg md:text-md"
         >
           <button className="relative group text-gray-400 py-2 px-4 border-b-2 border-transparent">

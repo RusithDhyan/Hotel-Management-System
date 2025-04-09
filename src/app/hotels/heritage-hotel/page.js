@@ -11,11 +11,11 @@ export default function Heritage() {
     <div className="flex flex-col min-h-screen">
       <div className=" w-full h-auto relative">
         <Image
-          src="/hotels/heritage-hotel.jpg"
+          src="/hotels/heritage/heritage-hotel.jpg"
           alt=""
           width={1500}
           height={100}
-          className="object-cover"
+          className="object-cover max-h-screen"
         />
 
         <h1 className="absolute inset-0 flex items-center justify-center text-5xl text-white pb-4">

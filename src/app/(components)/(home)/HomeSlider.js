@@ -36,6 +36,7 @@ export default function HomeSlider() {
                   alt="slide-img"
                   width={1500}
                   height={100}
+                  className="max-h-screen"
                 />
               </div>
               <div className="absolute inset-0 flex items-end justify-center sm:pb-20 lg:pb-20 md:pb-20">
