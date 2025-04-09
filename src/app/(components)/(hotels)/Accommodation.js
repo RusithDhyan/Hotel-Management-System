@@ -9,7 +9,7 @@ const hotels = [
     id: 1,
     image: "/hotels/accommodations/executive.jpg",
     title: "Executive Suite",
-    url:"/",
+    url: "/",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
   },
@@ -17,7 +17,7 @@ const hotels = [
     id: 2,
     image: "/hotels/accommodations/family.jpg",
     title: "Family Twin Room",
-    url:"/hotels/heritage-hotel/accommodations/family-twin",
+    url: "/hotels/heritage-hotel/accommodations/family-twin",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
   },
@@ -25,7 +25,7 @@ const hotels = [
     id: 3,
     image: "/hotels/accommodations/deluxe.jpg",
     title: "Deluxe King Room",
-    url:"/",
+    url: "/",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
   },
@@ -33,7 +33,7 @@ const hotels = [
     id: 4,
     image: "/hotels/accommodations/premier.jpeg",
     title: "Premier Heritage Suite",
-    url:"/",
+    url: "/",
     description:
       "Experience the perfect blend of timeless elegance and modern comfort in our Premier Heritage Suite. This spacious suite features a king-size bed with premium linens, a separate living area.",
   },
@@ -60,7 +60,7 @@ export default function Accommodation() {
           href="/hotels/heritage-hotel/accommodations"
           className="items-center justify-center flex text-sm lg:text-lg md:text-md"
         >
-          <button className="relative group text-gray-400 py-2 px-4 border-b-2 border-transparent">
+          <button className="relative group text-gray-400 py-1 px-2 border-b-2 border-transparent">
             View All
             <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-gray-400 group-hover:w-full transition-all duration-300"></span>
           </button>
@@ -75,7 +75,7 @@ export default function Accommodation() {
           {hotels.map((hotel, i) => (
             <div
               key={hotel.id}
-              className='flex-shrink-0 w-[33.33%] p-4 transition-all duration-500'
+              className="flex-shrink-0 w-[33.33%] p-4 transition-all duration-500"
             >
               <div className="bg-white ">
                 <Image
@@ -85,18 +85,20 @@ export default function Accommodation() {
                   width={1000}
                   height={100}
                 />
-                <div className='p-2 shadow-md'>
-                  <h3 className="text-lg font-semibold text-center">{hotel.title}</h3>
+                <div className="p-2 shadow-md">
+                  <h3 className="text-lg font-semibold text-center">
+                    {hotel.title}
+                  </h3>
                   <p className="text-sm">{hotel.description}</p>
                   <div className="flex flex-row justify-start py-3">
                     <Link
                       href={`${hotel.url}`}
                       className="text-sm lg:text-lg md:text-md"
                     >
-                        <button className="relative group text-black pb-2">
-                          Explore
-                          <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
-                        </button>
+                      <button className="relative group text-black py-1 px-2">
+                        Explore
+                        <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
+                      </button>
                     </Link>
                   </div>
                 </div>

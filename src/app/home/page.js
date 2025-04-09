@@ -2,13 +2,14 @@ import Image from "next/image";
 import React from "react";
 import OurStory from "../(components)/(home)/OurStory";
 import ServiceCardSlider from "../(components)/(home)/ServiceCardSlider";
-import PhotSlider from "../(components)/(home)/OfferSlider";
+import OfferSlider from "../(components)/(home)/OfferSlider";
 import Link from "next/link";
 import HomeSlider from "../(components)/(home)/HomeSlider";
 import HotelNav from "../(components)/(home)/HotelNav";
 import HotelSlider from "../(components)/(home)/HotelSlider";
 
 export default function Home() {
+  const navLink = "offers";
 
   return (
     <div>
@@ -48,14 +49,14 @@ export default function Home() {
               className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60 object-cover"
             />
             <Image
-              src="/images/home2.jpeg"
+              src="/images/home8.jpg"
               alt="card-image2"
               width={1000}
               height={20}
               className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60 object-cover"
             />
             <Image
-              src="/images/home3.jpg"
+              src="/images/home7.jpeg"
               alt="card-image2"
               width={250}
               height={20}
@@ -65,9 +66,9 @@ export default function Home() {
         </div>
       </div>
       <div className=" h-auto mt-10 w-full">
-        <HotelSlider/>
+        <HotelSlider />
       </div>
-      <div className="h-auto mt-10 w-full p-2 lg:p-10 flex flex-col md:flex-row items-center justify-around">
+      <div className="h-auto w-full flex flex-col md:flex-row items-center justify-around">
         <div className="flex flex-col items-left gap-5 text-xs lg:text-lg md:text-md">
           <h1 className="text-xl lg:text-4xl md:text-3xl">Explore Malawi...</h1>
           <p>
@@ -99,6 +100,7 @@ export default function Home() {
           alt="card-image2"
           width={500}
           height={100}
+          className="w-110 h-110"
         />
         <div className="flex flex-col items-left gap-2 text-xs lg:text-lg md:text-md">
           <h1 className="text-xl lg:text-4xl md:text-3xl">
@@ -118,7 +120,7 @@ export default function Home() {
           </p>
           <div>
             <Link href="/" className="text-sm lg:text-lg md:text-md">
-              <button className="relative group text-black py-2 px-4 border-b-2 border-transparent">
+              <button className="relative group text-black py-1 px-2 border-b-2 border-transparent">
                 Discover
                 <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
               </button>
@@ -127,7 +129,7 @@ export default function Home() {
         </div>
       </div>
       <ServiceCardSlider />
-      <PhotSlider />
+      <OfferSlider nav={navLink} />
       <OurStory />
     </div>
   );

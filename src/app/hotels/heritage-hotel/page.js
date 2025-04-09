@@ -7,6 +7,7 @@ import Link from "next/link";
 import React from "react";
 
 export default function Heritage() {
+  const navLink = "hotels/heritage-hotel/offers"
   return (
     <div className="flex flex-col min-h-screen">
       <div className=" w-full h-auto relative">
@@ -48,7 +49,7 @@ export default function Heritage() {
             experience for both leisure and business travelers.
           </p>
           <Link href="/" className="text-sm lg:text-lg md:text-md">
-            <button className="relative group text-black py-2 px-4 border-b-2 border-transparent">
+            <button className="relative group text-black py-1 px-2 border-b-2 border-transparent">
               Discover Place
               <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
             </button>
@@ -58,7 +59,7 @@ export default function Heritage() {
       <Accommodation />
       <Experience />
       <FoodFlavor />
-      <OfferSlider />
+      <OfferSlider nav={navLink}/>
     </div>
   );
 }

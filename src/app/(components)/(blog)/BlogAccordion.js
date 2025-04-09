@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const Accordion = ({ items }) => {
+const BlogAccordion = ({ items }) => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleAccordion = (index) => {
@@ -38,8 +38,8 @@ const Accordion = ({ items }) => {
                 />
                 <div className="flex flex-col items-start">
                   {item.content}
-                  <Link href="/" className=" text-sm pt-1">
-                    <button className="relative group text-gray-500">
+                  <Link href={`${item.nav}`} className=" text-sm pt-1">
+                    <button className="relative group text-gray-500 py-1">
                       View more
                       <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
                     </button>
@@ -54,4 +54,4 @@ const Accordion = ({ items }) => {
   );
 };
 
-export default Accordion;
+export default BlogAccordion;

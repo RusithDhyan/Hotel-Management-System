@@ -25,21 +25,20 @@ export default function Experience() {
           <h1 className="text-3xl">Experience in Heritage</h1>
           <div className="relative overflow-hidden group">
             <Image
-            src="/hotels/heritage/heritage-img3.jpeg"
-            alt="heritage-img3"
-            width={1000}
-            height={100}
-            className="w-100 h-100 object-cover transition-transform duration-300 group-hover:bg-opacity-60"
-          />
-          <div className="absolute inset-0 flex items-end px-10 pb-5 "><p className=" flex items-center font-semibold justify-center mt-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              For those seeking extra space and comfort, the Executive Suite
-              offers a separate living area and bedroom, creating a private and
-              sophisticated ambiance.
-            </p></div>
-            
-            
+              src="/hotels/heritage/heritage-img3.jpeg"
+              alt="heritage-img3"
+              width={1000}
+              height={100}
+              className="w-100 h-100 object-cover transition-transform duration-300 group-hover:bg-opacity-60"
+            />
+            <div className="absolute inset-0 flex items-end px-10 pb-5 ">
+              <p className=" flex items-center justify-center mt-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                For those seeking extra space and comfort, the Executive Suite
+                offers a separate living area and bedroom, creating a private
+                and sophisticated ambiance.
+              </p>
             </div>
-          
+          </div>
         </div>
       </div>
     </div>

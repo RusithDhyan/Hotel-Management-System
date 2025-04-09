@@ -25,9 +25,9 @@ export default function HotelNav() {
                 const hotelName = hotel.name
                 return(
                 <Link key={index} href={hotel.href}>
-                <div className={`flex flex-row absolute right-0 gap-1 transition duration-500 ${hotel.position}`}>
+                <div className={`flex flex-row absolute right-0 gap-1 ${hotel.position}`}>
                   <MapPin color="red" />
-                  <h4>{hotelName}</h4>
+                  <h5 className="hover:text-orange-600 transition duration-300 text-[14px]">{hotelName}</h5>
 
                   </div>
                  
