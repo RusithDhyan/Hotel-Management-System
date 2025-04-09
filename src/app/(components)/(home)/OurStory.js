@@ -14,6 +14,7 @@ export default function OurStory() {
           alt="our-story-image"
           width={1500}
           height={50}
+          className="max-h-screen"
         />
         <div className="flex absolute inset-0 items-center px-5">
           <div className="flex flex-col justify-between gap-2 lg:mt-60 md:mt-45 sm:mt-30">

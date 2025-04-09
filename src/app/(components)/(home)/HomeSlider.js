@@ -36,10 +36,10 @@ export default function HomeSlider() {
                   alt="slide-img"
                   width={1500}
                   height={100}
-                  className="max-h-screen"
+                  className="max-h-screen object-cover"
                 />
               </div>
-              <div className="absolute inset-0 flex items-end justify-center sm:pb-20 lg:pb-20 md:pb-20">
+              <div className="absolute inset-0 bottom-0 flex items-end justify-center pb-5">
                 <h1 className=" text-center text-xl lg:text-5xl md:text-3xl text-white overflow-hidden text-ellipsis max-h-12">
                   {slide.title}
                 </h1>

@@ -81,7 +81,7 @@ export default function page() {
             </div>
           ))}
           <Link href="/">
-            <button className="relative group text-black py-2 px-4  border-transparent">
+            <button className="relative group text-black py-1 px-2  border-transparent">
               Book
               <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
             </button>

@@ -14,7 +14,7 @@ export default function FoodFlavor() {
             backdrop of our tranquil gardens.
           </p>
         <Link href="/" className="text-sm lg:text-lg md:text-md">
-          <button className="relative group text-black py-2 px-4">
+          <button className="relative group text-black py-1 px-2">
             Explore
             <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
           </button>

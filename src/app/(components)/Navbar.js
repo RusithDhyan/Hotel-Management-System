@@ -1,5 +1,5 @@
 "use client";
-import { Menu, X } from "lucide-react";
+import { AlignLeft, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -34,7 +34,7 @@ export default function Navbar() {
         isHomePage
           ? "bg-transparent fixed top-0 w-full z-50"
           : " text-black border-1 border-b-white w-full top-0 z-50 fixed"
-      } ${isScrolled ? "bg-white delay-200 boder border-b-1" : "bg-transparent"}`}
+      } ${isScrolled ? "bg-white delay-200" : "bg-transparent"}`}
     >
       <div className="w-full h-15 flex flex-row items-center justify-between px-2">
         <div className="w-25 md:w-35 lg:w-35">
@@ -58,14 +58,14 @@ export default function Navbar() {
             <Link href="/contact">Contact</Link>
           </ul>
           <Link href="/" className="">
-            <button className="relative group text-black py-2 px-4  border-transparent">
+            <button className="relative group text-black py-1 px-2  border-transparent">
               Book Now
               <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
             </button>
           </Link>
           {/* <Menu className="text-blue-400" /> */}
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? null : <Menu size={28} />}
+            {isOpen ? null : <AlignLeft size={28} />}
           </button>
 
           {isOpen && (

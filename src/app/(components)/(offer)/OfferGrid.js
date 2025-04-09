@@ -5,7 +5,7 @@ const OfferGrid = ({ offers }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
       {offers.map((offer, index) => (
-        <div key={index} className="relative overflow-hidden shadow-md group">
+        <div key={index} className="relative overflow-hidden shadow-lg group">
           {/* Offer Image */}
         <Link href={`${offer.url}`}>
         <Image
