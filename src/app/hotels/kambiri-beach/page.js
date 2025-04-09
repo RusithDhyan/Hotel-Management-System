@@ -10,7 +10,7 @@ export default function KambiriBeach() {
           alt=""
           width={1500}
           height={100}
-          className="object-cover"
+          className="object-cover max-h-screen"
         />
 
         <h1 className="absolute inset-0 flex items-center justify-center text-5xl text-white pb-4">

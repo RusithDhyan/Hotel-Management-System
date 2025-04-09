@@ -40,7 +40,7 @@ export default function Navbar() {
         <div className="w-25 md:w-35 lg:w-35">
           <Link href="/">
             <Image
-              src="/svg/Serendib.svg"
+              src="/logo/Serendib-tours.png"
               alt="logo"
               width={150}
               height={50}

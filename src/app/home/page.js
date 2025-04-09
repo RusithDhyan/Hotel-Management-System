@@ -13,13 +13,13 @@ export default function Home() {
   return (
     <div>
       <HomeSlider />
-      <div className="h-auto mt-10 w-full px-10 flex flex-col lg:flex-row items-center gap-2">
+      <div className="h-auto mt-10 w-full px-10 flex flex-col lg:flex-row items-center gap-4">
         <Image
-          src="/images/home3.jpg"
+          src="/images/home6.jpeg"
           alt="card-image1"
           width={700}
           height={1000}
-          className="sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-120 lg:h-130 object-fill"
+          className="sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-120 lg:h-130 object-cover "
         />
         <div className="flex flex-col gap-3 text-xs lg:text-lg md:text-md">
           <h1 className="text-xl lg:text-4xl md:text-3xl">
@@ -41,25 +41,25 @@ export default function Home() {
           </div>
           <div className="flex flex-col md:flex-row items-center gap-3">
             <Image
-              src="/images/home1.jpeg"
+              src="/images/home5.jpg"
               alt="card-image2"
-              width={250}
+              width={1000}
               height={20}
-              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60 object-fill"
+              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60 object-cover"
             />
             <Image
               src="/images/home2.jpeg"
               alt="card-image2"
-              width={250}
+              width={1000}
               height={20}
-              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60 object-fill"
+              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60 object-cover"
             />
             <Image
-              src="/images/Malawi.jpeg"
+              src="/images/home3.jpg"
               alt="card-image2"
               width={250}
               height={20}
-              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60 object-fill"
+              className="sm:w-25 sm:h-25 md:w-35 md:h-35 lg:w-60 lg:h-60 object-cover"
             />
           </div>
         </div>

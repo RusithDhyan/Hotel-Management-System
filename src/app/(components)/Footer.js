@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="flex sm:items-center">
           <Image
             className="  lg:items-center xs:justify-center"
-            src="/svg/Serendib.svg"
+            src="/logo/Serendib-tours.png"
             alt="serendib logo"
             width={250}
             height={10}
