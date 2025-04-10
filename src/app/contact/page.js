@@ -2,7 +2,13 @@ import React from "react";
 import Image from "next/image";
 
 function About() {
-  
+  const data=[
+    {name:"Email",value:"contact@serendib.com"},
+    {name:"Phone",value:"+265 123 456 789"},
+    {name:"Location",value: "Blantyre, Malawi"},
+    {name:"Open Hours",value:"8.00am to 22.00pm"},
+
+  ]
   return (
     <div className="flex flex-col min-h-screen">
       <div className=" w-full h-auto relative">
@@ -37,18 +43,23 @@ function About() {
           className="w-full h-100 object-cover"
         />
         <div className="absolute inset-0 px-10 flex items-end">
-          <div className="relative w-100 h-50 overflow-hidden group">
+          <div className="relative w-80 h-60 overflow-hidden group">
             {/* Front Card (Visible by Default) */}
             <div className="absolute inset-0 flex justify-center items-center bg-gray-300 text-black text-2xl transition-all duration-500 group-hover:opacity-0">
               Reservations
             </div>
 
             {/* Hidden Details (Slide In from Left on Hover) */}
-            <div className="absolute inset-0 flex flex-col p-3 items-start bg-white opacity-0 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0">
-              <p>Email: contact@serendib.com</p>
-              <p>Phone: +265 123 456 789</p>
-              <p>Location: Blantyre, Malawi</p>
-              <p>Open Hours:8.00am to 22.00pm</p>
+            <div className="absolute inset-0 flex flex-col p-3 bg-white opacity-0 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0">
+              {data.map((data,index)=>(
+                <div key={index} className="flex flex-row items-center gap-2">
+                <h1>{data.name} :</h1>
+                <h2>{data.value}</h2>
+              </div>
+              ))}
+
+              <h1 className="text-center text-xl font-semibold mt-5 border-t">Our Address</h1>
+              <h2>Magasa Avenue,<br/> Off Chilomoni Ring Road,<br/> Namiwawa,Blantyre,Malawi</h2>
             </div>
           </div>
         </div>
