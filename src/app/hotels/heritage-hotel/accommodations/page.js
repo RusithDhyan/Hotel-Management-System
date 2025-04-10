@@ -3,46 +3,77 @@ import Link from "next/link";
 import React from "react";
 
 export default function Accommodation() {
-
-  const rooms=[
+  const rooms = [
     {
-      nav:"executive-suite",
+      nav: "executive-suite",
       image: "/hotels/accommodations/executive.jpg",
       title: "Executive Suite",
-      size:"32 sqm",
-      description: "Enjoy breathtaking sunsets over Lake Malawi in ultimate luxury.",
+      size: "32 sqm",
+      description:
+        "Tailored for business travelers and modern professionals, our Executive Room offers a refined and productive environment. Featuring a comfortable king-size bed, high-speed Wi-Fi, and an ergonomic workstation, the space is perfect for those who need to work and relax in equal measure.",
+      features: [
+        "/icons/rooms/item1.png",
+        "/icons/rooms/item2.png",
+        "/icons/rooms/item3.png",
+        "/icons/rooms/item4.png",
+        "/icons/rooms/item5.png",
+      ],
     },
     {
-      nav:"family-twin",
+      nav: "family-twin",
       image: "/hotels/accommodations/family.jpg",
       title: "Family Twin Room",
-      size:"35 sqm",
-      description: "A tranquil escape nestled in the highlands, perfect for relaxation.",
+      size: "35 sqm",
+      description:
+        "Created with families in mind, our Family Room provides the perfect balance of space, comfort, and practicality. With a king-size bed for parents and a set of bunk beds or a pull-out sofa for children, the room ensures everyone sleeps soundly. The layout is open yet cozy, with enough space for kids to play and adults to relax. ",
+      features: [
+        "/icons/rooms/item1.png",
+        "/icons/rooms/item2.png",
+        "/icons/rooms/item3.png",
+        "/icons/rooms/item4.png",
+        "/icons/rooms/item5.png",
+      ],
     },
     {
-      nav:"delux-king",
+      nav: "delux-king",
       image: "/hotels/accommodations/deluxe.jpg",
       title: "Delux King Room",
-      size:"40 sqm",
-      description: "Experience the charm of historic tea plantations in a cozy setting.",
+      size: "40 sqm",
+      description:
+        "Step into comfort and style with our Deluxe Room, thoughtfully designed to provide a serene escape for both leisure and business travelers. This spacious room features elegant interiors, modern amenities, and large windows that allow in plenty of natural light.",
+      features: [
+        "/icons/rooms/item1.png",
+        "/icons/rooms/item2.png",
+        "/icons/rooms/item3.png",
+        "/icons/rooms/item4.png",
+        "/icons/rooms/item5.png",
+      ],
     },
     {
-      nav:"premier",
+      nav: "premier",
       image: "/hotels/accommodations/premier.jpeg",
       title: "Premier Heritage Suite",
-      size:"50 sqm",
-      description: "Step onto pristine sands and embrace the soothing waves of the lake.",
+      size: "50 sqm",
+      description:
+        "Indulge in elevated comfort with our elegant Premium Room, designed for discerning guests who seek a little more from their stay. This refined space blends sophisticated design with warm, inviting tones to create an atmosphere of modern luxury.",
+      features: [
+        "/icons/rooms/item1.png",
+        "/icons/rooms/item2.png",
+        "/icons/rooms/item3.png",
+        "/icons/rooms/item4.png",
+        "/icons/rooms/item5.png",
+      ],
     },
-  ]
+  ];
   return (
     <div className="flex flex-col min-h-screen">
-      <div className=" w-full h-auto relative">
+      <div className="w-full h-auto  relative group">
         <Image
-          src="/hotels/heritage/accommodations/bg1.png"
+          src="/hotels/heritage/accommodations/home-bg.jpg"
           alt=""
           width={1500}
           height={100}
-          className="object-cover max-h-screen"
+          className="object-cover h-100"
         />
 
         <h1 className="absolute inset-0 flex items-center justify-center text-5xl text-white pb-4">
@@ -65,12 +96,11 @@ export default function Accommodation() {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-10">
-        {rooms.map((room,index) => (
+        {rooms.map((room, index) => (
           <div
-            key={room.index}
+            key={index}
             className="bg-white shadow-lg overflow-hidden relative group"
           >
-      
             <Image
               src={room.image}
               alt={room.title}
@@ -82,14 +112,34 @@ export default function Accommodation() {
               <h2 className="text-xl font-semibold">{room.title}</h2>
               <h3 className="text-gray-600">Room Size:{room.size}</h3>
               <h3 className="text-gray-600">{room.location}</h3>
+              <div className=" flex flex-row items-center py-2 gap-2">
+                {room.features.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-row items-center justify-center"
+                  >
+                    <Image
+                      src={`${item}`}
+                      alt="images"
+                      width={1500}
+                      height={100}
+                      className="w-5"
+                    />
+                  </div>
+                ))}
+              </div>
               <p className=" mt-2">{room.description}</p>
-              <Link href={`/hotels/heritage-hotel/accommodations/${room.nav}`} className="text-white font-semibold">
-             Learn more
-            </Link>
+
+              <Link
+                href={`/hotels/heritage-hotel/accommodations/${room.nav}`}
+                className="text-white font-semibold hover:text-[#FF741E] duration-300"
+              >
+                Learn more
+              </Link>
             </div>
           </div>
         ))}
-        </div>
+      </div>
     </div>
   );
 }

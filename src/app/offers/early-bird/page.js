@@ -53,7 +53,7 @@ export default function page() {
           <div className="absolute inset-0 flex flex-col p-3 items-start justify-start border border-gray-300 bg-white/40 backdrop-blur-sm bg-opacity-10 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0">
              <h1 className="text-md font-medium">{eb.title}</h1>
              <p className="font-light text-md">{eb.description}</p>
-             <Link href={`${eb.url}`} className="text-gray-500 font-semibold">
+             <Link href={`${eb.url}`} className="text-gray-500 font-semibold hover:text-[#FF741E] duration-300">
              Learn more
             </Link>
             </div>
