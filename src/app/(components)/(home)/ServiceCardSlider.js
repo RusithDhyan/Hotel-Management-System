@@ -9,11 +9,11 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 const images = [
-  { url: "/slider/slider1.jpeg", title: "Gym" },
+  { url: "/slider/slider6.jpeg", title: "Gym" },
   { url: "/slider/slider2.jpeg", title: "Pool Side" },
   { url: "/slider/slider3.jpeg", title: "Restuarant Hub" },
   { url: "/slider/slider4.jpeg", title: "Pickup & Drop" },
-  { url: "/slider/slider5.jpeg", title: "Packing Space" },
+  { url: "/slider/slider1.jpeg", title: "Packing Space" },
   { url: "/slider/slider6.jpeg", title: "Ohter1" },
   { url: "/slider/slider6.jpeg", title: "Ohter2" },
 ];
@@ -26,7 +26,7 @@ export default function ServiceCardSlider() {
           Premium Hospitality Service
         </h1>
         <div className="flex flex-row items-center">
-          <Link href="/about">View More</Link>
+          <Link href="/services">View More</Link>
           <ChevronRight />
         </div>
       </div>
@@ -52,7 +52,7 @@ export default function ServiceCardSlider() {
                   height={400}
                   className=" object-cover w-100 h-80"
                 />
-                <h1 className="absolute bottom-0 inset-0 flex items-end p-3 text-lg text-white rotate-[-90] font-semibold">
+                <h1 className="absolute inset-0 flex items-end justify-start mt-65 text-lg text-white transform rotate-270 origin-left font-semibold">
                   {slide.title}
                 </h1>
               </div>

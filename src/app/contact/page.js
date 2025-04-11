@@ -17,7 +17,7 @@ function About() {
           alt="contact-img"
           width={1500}
           height={10}
-          className="h-100 object-cover"
+          className="w-full h-100 object-cover"
         />
         <h1 className="absolute inset-0 flex items-end justify-center text-5xl text-white pb-4">
           Contact Us

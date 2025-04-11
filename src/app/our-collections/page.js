@@ -15,7 +15,7 @@ export default function OurCollection() {
     {
       id: 2,
       nav:"le-oroissant",
-      image: "/hotels/h2.jpeg",
+      image: "/hotels/h14.jpg",
       title: "Le Oroissant",
       location:"Limbe,Blantyre",
       description: "A tranquil escape nestled in the highlands, perfect for relaxation.",
@@ -39,7 +39,7 @@ export default function OurCollection() {
     {
       id: 5,
       nav:"kara-o-mula",
-      image: "/hotels/h5.jpeg",
+      image: "/hotels/h12.jpg",
       title: "Kara O Mula",
       location:"Boma Path – Bush, Mulanje, Malawi",
       description: "Get up close with wildlife while staying in a luxurious safari retreat.",
@@ -47,7 +47,7 @@ export default function OurCollection() {
     {
       id: 6,
       nav:"lotus-hotel",
-      image: "/hotels/h6.jpeg",
+      image: "/hotels/h11.jpg",
       title: "Lotus Hotel",
       location:"Glyn Jones Road, Namiwawa Avenue, Blantyre, Malawi",
       description: "A modern hotel in the heart of Malawi’s vibrant capital city.",
@@ -55,7 +55,7 @@ export default function OurCollection() {
     {
       id: 7,
       nav:"zaburi-lake-resort",
-      image: "/hotels/h7.jpeg",
+      image: "/hotels/h10.jpg",
       title: "Zaburi Lake Resort",
       location:"Bolera Village, Mangochi, Malawi",
       description: "Discover secluded island beauty with crystal-clear waters.",

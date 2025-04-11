@@ -43,7 +43,7 @@ export default function Blog4() {
             </div>
 
             {/* Hidden Details (Slide In from Left on Hover) */}
-            <div className="absolute inset-0 flex flex-col p-3 items-start bg-white opacity-0 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0">
+            <div className="absolute inset-0 flex flex-col h-80 p-3 items-start bg-white opacity-0 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0">
               <p>
                 At Heritage Hotels, dining is more than a meal—it's a journey
                 through taste and tradition. Our curated menu features a

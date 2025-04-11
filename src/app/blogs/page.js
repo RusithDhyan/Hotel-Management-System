@@ -14,7 +14,7 @@ export default function Blogs() {
           alt="blog-img"
           width={1500}
           height={10}
-          className="h-100 object-cover"
+          className="w-full h-100 object-cover"
         />
 
         <div className="absolute inset-0 bottom-0 flex items-end justify-center text-white text-5xl pb-4">

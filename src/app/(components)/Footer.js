@@ -12,11 +12,12 @@ export default function Footer() {
       <div className="w-full p-6 mt-10 flex flex-col md:flex-row sm:items-center md:items-center lg:items-start justify-between md:justify-start gap-5 ">
         <div className="flex sm:items-center">
           <Image
-            className="  lg:items-center xs:justify-center"
+            className="w-60"
             src="/logo/Serendib-tours.png"
             alt="serendib logo"
-            width={250}
-            height={10}
+            width={1500}
+            height={100}
+            
           />
         </div>
         <div className="flex-[1] flex flex-col items-center text-xs sm:text-sm md:text-md xl:text-lg">

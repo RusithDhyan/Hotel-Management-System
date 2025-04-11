@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -34,11 +34,19 @@ export default function FamilyTwin() {
   ];
 
   const items = [
+    { url: "/icons/rooms/area.png", title: "100 sqm Room Size" },
+    { url: "/icons/rooms/users.png", title: "5 Guests" },
+    { url: "/icons/rooms/bed.png", title: "Twin Sharing Bed" },
+  ];
+  const specs = [
     { url: "/icons/rooms/item1.png", title: "Bath Tub" },
     { url: "/icons/rooms/item2.png", title: "Air Condition" },
     { url: "/icons/rooms/item3.png", title: "Kitchen" },
     { url: "/icons/rooms/item4.png", title: "Refrigerator" },
     { url: "/icons/rooms/item5.png", title: "TV" },
+    { url: "/icons/rooms/item7.png", title: "WiFi" },
+    { url: "/icons/rooms/item8.png", title: "Tea & Coffee" },
+    { url: "/icons/rooms/item9.png", title: "Four Beds" },
   ];
   return (
     <div className="flex flex-col min-h-screen">
@@ -58,19 +66,19 @@ export default function FamilyTwin() {
       <div className="flex flex-col md:flex-row px-2 px-10 mt-10">
         <div className="flex flex-row gap-2 w-full ">
           <Image
-            src="/hotels/heritage/accommodations/div1.jpeg"
+            src="/hotels/heritage/accommodations/div4.jpeg"
             alt="card-image2"
             width={500}
             height={100}
-            className="w-100 h-102"
+            className="w-100 h-102 object-cover"
           />
           <div className="flex flex-col gap-2">
             <Image
-              src="/hotels/heritage/accommodations/div2.jpeg"
+              src="/hotels/heritage/accommodations/div5.jpeg"
               alt="card-image2"
               width={500}
               height={100}
-              className="w-50 h-50"
+              className="w-50 h-50 object-cover"
             />
             <Image
               src="/hotels/heritage/accommodations/div3.jpeg"
@@ -92,45 +100,47 @@ export default function FamilyTwin() {
           </p>
         </div>
       </div>
-      <h1 className="text-center text-3xl mt-10 text-gray-500">
-        Room Features
-      </h1>
-      <h1 className="text-center text-md text-gray-500">
-      Comfortably sleeps up to 4 adults and 1 child      </h1>
-      <div className="flex flex-row items-center justify-center gap-5 p-2 w-auto">
-        {items.map((item, index) => (
-          <div key={index} className="flex flex-col items-center">
-            <div className=" w-20 h-20 flex flex-row items-center justify-center">
-              <Image
-                src={item.url}
-                alt="images"
-                width={1500}
-                height={100}
-                className="w-10"
-              />
+
+      <div className="flex flex-row items-center justify-around">
+        <div><h1 className="text-center text-3xl mt-10 text-gray-500">
+          Room Features
+        </h1>
+        <h1 className="text-center text-md text-gray-500">
+          Comfortably sleeps up to 4 adults and 1 child{" "}
+        </h1></div>
+        <div className="flex flex-row items-center justify-center gap-5 w-auto">
+          {items.map((item, index) => (
+            <div key={index} className="flex flex-col items-center">
+              <div className="flex flex-row items-center justify-center">
+                <Image
+                  src={item.url}
+                  alt="images"
+                  width={1500}
+                  height={100}
+                  className="w-10"
+                />
+              </div>
+              <h2 className="text-sm">{item.title}</h2>
             </div>
-            <h2 className="text-sm">{item.title}</h2>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-      <div></div>
 
       <div className="relative w-full max-w-6xl mx-auto mt-10 overflow-hidden">
-        {/* Slider Container */}
         <div
           className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${index * 50}%)` }}
+          style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {hotels.map((hotel, i) => (
             <div
               key={hotel.id}
-              className="flex-shrink-0 w-[50%] p-1 transition-all duration-500"
+              className="flex-shrink-0 w-[100%] p-1 transition-all duration-500"
             >
               <div>
                 <Image
                   src={hotel.image}
                   alt={hotel.title}
-                  className="w-full h-90 object-cover"
+                  className="w-full h-120 object-cover"
                   width={1000}
                   height={100}
                 />
@@ -147,6 +157,43 @@ export default function FamilyTwin() {
           <button onClick={nextSlide} className="text-gray-500">
             <CircleArrowRight size={30} />
           </button>
+        </div>
+      </div>
+
+      <div className="flex justify-center items-center relative mt-10 pb-10">
+        <Image
+          src="/hotels/heritage/accommodations/room.jpg"
+          alt="contact-img"
+          width={1500}
+          height={100}
+          className="w-250 h-100 object-cover"
+        />
+        <div className="absolute inset-0 px-10 flex items-end justify-end pr-30">
+          <div className="relative w-80 h-70 overflow-hidden group">
+            {/* Front Card (Visible by Default) */}
+            <div className="absolute inset-0 flex justify-center items-center bg-gray-200  text-black text-2xl transition-all duration-500 group-hover:opacity-0">
+              <h1>In-Room Facilities</h1>
+            </div>
+
+            {/* Hidden Details (Slide In from Left on Hover) */}
+            <div className="absolute inset-0 flex flex-col p-3 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0 bg-white/5 backdrop-blur-sm">
+              {specs.map((spec, index) => (
+                <div
+                  key={index}
+                  className="flex flex-row items-start justify-between mt-2"
+                >
+                  <h2 className="text-sm">{spec.title}</h2>
+                  <Image
+                    src={spec.url}
+                    alt=""
+                    width={1500}
+                    height={100}
+                    className="w-5"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

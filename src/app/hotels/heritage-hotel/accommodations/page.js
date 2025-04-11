@@ -128,18 +128,19 @@ export default function Accommodation() {
                   </div>
                 ))}
               </div>
-              <p className=" mt-2">{room.description}</p>
+              <p className=" my-2">{room.description}</p>
 
               <Link
                 href={`/hotels/heritage-hotel/accommodations/${room.nav}`}
                 className="text-white font-semibold hover:text-[#FF741E] duration-300"
               >
-                Learn more
+                Explore
               </Link>
             </div>
           </div>
         ))}
       </div>
+
     </div>
   );
 }

@@ -59,7 +59,7 @@ const Tabs = () => {
   return (
     <div className="w-full mx-auto py-8">
       {/* Tab Buttons */}
-      <div className="flex space-x-4 border-b border-gray-300">
+      <div className="flex space-x-4 border-b border-gray-300 pl-2">
         <button
           className={`pb-2 px-4 text-lg font-medium ${
             activeTab === "blogs" ? "border-b-2 border-blue-500 text-blue-500" : "text-gray-700"
