@@ -29,7 +29,7 @@ function About() {
         </h1>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 mt-10 px-30">
-        <h1 className="text-2xl">
+        <h1 className="text-2xl ">
           Welcome to Serendib Hotels – A Haven of Luxury and Comfort
         </h1>
         <p className="font-extralight">
