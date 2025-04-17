@@ -66,7 +66,7 @@ export default function page() {
       </div>
       <div className="flex flex-row items-center justify-center gap-4 mt-10 px-10">
         <Image
-          src="/hotel-inner-page/bg11.jpg"
+          src="/hotels/heritage/offers/early-bird/bg-img.jpg"
           alt="early-bird-img"
           width={1000}
           height={100}
@@ -88,7 +88,7 @@ export default function page() {
           </Link>
         </div>
       </div>
-      <div className="flex flex-col px-10 mt-10">
+      <div className="flex flex-col px-10 mt-10 space-y-2">
         {accordion.map((acc, index) => (
           <div key={index} className="border rounded-lg">
             <button

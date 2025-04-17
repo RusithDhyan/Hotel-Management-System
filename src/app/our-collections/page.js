@@ -14,9 +14,9 @@ export default function OurCollection() {
     },
     {
       id: 2,
-      nav:"le-oroissant",
+      nav:"le-croissant",
       image: "/hotels/h14.jpg",
-      title: "Le Oroissant",
+      title: "Le Croissant",
       location:"Limbe,Blantyre",
       description: "A tranquil escape nestled in the highlands, perfect for relaxation.",
     },
