@@ -12,7 +12,7 @@ const ExperienceAccordion = ({ items }) => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-4 py-10">
+    <div className="w-full max-w-2xl mx-auto space-y-2 py-10">
       {items.map((item, index) => (
         <div key={index} className="border rounded-lg">
           <button

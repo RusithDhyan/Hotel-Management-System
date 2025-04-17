@@ -106,11 +106,11 @@ export default function FamilyTwin() {
           Room Features
         </h1>
         <h1 className="text-center text-md text-gray-500">
-          Comfortably sleeps up to 4 adults and 1 child{" "}
+          Comfortably sleeps up to 4 adults and 1 child
         </h1></div>
         <div className="flex flex-row items-center justify-center gap-5 w-auto">
           {items.map((item, index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div key={index} className="flex flex-col items-center border-r px-10">
               <div className="flex flex-row items-center justify-center">
                 <Image
                   src={item.url}
