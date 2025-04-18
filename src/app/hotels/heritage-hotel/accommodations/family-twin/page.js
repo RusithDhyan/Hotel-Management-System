@@ -17,19 +17,19 @@ export default function FamilyTwin() {
   const hotels = [
     {
       id: 1,
-      image: "/hotels/heritage/accommodations/feature1.jpg",
+      image: "/hotels/heritage/accommodations/family/feature1.jpg",
     },
     {
       id: 2,
-      image: "/hotels/heritage/accommodations/feature2.jpg",
+      image: "/hotels/heritage/accommodations/family/feature2.jpg",
     },
     {
       id: 3,
-      image: "/hotels/heritage/accommodations/feature3.jpg",
+      image: "/hotels/heritage/accommodations/family/feature3.jpg",
     },
     {
       id: 4,
-      image: "/hotels/heritage/accommodations/feature4.jpg",
+      image: "/hotels/heritage/accommodations/family/feature4.jpg",
     },
   ];
 

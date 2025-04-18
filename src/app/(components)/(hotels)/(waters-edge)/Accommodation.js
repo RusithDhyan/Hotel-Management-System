@@ -9,7 +9,7 @@ const hotels = [
     id: 1,
     image: "/hotels/waters-edge/accommodations/executive.jpeg",
     title: "Executive Suite",
-    url: "/",
+    url: "/hotels/waters-edge/accommodations/executive-suite",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
   },
@@ -17,7 +17,7 @@ const hotels = [
     id: 2,
     image: "/hotels/waters-edge/accommodations/family.jpeg",
     title: "Family Twin Room",
-    url: "/hotels/heritage-hotel/accommodations/family-twin",
+    url: "/hotels/waters-edge/accommodations/family-twin",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
   },
@@ -25,7 +25,7 @@ const hotels = [
     id: 3,
     image: "/hotels/waters-edge/accommodations/deluxe.jpeg",
     title: "Deluxe King Room",
-    url: "/",
+    url: "/hotels/waters-edge/accommodations/deluxe",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
   },
@@ -33,7 +33,7 @@ const hotels = [
     id: 4,
     image: "/hotels/waters-edge/accommodations/premier.jpeg",
     title: "Premier Heritage Suite",
-    url: "/",
+    url: "/hotels/waters-edge/accommodations/premier",
     description:
       "Experience the perfect blend of timeless elegance and modern comfort in our Premier Heritage Suite. This spacious suite features a king-size bed with premium linens, a separate living area.",
   },

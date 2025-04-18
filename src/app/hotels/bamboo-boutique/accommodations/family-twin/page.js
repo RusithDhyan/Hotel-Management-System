@@ -176,7 +176,7 @@ export default function FamilyTwin() {
             </div>
 
             {/* Hidden Details (Slide In from Left on Hover) */}
-            <div className="absolute inset-0 flex flex-col p-3 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0 bg-white/5 backdrop-blur-sm">
+            <div className="absolute inset-0 flex flex-col p-3 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0 bg-white/25 backdrop-blur-sm">
               {specs.map((spec, index) => (
                 <div
                   key={index}

@@ -49,7 +49,7 @@ export default function LeOroissant() {
             The patisserie provides a delightful culinary experience for both
             casual visitors and those seeking a cozy spot to relax.​
           </p>
-          <Link href="/" className="text-sm lg:text-lg md:text-md">
+          <Link href="/hotels/le-croissant/location" className="text-sm lg:text-lg md:text-md">
             <button className="relative group text-black py-1 px-2 border-b-2 border-transparent">
               Discover Place
               <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>

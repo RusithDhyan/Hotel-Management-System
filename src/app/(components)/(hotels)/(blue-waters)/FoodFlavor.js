@@ -13,7 +13,7 @@ export default function FoodFlavor() {
             of Sri Lankan and international cuisine, all set against the
             backdrop of our tranquil gardens.
           </p>
-        <Link href="/" className="text-sm lg:text-lg md:text-md">
+        <Link href="/hotels/blue-waters/dining" className="text-sm lg:text-lg md:text-md">
           <button className="relative group text-black py-1 px-2">
             Explore
             <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>

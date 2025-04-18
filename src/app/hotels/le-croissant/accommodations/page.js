@@ -131,7 +131,7 @@ export default function Accommodation() {
               <p className=" my-2">{room.description}</p>
 
               <Link
-                href={`/hotels/heritage-hotel/accommodations/${room.nav}`}
+                href={`/hotels/le-croissant/accommodations/${room.nav}`}
                 className="text-white font-semibold hover:text-[#FF741E] duration-300"
               >
                 Explore

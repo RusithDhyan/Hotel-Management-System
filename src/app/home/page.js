@@ -68,7 +68,7 @@ export default function Home() {
       <div className=" h-auto mt-10 w-full">
         <HotelSlider />
       </div>
-      <div className="h-auto w-full flex flex-col md:flex-row items-center justify-around">
+      <div className="h-auto w-full flex flex-col md:flex-row items-center justify-center">
         <div className="flex flex-col items-left gap-5 text-xs lg:text-lg md:text-md">
           <h1 className="text-xl lg:text-4xl md:text-3xl">Explore Malawi...</h1>
           <p>
@@ -87,9 +87,9 @@ export default function Home() {
           <Image
             src="/images/map2.png"
             alt="card-image2"
-            width={350}
+            width={500}
             height={10}
-            className="object-cover transition-transform duration-500 group-hover:scale-140"
+            className="object-cover transition-transform duration-500 group-hover:scale-130"
           />
           <HotelNav />
         </div>

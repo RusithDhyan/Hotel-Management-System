@@ -13,7 +13,7 @@ const hotels = [
     url: "/hotels/blue-waters",
     location: "Senga Bay,Salima",
     description:
-      "Our hotel offers a relaxing stay with modern amenities, warm hospitality, and a beautiful setting in Malawi.Enjoy a peaceful retreat with stunning views, cozy rooms, and a welcoming atmosphere in the heart of Africa",
+      "Our hotel offers a relaxing stay with modern amenities, warm hospitality, and a beautiful setting in Malawi.Enjoy a peaceful retreat with stunning views.",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const hotels = [
     url: "/hotels/le-oroissant",
     location: "Limbe,Blantyre",
     description:
-      "Le Croissant Patisserie is located within the Heritage by Serendib hotel on Milward Road in Limbe, Blantyre, Malawi.  This patisserie offers a taste of France, allowing guests to sip on a cup of Malawian tea while savoring freshly baked French baguettes and a selection of gourmet pastries.",
+      "Le Croissant Patisserie is located within the Heritage by Serendib hotel on Milward Road in Limbe, Blantyre, Malawi.",
   },
   {
     id: 3,
@@ -30,7 +30,8 @@ const hotels = [
     title: "Heritage Hotel",
     url: "/hotels/heritage-hotel",
     location: "Milward Road, Limbe, Blantyre, Malawi",
-    description: "An escape from the city.",
+    description:
+      "A blend of colonial charm and modern comfort, this hotel features 40 elegantly furnished rooms, a spa, outdoor pool, and the Balmoral Restaurant serving Continental and Indian cuisine.",
   },
   {
     id: 4,
@@ -38,7 +39,8 @@ const hotels = [
     title: "Kambiri Beach",
     url: "/hotels/kambiri-beach",
     location: "Senga Bay,Salima",
-    description: "Perfect for a family vacation.",
+    description:
+      "Located on the shores of Lake Malawi, this resort offers beachfront cottages, a restaurant, and various water sports, providing a serene getaway.",
   },
   {
     id: 5,
@@ -46,7 +48,8 @@ const hotels = [
     title: "Kara O Mula",
     url: "/hotels/kara-o-mula",
     location: "Boma Path – Bush, Mulanje, Malawi",
-    description: "A stunning beachside retreat.",
+    description:
+      "Nestled at the foot of Mount Mulanje, this lodge provides cozy rooms, a restaurant, and opportunities for hiking and exploring the surrounding nature.",
   },
   {
     id: 6,
@@ -54,7 +57,8 @@ const hotels = [
     title: "Lotus Hotel",
     url: "/hotels/lotus-hotel",
     location: "Glyn Jones Road, Namiwawa Avenue, Blantyre, Malawi",
-    description: "Experience nature at its best.",
+    description:
+      "A modern hotel located in the capital city, offering comfortable rooms, dining facilities, and convenient access to government and commercial centers.",
   },
   {
     id: 7,
@@ -62,7 +66,8 @@ const hotels = [
     title: "Zaburi Lake Resort",
     url: "/hotels/zaburi-lake-resort",
     location: "Bolera Village, Mangochi, Malawi",
-    description: "A budget-friendly stay.",
+    description:
+      "A peaceful lakefront resort on the shores of Lake Malawi. It offers cozy chalets, a private beach, an indoor pool, and delicious food — perfect for a relaxing escape.",
   },
   {
     id: 8,
@@ -70,7 +75,8 @@ const hotels = [
     title: "Waters Edge",
     url: "/hotels/waters-edge",
     location: "Senga Bay,Salima",
-    description: "Unparalleled luxury.",
+    description:
+      "A quiet hotel by the Shire River with river-view suites, a pool, and boat safaris. Great for nature lovers and those looking for calm surroundings.",
   },
   {
     id: 9,
@@ -78,7 +84,8 @@ const hotels = [
     title: "Bamboo Boutique",
     url: "/hotels/bamboo-boutique",
     location: "Mdoka Street, Area 12, Lilongwe, Malawi",
-    description: "A peaceful getaway.",
+    description:
+      "A modern and quiet hotel in Lilongwe with comfy rooms, a relaxing garden, and tasty meals — ideal for both business and casual stays.",
   },
 ];
 
@@ -155,7 +162,7 @@ export default function HotelSlider() {
           ))}
         </div>
         {/* Navigation Buttons */}
-        <div className="flex items-center justify-end gap-10 my-2">
+        <div className="flex items-center justify-end gap-10 my-5 border-t border-gray-300 py-3">
           <button onClick={prevSlide} className="text-gray-500">
             <CircleArrowLeft size={30} />
           </button>
@@ -168,5 +175,3 @@ export default function HotelSlider() {
     </div>
   );
 }
-
-
