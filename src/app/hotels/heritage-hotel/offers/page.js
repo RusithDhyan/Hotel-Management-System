@@ -42,7 +42,7 @@ export default function HeritageOffers() {
     {
       url: "",
       title: "Family Vacation Package at Heritage Hotel",
-      image: "/hotels/heritage/offers/offer6.jpg",
+      image: "/hotels/heritage/offers/offer6.jpeg",
       description:
         "Create unforgettable family memories with our special package. Great rates, spacious rooms, and fun for all ages!",
     },
@@ -90,7 +90,7 @@ export default function HeritageOffers() {
               <p className="font-light text-md">{offer.description}</p>
               <Link
                 href={`${offer.url}`}
-                className="text-gray-500 font-semibold"
+                className="text-gray-500 font-semibold hover:text-[#FF741E] duration-300"
               >
                 Learn more
               </Link>

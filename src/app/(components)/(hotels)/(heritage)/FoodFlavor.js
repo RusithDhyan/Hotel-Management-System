@@ -13,7 +13,7 @@ export default function FoodFlavor() {
             of Sri Lankan and international cuisine, all set against the
             backdrop of our tranquil gardens.
           </p>
-        <Link href="/" className="text-sm lg:text-lg md:text-md">
+        <Link href="/hotels/heritage-hotel/dining" className="text-sm lg:text-lg md:text-md">
           <button className="relative group text-black py-1 px-2">
             Explore
             <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
@@ -22,7 +22,7 @@ export default function FoodFlavor() {
         </div>
       <div className="flex flex-row items-center justify-center gap-10 py-10 px-10">
         <Image
-          src="/hotels/blue-waters/foods/food-img1.jpeg"
+          src="/hotels/heritage/foods/food-img1.jpg"
           alt="food-img1"
           width={1000}
           height={100}
@@ -36,7 +36,7 @@ export default function FoodFlavor() {
           className="w-80 h-80 object-cover"
         />
         <Image
-          src="/hotels/foods/food-img3.jpeg"
+          src="/hotels/heritage/foods/food-img3.jpg"
           alt="food-img3"
           width={1000}
           height={100}

@@ -50,7 +50,7 @@ export default function BlueWatersEdge() {
             Deck" and "Rain Tree" restaurants are renowned for their culinary
             delights, enhancing every occasion.
           </p>
-          <Link href="/" className="text-sm lg:text-lg md:text-md">
+          <Link href="/hotels/blue-waters/location" className="text-sm lg:text-lg md:text-md">
             <button className="relative group text-black py-1 px-2 border-b-2 border-transparent">
               Discover Place
               <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>

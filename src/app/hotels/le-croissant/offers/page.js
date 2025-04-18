@@ -90,7 +90,7 @@ export default function HeritageOffers() {
               <p className="font-light text-md">{offer.description}</p>
               <Link
                 href={`${offer.url}`}
-                className="text-gray-500 font-semibold"
+                className="text-gray-500 font-semibold hover:text-[#FF741E] duration-300"
               >
                 Learn more
               </Link>
