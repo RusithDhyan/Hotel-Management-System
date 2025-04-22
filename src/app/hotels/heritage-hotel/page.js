@@ -14,47 +14,49 @@ export default function Heritage() {
     { url: "/icons/hotels/coffee.png", title: "Evening Tea & Coffee" },
     { url: "/icons/hotels/wine.png", title: "Mini Bar" },
   ];
+  
   return (
     <div className="flex flex-col min-h-screen">
-      <div className=" w-full h-auto relative">
+      <div className="w-full h-auto relative">
         <Image
           src="/hotels/heritage/heritage-hotel.jpg"
           alt=""
           width={1500}
           height={100}
-          className="object-cover max-h-screen"
+          className="object-cover max-h-screen w-full"
         />
-
-        <h1 className="absolute inset-0 flex items-center justify-center text-5xl text-white pb-4">
+        <h1 className="absolute inset-0 flex items-center justify-center text-3xl sm:text-4xl md:text-5xl text-white text-center px-2">
           Heritage Hotel
         </h1>
       </div>
 
-      <div className="flex flex-row items-center p-10 gap-5 ">
+      <div className="flex flex-col md:flex-row items-center p-4 sm:p-6 md:p-10 gap-5">
         <Image
           src="/hotels/heritage/heritage-img1.jpg"
           alt="heritage-img1"
           width={1500}
           height={100}
-          className="h-100 w-200 object-cover"
+          className="w-full md:w-1/2 object-cover h-64 sm:h-80 md:h-96"
         />
-
-        <div className="flex flex-col items-center justify-center gap-4 ">
-          <h1 className="text-3xl">
-            A Secret Haven of Luxury,Right Outside the Heart of Limbe
+        <div className="flex flex-col items-center justify-center gap-4 md:w-1/2 px-2">
+          <h1 className="text-xl sm:text-2xl md:text-3xl text-center md:text-left">
+            A Secret Haven of Luxury, Right Outside the Heart of Limbe
           </h1>
-          <p className="text-center">
+          <p className="text-center text-sm sm:text-base">
             Heritage by Serendib, established in 2018, is a distinguished hotel
             located in the heart of Limbe, Blantyre, Malawi. This hotel
             masterfully combines historical charm with modern amenities,
-            offering guests a unique and comfortable stay.. Nestled just outside
+            offering guests a unique and comfortable stay. Nestled just outside
             the bustling city center, Heritage by Serendib provides a serene
             escape while remaining conveniently close to key attractions and
             business hubs. With elegantly designed rooms, world-class dining,
             and personalized services, the hotel ensures an unforgettable
             experience for both leisure and business travelers.
           </p>
-          <Link href="/hotels/heritage-hotel/location" className="text-sm lg:text-lg md:text-md">
+          <Link
+            href="/hotels/heritage-hotel/location"
+            className="text-sm lg:text-lg md:text-md"
+          >
             <button className="relative group text-black py-1 px-2 border-b-2 border-transparent">
               Discover Place
               <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
@@ -62,36 +64,35 @@ export default function Heritage() {
           </Link>
         </div>
       </div>
+
       <Accommodation />
-      <div className="flex flex-row items-center justify-around mt-10">
-        <div>
-          <h1 className="text-center text-3xl mt-10 text-gray-500">
+
+      <div className="flex flex-col md:flex-row items-center justify-center gap-5 mt-10 px-4">
+        <div className="text-center">
+          <h1 className="text-2xl sm:text-3xl mt-6 text-gray-500">
             Included With Your Stay
           </h1>
-          <h1 className="text-center text-md text-gray-500">
-            Enjoy These Perks On Us
-          </h1>
+          <h2 className="text-md text-gray-500">Enjoy These Perks On Us</h2>
         </div>
-        <div className="flex flex-row items-center justify-center gap-5 w-auto">
+        <div className="flex flex-wrap justify-center gap-5 mt-4">
           {items.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center border-r px-5"
+              className="flex sm:flex-col items-center px-4 md:border-r last:border-r-0"
             >
-              <div className="flex flex-row  items-center justify-center">
-                <Image
-                  src={item.url}
-                  alt="images"
-                  width={1500}
-                  height={100}
-                  className="w-10"
-                />
-              </div>
-              <h2 className="text-sm">{item.title}</h2>
+              <Image
+                src={item.url}
+                alt="icon"
+                width={40}
+                height={40}
+                className="w-10"
+              />
+              <h2 className="text-sm text-center mt-2">{item.title}</h2>
             </div>
           ))}
         </div>
       </div>
+
       <Experience />
       <FoodFlavor />
       <OfferSlider nav={navLink} />

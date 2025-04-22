@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +19,7 @@ const hotels = [
     title: "Family Twin Room",
     url: "/hotels/heritage-hotel/accommodations/family-twin",
     description:
-      "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
+      "Ideal for families, offering two cozy beds and modern amenities for a comfortable stay together.",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const hotels = [
     title: "Deluxe King Room",
     url: "/hotels/heritage-hotel/accommodations/deluxe-king",
     description:
-      "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
+      "Unwind in the Deluxe King Room, boasting stylish decor, a plush king bed, and relaxing ambiance.",
   },
   {
     id: 4,
@@ -35,12 +35,30 @@ const hotels = [
     title: "Premier Heritage Suite",
     url: "/hotels/heritage-hotel/accommodations/premier",
     description:
-      "Experience the perfect blend of timeless elegance and modern comfort in our Premier Heritage Suite. This spacious suite features a king-size bed with premium linens, a separate living area.",
+      "Experience elegance and space in the Premier Heritage Suite, complete with a king bed and private lounge.",
   },
 ];
 
 export default function Accommodation() {
   const [index, setIndex] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(3);
+
+  // Detect screen width and set number of cards per view
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setCardsPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setCardsPerView(2);
+      } else {
+        setCardsPerView(3);
+      }
+    };
+
+    handleResize(); // Run initially
+    window.addEventListener("resize", handleResize); // Update on resize
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const nextSlide = () => {
     setIndex((prev) => (prev + 1) % hotels.length);
@@ -51,14 +69,14 @@ export default function Accommodation() {
   };
 
   return (
-    <div>
-      <h1 className="text-center text-xl lg:text-4xl md:text-3xl">
+    <div className="px-4 sm:px-6 lg:px-8">
+      <h1 className="text-center text-xl lg:text-4xl md:text-3xl mt-8">
         Accommodations
       </h1>
-      <div>
+      <div className="text-center mt-2">
         <Link
           href="/hotels/heritage-hotel/accommodations"
-          className="items-center justify-center flex text-sm lg:text-lg md:text-md"
+          className="text-sm lg:text-lg md:text-md"
         >
           <button className="relative group text-gray-400 py-1 px-2 border-b-2 border-transparent">
             View All
@@ -66,36 +84,36 @@ export default function Accommodation() {
           </button>
         </Link>
       </div>
-      <div className="relative w-full max-w-6xl mx-auto mt-10 overflow-hidden">
-        {/* Slider Container */}
+
+      <div className="relative w-full max-w-7xl mx-auto mt-10 overflow-hidden">
+        {/* Carousel */}
         <div
           className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${index * 33.33}%)` }}
+          style={{ transform: `translateX(-${index * (100 / cardsPerView)}%)` }}
         >
-          {hotels.map((hotel, i) => (
+          {hotels.map((hotel) => (
             <div
               key={hotel.id}
-              className="flex-shrink-0 w-[33.33%] p-4 transition-all duration-500"
+              className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4"
             >
-              <div className="bg-white ">
+              <div className="bg-white h-full flex flex-col shadow-md overflow-hidden">
                 <Image
                   src={hotel.image}
                   alt={hotel.title}
-                  className="w-full h-80 object-cover"
+                  className="w-full h-64 object-cover"
                   width={1000}
                   height={100}
                 />
-                <div className="p-2 shadow-md">
+                <div className="p-4 flex flex-col justify-between flex-grow">
                   <h3 className="text-lg font-semibold text-center">
                     {hotel.title}
                   </h3>
-                  <p className="text-sm">{hotel.description}</p>
-                  <div className="flex flex-row justify-start py-3">
-                    <Link
-                      href={`${hotel.url}`}
-                      className="text-sm lg:text-lg md:text-md"
-                    >
-                      <button className="relative group text-black py-1 px-2">
+                  <p className="text-sm mt-2 text-justify">
+                    {hotel.description}
+                  </p>
+                  <div className="flex justify-start mt-4">
+                    <Link href={hotel.url}>
+                      <button className="relative group text-black py-1 px-2 text-sm lg:text-lg">
                         Explore
                         <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
                       </button>
@@ -106,12 +124,12 @@ export default function Accommodation() {
             </div>
           ))}
         </div>
-        {/* Navigation Buttons */}
-        <div className="flex items-center justify-end gap-10 my-2">
+
+        {/* Navigation */}
+        <div className="flex items-center justify-between sm:justify-end gap-10 mt-4">
           <button onClick={prevSlide} className="text-gray-500">
             <CircleArrowLeft size={30} />
           </button>
-          <h5></h5>
           <button onClick={nextSlide} className="text-gray-500">
             <CircleArrowRight size={30} />
           </button>

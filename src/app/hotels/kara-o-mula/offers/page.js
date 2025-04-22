@@ -2,17 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default function HeritageOffers() {
+export default function KaraMulaOffers() {
   const allOffers = [
     {
-      url: "",
+      url: "/hotels/kara-o-mula/offers/weekend-gateway",
       title: "Weekend Gateway at Kara O Mula",
       image: "/hotels/heritage/offers/offer1.jpg",
       description:
         "Escape the city for a relaxing weekend and enjoy exclusive savings on your stay. Perfect for a quick recharge!",
     },
     {
-      url: "",
+      url: "/hotels/kara-o-mula/offers/luxury-spa",
       title: "Luxury Spa Retreat at Kara O Mula",
       image: "/hotels/heritage/offers/offer2.jpg",
       description:
@@ -26,21 +26,21 @@ export default function HeritageOffers() {
         "Plan ahead and save up to 20%! Secure your dream getaway by booking 90 days in advance.",
     },
     {
-      url: "",
+      url: "/hotels/kara-o-mula/offers/extend-stay",
       title: "Extended Stay Discount at Kara O Mula",
       image: "/hotels/heritage/offers/offer4.jpg",
       description:
         "Make the most of your trip with our extended stay rates. Stay longer and enjoy more value with every extra night.",
     },
     {
-      url: "",
+      url: "/hotels/kara-o-mula/offers/business",
       title: "Business Traveler Special at Kara O Mula",
       image: "/hotels/heritage/offers/offer5.jpg",
       description:
         "Tailored for busy professionals — enjoy comfort, convenience, and savings when you book your business trip early.",
     },
     {
-      url: "",
+      url: "/hotels/kara-o-mula/offers/family-vacation",
       title: "Family Vacation Package at Kara O Mula",
       image: "/hotels/heritage/offers/offer6.jpg",
       description:
@@ -52,7 +52,7 @@ export default function HeritageOffers() {
     <div className="flex flex-col min-h-screen ">
       <div className=" w-full h-auto relative">
         <Image
-          src="/hotels/heritage/offers/offer-home.png"
+          src="/hotels/kara-o-mula/offers/offer-home.jpg"
           alt=""
           width={1500}
           height={10}

@@ -11,7 +11,7 @@ import Link from "next/link";
 export default function OfferSlider({ nav }) {
   const slider = [
     {
-      image: "/images/offer1.jpeg",
+      image: "/hotels/le-croissant/offers/slider/offer1.jpeg",
       url:"/hotels/le-croissant/offers/early-bird",
       title: "Get 50% Off Your Second Night",
       offerType: "Just One More Night",
@@ -19,7 +19,7 @@ export default function OfferSlider({ nav }) {
         "Stay 2 nights & get 50% off your second night at selection hotels",
     },
     {
-      image: "/images/offer2.jpeg",
+      image: "/hotels/le-croissant/offers/slider/offer2.jpeg",
       url:"/hotels/le-croissant/offers/early-bird",
       title: "Early Bird Discount",
       offerType: "Just One More Night",
@@ -27,7 +27,7 @@ export default function OfferSlider({ nav }) {
         "Book 30 days in advance and get 15% off your stay,plus a welcome drink",
     },
     {
-      image: "/images/offer3.jpeg",
+      image: "/hotels/le-croissant/offers/slider/offer3.jpeg",
       url:"/hotels/le-croissant/offers/early-bird",
       title: "Spa & Stay Retreat",
       offerType: "Just One More Night",

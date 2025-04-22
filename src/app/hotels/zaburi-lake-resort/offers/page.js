@@ -2,17 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default function HeritageOffers() {
+export default function ZaburiLakeOffer() {
   const allOffers = [
     {
-      url: "",
+      url: "/hotels/zaburi-lake-resort/offers/weekend-gateway",
       title: "Weekend Gateway at Zaburi Lake Resort",
       image: "/hotels/heritage/offers/offer1.jpg",
       description:
         "Escape the city for a relaxing weekend and enjoy exclusive savings on your stay. Perfect for a quick recharge!",
     },
     {
-      url: "",
+      url: "/hotels/zaburi-lake-resort/offers/luxury-spa",
       title: "Luxury Spa Retreat at Zaburi Lake Resort",
       image: "/hotels/heritage/offers/offer2.jpg",
       description:
@@ -26,21 +26,21 @@ export default function HeritageOffers() {
         "Plan ahead and save up to 20%! Secure your dream getaway by booking 90 days in advance.",
     },
     {
-      url: "",
+      url: "/hotels/zaburi-lake-resort/offers/extend-stay",
       title: "Extended Stay Discount at Zaburi Lake Resort",
       image: "/hotels/heritage/offers/offer4.jpg",
       description:
         "Make the most of your trip with our extended stay rates. Stay longer and enjoy more value with every extra night.",
     },
     {
-      url: "",
+      url: "/hotels/zaburi-lake-resort/offers/business",
       title: "Business Traveler Special at Zaburi Lake Resort",
       image: "/hotels/heritage/offers/offer5.jpg",
       description:
         "Tailored for busy professionals — enjoy comfort, convenience, and savings when you book your business trip early.",
     },
     {
-      url: "",
+      url: "/hotels/zaburi-lake-resort/offers/family-vacation",
       title: "Family Vacation Package at Zaburi Lake Resort",
       image: "/hotels/heritage/offers/offer6.jpg",
       description:
