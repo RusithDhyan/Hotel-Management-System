@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+// ✅ Hotels array
 const hotels = [
   {
     id: 1,
@@ -17,7 +18,7 @@ const hotels = [
   },
   {
     id: 2,
-    image: "/hotels/h2.jpeg",
+    image: "/hotels/h14.jpg",
     title: "Le Oroissant",
     url: "/hotels/le-oroissant",
     location: "Limbe,Blantyre",
@@ -44,7 +45,7 @@ const hotels = [
   },
   {
     id: 5,
-    image: "/hotels/h5.jpeg",
+    image: "/hotels/h12.jpg",
     title: "Kara O Mula",
     url: "/hotels/kara-o-mula",
     location: "Boma Path – Bush, Mulanje, Malawi",
@@ -53,7 +54,7 @@ const hotels = [
   },
   {
     id: 6,
-    image: "/hotels/h6.jpeg",
+    image: "/hotels/h11.jpg",
     title: "Lotus Hotel",
     url: "/hotels/lotus-hotel",
     location: "Glyn Jones Road, Namiwawa Avenue, Blantyre, Malawi",
@@ -62,7 +63,7 @@ const hotels = [
   },
   {
     id: 7,
-    image: "/hotels/h7.jpeg",
+    image: "/hotels/h10.jpg",
     title: "Zaburi Lake Resort",
     url: "/hotels/zaburi-lake-resort",
     location: "Bolera Village, Mangochi, Malawi",
@@ -91,6 +92,15 @@ const hotels = [
 
 export default function HotelSlider() {
   const [index, setIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // ✅ Detect screen size
+  useEffect(() => {
+    const checkScreenSize = () => setIsMobile(window.innerWidth < 768);
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   const nextSlide = () => {
     setIndex((prev) => (prev + 1) % hotels.length);
@@ -102,9 +112,8 @@ export default function HotelSlider() {
 
   return (
     <div>
-      <h1 className="text-center text-xl lg:text-4xl md:text-3xl">
-        Find Your Place
-      </h1>
+      <h1 className="text-center text-xl lg:text-4xl md:text-3xl">Find Your Place</h1>
+
       <div>
         <Link
           href="/our-collections"
@@ -116,20 +125,31 @@ export default function HotelSlider() {
           </button>
         </Link>
       </div>
+
       <div className="relative w-full max-w-6xl mx-auto mt-10 overflow-hidden p-4">
-        {/* Slider Container */}
+        {/* ✅ SLIDER CONTAINER */}
         <div
           className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${index * 33.33}%)` }}
+          style={{
+            transform: `translateX(-${index * (isMobile ? 100 : 33.33)}%)`,
+          }}
         >
           {hotels.map((hotel, i) => (
             <div
               key={hotel.id}
-              className={`flex-shrink-0 w-[33.33%] p-2 transition-all duration-500 ${
-                i === index ? "scale-110 w-[50%]" : "scale-90 w-[25%]"
+              className={`flex-shrink-0 ${
+                isMobile ? "w-full" : "w-[33.33%]"
+              } p-2 transition-all duration-500 ${
+                !isMobile &&
+                (i === index ? "scale-110 w-[50%]" : "scale-90 w-[25%]")
               }`}
+              style={
+                isMobile && i !== index
+                  ? { display: "none" }
+                  : { display: "block" }
+              }
             >
-              <div className="bg-white ">
+              <div className="bg-white">
                 <Image
                   src={hotel.image}
                   alt={hotel.title}
@@ -144,10 +164,7 @@ export default function HotelSlider() {
                     <p className="text-sm">{hotel.description}</p>
                   )}
                   <div className="flex flex-row justify-end pb-3">
-                    <Link
-                      href={`${hotel.url}`}
-                      className="text-sm lg:text-lg md:text-md"
-                    >
+                    <Link href={hotel.url} className="text-sm lg:text-lg md:text-md">
                       {i === index && (
                         <button className="relative group text-black py-1 px-2">
                           Explore
@@ -161,12 +178,12 @@ export default function HotelSlider() {
             </div>
           ))}
         </div>
+
         {/* Navigation Buttons */}
         <div className="flex items-center justify-end gap-10 my-5 border-t border-gray-300 py-3">
           <button onClick={prevSlide} className="text-gray-500">
             <CircleArrowLeft size={30} />
           </button>
-          <h5></h5>
           <button onClick={nextSlide} className="text-gray-500">
             <CircleArrowRight size={30} />
           </button>

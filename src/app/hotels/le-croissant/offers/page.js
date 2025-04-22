@@ -5,14 +5,14 @@ import React from "react";
 export default function HeritageOffers() {
   const allOffers = [
     {
-      url: "",
+      url: "/hotels/le-croissant/offers/weekend-gateway",
       title: "Weekend Gateway at Le Croissant",
       image: "/hotels/heritage/offers/offer1.jpg",
       description:
         "Escape the city for a relaxing weekend and enjoy exclusive savings on your stay. Perfect for a quick recharge!",
     },
     {
-      url: "",
+      url: "/hotels/le-croissant/offers/luxury-spa",
       title: "Luxury Spa Retreat at Le Croissant",
       image: "/hotels/heritage/offers/offer2.jpg",
       description:
@@ -26,21 +26,21 @@ export default function HeritageOffers() {
         "Plan ahead and save up to 20%! Secure your dream getaway by booking 90 days in advance.",
     },
     {
-      url: "",
+      url: "/hotels/le-croissant/offers/extend-stay",
       title: "Extended Stay Discount at Le Croissant",
       image: "/hotels/heritage/offers/offer4.jpg",
       description:
         "Make the most of your trip with our extended stay rates. Stay longer and enjoy more value with every extra night.",
     },
     {
-      url: "",
+      url: "/hotels/le-croissant/offers/business",
       title: "Business Traveler Special at Le Croissant",
       image: "/hotels/heritage/offers/offer5.jpg",
       description:
         "Tailored for busy professionals — enjoy comfort, convenience, and savings when you book your business trip early.",
     },
     {
-      url: "",
+      url: "/hotels/le-croissant/offers/family-vacation",
       title: "Family Vacation Package at Le Croissant",
       image: "/hotels/heritage/offers/offer6.jpg",
       description:

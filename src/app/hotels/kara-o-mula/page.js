@@ -22,7 +22,7 @@ export default function KaraOMula() {
           alt=""
           width={1500}
           height={100}
-          className="object-cover max-h-screen"
+          className="object-cover max-h-screen w-full"
         />
 
         <h1 className="absolute inset-0 flex items-center justify-center text-5xl text-white pb-4">
@@ -90,7 +90,7 @@ export default function KaraOMula() {
       </div>
       <Experience />
       <FoodFlavor />
-      <OfferSlider nav={navLink} />{" "}
+      <OfferSlider nav={navLink} />
     </div>
   );
 }

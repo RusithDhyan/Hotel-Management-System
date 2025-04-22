@@ -1,9 +1,8 @@
-"use client"; // Required for Next.js
-
+"use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules"; // Import the Autoplay module
-import "swiper/css"; // Import Swiper styles
-import "swiper/css/autoplay"; // Import autoplay styles
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/autoplay";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -11,21 +10,32 @@ import Link from "next/link";
 export default function OfferSlider({ nav }) {
   const slider = [
     {
-      url: "/images/offer1.jpeg",
+      image: "/offer-slider/offer1.jpg",
+      url: "/hotels/heritage-hotel/offers/family-vacation",
+      title: "Family Vacation Package",
+      offerType: "Just One More Night",
+      description:
+        "Stay 2 nights & get 50% off your second night at selection hotels",
+    },
+    {
+      image: "/offer-slider/offer2.jpeg",
+      url: "/hotels/heritage-hotel/offers/extend-stay",
       title: "Get 50% Off Your Second Night",
       offerType: "Just One More Night",
       description:
         "Stay 2 nights & get 50% off your second night at selection hotels",
     },
     {
-      url: "/images/offer2.jpeg",
+      image: "/offer-slider/offer3.jpeg",
+      url: "/hotels/heritage-hotel/offers/early-bird",
       title: "Early Bird Discount",
       offerType: "Just One More Night",
       description:
         "Book 30 days in advance and get 15% off your stay,plus a welcome drink",
     },
     {
-      url: "/images/offer3.jpeg",
+      image: "/offer-slider/offer4.jpeg",
+      url: "/hotels/heritage-hotel/offers/luxury-spa",
       title: "Spa & Stay Retreat",
       offerType: "Just One More Night",
       description:
@@ -48,15 +58,15 @@ export default function OfferSlider({ nav }) {
         </Link>
       </div>
       <Swiper
-        modules={[Autoplay]} // Enable Autoplay module
-        spaceBetween={0} // No space between slides
-        slidesPerView={1} // Only show one slide at a time
-        loop={true} // Enable infinite loop
-        autoplay={{ delay: 3000, disableOnInteraction: false }} // Autoplay settings
+        modules={[Autoplay]}
+        spaceBetween={0}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
         breakpoints={{
-          640: { slidesPerView: 1 }, // Show one slide on smaller screens
-          768: { slidesPerView: 1 }, // Show one slide on medium screens
-          1024: { slidesPerView: 1 }, // Show one slide on larger screens
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 1 },
+          1024: { slidesPerView: 1 }
         }}
       >
         {slider.map((slide, index) => (
@@ -64,10 +74,10 @@ export default function OfferSlider({ nav }) {
             <div className="flex flex-col sm:flex-row  items-center justify-center gap-5 mt-10 px-5">
               <div className="w-80 h-80 relative">
                 <Image
-                  src={slide.url}
+                  src={slide.image}
                   alt="slide-image"
-                  layout="fill" // Ensures the image fills the parent container
-                  objectFit="cover" // Keeps the aspect ratio intact
+                  layout="fill" 
+                  objectFit="cover"
                 />
               </div>
               <div className="flex flex-col items-center justify-center gap-2 text-sm md:text-md lg:text-lg ">
@@ -76,7 +86,7 @@ export default function OfferSlider({ nav }) {
                   {slide.offerType}
                 </h1>
                 <h2>{slide.description}</h2>
-                <Link href="/">
+                <Link href={slide.url}>
                   <button className="relative group text-black py-1 px-2 border-b-2 border-transparent">
                     Explore
                     <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
