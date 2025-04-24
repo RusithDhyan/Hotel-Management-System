@@ -77,27 +77,27 @@ export default function Navbar() {
                 <X size={32} className="text-black" />
               </button>
 
-              <a href="/" className="text-xl hover:text-gray-400">
+              <Link href="/" className="text-xl hover:text-gray-400">
                 Home
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/our-collections"
                 className="text-lg hover:text-gray-400"
               >
                 Our Collection
-              </a>
-              <a href="/offers" className="text-xl hover:text-gray-400">
+              </Link>
+              <Link href="/offers" className="text-xl hover:text-gray-400">
                 Offers
-              </a>
-              <a href="/blogs" className="text-xl hover:text-gray-400">
+              </Link>
+              <Link href="/blogs" className="text-xl hover:text-gray-400">
                 Blogs
-              </a>
-              <a href="/about" className="text-xl hover:text-gray-400">
+              </Link>
+              <Link href="/about" className="text-xl hover:text-gray-400">
                 About
-              </a>
-              <a href="/contact" className="text-xl hover:text-gray-400">
+              </Link>
+              <Link href="/contact" className="text-xl hover:text-gray-400">
                 Contact
-              </a>
+              </Link>
             </div>
           )}
         </div>
