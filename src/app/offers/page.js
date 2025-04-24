@@ -25,7 +25,7 @@ export default function Offers() {
       title: "Business Traveler Special",
       url: "",
     },
-    { image: "/offers/offer6.jpeg", title: "Family Vacation Package", url: "" },
+    { image: "/offers/offer6.jpg", title: "Family Vacation Package", url: "" },
   ];
   return (
     <div className="flex flex-col min-h-screen">
