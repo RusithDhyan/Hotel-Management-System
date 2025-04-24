@@ -7,12 +7,20 @@ import "swiper/css/autoplay"; // Import autoplay styles
 import Image from "next/image";
 
 export default function HomeSlider() {
-  const homeSlider=[
-    {url:"/images/bg1.jpg",title:"Relax,Unwind & Expreience Luxury in the Heart of Malawi"},
-    {url:"/images/bg2.jpg",title:"A Pool with a View Unwind in Malawi's Hidden Oasis"},
-    {url:"/images/bg3.jpg",title:"Malawi's Safari Magic:Where Nature Comes Alive"},
-
-  ]
+  const homeSlider = [
+    {
+      url: "/images/bg1.jpg",
+      title: "Relax,Unwind & Expreience Luxury in the Heart of Malawi",
+    },
+    {
+      url: "/images/bg2.jpg",
+      title: "A Pool with a View Unwind in Malawi's Hidden Oasis",
+    },
+    {
+      url: "/images/bg3.jpg",
+      title: "Malawi's Safari Magic:Where Nature Comes Alive",
+    },
+  ];
   return (
     <div className="w-full ">
       <Swiper
@@ -27,7 +35,7 @@ export default function HomeSlider() {
           1024: { slidesPerView: 1 }, // Show one slide on larger screens
         }}
       >
-        {homeSlider.map((slide,index) => (
+        {homeSlider.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="flex flex-col sm:flex-row  items-center justify-center gap-5">
               <div className="relative">
@@ -36,14 +44,13 @@ export default function HomeSlider() {
                   alt="slide-img"
                   width={1500}
                   height={100}
-                  className="max-h-screen object-cover"
+                  className="max-h-screen object-cover w-full"
                 />
               </div>
               <div className="absolute inset-0 bottom-0 flex items-end justify-center pb-5">
-                
-                <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-10 font-bold px-4">
-          {slide.title}
-        </h1>
+                <h1 className="absolute inset-0 flex items-end justify-center text-2xl md:text-3xl lg:text-5xl text-white pb-4 font-bold px-4">
+                  {slide.title}
+                </h1>
               </div>
             </div>
           </SwiperSlide>

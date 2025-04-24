@@ -129,7 +129,6 @@ export default function HotelSlider() {
       </div>
 
       <div className="relative w-full max-w-6xl mx-auto mt-10 overflow-hidden p-4">
-        {/* ✅ SLIDER CONTAINER */}
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{

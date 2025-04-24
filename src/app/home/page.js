@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import OurStory from "../(components)/(home)/OurStory";
@@ -10,7 +10,6 @@ import HotelNav from "../(components)/(home)/HotelNav";
 import HotelSlider from "../(components)/(home)/HotelSlider";
 
 export default function Home() {
-
   const [showNav, setShowNav] = useState(false);
 
   const handleTouch = () => {
@@ -22,7 +21,7 @@ export default function Home() {
   return (
     <div>
       <HomeSlider />
-      <div className="h-auto mt-10 w-full px-10 flex flex-col lg:flex-row items-center gap-4">
+      <div className="h-auto mt-10 w-full px-2 flex flex-col lg:flex-row items-center gap-4">
         <Image
           src="/images/home1.jpeg"
           alt="card-image1"
@@ -30,72 +29,73 @@ export default function Home() {
           height={1000}
           className="sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-120 lg:h-130 object-cover "
         />
-        <div className="flex flex-col gap-4 text-sm md:text-base lg:text-lg px-4 md:px-8">
-  <h1 className="text-2xl md:text-3xl lg:text-5xl">
-    Eco Luxury Escapes <br /> in Malawi
-  </h1>
+        <div className="flex flex-col gap-4 text-sm md:text-base lg:text-lg px-2 md:px-8">
+          <h1 className="text-2xl md:text-3xl lg:text-5xl">
+            Eco Luxury Escapes <br /> in Malawi
+          </h1>
 
-  <p className="text-justify">
-    We are a renowned collection of charming boutique hotels and serene tea
-    bungalows, offering a blend of sophisticated yet laid-back luxury
-    experiences across Malawi. Each of our 7 hotels boasts its own unique
-    character and narrative, while sharing a common dedication to preserving
-    historic landmarks, protecting the environment, celebrating the rich local
-    culture, and showcasing Malawi’s extraordinary natural beauty and vibrant
-    local cuisine.
-  </p>
+          <p className="text-justify">
+            We are a renowned collection of charming boutique hotels and serene
+            tea bungalows, offering a blend of sophisticated yet laid-back
+            luxury experiences across Malawi. Each of our 7 hotels boasts its
+            own unique character and narrative, while sharing a common
+            dedication to preserving historic landmarks, protecting the
+            environment, celebrating the rich local culture, and showcasing
+            Malawi’s extraordinary natural beauty and vibrant local cuisine.
+          </p>
 
-  <div>
-    <Link href="/about" className=" text-sm md:text-base">
-      Read more
-    </Link>
-  </div>
+          <div>
+            <Link href="/about" className=" text-sm md:text-base">
+              Read more
+            </Link>
+          </div>
 
-  <div className="flex flex-col md:flex-row items-center gap-4">
-    <Image
-      src="/images/home2.jpeg"
-      alt="card-image1"
-      width={500}
-      height={300}
-      className="w-full md:w-1/3 h-56 object-cover"
-    />
-    <Image
-      src="/images/home3.jpeg"
-      alt="card-image2"
-      width={500}
-      height={300}
-      className="w-full md:w-1/3 h-56 object-cover"
-    />
-    <Image
-      src="/images/home4.jpeg"
-      alt="card-image3"
-      width={500}
-      height={300}
-      className="w-full md:w-1/3 h-56 object-cover"
-    />
-  </div>
-</div>
-
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <Image
+              src="/images/home2.jpeg"
+              alt="card-image1"
+              width={500}
+              height={300}
+              className="w-full md:w-1/3 h-56 object-cover"
+            />
+            <Image
+              src="/images/home3.jpeg"
+              alt="card-image2"
+              width={500}
+              height={300}
+              className="w-full md:w-1/3 h-56 object-cover"
+            />
+            <Image
+              src="/images/home4.jpeg"
+              alt="card-image3"
+              width={500}
+              height={300}
+              className="w-full md:w-1/3 h-56 object-cover"
+            />
+          </div>
+        </div>
       </div>
       <div className=" h-auto mt-10 w-full">
         <HotelSlider />
       </div>
-      <div className="h-auto w-full flex flex-col md:flex-row items-center justify-center">
-        <div className="flex flex-col items-left gap-5 text-xs lg:text-lg md:text-md sm:px-5">
+      <div className="h-auto w-full flex flex-col md:flex-row items-center justify-center sm:justify-between">
+        <div className="flex flex-col items-left gap-2 text-xs lg:text-lg md:text-md px-2">
           <h1 className="text-xl lg:text-4xl md:text-3xl">Explore Malawi...</h1>
           <p>
             Malawi is a landlocked country in southeastern Africa, bordered by
             Tanzania,
-            <br /> Mozambique, and Zambia. It is known as the "Warm Heart of
-            Africa" due to the <br /> friendliness of its people. The country
+            Mozambique, and Zambia. It is known as the "Warm Heart of
+            Africa" due to the friendliness of its people. The country
             features stunning landscapes,
             <br /> including Lake Malawi, one of Africa’s largest and most
-            biodiverse lakes,
-            <br /> which offers pristine beaches, water activities, and
+            biodiverse lakes,which offers pristine beaches, water activities, and
             wildlife.
           </p>
         </div>
-        <div className="flex relative items-center justify-center overflow-hidden group" onTouchStart={handleTouch}>
+        <div
+          className="flex relative items-center justify-center overflow-hidden group"
+          onTouchStart={handleTouch}
+        >
           <Image
             src="/images/map2.png"
             alt="card-image2"
@@ -103,7 +103,7 @@ export default function Home() {
             height={10}
             className="object-cover transition-transform duration-500 group-hover:scale-130"
           />
-      
+
           <HotelNav />
         </div>
       </div>
