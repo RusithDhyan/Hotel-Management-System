@@ -72,7 +72,7 @@ export default function LeOroissant() {
           {items.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center px-4 border-r last:border-r-0"
+              className="flex flex-col items-center px-4 md:border-r last:border-r-0"
             >
               <div className="flex items-center justify-center mb-2">
                 <Image
