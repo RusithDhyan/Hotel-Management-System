@@ -19,7 +19,7 @@ const hotels = [
   {
     id: 2,
     image: "/hotels/h14.jpg",
-    title: "Le Oroissant",
+    title: "Le Croissant",
     url: "/hotels/le-croissant",
     location: "Limbe,Blantyre",
     description:
