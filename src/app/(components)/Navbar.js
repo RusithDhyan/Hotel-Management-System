@@ -6,6 +6,10 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 export default function Navbar() {
+  const [isActive, setIsActive] = useState(false);
+  
+    const activateHover = () => setIsActive(true);
+    const deactivateHover = () => setIsActive(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -57,12 +61,22 @@ export default function Navbar() {
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
           </ul>
-          <Link href="/" className="">
-            <button className="relative group text-black py-1 px-2  border-transparent">
-              Book Now
-              <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
-            </button>
-          </Link>
+            <Link href="/" className="text-sm lg:text-lg md:text-md">
+              <button
+                className="relative text-black py-1 px-2 border-b-2 border-transparent"
+                onMouseEnter={activateHover}
+                onMouseLeave={deactivateHover}
+                onTouchStart={activateHover}
+                onTouchEnd={deactivateHover}
+              >
+                Book Now
+                <span
+                  className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                    isActive ? "w-full" : "w-10"
+                  }`}
+                ></span>
+              </button>
+            </Link>
           {/* <Menu className="text-blue-400" /> */}
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? null : <AlignLeft size={28} />}

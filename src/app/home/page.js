@@ -137,14 +137,6 @@ export default function Home() {
           </p>
           <div>
             <Link href="/blogs" className="text-sm lg:text-lg md:text-md">
-              <button className="relative group text-black py-1 px-2 border-b-2 border-transparent">
-                Discover
-                <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
-              </button>
-            </Link>
-          </div>
-          <div>
-            <Link href="/blogs" className="text-sm lg:text-lg md:text-md">
               <button
                 className="relative text-black py-1 px-2 border-b-2 border-transparent"
                 onMouseEnter={activateHover}
