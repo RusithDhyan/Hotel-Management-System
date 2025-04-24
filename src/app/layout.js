@@ -3,10 +3,11 @@ import { Jost } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
+// Correct configuration with subsets defined
 const jost = Jost({
-  subsets: ['latin'],     // ✅ REQUIRED to prevent preload error
-  preload: true,          // ✅ optional, but usually true by default
-  variable: '--font-jost' // ✅ optional, only needed if using Tailwind with font variables
+  subsets: ['latin'],     // REQUIRED for avoiding preload error
+  preload: true,          // Optional, if you want preloading
+  variable: '--font-jost' // Optional, use if you're using Tailwind for variables
 })
 
 export const metadata = {
@@ -16,7 +17,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={jost.variable}> {/* 👈 this line uses the font variable */}
+    <html lang="en" className={jost.variable}> {/* Apply the font variable */}
       <body className="font-sans">
         <div className="flex flex-col min-h-screen">
           <Navbar />
