@@ -27,11 +27,11 @@ export default function BambooBoutique() {
           className="object-cover max-h-screen w-full"
         />
 
-        <h1 className="absolute inset-0 flex items-center justify-center text-4xl md:text-5xl text-white pb-4">
+        <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl text-white pb-4 font-bold px-4">
           Bamboo Boutique
         </h1>
       </div>
-      
+
       <div className="flex flex-col md:flex-row items-center p-10 gap-5">
         <Image
           src="/hotels/bamboo-boutique/bamboo-img1.jpeg"
@@ -43,7 +43,8 @@ export default function BambooBoutique() {
 
         <div className="flex flex-col items-center justify-center gap-4 mt-4 md:mt-0">
           <h1 className="text-2xl md:text-3xl text-center">
-            Urban Elegance Redefined: A Tranquil Oasis in Lilongwe's Elite Suburbs
+            Urban Elegance Redefined: A Tranquil Oasis in Lilongwe's Elite
+            Suburbs
           </h1>
           <p className="text-center text-sm md:text-base text-gray-700">
             Located in the exclusive suburb of Area 12, Lilongwe, Bamboo
@@ -53,7 +54,10 @@ export default function BambooBoutique() {
             can enjoy amenities such as complimentary Wi-Fi, airport transfers,
             and a cozy atmosphere ideal for both business and leisure travelers.
           </p>
-          <Link href="/hotels/bamboo-boutique/location" className="text-sm lg:text-lg md:text-md">
+          <Link
+            href="/hotels/bamboo-boutique/location"
+            className="text-sm lg:text-lg md:text-md"
+          >
             <button className="relative group text-black py-1 px-2 border-b-2 border-transparent">
               Discover Place
               <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
@@ -73,8 +77,8 @@ export default function BambooBoutique() {
             Enjoy These Perks On Us
           </h1>
         </div>
-        
-<div className="flex flex-wrap justify-center gap-5 mt-4">
+
+        <div className="flex flex-wrap justify-center gap-5 mt-4">
           {items.map((item, index) => (
             <div
               key={index}

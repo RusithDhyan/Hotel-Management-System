@@ -26,7 +26,7 @@ export default function ZaburiLakeResort() {
           height={100}
           className="object-cover max-h-screen w-full"
         />
-        <h1 className="absolute inset-0 flex items-center justify-center text-3xl sm:text-4xl md:text-5xl text-white text-center pb-4">
+        <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl text-white pb-4 font-bold px-4">
           Zaburi Lake Resort
         </h1>
       </div>

@@ -61,7 +61,7 @@ export default function Experience3() {
             </div>
 
             {/* Mobile View (Static Stacked View) */}
-            <div className="flex flex-col sm:hidden bg-white bg-opacity-90 rounded-lg p-4 text-sm">
+            <div className="flex flex-col sm:hidden bg-white bg-opacity-90 p-4 text-sm">
               <div className="text-black font-semibold mb-2">
                 Experience the Flavors of Heritage
               </div>
@@ -86,7 +86,7 @@ export default function Experience3() {
           alt="card-image2"
           width={1500}
           height={100}
-          className="w-full md:w-1/2 h-auto rounded-lg"
+          className="w-full md:w-1/2 h-auto"
         />
         <div className="flex flex-col items-start gap-2 text-sm md:text-base">
           <h1 className="text-xl md:text-3xl lg:text-4xl font-semibold">

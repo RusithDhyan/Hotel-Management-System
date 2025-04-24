@@ -26,7 +26,7 @@ export default function LotusHotel() {
           height={100}
           className="object-cover max-h-screen w-full"
         />
-        <h1 className="absolute inset-0 flex items-center justify-center text-3xl sm:text-4xl md:text-5xl text-white pb-4 text-center">
+        <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl text-white pb-4 font-bold px-4">
           Lotus Hotel
         </h1>
       </div>

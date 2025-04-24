@@ -20,7 +20,7 @@ const hotels = [
     id: 2,
     image: "/hotels/h14.jpg",
     title: "Le Oroissant",
-    url: "/hotels/le-oroissant",
+    url: "/hotels/le-croissant",
     location: "Limbe,Blantyre",
     description:
       "Le Croissant Patisserie is located within the Heritage by Serendib hotel on Milward Road in Limbe, Blantyre, Malawi.",

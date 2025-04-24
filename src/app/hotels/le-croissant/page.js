@@ -24,7 +24,8 @@ export default function LeOroissant() {
           height={100}
           className="object-cover max-h-screen w-full"
         />
-        <h1 className="absolute inset-0 flex items-center justify-center text-3xl sm:text-4xl md:text-5xl text-white pb-4 text-center">
+
+        <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl text-white pb-4 font-bold px-4">
           Le Croissant
         </h1>
       </div>
@@ -65,8 +66,12 @@ export default function LeOroissant() {
 
       <div className="flex flex-col items-center justify-center mt-10 px-4">
         <div className="text-center mb-6">
-          <h1 className="text-2xl sm:text-3xl text-gray-500">Included With Your Stay</h1>
-          <h2 className="text-sm sm:text-md text-gray-500">Enjoy These Perks On Us</h2>
+          <h1 className="text-2xl sm:text-3xl text-gray-500">
+            Included With Your Stay
+          </h1>
+          <h2 className="text-sm sm:text-md text-gray-500">
+            Enjoy These Perks On Us
+          </h2>
         </div>
         <div className="flex flex-wrap justify-center gap-6 w-full">
           {items.map((item, index) => (
