@@ -26,7 +26,7 @@ export default function LeOroissant() {
         />
 
         <h1 className="absolute inset-0 flex items-center justify-center text-5xl text-white pb-4">
-          Le Oroissant
+          Le Croissant
         </h1>
       </div>
       <div className="flex flex-row items-center p-10 gap-5 ">
@@ -38,18 +38,21 @@ export default function LeOroissant() {
           className="h-100 w-200 object-cover "
         />
 
-        <div className="flex flex-col items-center justify-center gap-4 ">
-          <h1 className="text-3xl">
+        <div className="flex flex-col items-center justify-center gap-4 md:w-1/2 px-2">
+          <h1 className="text-xl sm:text-2xl md:text-3xl text-center md:text-left">
             A Taste of Paris Whispers of France in the Heart of Limbe
           </h1>
-          <p className="text-center">
+          <p className="text-center text-sm sm:text-base">
             Le Croissant Patisserie offers a taste of France in the heart of
             Limbe. Guests can savor freshly baked French baguettes, gourmet
             pastries, and a selection of teas and coffees in a charming setting.
             The patisserie provides a delightful culinary experience for both
             casual visitors and those seeking a cozy spot to relax.​
           </p>
-          <Link href="/hotels/le-croissant/location" className="text-sm lg:text-lg md:text-md">
+          <Link
+            href="/hotels/le-croissant/location"
+            className="text-sm lg:text-lg md:text-md"
+          >
             <button className="relative group text-black py-1 px-2 border-b-2 border-transparent">
               Discover Place
               <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>

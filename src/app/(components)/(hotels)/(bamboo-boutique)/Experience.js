@@ -8,7 +8,7 @@ export default function Experience() {
         {/* Left Content */}
         <div className="flex flex-col w-full md:w-1/2 items-center justify-center gap-5 p-2">
           <Image
-            src="/hotels/bamboo-boutiqe/bamboo-img2.jpeg"
+            src="/hotels/bamboo-boutique/bamboo-img2.jpeg"
             alt="bamboo-img2"
             width={1000}
             height={100}
@@ -28,7 +28,7 @@ export default function Experience() {
           <h1 className="text-2xl sm:text-3xl text-center">Experience in Bamboo Boutiqe</h1>
           <div className="relative w-full">
             <Image
-              src="/hotels/bamboo-boutiqe/bamboo-img3.jpeg"
+              src="/hotels/bamboo-boutique/bamboo-img3.jpeg"
               alt="bamboo-img3"
               width={1000}
               height={100}
