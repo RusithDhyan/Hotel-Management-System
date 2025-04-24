@@ -1,12 +1,18 @@
+"use client"
 import Accommodation from "@/app/(components)/(hotels)/(waters-edge)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(waters-edge)/Experience";
 import FoodFlavor from "@/app/(components)/(hotels)/(waters-edge)/FoodFlavor";
 import OfferSlider from "@/app/(components)/(hotels)/(waters-edge)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 export default function WatersEdge() {
+  const [isActive, setIsActive] = useState(false);
+    
+      const activateHover = () => setIsActive(true);
+      const deactivateHover = () => setIsActive(false);
+
   const navLink = "hotels/waters-edge/offers";
   const items = [
     { url: "/icons/hotels/bed-single.png", title: "Modern & Spacious Rooms" },

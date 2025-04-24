@@ -1,12 +1,18 @@
+"use client"
 import Accommodation from "@/app/(components)/(hotels)/(zaburi-lake-resort)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(zaburi-lake-resort)/Experience";
 import FoodFlavor from "@/app/(components)/(hotels)/(zaburi-lake-resort)/FoodFlavor";
 import OfferSlider from "@/app/(components)/(hotels)/(zaburi-lake-resort)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 export default function ZaburiLakeResort() {
+  const [isActive, setIsActive] = useState(false);
+    
+      const activateHover = () => setIsActive(true);
+      const deactivateHover = () => setIsActive(false);
+
   const navLink = "hotels/zaburi-lake-resort/offers";
   const items = [
     { url: "/icons/hotels/bed-single.png", title: "Modern & Spacious Rooms" },

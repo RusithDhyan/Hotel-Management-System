@@ -1,12 +1,18 @@
+"use client"
 import Accommodation from "@/app/(components)/(hotels)/(le-oroissant)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(le-oroissant)/Experience";
 import FoodFlavor from "@/app/(components)/(hotels)/(le-oroissant)/FoodFlavor";
 import OfferSlider from "@/app/(components)/(hotels)/(le-oroissant)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 export default function LeOroissant() {
+  const [isActive, setIsActive] = useState(false);
+    
+      const activateHover = () => setIsActive(true);
+      const deactivateHover = () => setIsActive(false);
+
   const navLink = "hotels/le-croissant/offers";
   const items = [
     { url: "/icons/hotels/bed-single.png", title: "Modern & Spacious Rooms" },

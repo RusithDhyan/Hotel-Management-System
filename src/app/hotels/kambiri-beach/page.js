@@ -1,12 +1,18 @@
+"use client"
 import Accommodation from "@/app/(components)/(hotels)/(kambiri-beach)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(kambiri-beach)/Experience";
 import FoodFlavor from "@/app/(components)/(hotels)/(kambiri-beach)/FoodFlavor";
 import OfferSlider from "@/app/(components)/(hotels)/(kambiri-beach)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 export default function KambiriBeach() {
+  const [isActive, setIsActive] = useState(false);
+    
+      const activateHover = () => setIsActive(true);
+      const deactivateHover = () => setIsActive(false);
+
   const navLink = "hotels/kambiri-beach/offers";
   const items = [
     { url: "/icons/hotels/bed-single.png", title: "Modern & Spacious Rooms" },

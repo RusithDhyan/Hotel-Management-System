@@ -1,12 +1,18 @@
+"use client"
 import Accommodation from "@/app/(components)/(hotels)/(kara-o-mula)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(kara-o-mula)/Experience";
 import FoodFlavor from "@/app/(components)/(hotels)/(kara-o-mula)/FoodFlavor";
 import OfferSlider from "@/app/(components)/(hotels)/(kara-o-mula)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 export default function KaraOMula() {
+  const [isActive, setIsActive] = useState(false);
+    
+      const activateHover = () => setIsActive(true);
+      const deactivateHover = () => setIsActive(false);
+
   const navLink = "hotels/kara-o-mula/offers";
   const items = [
     { url: "/icons/hotels/bed-single.png", title: "Modern & Spacious Rooms" },
