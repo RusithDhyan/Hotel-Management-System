@@ -1,7 +1,7 @@
 import './globals.css'
 import { Jost } from 'next/font/google'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import Footer from './(components)/Footer'
+import Navbar from './(components)/Navbar'
 
 // Correct configuration with subsets defined
 const jost = Jost({
@@ -20,9 +20,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className={jost.variable}> {/* Apply the font variable */}
       <body className="font-sans">
         <div className="flex flex-col min-h-screen">
-          <Navbar />
+          <Navbar/>
           <main className="flex-grow">{children}</main>
-          <Footer />
+          <Footer/>
         </div>
       </body>
     </html>
