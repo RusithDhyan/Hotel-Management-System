@@ -48,7 +48,7 @@ export default function HomeSlider() {
                 />
               </div>
               <div className="absolute inset-0 bottom-0 flex items-end justify-center pb-5">
-                <h1 className="absolute inset-0 flex items-end justify-center text-2xl md:text-3xl lg:text-5xl text-white pb-10 font-bold px-4">
+                <h1 className="absolute inset-0 flex items-end justify-center text-2xl md:text-3xl lg:text-5xl text-white pb-4 font-bold px-4">
                   {slide.title}
                 </h1>
               </div>
