@@ -1,7 +1,6 @@
 module.exports = {
-    extends: 'next',
-    rules: {
-      'react/no-unescaped-entities': 'off', // disables the quote warning
-    },
-  };
-  
+  extends: ['next', 'next/core-web-vitals'], // Ensure Next.js ESLint rules are extended
+  rules: {
+    'react/no-unescaped-entities': 'off', // Disable the rule here
+  },
+};
