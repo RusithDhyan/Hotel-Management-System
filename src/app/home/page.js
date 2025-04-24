@@ -24,14 +24,14 @@ export default function Home() {
       <HomeSlider />
       <div className="h-auto mt-10 w-full px-10 flex flex-col lg:flex-row items-center gap-4">
         <Image
-          src="/images/home6.jpeg"
+          src="/images/home1.jpeg"
           alt="card-image1"
           width={700}
           height={1000}
           className="sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-120 lg:h-130 object-cover "
         />
         <div className="flex flex-col gap-4 text-sm md:text-base lg:text-lg px-4 md:px-8">
-  <h1 className="text-2xl md:text-3xl lg:text-5xl font-semibold">
+  <h1 className="text-2xl md:text-3xl lg:text-5xl">
     Eco Luxury Escapes <br /> in Malawi
   </h1>
 
@@ -53,21 +53,21 @@ export default function Home() {
 
   <div className="flex flex-col md:flex-row items-center gap-4">
     <Image
-      src="/images/home5.jpg"
+      src="/images/home2.jpeg"
       alt="card-image1"
       width={500}
       height={300}
       className="w-full md:w-1/3 h-56 object-cover"
     />
     <Image
-      src="/images/home8.jpg"
+      src="/images/home3.jpeg"
       alt="card-image2"
       width={500}
       height={300}
       className="w-full md:w-1/3 h-56 object-cover"
     />
     <Image
-      src="/images/home7.jpeg"
+      src="/images/home4.jpeg"
       alt="card-image3"
       width={500}
       height={300}

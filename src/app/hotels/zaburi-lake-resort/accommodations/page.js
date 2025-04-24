@@ -10,7 +10,7 @@ export default function Accommodation() {
       title: "Executive Suite",
       size: "32 sqm",
       description:
-        "Tailored for business travelers and modern professionals, our Executive Room offers a refined and productive environment. Featuring a comfortable king-size bed, high-speed Wi-Fi, and an ergonomic workstation, the space is perfect for those who need to work and relax in equal measure.",
+        "Tailored for business travelers and modern professionals, our Executive Room offers a refined and productive environment.",
       features: [
         "/icons/rooms/item1.png",
         "/icons/rooms/item2.png",
@@ -25,7 +25,7 @@ export default function Accommodation() {
       title: "Family Twin Room",
       size: "35 sqm",
       description:
-        "Created with families in mind, our Family Room provides the perfect balance of space, comfort, and practicality. With a king-size bed for parents and a set of bunk beds or a pull-out sofa for children, the room ensures everyone sleeps soundly. The layout is open yet cozy, with enough space for kids to play and adults to relax. ",
+        "Created with families in mind, our Family Room provides the perfect balance of space, comfort, and practicality.  ",
       features: [
         "/icons/rooms/item1.png",
         "/icons/rooms/item2.png",
@@ -35,12 +35,12 @@ export default function Accommodation() {
       ],
     },
     {
-      nav: "delux-king",
+      nav: "deluxe-king",
       image: "/hotels/zaburi-lake/accommodations/deluxe.jpeg",
       title: "Delux King Room",
       size: "40 sqm",
       description:
-        "Step into comfort and style with our Deluxe Room, thoughtfully designed to provide a serene escape for both leisure and business travelers. This spacious room features elegant interiors, modern amenities, and large windows that allow in plenty of natural light.",
+        "Step into comfort and style with our Deluxe Room, thoughtfully designed to provide a serene escape for both leisure and business travelers. ",
       features: [
         "/icons/rooms/item1.png",
         "/icons/rooms/item2.png",
@@ -55,7 +55,7 @@ export default function Accommodation() {
       title: "Premier Heritage Suite",
       size: "50 sqm",
       description:
-        "Indulge in elevated comfort with our elegant Premium Room, designed for discerning guests who seek a little more from their stay. This refined space blends sophisticated design with warm, inviting tones to create an atmosphere of modern luxury.",
+        "Indulge in elevated comfort with our elegant Premium Room, designed for discerning guests who seek a little more from their stay.",
       features: [
         "/icons/rooms/item1.png",
         "/icons/rooms/item2.png",
@@ -80,66 +80,60 @@ export default function Accommodation() {
           Accommodation
         </h1>
       </div>
-      <div className="flex flex-col items-center justify-center gap-3 mt-10 px-50">
-        <h1 className="text-2xl">
-          Zaburi Lake Resort Accommodation – Experience Comfort and Luxury
-        </h1>
-        <p className="font-extralight">
-          Step into a world of comfort and elegance at Heritage Hotel. Our
+
+      <div className="text-center mt-10 px-4">
+        <h2 className="text-xl sm:text-2xl font-semibold">
+        Zaburi Lake Resort Accommodation – Experience Comfort and Luxury
+        </h2>
+        <p className="mt-4 text-sm sm:text-base text-gray-600 max-w-3xl mx-auto">
+        Step into a world of comfort and elegance at Heritage Hotel. Our
           luxurious accommodations offer a perfect blend of modern amenities and
           traditional charm, designed to provide you with a restful and
           memorable stay. Whether you're here for a short getaway or an extended
           retreat, our rooms cater to every need with spacious layouts, stunning
           views, and top-tier services. Explore our range of rooms and suites,
           each crafted to ensure relaxation, convenience, and a sense of home
-          away from home.
-        </p>
+          away from home.      </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-10">
+      <ddiv className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 sm:p-10">
         {rooms.map((room, index) => (
           <div
             key={index}
-            className="bg-white shadow-lg overflow-hidden relative group"
+            className="relative bg-white shadow-md overflow-hidden group min-h-[300px]"
           >
             <Image
               src={room.image}
               alt={room.title}
               width={600}
               height={400}
-              className="w-full h-70 object-cover transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-60 object-cover"
             />
-            <div className="p-4 absolute inset-0 bg-white/40 backdrop-blur-sm bg-opacity-10 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0">
-              <h2 className="text-xl font-semibold">{room.title}</h2>
-              <h3 className="text-gray-600">Room Size:{room.size}</h3>
-              <h3 className="text-gray-600">{room.location}</h3>
-              <div className=" flex flex-row items-center py-2 gap-2">
-                {room.features.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-row items-center justify-center"
-                  >
-                    <Image
-                      src={`${item}`}
-                      alt="images"
-                      width={1500}
-                      height={100}
-                      className="w-5"
-                    />
-                  </div>
+            <div className="p-4 space-y-2">
+              <h3 className="text-lg font-semibold">{room.title}</h3>
+              <p className="text-sm text-gray-600">Room Size: {room.size}</p>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {room.features.map((icon, idx) => (
+                  <Image
+                    key={idx}
+                    src={icon}
+                    alt="feature"
+                    width={20}
+                    height={20}
+                    className="w-5 h-5"
+                  />
                 ))}
               </div>
-              <p className=" my-2">{room.description}</p>
-
+              <p className="text-sm text-gray-700">{room.description}</p>
               <Link
                 href={`/hotels/zaburi-lake-resort/accommodations/${room.nav}`}
-                className="text-white font-semibold hover:text-[#FF741E] duration-300"
+                className="inline-block mt-2 text-blue-600 hover:text-orange-500 transition-colors text-sm font-semibold"
               >
-                Explore
+                Explore →
               </Link>
             </div>
           </div>
         ))}
-      </div>
+      </ddiv>
 
     </div>
   );

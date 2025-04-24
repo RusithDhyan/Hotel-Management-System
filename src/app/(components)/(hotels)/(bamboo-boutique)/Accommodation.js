@@ -52,13 +52,13 @@ export default function Accommodation() {
 
   return (
     <div>
-      <h1 className="text-center text-xl lg:text-4xl md:text-3xl">
+      <h1 className="text-center text-xl md:text-3xl lg:text-4xl">
         Accommodations
       </h1>
       <div>
         <Link
           href="/hotels/bamboo-boutique/accommodations"
-          className="items-center justify-center flex text-sm lg:text-lg md:text-md"
+          className="items-center justify-center flex text-sm md:text-md lg:text-lg"
         >
           <button className="relative group text-gray-400 py-1 px-2 border-b-2 border-transparent">
             View All
@@ -70,14 +70,14 @@ export default function Accommodation() {
         {/* Slider Container */}
         <div
           className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${index * 33.33}%)` }}
+          style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {hotels.map((hotel, i) => (
             <div
               key={hotel.id}
-              className="flex-shrink-0 w-[33.33%] p-4 transition-all duration-500"
+              className="flex-shrink-0 w-full md:w-[50%] lg:w-[33.33%] p-4 transition-all duration-500"
             >
-              <div className="bg-white ">
+              <div className="bg-white">
                 <Image
                   src={hotel.image}
                   alt={hotel.title}
@@ -93,7 +93,7 @@ export default function Accommodation() {
                   <div className="flex flex-row justify-start py-3">
                     <Link
                       href={`${hotel.url}`}
-                      className="text-sm lg:text-lg md:text-md"
+                      className="text-sm md:text-md lg:text-lg"
                     >
                       <button className="relative group text-black py-1 px-2">
                         Explore
@@ -107,11 +107,14 @@ export default function Accommodation() {
           ))}
         </div>
         {/* Navigation Buttons */}
-        <div className="flex items-center justify-end gap-10 my-2">
+        <div className="flex items-center justify-between sm:justify-end gap-20 my-2 px-4">
           <button onClick={prevSlide} className="text-gray-500">
             <CircleArrowLeft size={30} />
           </button>
-          <h5></h5>
+          {/* Mobile card number display only */}
+          <h5 className="text-sm md:hidden text-gray-500">
+            {index + 1}/{hotels.length}
+          </h5>
           <button onClick={nextSlide} className="text-gray-500">
             <CircleArrowRight size={30} />
           </button>

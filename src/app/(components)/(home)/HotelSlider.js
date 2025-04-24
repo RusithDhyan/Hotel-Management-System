@@ -112,7 +112,9 @@ export default function HotelSlider() {
 
   return (
     <div>
-      <h1 className="text-center text-xl lg:text-4xl md:text-3xl">Find Your Place</h1>
+      <h1 className="text-center text-xl lg:text-4xl md:text-3xl">
+        Find Your Place
+      </h1>
 
       <div>
         <Link
@@ -143,11 +145,10 @@ export default function HotelSlider() {
                 !isMobile &&
                 (i === index ? "scale-110 w-[50%]" : "scale-90 w-[25%]")
               }`}
-              style={
-                isMobile && i !== index
-                  ? { display: "none" }
-                  : { display: "block" }
-              }
+              style={{
+                opacity: isMobile && i !== index ? 0 : 1,
+                
+              }}                        
             >
               <div className="bg-white">
                 <Image
@@ -164,7 +165,10 @@ export default function HotelSlider() {
                     <p className="text-sm">{hotel.description}</p>
                   )}
                   <div className="flex flex-row justify-end pb-3">
-                    <Link href={hotel.url} className="text-sm lg:text-lg md:text-md">
+                    <Link
+                      href={hotel.url}
+                      className="text-sm lg:text-lg md:text-md"
+                    >
                       {i === index && (
                         <button className="relative group text-black py-1 px-2">
                           Explore
@@ -180,10 +184,13 @@ export default function HotelSlider() {
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex items-center justify-end gap-10 my-5 border-t border-gray-300 py-3">
+        <div className="flex items-center justify-between sm:justify-end gap-20 my-5 border-t border-gray-300 py-3 px-4">
           <button onClick={prevSlide} className="text-gray-500">
             <CircleArrowLeft size={30} />
           </button>
+          <h5 className="text-sm text-gray-500">
+            {index + 1}/{hotels.length}
+          </h5>
           <button onClick={nextSlide} className="text-gray-500">
             <CircleArrowRight size={30} />
           </button>

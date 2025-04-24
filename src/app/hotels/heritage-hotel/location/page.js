@@ -127,10 +127,13 @@ export default function Location() {
         </div>
 
         {/* Nav Buttons */}
-        <div className="flex items-center justify-between sm:justify-end gap-10 mt-4 px-4">
+        <div className="flex items-center justify-between sm:justify-end gap-20 mt-4 px-4">
           <button onClick={prevSlide} className="text-gray-500">
             <CircleArrowLeft size={30} />
           </button>
+          <h5 className="text-sm text-gray-500">
+            {index + 1}/{locations.length}
+          </h5>
           <button onClick={nextSlide} className="text-gray-500">
             <CircleArrowRight size={30} />
           </button>

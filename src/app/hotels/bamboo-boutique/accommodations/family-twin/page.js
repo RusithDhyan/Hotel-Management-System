@@ -153,8 +153,9 @@ export default function FamilyTwin() {
           <button onClick={prevSlide} className="text-gray-500">
             <CircleArrowLeft size={30} />
           </button>
-          <h5></h5>
-          <button onClick={nextSlide} className="text-gray-500">
+          <h5 className="text-sm text-gray-500">
+            {index + 1}/{hotels.length}
+          </h5>          <button onClick={nextSlide} className="text-gray-500">
             <CircleArrowRight size={30} />
           </button>
         </div>
