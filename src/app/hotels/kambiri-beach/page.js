@@ -31,7 +31,7 @@ export default function KambiriBeach() {
       </div>
       <div className="flex flex-row items-center p-10 gap-5 ">
         <Image
-          src="/hotels/kambiri/kambiri-img1.jpeg"
+          src="/hotels/kambiri-beach/kambiri-img1.jpeg"
           alt="kambiri-img1"
           width={1500}
           height={100}
