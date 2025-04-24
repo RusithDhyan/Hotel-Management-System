@@ -77,7 +77,7 @@ export default function Services() {
               height={100}
               className="w-full h-60 md:h-72 object-cover transition-transform duration-300 group-hover:scale-105"
             />
-            <div className="absolute inset-0 flex flex-col p-3 items-start justify-start border border-gray-300 bg-white/20 backdrop-blur-sm bg-opacity-10 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0 overflow-y-auto">
+            <div className="absolute inset-0 flex flex-col p-3 items-start justify-start border border-gray-300 bg-white/50 backdrop-blur-sm bg-opacity-10 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0 overflow-y-auto">
               <h1 className="text-md md:text-lg font-medium">{eb.title}</h1>
               <p className="font-light text-sm md:text-base my-2">
                 {eb.description}

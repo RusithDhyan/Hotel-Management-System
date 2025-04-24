@@ -14,80 +14,78 @@ export default function BlueWatersEdge() {
     { url: "/icons/hotels/coffee.png", title: "Evening Tea & Coffee" },
     { url: "/icons/hotels/wine.png", title: "Mini Bar" },
   ];
+
   return (
     <div className="flex flex-col min-h-screen">
-      <div className=" w-full h-auto relative">
+      {/* Top Banner */}
+      <div className="w-full h-auto relative">
         <Image
           src="/hotels/blue-resort.jpg"
-          alt=""
+          alt="blue waters banner"
           width={1500}
           height={100}
           className="object-cover max-h-screen w-full"
         />
-
-        <h1 className="absolute inset-0 flex items-center justify-center text-5xl text-white pb-4">
+        <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-5xl text-white pb-4 text-center px-4">
           Blue Waters Edge
         </h1>
       </div>
-      <div className="flex flex-row items-center p-10 gap-5 ">
+
+      {/* Intro Section */}
+      <div className="flex flex-col md:flex-row items-center p-4 md:p-10 gap-6">
         <Image
           src="/hotels/blue-waters/blue-img1.jpeg"
           alt="blue-waters-img1"
           width={1500}
           height={100}
-          className="h-100 w-200 object-cover "
+          className="w-full md:w-1/2 h-100 object-cover rounded-lg"
         />
 
-        <div className="flex flex-col items-center justify-center gap-4 ">
-          <h1 className="text-3xl">
+        <div className="flex flex-col items-center justify-center gap-4 text-center md:text-left md:w-1/2">
+          <h1 className="text-2xl md:text-3xl font-semibold">
             Where Lake Dreams Begin Serenity by the Shoreline of Salima
           </h1>
-          <p className="text-center">
-            Nestled along the serene shores of Lake Malawi, Blue Waters Lake
-            Resort offers a tranquil escape with rustic luxury. Guests can enjoy
-            lakeview accommodations, a tranquil waterside pool, and exceptional
-            event spaces accommodating up to 300 guests. The resort's "Pier
-            Deck" and "Rain Tree" restaurants are renowned for their culinary
-            delights, enhancing every occasion.
+          <p className="text-sm md:text-base text-gray-600">
+            Nestled along the serene shores of Lake Malawi, Blue Waters Lake Resort offers a tranquil escape with rustic luxury. Guests can enjoy lakeview accommodations, a tranquil waterside pool, and exceptional event spaces accommodating up to 300 guests. The resort's "Pier Deck" and "Rain Tree" restaurants are renowned for their culinary delights, enhancing every occasion.
           </p>
-          <Link href="/hotels/blue-waters/location" className="text-sm lg:text-lg md:text-md">
-            <button className="relative group text-black py-1 px-2 border-b-2 border-transparent">
+          <Link href="/hotels/blue-waters/location">
+            <button className="relative group text-black py-2 px-4">
               Discover Place
               <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
             </button>
           </Link>
         </div>
       </div>
+
+      {/* Accommodations */}
       <Accommodation />
-      <div className="flex flex-row items-center justify-around mt-10">
-        <div>
-          <h1 className="text-center text-3xl mt-10 text-gray-500">
-            Included With Your Stay
-          </h1>
-          <h1 className="text-center text-md text-gray-500">
-            Enjoy These Perks On Us
-          </h1>
-        </div>
-        <div className="flex flex-row items-center justify-center gap-5 w-auto">
+
+      {/* Included with Stay */}
+      <div className="flex flex-col items-center justify-center mt-10 px-4">
+        <h1 className="text-2xl md:text-3xl text-center text-gray-600 font-semibold">
+          Included With Your Stay
+        </h1>
+        <h2 className="text-md md:text-lg text-gray-500 text-center mb-6">
+          Enjoy These Perks On Us
+        </h2>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {items.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center border-r px-5"
-            >
-              <div className="flex flex-row  items-center justify-center">
-                <Image
-                  src={item.url}
-                  alt="images"
-                  width={1500}
-                  height={100}
-                  className="w-10"
-                />
-              </div>
-              <h2 className="text-sm">{item.title}</h2>
+            <div key={index} className="flex flex-col items-center text-center">
+              <Image
+                src={item.url}
+                alt={item.title}
+                width={40}
+                height={40}
+                className="mb-2"
+              />
+              <h2 className="text-sm md:text-base">{item.title}</h2>
             </div>
           ))}
         </div>
       </div>
+
+      {/* More Sections */}
       <Experience />
       <FoodFlavor />
       <OfferSlider nav={navLink} />

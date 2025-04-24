@@ -3,17 +3,18 @@ import React from "react";
 
 export default function Experience() {
   return (
-    <div>
-      <div className="flex flex-row items-center justify-center gap-10 pt-10">
-        <div className="flex flex-col w-100 items-center justify-center gap-5 p-2">
+    <div className="px-4 sm:px-6 md:px-10">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-10 pt-10">
+        {/* Left Content */}
+        <div className="flex flex-col w-full md:w-1/2 items-center justify-center gap-5 p-2">
           <Image
             src="/hotels/kambiri/kambiri-img2.jpeg"
             alt="kambiri-img2"
             width={1000}
             height={100}
-            className="w-100 h-100 object-cover"
+            className="w-full h-64 sm:h-80 md:h-96 object-cover"
           />
-          <p className="text-center">
+          <p className="text-center text-sm sm:text-base">
             From the moment you arrive at Heritage Hotel, you are welcomed with
             warm hospitality and a refreshing welcome drink, setting the tone
             for an unforgettable stay. The hotel’s charming blend of traditional
@@ -21,18 +22,20 @@ export default function Experience() {
             setting.
           </p>
         </div>
-        <div className="flex flex-col items-center justify-center mt-30 gap-2 relative overflow-hidden group">
-          <h1 className="text-3xl">Experience in Kambiri</h1>
-          <div className="relative overflow-hidden group">
+
+        {/* Right Content */}
+        <div className="flex flex-col w-full md:w-1/2 items-center justify-center gap-2 relative overflow-hidden group">
+          <h1 className="text-2xl sm:text-3xl text-center">Experience in Blue Waters</h1>
+          <div className="relative w-full">
             <Image
               src="/hotels/kambiri/kambiri-img3.jpeg"
               alt="kambiri-img3"
               width={1000}
               height={100}
-              className="w-100 h-100 object-cover transition-transform duration-300 group-hover:bg-opacity-60"
+              className="w-full h-64 sm:h-80 md:h-96 object-cover transition-transform duration-300 group-hover:bg-opacity-60"
             />
-            <div className="absolute inset-0 flex items-end px-10 pb-5 ">
-              <p className=" flex items-center justify-center mt-10 opacity-0 bg-white/50 transition-opacity duration-300 group-hover:opacity-100">
+            <div className="absolute inset-0 flex items-end px-4 sm:px-10 pb-5">
+              <p className="w-full text-center text-sm opacity-0 bg-white/60 transition-opacity duration-300 group-hover:opacity-100 p-2">
                 For those seeking extra space and comfort, the Executive Suite
                 offers a separate living area and bedroom, creating a private
                 and sophisticated ambiance.

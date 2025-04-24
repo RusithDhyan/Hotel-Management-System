@@ -40,9 +40,10 @@ export default function HomeSlider() {
                 />
               </div>
               <div className="absolute inset-0 bottom-0 flex items-end justify-center pb-5">
-                <h1 className=" text-center text-xl lg:text-5xl md:text-3xl text-white overflow-hidden text-ellipsis max-h-12">
-                  {slide.title}
-                </h1>
+                
+                <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-10 font-bold px-4">
+          {slide.title}
+        </h1>
               </div>
             </div>
           </SwiperSlide>

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,7 +25,7 @@ const hotels = [
     id: 3,
     image: "/hotels/zaburi-lake/accommodations/deluxe.jpeg",
     title: "Deluxe King Room",
-    url: "/hotels/zaburi-lake/accommodations/deluxe",
+    url: "/hotels/zaburi-lake/accommodations/deluxe-king",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
   },
@@ -41,6 +41,24 @@ const hotels = [
 
 export default function Accommodation() {
   const [index, setIndex] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(3);
+
+    useEffect(() => {
+      const handleResize = () => {
+        if (window.innerWidth < 768) {
+          setCardsPerView(1);
+        } else if (window.innerWidth < 1024) {
+          setCardsPerView(2);
+        } else {
+          setCardsPerView(3);
+        }
+      };
+  
+      handleResize(); // Run initially
+      window.addEventListener("resize", handleResize); // Update on resize
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+  
 
   const nextSlide = () => {
     setIndex((prev) => (prev + 1) % hotels.length);
@@ -66,36 +84,35 @@ export default function Accommodation() {
           </button>
         </Link>
       </div>
-      <div className="relative w-full max-w-6xl mx-auto mt-10 overflow-hidden">
-        {/* Slider Container */}
+      <div className="relative w-full max-w-7xl mx-auto mt-10 overflow-hidden">
+        {/* Carousel */}
         <div
           className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${index * 33.33}%)` }}
+          style={{ transform: `translateX(-${index * (100 / cardsPerView)}%)` }}
         >
-          {hotels.map((hotel, i) => (
+          {hotels.map((hotel) => (
             <div
               key={hotel.id}
-              className="flex-shrink-0 w-[33.33%] p-4 transition-all duration-500"
+              className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4"
             >
-              <div className="bg-white ">
+              <div className="bg-white h-full flex flex-col shadow-md overflow-hidden">
                 <Image
                   src={hotel.image}
                   alt={hotel.title}
-                  className="w-full h-80 object-cover"
+                  className="w-full h-64 object-cover"
                   width={1000}
                   height={100}
                 />
-                <div className="p-2 shadow-md">
+                <div className="p-4 flex flex-col justify-between flex-grow">
                   <h3 className="text-lg font-semibold text-center">
                     {hotel.title}
                   </h3>
-                  <p className="text-sm">{hotel.description}</p>
-                  <div className="flex flex-row justify-start py-3">
-                    <Link
-                      href={`${hotel.url}`}
-                      className="text-sm lg:text-lg md:text-md"
-                    >
-                      <button className="relative group text-black py-1 px-2">
+                  <p className="text-sm mt-2 text-justify">
+                    {hotel.description}
+                  </p>
+                  <div className="flex justify-start mt-4">
+                    <Link href={hotel.url}>
+                      <button className="relative group text-black py-1 px-2 text-sm lg:text-lg">
                         Explore
                         <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
                       </button>
@@ -106,12 +123,15 @@ export default function Accommodation() {
             </div>
           ))}
         </div>
-        {/* Navigation Buttons */}
-        <div className="flex items-center justify-end gap-10 my-2">
+
+        {/* Navigation */}
+        <div className="flex items-center justify-between sm:justify-end gap-20 mt-4 px-4">
           <button onClick={prevSlide} className="text-gray-500">
             <CircleArrowLeft size={30} />
           </button>
-          <h5></h5>
+          <h5 className="text-sm md:hidden text-gray-500">
+            {index + 1}/{hotels.length}
+          </h5>
           <button onClick={nextSlide} className="text-gray-500">
             <CircleArrowRight size={30} />
           </button>

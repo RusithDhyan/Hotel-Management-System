@@ -145,10 +145,13 @@ export default function FamilyTwin() {
         </div>
 
         {/* Arrows */}
-        <div className="flex items-center justify-between sm:justify-end gap-10 mt-4 px-4">
+        <div className="flex items-center justify-between sm:justify-end gap-20 mt-4 px-4">
           <button onClick={prevSlide} className="text-gray-600">
             <CircleArrowLeft size={30} />
           </button>
+          <h5 className="text-sm text-gray-500">
+            {index + 1}/{hotels.length}
+          </h5>
           <button onClick={nextSlide} className="text-gray-600">
             <CircleArrowRight size={30} />
           </button>

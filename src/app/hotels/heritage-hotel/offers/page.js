@@ -64,7 +64,7 @@ export default function HeritageOffers() {
         </h1>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-3 mt-10 px-20">
+      <div className="flex flex-col items-center justify-center gap-3 mt-10 px-10">
         <h1 className="text-2xl">Unbeatable Hotel Offers Just for You!</h1>
         <p className="font-extralight">
           Enjoy a luxurious stay at unbeatable prices with our exclusive hotel

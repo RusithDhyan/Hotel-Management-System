@@ -9,7 +9,7 @@ const Tabs = () => {
       content:
         "Enjoy an exquisite selection of dishes crafted by our expert chefs.",
       url: "/hotels/accordion/accordion4.jpg",
-      nav: "/blogs/blog4-dining-in-malawi",
+      nav: "/blogs/blog1-dining-in-malawi",
     },
     {
       title: "Exploring Luxury at Heritage by Serendib",

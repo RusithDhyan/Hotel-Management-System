@@ -7,14 +7,14 @@ export default function Gym() {
   const [index, setIndex] = useState(0);
 
   const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % locations.length);
+    setIndex((prev) => (prev + 1) % gym.length);
   };
 
   const prevSlide = () => {
-    setIndex((prev) => (prev - 1 + locations.length) % locations.length);
+    setIndex((prev) => (prev - 1 + gym.length) % gym.length);
   };
 
-  const locations = [
+  const gym = [
     { id: 1, image: "/services/gym/feature1.jpg" },
     { id: 2, image: "/services/gym/feature2.jpg" },
     { id: 3, image: "/services/gym/feature3.jpg" },
@@ -123,14 +123,14 @@ export default function Gym() {
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
-          {locations.map((location) => (
+          {gym.map((gym) => (
             <div
-              key={location.id}
+              key={gym.id}
               className="flex-shrink-0 w-full p-1"
             >
               <Image
-                src={location.image}
-                alt="location-img"
+                src={gym.image}
+                alt="gym-img"
                 className="w-full h-[200px] md:h-[350px] object-cover"
                 width={1000}
                 height={400}
@@ -140,10 +140,13 @@ export default function Gym() {
         </div>
 
         {/* Nav Buttons */}
-        <div className="flex items-center justify-between sm:justify-end gap-10 mt-4 px-4">
+        <div className="flex items-center justify-between sm:justify-end gap-20 mt-4 px-4">
           <button onClick={prevSlide} className="text-gray-500">
             <CircleArrowLeft size={30} />
           </button>
+          <h5 className="text-sm text-gray-500">
+            {index + 1}/{gym.length}
+          </h5>
           <button onClick={nextSlide} className="text-gray-500">
             <CircleArrowRight size={30} />
           </button>

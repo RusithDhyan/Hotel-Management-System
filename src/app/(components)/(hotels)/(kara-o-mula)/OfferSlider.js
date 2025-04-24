@@ -67,7 +67,7 @@ export default function OfferSlider({ nav }) {
             <div className="flex flex-col sm:flex-row  items-center justify-center gap-5 mt-10 px-5">
               <div className="w-80 h-80 relative">
                 <Image
-                  src={slide.url}
+                  src={slide.image}
                   alt="slide-image"
                   layout="fill" // Ensures the image fills the parent container
                   objectFit="cover" // Keeps the aspect ratio intact
