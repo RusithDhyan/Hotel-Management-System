@@ -38,7 +38,7 @@ export default function ZaburiLakeResort() {
           alt="zaburi-img1"
           width={1500}
           height={100}
-          className="w-full md:w-1/2 object-cover rounded-lg"
+          className="w-full md:w-1/2 object-cover"
         />
         <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full md:w-1/2 px-2">
           <h1 className="text-xl sm:text-2xl md:text-3xl text-center md:text-left">
@@ -77,7 +77,7 @@ export default function ZaburiLakeResort() {
           {items.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center px-4 border-r last:border-r-0"
+              className="flex flex-col items-center px-4 md:border-r last:border-r-0"
             >
               <div className="flex items-center justify-center mb-2">
                 <Image
