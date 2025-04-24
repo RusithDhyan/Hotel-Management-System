@@ -35,7 +35,7 @@ export default function LeOroissant() {
           alt="le-croissant-img1"
           width={1500}
           height={100}
-          className="w-full md:w-1/2 object-cover rounded-lg"
+          className="w-full md:w-1/2 object-cover"
         />
 
         <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full md:w-1/2 px-2">
