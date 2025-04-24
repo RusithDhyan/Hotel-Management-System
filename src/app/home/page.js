@@ -79,7 +79,7 @@ export default function Home() {
         <HotelSlider />
       </div>
       <div className="h-auto w-full flex flex-col md:flex-row items-center justify-center sm:justify-between">
-        <div className="flex flex-col items-left gap-2 text-xs lg:text-lg md:text-md px-2">
+        <div className="flex flex-col items-left gap-2 text-xs lg:text-lg md:text-md px-4">
           <h1 className="text-xl lg:text-4xl md:text-3xl">Explore Malawi...</h1>
           <p>
             Malawi is a landlocked country in southeastern Africa, bordered by
@@ -99,7 +99,7 @@ export default function Home() {
           <Image
             src="/images/map2.png"
             alt="card-image2"
-            width={500}
+            width={1000}
             height={10}
             className="object-cover transition-transform duration-500 group-hover:scale-130"
           />
