@@ -5,9 +5,12 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css/autoplay";
 
 import Image from "next/image";
-import { Sunset } from "lucide-react";
+import { AlignLeft, Sunset } from "lucide-react";
+import { useState } from "react";
 
 export default function HomeSlider() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const homeSlider = [
     {
       url: "/images/bg1.jpg",
@@ -57,7 +60,9 @@ export default function HomeSlider() {
                   {slide.title}
                 </h1>
               </div>
-              <Sunset size={30}/>
+              <button className="md:hidden absolute inset-0 flex justify-center items-end pb-4">
+                {isOpen ? null : <Sunset size={28} color="#ffffff" />}
+              </button>
             </div>
           </SwiperSlide>
         ))}
