@@ -47,7 +47,7 @@ export default function LotusHotel() {
           className="w-full md:w-1/2 object-cover"
         />
 
-        <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full md:w-1/2 px-2">
+        <div className="flex flex-col items-center justify-center gap-4 w-full md:w-1/2 px-2">
           <h1 className="text-xl sm:text-2xl md:text-3xl text-center md:text-left">
             Chic Comfort Awaits The City’s Quiet Corner of Style and Simplicity
           </h1>

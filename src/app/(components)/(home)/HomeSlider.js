@@ -29,6 +29,10 @@ export default function HomeSlider({ sectionRef }) {
       url: "/images/bg4.jpg",
       title: "Malawi's Safari Magic:Where Nature Comes Alive",
     },
+    {
+      url: "/images/bg5.jpg",
+      title: "Embracing the Warm Heart: A Cultural Journey Through Malawi",
+    },
   ];
   return (
     <div className="w-full">
@@ -65,8 +69,8 @@ export default function HomeSlider({ sectionRef }) {
                 <a onClick={handleScroll}>
                   <ChevronsDown
                     size={40}
-                    color="#ffffff"
-                    className="animate-pulse"
+                    color="white"
+                    className="animate-pulse "
                   />
                 </a>
               </div>
