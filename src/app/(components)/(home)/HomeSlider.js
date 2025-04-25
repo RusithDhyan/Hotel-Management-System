@@ -22,7 +22,7 @@ export default function HomeSlider() {
     },
   ];
   return (
-    <div className="w-full ">
+    <div className="w-full">
       <Swiper
         modules={[Autoplay]} // Enable Autoplay module
         spaceBetween={0} // No space between slides
@@ -44,11 +44,11 @@ export default function HomeSlider() {
                   alt="slide-img"
                   width={1500}
                   height={100}
-                  className="max-h-screen object-cover w-full"
+                  className="max-h-screen h-screen object-cover w-full"
                 />
               </div>
-              <div className="absolute inset-0 bottom-0 flex items-end justify-center pb-5">
-                <h1 className="absolute inset-0 flex items-end justify-center text-2xl md:text-3xl lg:text-5xl text-white pb-4 font-bold px-4">
+              <div className="absolute inset-0 flex justify-center items-center sm:items-end pb-5">
+                <h1 className="text-2xl md:text-3xl lg:text-5xl text-white font-bold px-4 text-center drop-shadow-md">
                   {slide.title}
                 </h1>
               </div>

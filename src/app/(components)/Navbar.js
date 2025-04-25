@@ -61,7 +61,7 @@ export default function Navbar() {
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
           </ul>
-            <Link href="/" className="text-sm lg:text-lg md:text-md">
+            <Link href="/booking" className="text-sm lg:text-lg md:text-md">
               <button
                 className="relative text-black py-1 px-2 border-b-2 border-transparent"
                 onMouseEnter={activateHover}
