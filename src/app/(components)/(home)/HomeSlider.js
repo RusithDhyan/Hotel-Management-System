@@ -52,16 +52,18 @@ export default function HomeSlider() {
                 priority
               />
 
-              <div className="absolute inset-0 flex flex-col justify-center items-center sm:items-end gap-2 pb-5">
+              {/* Title container with responsive position */}
+              <div className="absolute inset-0 flex justify-center items-center sm:items-end pb-5">
                 <h1 className="text-2xl md:text-3xl lg:text-5xl text-white font-bold px-4 text-center drop-shadow-md">
                   {slide.title}
                 </h1>
+              </div>
+              <div className="sm:hidden absolute inset-0 flex justify-center items-center py-4 mt-20">
                 <a>
                   <ChevronsDown
                     size={40}
                     color="#ffffff"
-                    className="animate-pulse cursor-pointer"
-                   
+                    className="animate-pulse"
                   />
                 </a>
               </div>

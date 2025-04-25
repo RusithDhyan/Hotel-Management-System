@@ -1,6 +1,44 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 
+// Room options with images for each hotel and room type
+const hotelOptions = {
+  "Blue Waters": {
+    rooms: {
+      "Executive Room": "/hotels/blue-waters/booking/executive.jpeg",
+      "Family Room": "/hotels/blue-waters/booking/family.jpeg",
+      "Deluxe King Room": "/hotels/blue-waters/booking/deluxe.jpeg",
+      "Premier Room": "/hotels/blue-waters/booking/premier.jpeg",
+    },
+  },
+  "Heritage Hotel": {
+    rooms: {
+      "Executive Room": "/hotels/heritage/booking/executive.jpg",
+      "Family Room": "/hotels/heritage/booking/family.jpg",
+      "Deluxe King Room": "/hotels/heritage/booking/deluxe.jpg",
+      "Premier Room": "/hotels/heritage/booking/premier.jpg",
+    },
+  },
+  "Le Croissant": {
+    rooms: {
+      "Executive Room": "/hotels/le-croissant/booking/executive.jpeg",
+      "Family Room": "/hotels/le-croissant/booking/family.jpeg",
+      "Deluxe King Room": "/hotels/le-croissant/booking/deluxe.jpeg",
+      "Premier Room": "/hotels/le-croissant/booking/premier.jpeg",
+    },
+  },
+};
+
 export default function BookingPage() {
+  const [selectedHotel, setSelectedHotel] = useState("");
+  const [selectedRoom, setSelectedRoom] = useState("");
+
+  const handleHotelChange = (e) => {
+    setSelectedHotel(e.target.value);
+    setSelectedRoom(""); // Reset room when hotel changes
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-20">
       <h1 className="text-3xl font-bold mb-8 text-center">
@@ -27,6 +65,37 @@ export default function BookingPage() {
               placeholder="Phone Number"
               className="w-full border border-gray-300 px-4 py-2"
             />
+
+            {/* Hotel Dropdown */}
+            <select
+              value={selectedHotel}
+              onChange={handleHotelChange}
+              className="w-full border border-gray-300 px-4 py-2"
+            >
+              <option value="">Select Hotel</option>
+              {Object.keys(hotelOptions).map((hotel) => (
+                <option key={hotel} value={hotel}>
+                  {hotel}
+                </option>
+              ))}
+            </select>
+
+            {/* Room Dropdown */}
+            {selectedHotel && (
+              <select
+                value={selectedRoom}
+                onChange={(e) => setSelectedRoom(e.target.value)}
+                className="w-full border border-gray-300 px-4 py-2"
+              >
+                <option value="">Select Room Type</option>
+                {Object.keys(hotelOptions[selectedHotel].rooms).map((room) => (
+                  <option key={room} value={room}>
+                    {room}
+                  </option>
+                ))}
+              </select>
+            )}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <input
                 type="date"
@@ -57,17 +126,22 @@ export default function BookingPage() {
             <h2 className="text-xl font-semibold mb-2">Your Selection</h2>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <div className="w-full sm:w-40">
-                <Image
-                  src="/hotels/heritage/accommodations/deluxe.jpg"
-                  alt="Room Image"
-                  width={1000}
-                  height={100}
-                  className="w-full h-24 object-cover"
-                />
+                {/* Show the selected room image dynamically */}
+                {selectedHotel && selectedRoom && (
+                  <Image
+                    src={hotelOptions[selectedHotel].rooms[selectedRoom]}
+                    alt={selectedRoom}
+                    width={1000}
+                    height={100}
+                    className="w-full h-24 object-cover"
+                  />
+                )}
               </div>
               <div>
-                <p className="font-medium">Deluxe King Room</p>
-                <p className="text-sm text-gray-500">2 Adults | 1 Queen Bed</p>
+                <p className="font-medium">{selectedRoom || "Room Type"}</p>
+                <p className="text-sm text-gray-500">
+                  {selectedHotel || "Hotel"}
+                </p>
               </div>
             </div>
           </div>
