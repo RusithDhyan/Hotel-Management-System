@@ -7,9 +7,9 @@ import React, { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
-  
-    const activateHover = () => setIsActive(true);
-    const deactivateHover = () => setIsActive(false);
+
+  const activateHover = () => setIsActive(true);
+  const deactivateHover = () => setIsActive(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,29 +54,29 @@ export default function Navbar() {
         </div>
         <div className="flex flex-row gap-10 ">
           <ul className="hidden md:flex flex-row justify-center items-center gap-3 text-xs sm:text-sm md:text-base lg:text-md xl:text-md ">
-            <Link href="/">Home</Link>
+            <a href="/">Home</a>
             <Link href="/our-collections">Hotels</Link>
             <Link href="/offers">Offers</Link>
             <Link href="/blogs">Blogs & Exp</Link>
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
           </ul>
-            <Link href="/booking" className="text-sm lg:text-lg md:text-md">
-              <button
-                className="relative text-black py-1 px-2 border-b-2 border-transparent"
-                onMouseEnter={activateHover}
-                onMouseLeave={deactivateHover}
-                onTouchStart={activateHover}
-                onTouchEnd={deactivateHover}
-              >
-                Book Now
-                <span
-                  className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-                    isActive ? "w-full" : "w-10"
-                  }`}
-                ></span>
-              </button>
-            </Link>
+          <Link href="/booking" className="text-sm lg:text-lg md:text-md">
+            <button
+              className="relative text-black py-1 px-2 border-b-2 border-transparent"
+              onMouseEnter={activateHover}
+              onMouseLeave={deactivateHover}
+              onTouchStart={activateHover}
+              onTouchEnd={deactivateHover}
+            >
+              Book Now
+              <span
+                className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                  isActive ? "w-full" : "w-10"
+                }`}
+              ></span>
+            </button>
+          </Link>
           {/* <Menu className="text-blue-400" /> */}
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? null : <AlignLeft size={28} />}
@@ -91,25 +91,26 @@ export default function Navbar() {
                 <X size={32} className="text-black" />
               </button>
 
-              <Link href="/" className="text-xl hover:text-gray-400">
+              <Link href="/" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
                 Home
               </Link>
               <Link
                 href="/our-collections"
+                onClick={()=>setIsOpen(false)}
                 className="text-lg hover:text-gray-400"
               >
                 Our Collection
               </Link>
-              <Link href="/offers" className="text-xl hover:text-gray-400">
+              <Link href="/offers" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
                 Offers
               </Link>
-              <Link href="/blogs" className="text-xl hover:text-gray-400">
+              <Link href="/blogs" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
                 Blogs
               </Link>
-              <Link href="/about" className="text-xl hover:text-gray-400">
+              <Link href="/about" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
                 About
               </Link>
-              <Link href="/contact" className="text-xl hover:text-gray-400">
+              <Link href="/contact" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
                 Contact
               </Link>
             </div>
