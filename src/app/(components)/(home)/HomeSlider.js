@@ -56,13 +56,14 @@ export default function HomeSlider() {
                 <h1 className="text-2xl md:text-3xl lg:text-5xl text-white font-bold px-4 text-center drop-shadow-md">
                   {slide.title}
                 </h1>
-                <Link href="/about">
+                <a>
                   <ChevronsDown
-                    size={30}
+                    size={40}
                     color="#ffffff"
-                    className="animate-pulse"
+                    className="animate-pulse cursor-pointer"
+                   
                   />
-                </Link>
+                </a>
               </div>
             </div>
           </SwiperSlide>
