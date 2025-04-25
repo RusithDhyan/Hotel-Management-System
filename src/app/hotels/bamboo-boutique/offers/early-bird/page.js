@@ -5,10 +5,6 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 export default function EarlyBird() {
-  const [isActive, setIsActive] = useState(false);
-
-  const activateHover = () => setIsActive(true);
-  const deactivateHover = () => setIsActive(false);
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleAccordion = (index) => {
@@ -48,7 +44,7 @@ export default function EarlyBird() {
     <div className="flex flex-col min-h-screen">
       <div className="w-full h-auto relative">
         <Image
-          src="/hotels/bamboo-boutique/offers/early-bird/bg.jpg"
+          src="/hotels/blue-waters/offers/early-bird/bg.jpg"
           alt="early-bird-img"
           width={1500}
           height={100}
@@ -60,9 +56,7 @@ export default function EarlyBird() {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-3 mt-10 px-4 sm:px-10 text-center">
-        <h1 className="text-xl sm:text-2xl">
-          Early Bird Offer at Bamboo Boutique
-        </h1>
+        <h1 className="text-xl sm:text-2xl">Early Bird Offer at Blue Waters</h1>
         <p className="font-extralight text-sm sm:text-base">
           Plan ahead and enjoy more for less. Book 3 months or more in advance
           and enjoy up to 20% off your stay. This offer is valid for stays until
@@ -72,7 +66,7 @@ export default function EarlyBird() {
 
       <div className="flex flex-col lg:flex-row items-center justify-center gap-6 mt-10 px-4 sm:px-10">
         <Image
-          src="/hotels/bamboo-boutique/offers/early-bird/bg-img.jpg"
+          src="/hotels/blue-waters/offers/early-bird/bg-img.jpg"
           alt="early-bird-img"
           width={1000}
           height={100}
@@ -87,19 +81,9 @@ export default function EarlyBird() {
             </div>
           ))}
           <Link href="/">
-            <button
-              className="relative text-black py-1 px-2 border-b-2 border-transparent"
-              onMouseEnter={activateHover}
-              onMouseLeave={deactivateHover}
-              onTouchStart={activateHover}
-              onTouchEnd={deactivateHover}
-            >
-              Book Now
-              <span
-                className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-                  isActive ? "w-full" : "w-10"
-                }`}
-              ></span>
+            <button className="relative group text-black py-2 px-4 mt-2 rounded-md hover:bg-orange-100">
+              Book
+              <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
             </button>
           </Link>
         </div>
@@ -112,9 +96,7 @@ export default function EarlyBird() {
               onClick={() => toggleAccordion(index)}
               className="flex justify-between items-center w-full p-4 bg-gray-100 hover:bg-gray-200 transition"
             >
-              <span className="text-base sm:text-lg font-semibold">
-                {acc.title}
-              </span>
+              <span className="text-base sm:text-lg font-semibold">{acc.title}</span>
               <LayoutList
                 className={`w-5 h-5 transition-transform ${
                   openIndex === index ? "rotate-180" : ""
