@@ -18,8 +18,12 @@ export default function HomeSlider() {
     },
     {
       url: "/images/bg3.jpg",
-      title: "Malawi's Safari Magic:Where Nature Comes Alive",
+      title: "Wild Wonders of Malawi",
     },
+    {
+      url: "/images/bg4.jpg",
+      title: "Malawi's Safari Magic:Where Nature Comes Alive",
+    }
   ];
   return (
     <div className="w-full">
@@ -28,7 +32,7 @@ export default function HomeSlider() {
         spaceBetween={0} // No space between slides
         slidesPerView={1} // Only show one slide at a time
         loop={true} // Enable infinite loop
-        autoplay={{ delay: 3000, disableOnInteraction: false }} // Autoplay settings
+        autoplay={{ delay: 5000, disableOnInteraction: false }} // Autoplay settings
         breakpoints={{
           640: { slidesPerView: 1 }, // Show one slide on smaller screens
           768: { slidesPerView: 1 }, // Show one slide on medium screens
