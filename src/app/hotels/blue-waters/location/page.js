@@ -15,10 +15,10 @@ export default function Location() {
   };
 
   const locations = [
-    { id: 1, image: "/hotels/heritage/location/feature1.jpg" },
-    { id: 2, image: "/hotels/heritage/location/feature2.jpg" },
-    { id: 3, image: "/hotels/heritage/location/feature3.jpg" },
-    { id: 4, image: "/hotels/heritage/location/feature4.jpg" },
+    { id: 1, image: "/hotels/blue-waters/location/feature1.jpg" },
+    { id: 2, image: "/hotels/blue-waters/location/feature2.jpg" },
+    { id: 3, image: "/hotels/blue-waters/location/feature3.jpg" },
+    { id: 4, image: "/hotels/blue-waters/location/feature4.jpg" },
   ];
 
   const items = [

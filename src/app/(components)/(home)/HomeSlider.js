@@ -23,7 +23,7 @@ export default function HomeSlider({ sectionRef }) {
     },
     {
       url: "/images/bg3.jpg",
-      title: "Wild Wonders of Malawi",
+      title: "Discovering the Wild Wonders of Malawi",
     },
     {
       url: "/images/bg4.jpg",
@@ -31,7 +31,7 @@ export default function HomeSlider({ sectionRef }) {
     },
     {
       url: "/images/bg5.jpg",
-      title: "Embracing the Warm Heart: A Cultural Journey Through Malawi",
+      title: "Embracing The Warm Heart Malawi: A Cultural Journey",
     },
   ];
   return (
