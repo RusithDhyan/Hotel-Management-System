@@ -1,14 +1,17 @@
 "use client";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css/autoplay";
-
 import Image from "next/image";
 import { ChevronsDown } from "lucide-react";
-import Link from "next/link";
 
-export default function HomeSlider() {
+export default function HomeSlider({ sectionRef }) {
+  const handleScroll = () => {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const homeSlider = [
     {
       url: "/images/bg1.jpg",
@@ -59,7 +62,7 @@ export default function HomeSlider() {
                 </h1>
               </div>
               <div className="sm:hidden absolute inset-0 flex justify-center items-center py-4 mt-20">
-                <a>
+                <a onClick={handleScroll}>
                   <ChevronsDown
                     size={40}
                     color="#ffffff"

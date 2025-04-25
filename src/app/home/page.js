@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import OurStory from "../(components)/(home)/OurStory";
 import ServiceCardSlider from "../(components)/(home)/ServiceCardSlider";
 import OfferSlider from "../(components)/(home)/OfferSlider";
@@ -21,11 +21,14 @@ export default function Home() {
     setShowNav((prev) => !prev);
   };
 
+  const sectionRef = useRef(null);
+
   const navLink = "offers";
 
   return (
     <div>
-      <HomeSlider />
+      <HomeSlider sectionRef={sectionRef}/>
+
       <div className="h-auto mt-10 w-full px-2 flex flex-col lg:flex-row items-center gap-4">
         <Image
           src="/images/home1.jpeg"
@@ -34,7 +37,7 @@ export default function Home() {
           height={1000}
           className="sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-120 lg:h-130 object-cover "
         />
-        <div className="flex flex-col gap-4 text-sm md:text-base lg:text-lg px-2 md:px-8">
+        <div ref={sectionRef} className="flex flex-col gap-4 text-sm md:text-base lg:text-lg px-2 md:px-8">
           <h1 className="text-2xl md:text-3xl lg:text-5xl">
             Eco Luxury Escapes <br /> in Malawi
           </h1>
