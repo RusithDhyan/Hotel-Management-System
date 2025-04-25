@@ -15,10 +15,10 @@ export default function Location() {
   };
 
   const locations = [
-    { id: 1, image: "/hotels/heritage/location/feature1.jpg" },
-    { id: 2, image: "/hotels/heritage/location/feature2.jpg" },
-    { id: 3, image: "/hotels/heritage/location/feature3.jpg" },
-    { id: 4, image: "/hotels/heritage/location/feature4.jpg" },
+    { id: 1, image: "/hotels/lotus-hotel/location/feature1.jpg" },
+    { id: 2, image: "/hotels/lotus-hotel/location/feature2.jpg" },
+    { id: 3, image: "/hotels/lotus-hotel/location/feature3.jpg" },
+    { id: 4, image: "/hotels/lotus-hotel/location/feature4.jpg" },
   ];
 
   const items = [
@@ -71,14 +71,14 @@ export default function Location() {
       <div className="flex flex-col lg:flex-row items-center justify-between mt-10 gap-5 px-4 md:px-10">
         <div className="flex flex-col md:flex-row gap-2 w-full lg:w-2/3">
           <Image
-            src="/hotels/heritage/location/image1.jpeg"
+            src="/hotels/lotus-hotel/location/image1.jpeg"
             alt=""
             width={1000}
             height={100}
             className="w-full md:w-1/2 h-52 object-cover"
           />
           <Image
-            src="/hotels/heritage/location/image2.jpeg"
+            src="/hotels/lotus-hotel/location/image2.jpeg"
             alt=""
             width={1000}
             height={100}

@@ -46,7 +46,7 @@ export default function WatersEdge() {
           height={100}
           className="w-full md:w-1/2 object-cover"
         />
-        <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full md:w-1/2 px-2">
+        <div className="flex flex-col items-center justify-center gap-4 w-full md:w-1/2 px-2">
           <h1 className="text-xl sm:text-2xl md:text-3xl text-center md:text-left">
             By the Wild and the Water Where Liwonde’s Beauty Meets Serenity
           </h1>

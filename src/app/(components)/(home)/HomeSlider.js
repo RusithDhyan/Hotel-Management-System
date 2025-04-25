@@ -1,12 +1,17 @@
-"use client"; // Required for Next.js
-
+"use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules"; // Import the Autoplay module
-import "swiper/css/autoplay"; // Import autoplay styles
-
+import { Autoplay } from "swiper/modules";
+import "swiper/css/autoplay";
 import Image from "next/image";
+import { ChevronsDown } from "lucide-react";
 
-export default function HomeSlider() {
+export default function HomeSlider({ sectionRef }) {
+  const handleScroll = () => {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const homeSlider = [
     {
       url: "/images/bg1.jpg",
@@ -18,12 +23,16 @@ export default function HomeSlider() {
     },
     {
       url: "/images/bg3.jpg",
-      title: "Wild Wonders of Malawi",
+      title: "Discovering the Wild Wonders of Malawi",
     },
     {
       url: "/images/bg4.jpg",
       title: "Malawi's Safari Magic:Where Nature Comes Alive",
-    }
+    },
+    {
+      url: "/images/bg5.jpg",
+      title: "Embracing The Warm Heart Malawi: A Cultural Journey",
+    },
   ];
   return (
     <div className="w-full">
@@ -42,22 +51,30 @@ export default function HomeSlider() {
         {homeSlider.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-screen">
-  <Image
-    src={slide.url}
-    alt="slide-img"
-    fill
-    className="object-cover w-full h-full"
-    priority
-  />
+              <Image
+                src={slide.url}
+                alt="slide-img"
+                fill
+                className="object-cover w-full h-full"
+                priority
+              />
 
-  {/* Title container with responsive position */}
-  <div className="absolute inset-0 flex justify-center items-center sm:items-end pb-5">
-    <h1 className="text-2xl md:text-3xl lg:text-5xl text-white font-bold px-4 text-center drop-shadow-md">
-      {slide.title}
-    </h1>
-  </div>
-</div>
-
+              {/* Title container with responsive position */}
+              <div className="absolute inset-0 flex justify-center items-center sm:items-end pb-5">
+                <h1 className="text-2xl md:text-3xl lg:text-5xl text-white font-bold px-4 text-center drop-shadow-md">
+                  {slide.title}
+                </h1>
+              </div>
+              <div className="sm:hidden absolute inset-0 flex justify-center items-center py-4 mt-20">
+                <a onClick={handleScroll}>
+                  <ChevronsDown
+                    size={40}
+                    color="white"
+                    className="animate-pulse "
+                  />
+                </a>
+              </div>
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
