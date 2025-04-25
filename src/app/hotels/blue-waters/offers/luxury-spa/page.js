@@ -52,7 +52,7 @@ export default function LuxurySpa() {
           height={100}
           className="h-[300px] sm:h-[400px] object-cover"
         />
-        <h1 className="absolute inset-0 flex items-end justify-center text-3xl sm:text-5xl text-white pb-4 px-4">
+        <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 px-4">
           Luxury Spa Offer
         </h1>
       </div>
