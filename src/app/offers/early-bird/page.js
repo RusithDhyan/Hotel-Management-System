@@ -68,8 +68,10 @@ export default function page() {
         "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
     },
   ];
+
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Hero Image */}
       <div className="w-full h-auto relative">
         <Image
           src="/offers/early-bird/eb-img1.jpg"
@@ -78,11 +80,12 @@ export default function page() {
           height={100}
           className="h-100 object-cover w-full"
         />
-
         <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
           Early Bird Offer
         </h1>
       </div>
+
+      {/* Description Section */}
       <div className="flex flex-col items-center justify-center gap-3 mt-10 px-4 sm:px-6 md:px-10">
         <h1 className="text-xl sm:text-2xl text-center">
           Plan ahead and enjoy more for less
@@ -94,29 +97,63 @@ export default function page() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
-        {ebOffers.map((eb, index) => (
-          <div key={index} className="relative overflow-hidden shadow-md group">
-            {/* Offer Image */}
-            <Image
-              src={`${eb.image}`}
-              alt={eb.title}
-              width={1000}
-              height={100}
-              className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 flex flex-col p-3 items-start justify-start border border-gray-300 bg-white/40 backdrop-blur-sm bg-opacity-10 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0">
-              <h1 className="text-md font-medium">{eb.title}</h1>
-              <p className="font-light text-md">{eb.description}</p>
-              <Link
-                href={`${eb.url}`}
-                className="text-gray-500 font-semibold hover:text-[#FF741E] duration-300"
-              >
-                Learn more
-              </Link>
+      {/* Offer Cards Section */}
+      <div className="mt-10 w-full px-4">
+        {/* Mobile Vertical Scroll */}
+        <div className="flex md:hidden flex-col gap-4 max-h-[80vh] overflow-y-auto scroll-smooth pb-4">
+          {ebOffers.map((eb, index) => (
+            <div
+              key={index}
+              className="w-full relative shadow-md group transition-transform duration-300"
+            >
+              <Image
+                src={eb.image}
+                alt={eb.title}
+                width={1000}
+                height={100}
+                className="w-full h-60 object-cover rounded-md"
+              />
+              <div className="p-4 bg-white bg-opacity-80 backdrop-blur-md rounded-b-md">
+                <h2 className="font-semibold text-md mb-1">{eb.title}</h2>
+                <p className="text-sm font-light">{eb.description}</p>
+                <Link
+                  href={eb.url}
+                  className="text-[#FF741E] font-semibold text-sm"
+                >
+                  Learn more
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Desktop Grid View */}
+        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {ebOffers.map((eb, index) => (
+            <div
+              key={index}
+              className="relative overflow-hidden shadow-md group transition-transform duration-300"
+            >
+              <Image
+                src={eb.image}
+                alt={eb.title}
+                width={1000}
+                height={100}
+                className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 flex flex-col p-3 items-start justify-start border border-gray-300 bg-white/40 backdrop-blur-sm bg-opacity-10 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0">
+                <h1 className="text-md font-medium">{eb.title}</h1>
+                <p className="font-light text-md">{eb.description}</p>
+                <Link
+                  href={eb.url}
+                  className="text-gray-500 font-semibold hover:text-[#FF741E] duration-300"
+                >
+                  Learn more
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
