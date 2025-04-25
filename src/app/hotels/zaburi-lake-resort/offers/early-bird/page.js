@@ -44,7 +44,7 @@ export default function EarlyBird() {
     <div className="flex flex-col min-h-screen">
       <div className="w-full h-auto relative">
         <Image
-          src="/hotels/zaburi-lake/offers/early-bird/bg.jpg"
+          src="/hotels/blue-waters/offers/early-bird/bg.jpg"
           alt="early-bird-img"
           width={1500}
           height={100}
@@ -56,7 +56,7 @@ export default function EarlyBird() {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-3 mt-10 px-4 sm:px-10 text-center">
-        <h1 className="text-xl sm:text-2xl">Early Bird Offer at Zaburi Lake Resort</h1>
+        <h1 className="text-xl sm:text-2xl">Early Bird Offer at Blue Waters</h1>
         <p className="font-extralight text-sm sm:text-base">
           Plan ahead and enjoy more for less. Book 3 months or more in advance
           and enjoy up to 20% off your stay. This offer is valid for stays until
@@ -66,7 +66,7 @@ export default function EarlyBird() {
 
       <div className="flex flex-col lg:flex-row items-center justify-center gap-6 mt-10 px-4 sm:px-10">
         <Image
-          src="/hotels/zaburi-lake/offers/early-bird/bg-img.jpg"
+          src="/hotels/blue-waters/offers/early-bird/bg-img.jpg"
           alt="early-bird-img"
           width={1000}
           height={100}

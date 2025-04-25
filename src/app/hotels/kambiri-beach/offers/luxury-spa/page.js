@@ -10,6 +10,7 @@ export default function LuxurySpa() {
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
   const accordion = [
     {
       title: "Terms & Conditions",
@@ -30,6 +31,7 @@ export default function LuxurySpa() {
       ],
     },
   ];
+
   const offers = [
     { name: "20% off for stays between 1st May to 19th June 2025" },
     { name: "10% off for stays between 1st May to 19th December 2025" },
@@ -48,46 +50,51 @@ export default function LuxurySpa() {
           alt="luxury-spa-img"
           width={1500}
           height={100}
-          className="h-100 object-cover"
+          className="h-[300px] sm:h-[400px] object-cover"
         />
-
-        <h1 className="absolute inset-0 flex items-end justify-center text-5xl text-white pb-4">
+        <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 px-4">
           Luxury Spa Offer
         </h1>
       </div>
-      <div className="flex flex-col items-center justify-center gap-3 mt-10 px-10">
-        <h1 className="text-2xl">Luxury Spa Offer at Le Croissant</h1>
-        <p className="font-extralight">
+
+      <div className="flex flex-col items-center justify-center gap-3 mt-10 px-5 sm:px-10">
+        <h1 className="text-xl sm:text-2xl">Luxury Spa Offer at Le Croissant</h1>
+        <p className="font-extralight text-sm sm:text-base text-center sm:text-left px-3">
           Experience ultimate relaxation with our Luxury Spa Offer –
           rejuvenating massages, soothing facials, and premium treatments
           designed to pamper you from head to toe. Treat yourself today!
         </p>
       </div>
-      <div className="flex flex-row items-center justify-center gap-4 mt-10 px-10">
-        <Image
-          src="/hotels/heritage/offers/luxury-spa/bg-img.jpg"
-          alt="luxury-spa-img"
-          width={1000}
-          height={100}
-          className="w-130 h-130 object-cover"
-        />
-        <div className="flex flex-col items-start justify-center gap-1">
-          <h1 className="text-2xl py-2">Offer Inclusions</h1>
+
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-5 mt-10 px-5 sm:px-10">
+        <div className="w-full sm:w-1/2">
+          <Image
+            src="/hotels/heritage/offers/luxury-spa/bg-img.jpg"
+            alt="luxury-spa-img"
+            width={1000}
+            height={100}
+            className="w-full h-auto object-cover"
+          />
+        </div>
+
+        <div className="flex flex-col items-start justify-center gap-2 sm:w-1/2">
+          <h1 className="text-xl sm:text-2xl py-2">Offer Inclusions</h1>
           {offers.map((offer, index) => (
             <div key={index} className="flex items-center gap-2">
               <Goal size={15} />
-              <h3 className="text-sm font-light">{offer.name}</h3>
+              <h3 className="text-sm sm:text-base font-light">{offer.name}</h3>
             </div>
           ))}
           <Link href="/">
-            <button className="relative group text-black py-1 px-2  border-transparent">
+            <button className="relative group text-black py-1 px-2 border-transparent mt-4">
               Book
               <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
             </button>
           </Link>
         </div>
       </div>
-      <div className="flex flex-col px-10 mt-10 space-y-2">
+
+      <div className="flex flex-col px-5 sm:px-10 mt-10 space-y-3">
         {accordion.map((acc, index) => (
           <div key={index} className="border rounded-lg">
             <button
@@ -103,7 +110,7 @@ export default function LuxurySpa() {
             </button>
             {openIndex === index && (
               <div className="p-4 bg-white border-t">
-                <div className="flex flex-col items-start gap-2 justify-center">
+                <div className="flex flex-col items-start gap-2">
                   {acc.content.map((item, index) => (
                     <div key={index} className="flex items-center gap-2">
                       <Disc size={15} />
