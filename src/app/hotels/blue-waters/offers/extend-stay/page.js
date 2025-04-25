@@ -10,6 +10,7 @@ export default function ExtendedStay() {
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
   const accordion = [
     {
       title: "Terms & Conditions",
@@ -30,6 +31,7 @@ export default function ExtendedStay() {
       ],
     },
   ];
+
   const offers = [
     { name: "20% off for stays between 1st May to 19th June 2025" },
     { name: "10% off for stays between 1st May to 19th December 2025" },
@@ -50,28 +52,27 @@ export default function ExtendedStay() {
           height={100}
           className="h-100 object-cover"
         />
-
         <h1 className="absolute inset-0 flex items-end justify-center text-5xl text-white pb-4">
           Extended Stay Offer
         </h1>
       </div>
-      <div className="flex flex-col items-center justify-center gap-3 mt-10 px-10">
-        <h1 className="text-2xl">Extended Stay Offer at Le Croissant</h1>
-        <p className="font-extralight">
+      <div className="flex flex-col items-center justify-center gap-3 mt-10 px-4 sm:px-10">
+        <h1 className="text-2xl text-center sm:text-left">Extended Stay Offer at Le Croissant</h1>
+        <p className="font-extralight text-center sm:text-left">
           Settle in and save more with our Extended Stay Offer! Enjoy discounted
           rates, spacious accommodations, and home-like comforts for longer
           visits. Perfect for work, relocation, or a relaxing escape.
         </p>
       </div>
-      <div className="flex flex-row items-center justify-center gap-4 mt-10 px-10">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 px-4 sm:px-10">
         <Image
           src="/hotels/heritage/offers/extend-stay/bg-img.jpg"
           alt="extended-stay-img"
           width={1000}
           height={100}
-          className="w-130 h-130 object-cover"
+          className="w-full sm:w-130 h-auto object-cover"
         />
-        <div className="flex flex-col items-start justify-center gap-1">
+        <div className="flex flex-col items-start justify-center gap-1 mt-6 sm:mt-0">
           <h1 className="text-2xl py-2">Offer Inclusions</h1>
           {offers.map((offer, index) => (
             <div key={index} className="flex items-center gap-2">
@@ -80,14 +81,14 @@ export default function ExtendedStay() {
             </div>
           ))}
           <Link href="/">
-            <button className="relative group text-black py-1 px-2  border-transparent">
+            <button className="relative group text-black py-1 px-2 border-transparent mt-4">
               Book
               <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
             </button>
           </Link>
         </div>
       </div>
-      <div className="flex flex-col px-10 mt-10 space-y-2">
+      <div className="flex flex-col px-4 sm:px-10 mt-10 space-y-2">
         {accordion.map((acc, index) => (
           <div key={index} className="border rounded-lg">
             <button
