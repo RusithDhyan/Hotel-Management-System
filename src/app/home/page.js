@@ -15,14 +15,13 @@ export default function Home() {
   const activateHover = () => setIsActive(true);
   const deactivateHover = () => setIsActive(false);
 
+  const [showNav, setShowNav] = useState(false);
+
   const [showHotelNav, setShowHotelNav] = useState(false);
 
   const handleTouch = () => {
-    if (window.innerWidth <= 768) {
-      setShowHotelNav(true);
-    }
+    setShowNav((prev) => !prev);
   };
-
 
   const sectionRef = useRef(null);
 
@@ -114,7 +113,7 @@ export default function Home() {
             className="object-cover transition-transform duration-500 group-hover:scale-130"
           />
 
-          <HotelNav show={showHotelNav} />
+          <HotelNav />
         </div>
       </div>
       <div className=" h-auto flex flex-col md:flex-row items-center w-full px-2 lg:px-10 gap-5">
