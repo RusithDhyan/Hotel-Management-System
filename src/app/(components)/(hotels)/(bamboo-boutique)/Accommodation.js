@@ -40,6 +40,10 @@ const hotels = [
 ];
 
 export default function Accommodation() {
+  const [isActive, setIsActive] = useState(false);
+
+  const activateHover = () => setIsActive(true);
+  const deactivateHover = () => setIsActive(false);
   const [index, setIndex] = useState(0);
 
   const nextSlide = () => {
@@ -60,9 +64,19 @@ export default function Accommodation() {
           href="/hotels/bamboo-boutique/accommodations"
           className="items-center justify-center flex text-sm md:text-md lg:text-lg"
         >
-          <button className="relative group text-gray-400 py-1 px-2 border-b-2 border-transparent">
+          <button
+            className="relative text-black py-1 px-2 border-b-2 border-transparent text-gray-500"
+            onMouseEnter={activateHover}
+            onMouseLeave={deactivateHover}
+            onTouchStart={activateHover}
+            onTouchEnd={deactivateHover}
+          >
             View All
-            <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-gray-400 group-hover:w-full transition-all duration-300"></span>
+            <span
+              className={`absolute left-0 bottom-0 h-[2px] bg-gray-400 transition-all duration-300 ${
+                isActive ? "w-full" : "w-10"
+              }`}
+            ></span>
           </button>
         </Link>
       </div>
@@ -95,9 +109,19 @@ export default function Accommodation() {
                       href={`${hotel.url}`}
                       className="text-sm md:text-md lg:text-lg"
                     >
-                      <button className="relative group text-black py-1 px-2">
+                      <button
+                        className="relative text-black py-1 px-2 border-b-2 border-transparent"
+                        onMouseEnter={activateHover}
+                        onMouseLeave={deactivateHover}
+                        onTouchStart={activateHover}
+                        onTouchEnd={deactivateHover}
+                      >
                         Explore
-                        <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
+                        <span
+                          className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                            isActive ? "w-full" : "w-10"
+                          }`}
+                        ></span>
                       </button>
                     </Link>
                   </div>

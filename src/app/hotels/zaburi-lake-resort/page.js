@@ -1,12 +1,18 @@
+"use client"
 import Accommodation from "@/app/(components)/(hotels)/(zaburi-lake-resort)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(zaburi-lake-resort)/Experience";
 import FoodFlavor from "@/app/(components)/(hotels)/(zaburi-lake-resort)/FoodFlavor";
 import OfferSlider from "@/app/(components)/(hotels)/(zaburi-lake-resort)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 export default function ZaburiLakeResort() {
+  const [isActive, setIsActive] = useState(false);
+    
+      const activateHover = () => setIsActive(true);
+      const deactivateHover = () => setIsActive(false);
+
   const navLink = "hotels/zaburi-lake-resort/offers";
   const items = [
     { url: "/icons/hotels/bed-single.png", title: "Modern & Spacious Rooms" },
@@ -26,7 +32,7 @@ export default function ZaburiLakeResort() {
           height={100}
           className="object-cover max-h-screen w-full"
         />
-        <h1 className="absolute inset-0 flex items-center justify-center text-3xl sm:text-4xl md:text-5xl text-white text-center pb-4">
+        <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl text-white pb-4 font-bold px-4">
           Zaburi Lake Resort
         </h1>
       </div>
@@ -52,10 +58,20 @@ export default function ZaburiLakeResort() {
             it a perfect destination for relaxation and exploration.
           </p>
           <Link href="/hotels/zaburi-lake-resort/location">
-            <button className="relative group text-black py-1 px-2 border-b-2 border-transparent">
-              Discover Place
-              <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
-            </button>
+          <button
+                className="relative text-black py-1 px-2 border-b-2 border-transparent"
+                onMouseEnter={activateHover}
+                onMouseLeave={deactivateHover}
+                onTouchStart={activateHover}
+                onTouchEnd={deactivateHover}
+              >
+                Discover Place
+                <span
+                  className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                    isActive ? "w-full" : "w-10"
+                  }`}
+                ></span>
+              </button>
           </Link>
         </div>
       </div>

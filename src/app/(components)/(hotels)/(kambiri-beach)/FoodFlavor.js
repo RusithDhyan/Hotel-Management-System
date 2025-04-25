@@ -1,8 +1,13 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 export default function FoodFlavor() {
+  const [isActive, setIsActive] = useState(false);
+        
+          const activateHover = () => setIsActive(true);
+          const deactivateHover = () => setIsActive(false);
   return (
     <div className="mt-10 flex flex-col items-center px-4 sm:px-6 md:px-10">
       <div className="flex flex-col items-center justify-center w-full max-w-3xl text-center">
@@ -14,10 +19,20 @@ export default function FoodFlavor() {
           backdrop of our tranquil gardens.
         </p>
         <Link href="/hotels/kambiri-beach/dining" className="text-sm lg:text-lg md:text-md mt-4">
-          <button className="relative group text-black py-1 px-2">
-            Explore
-            <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
-          </button>
+        <button
+                className="relative text-black py-1 px-2 border-b-2 border-transparent"
+                onMouseEnter={activateHover}
+                onMouseLeave={deactivateHover}
+                onTouchStart={activateHover}
+                onTouchEnd={deactivateHover}
+              >
+                Explore
+                <span
+                  className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                    isActive ? "w-full" : "w-10"
+                  }`}
+                ></span>
+              </button>
         </Link>
       </div>
 

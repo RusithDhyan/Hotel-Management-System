@@ -1,12 +1,18 @@
+"use client"
 import Accommodation from "@/app/(components)/(hotels)/(blue-waters)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(blue-waters)/Experience";
 import FoodFlavor from "@/app/(components)/(hotels)/(blue-waters)/FoodFlavor";
 import OfferSlider from "@/app/(components)/(hotels)/(blue-waters)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 export default function BlueWatersEdge() {
+  const [isActive, setIsActive] = useState(false);
+    
+      const activateHover = () => setIsActive(true);
+      const deactivateHover = () => setIsActive(false);
+
   const navLink = "hotels/blue-waters/offers";
   const items = [
     { url: "/icons/hotels/bed-single.png", title: "Modern & Spacious Rooms" },
@@ -26,7 +32,7 @@ export default function BlueWatersEdge() {
           height={100}
           className="object-cover max-h-screen w-full"
         />
-        <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-5xl text-white pb-4 text-center px-4">
+         <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl text-white pb-4 font-bold px-4">
           Blue Waters Edge
         </h1>
       </div>
@@ -49,10 +55,20 @@ export default function BlueWatersEdge() {
             Nestled along the serene shores of Lake Malawi, Blue Waters Lake Resort offers a tranquil escape with rustic luxury. Guests can enjoy lakeview accommodations, a tranquil waterside pool, and exceptional event spaces accommodating up to 300 guests. The resort's "Pier Deck" and "Rain Tree" restaurants are renowned for their culinary delights, enhancing every occasion.
           </p>
           <Link href="/hotels/blue-waters/location">
-            <button className="relative group text-black py-2 px-4">
-              Discover Place
-              <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
-            </button>
+          <button
+                className="relative text-black py-1 px-2 border-b-2 border-transparent"
+                onMouseEnter={activateHover}
+                onMouseLeave={deactivateHover}
+                onTouchStart={activateHover}
+                onTouchEnd={deactivateHover}
+              >
+                Discover Place
+                <span
+                  className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                    isActive ? "w-full" : "w-10"
+                  }`}
+                ></span>
+              </button>
           </Link>
         </div>
       </div>

@@ -7,8 +7,13 @@ import "swiper/css/autoplay"; // Import autoplay styles
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function OfferSlider({ nav }) {
+   const [isActive, setIsActive] = useState(false);
+      
+        const activateHover = () => setIsActive(true);
+        const deactivateHover = () => setIsActive(false);
   const slider = [
     {
       image: "/hotels/heritage/offers/slider/offer1.jpeg",
@@ -20,7 +25,7 @@ export default function OfferSlider({ nav }) {
     },
     {
       image: "/hotels/heritage/offers/slider/offer2.jpeg",
-      url:"/hotels/heritage-hotel/offers/extend-stay",
+      url:"/hotels/heritage-hotel/offers/early-bird",
       title: "Early Bird Discount",
       offerType: "Just One More Night",
       description:
@@ -28,7 +33,7 @@ export default function OfferSlider({ nav }) {
     },
     {
       image: "/hotels/heritage/offers/slider/offer3.jpeg",
-      url:"/hotels/heritage-hotel/offers/luxury-spa",
+      url:"/hotels/heritage-hotel/offers/early-bird",
       title: "Spa & Stay Retreat",
       offerType: "Just One More Night",
       description:
@@ -44,10 +49,20 @@ export default function OfferSlider({ nav }) {
           href={`/${nav}`}
           className="items-center justify-center flex text-sm lg:text-lg md:text-md"
         >
-          <button className="relative group text-gray-400 py-1 px-2 border-b-2 border-transparent">
-            View more
-            <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-gray-400 group-hover:w-full transition-all duration-300"></span>
-          </button>
+          <button
+                className="relative text-black py-1 px-2 border-b-2 border-transparent text-gray-500"
+                onMouseEnter={activateHover}
+                onMouseLeave={deactivateHover}
+                onTouchStart={activateHover}
+                onTouchEnd={deactivateHover}
+              >
+                View all
+                <span
+                  className={`absolute left-0 bottom-0 h-[2px] bg-gray-400 transition-all duration-300 ${
+                    isActive ? "w-full" : "w-10"
+                  }`}
+                ></span>
+              </button>
         </Link>
       </div>
       <Swiper
@@ -80,10 +95,20 @@ export default function OfferSlider({ nav }) {
                 </h1>
                 <h2>{slide.description}</h2>
                 <Link href={slide.url}>
-                  <button className="relative group text-black py-1 px-2 border-b-2 border-transparent">
-                    Explore
-                    <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
-                  </button>
+                <button
+                className="relative text-black py-1 px-2 border-b-2 border-transparent"
+                onMouseEnter={activateHover}
+                onMouseLeave={deactivateHover}
+                onTouchStart={activateHover}
+                onTouchEnd={deactivateHover}
+              >
+                Explore
+                <span
+                  className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                    isActive ? "w-full" : "w-10"
+                  }`}
+                ></span>
+              </button>
                 </Link>
               </div>
             </div>

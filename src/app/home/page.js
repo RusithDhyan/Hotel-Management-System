@@ -10,6 +10,11 @@ import HotelNav from "../(components)/(home)/HotelNav";
 import HotelSlider from "../(components)/(home)/HotelSlider";
 
 export default function Home() {
+  const [isActive, setIsActive] = useState(false);
+
+  const activateHover = () => setIsActive(true);
+  const deactivateHover = () => setIsActive(false);
+
   const [showNav, setShowNav] = useState(false);
 
   const handleTouch = () => {
@@ -79,17 +84,16 @@ export default function Home() {
         <HotelSlider />
       </div>
       <div className="h-auto w-full flex flex-col md:flex-row items-center justify-center sm:justify-between">
-        <div className="flex flex-col items-left gap-2 text-xs lg:text-lg md:text-md px-2">
+        <div className="flex flex-col items-left gap-2 text-xs lg:text-lg md:text-md px-4">
           <h1 className="text-xl lg:text-4xl md:text-3xl">Explore Malawi...</h1>
           <p>
             Malawi is a landlocked country in southeastern Africa, bordered by
-            Tanzania,
-            Mozambique, and Zambia. It is known as the "Warm Heart of
-            Africa" due to the friendliness of its people. The country
-            features stunning landscapes,
+            Tanzania, Mozambique, and Zambia. It is known as the "Warm Heart of
+            Africa" due to the friendliness of its people. The country features
+            stunning landscapes,
             <br /> including Lake Malawi, one of Africa’s largest and most
-            biodiverse lakes,which offers pristine beaches, water activities, and
-            wildlife.
+            biodiverse lakes,which offers pristine beaches, water activities,
+            and wildlife.
           </p>
         </div>
         <div
@@ -99,7 +103,7 @@ export default function Home() {
           <Image
             src="/images/map2.png"
             alt="card-image2"
-            width={500}
+            width={1000}
             height={10}
             className="object-cover transition-transform duration-500 group-hover:scale-130"
           />
@@ -133,9 +137,19 @@ export default function Home() {
           </p>
           <div>
             <Link href="/blogs" className="text-sm lg:text-lg md:text-md">
-              <button className="relative group text-black py-1 px-2 border-b-2 border-transparent">
+              <button
+                className="relative text-black py-1 px-2 border-b-2 border-transparent"
+                onMouseEnter={activateHover}
+                onMouseLeave={deactivateHover}
+                onTouchStart={activateHover}
+                onTouchEnd={deactivateHover}
+              >
                 Discover
-                <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
+                <span
+                  className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                    isActive ? "w-full" : "w-10"
+                  }`}
+                ></span>
               </button>
             </Link>
           </div>
