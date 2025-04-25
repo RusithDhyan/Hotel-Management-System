@@ -37,7 +37,7 @@ export default function Navbar() {
       className={` ${
         isHomePage
           ? "bg-transparent fixed top-0 w-full z-50"
-          : " text-black border-1 border-b-white w-full top-0 z-50 fixed"
+          : " text-black border-b border-b-white w-full top-0 z-50 fixed"
       } ${isScrolled ? "bg-white delay-200" : "bg-transparent"}`}
     >
       <div className="w-full h-15 flex flex-row items-center justify-between px-2">
