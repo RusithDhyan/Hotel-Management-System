@@ -52,7 +52,7 @@ export default function ExtendedStay() {
           height={100}
           className="h-100 object-cover"
         />
-        <h1 className="absolute inset-0 flex items-end justify-center text-5xl text-white pb-4">
+        <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4">
           Extended Stay Offer
         </h1>
       </div>
