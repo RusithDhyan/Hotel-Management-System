@@ -14,7 +14,7 @@ const ExperienceAccordion = ({ items }) => {
   return (
     <div className="w-full max-w-4xl mx-auto space-y-2 py-10 px-4 sm:px-6">
       {items.map((item, index) => (
-        <div key={index} className="border rounded-lg">
+        <div key={index} className="border">
           <button
             onClick={() => toggleAccordion(index)}
             className="flex justify-between items-center w-full p-4 bg-gray-100 hover:bg-gray-200 transition"
@@ -34,7 +34,7 @@ const ExperienceAccordion = ({ items }) => {
                   alt="accordion-img"
                   width={1000}
                   height={100}
-                  className="w-full sm:w-48 h-auto object-cover rounded"
+                  className="w-full sm:w-48 h-auto object-cover"
                 />
                 <div className="flex flex-col items-start text-sm sm:text-base">
                   {item.content}
