@@ -1,5 +1,6 @@
+
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -41,10 +42,14 @@ const hotels = [
 
 export default function Accommodation() {
   const [isActive, setIsActive] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  const sliderRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const activateHover = () => setIsActive(true);
   const deactivateHover = () => setIsActive(false);
-  const [index, setIndex] = useState(0);
 
   const nextSlide = () => {
     setIndex((prev) => (prev + 1) % hotels.length);
@@ -54,16 +59,31 @@ export default function Accommodation() {
     setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
   };
 
+  // Handle Touch
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      nextSlide(); // swipe left
+    }
+    if (touchStartX.current - touchEndX.current < -50) {
+      prevSlide(); // swipe right
+    }
+  };
+
   return (
     <div>
       <h1 className="text-center text-xl md:text-3xl lg:text-4xl">
         Accommodations
       </h1>
       <div>
-        <Link
-          href="/hotels/bamboo-boutique/accommodations"
-          className="items-center justify-center flex text-sm md:text-md lg:text-lg"
-        >
+        <Link href="/hotels/bamboo-boutique/accommodations" className="items-center justify-center flex text-sm md:text-md lg:text-lg">
           <button
             className="relative text-black py-1 px-2 border-b-2 border-transparent text-gray-500"
             onMouseEnter={activateHover}
@@ -80,13 +100,20 @@ export default function Accommodation() {
           </button>
         </Link>
       </div>
-      <div className="relative w-full max-w-6xl mx-auto mt-10 overflow-hidden">
+
+      <div
+        className="relative w-full max-w-6xl mx-auto mt-10 overflow-hidden"
+        ref={sliderRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {/* Slider Container */}
         <div
-          className="flex transition-transform duration-500 ease-in-out"
+          className="flex transition-transform duration-300 ease-in-out"
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
-          {hotels.map((hotel, i) => (
+          {hotels.map((hotel) => (
             <div
               key={hotel.id}
               className="flex-shrink-0 w-full md:w-[50%] lg:w-[33.33%] p-4 transition-all duration-500"
@@ -105,10 +132,7 @@ export default function Accommodation() {
                   </h3>
                   <p className="text-sm">{hotel.description}</p>
                   <div className="flex flex-row justify-start py-3">
-                    <Link
-                      href={`${hotel.url}`}
-                      className="text-sm md:text-md lg:text-lg"
-                    >
+                    <Link href={hotel.url} className="text-sm md:text-md lg:text-lg">
                       <button
                         className="relative text-black py-1 px-2 border-b-2 border-transparent"
                         onMouseEnter={activateHover}
@@ -130,19 +154,18 @@ export default function Accommodation() {
             </div>
           ))}
         </div>
-        {/* Navigation Buttons */}
-        <div className="flex items-center justify-between sm:justify-end gap-20 my-2 px-4">
+
+        {/* Navigation Buttons (only show on desktop) */}
+        <div className="flex items-center justify-between  sm:justify-end gap-20 my-2 px-4">
           <button onClick={prevSlide} className="text-gray-500">
             <CircleArrowLeft size={30} />
           </button>
-          {/* Mobile card number display only */}
-          <h5 className="text-sm md:hidden text-gray-500">
-            {index + 1}/{hotels.length}
-          </h5>
+          <h5 className="text-sm text-gray-500">{index + 1}/{hotels.length}</h5>
           <button onClick={nextSlide} className="text-gray-500">
             <CircleArrowRight size={30} />
           </button>
         </div>
+
       </div>
     </div>
   );
