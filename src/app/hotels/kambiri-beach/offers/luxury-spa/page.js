@@ -58,7 +58,7 @@ export default function LuxurySpa() {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-3 mt-10 px-5 sm:px-10">
-        <h1 className="text-xl sm:text-2xl">Luxury Spa Offer at Le Croissant</h1>
+        <h1 className="text-xl sm:text-2xl">Luxury Spa Offer at Kambiri Beach</h1>
         <p className="font-extralight text-sm sm:text-base text-center sm:text-left px-3">
           Experience ultimate relaxation with our Luxury Spa Offer –
           rejuvenating massages, soothing facials, and premium treatments

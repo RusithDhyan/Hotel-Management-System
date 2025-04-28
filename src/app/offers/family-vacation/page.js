@@ -91,11 +91,11 @@ export default function page() {
           Plan ahead and enjoy more for less
         </h1>
         <p className="font-extralight text-center text-sm sm:text-base">
-          Escape into bliss with our exclusive Spa Retreat package. Book your
-          serene getaway and enjoy rejuvenating spa treatments, luxury
-          accommodations, and complimentary wellness activities. Reserve early
-          to save more — valid for stays until 30th April 2026 across all
-          Serendib Collection properties.
+          Create unforgettable memories with your loved ones through our Family
+          Vacation Offer. Enjoy special family-friendly rates, complimentary
+          meals for kids, and fun activities for all ages. Book your stay in
+          advance and make the most of quality time together across all Serendib
+          Collection properties. Offer valid until 30th April 2026.
         </p>
       </div>
 
@@ -115,7 +115,7 @@ export default function page() {
                 height={100}
                 className="w-full h-60 object-cover"
               />
-              <div className="p-4 bg-white bg-opacity-80 backdrop-blur-md rounded-b-md">
+              <div className="p-2 bg-white bg-opacity-80 backdrop-blur-md rounded-b-md">
                 <h2 className="font-semibold text-md mb-1">{fv.title}</h2>
                 <p className="text-sm font-light">{fv.description}</p>
                 <Link

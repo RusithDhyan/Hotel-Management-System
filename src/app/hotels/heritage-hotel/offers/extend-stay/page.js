@@ -57,7 +57,7 @@ export default function ExtendedStay() {
         </h1>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 mt-10 px-4 sm:px-10">
-        <h1 className="text-2xl text-center sm:text-left">Extended Stay Offer at Le Croissant</h1>
+        <h1 className="text-2xl text-center sm:text-left">Extended Stay Offer at Heritage Hotel</h1>
         <p className="font-extralight text-center sm:text-left">
           Settle in and save more with our Extended Stay Offer! Enjoy discounted
           rates, spacious accommodations, and home-like comforts for longer

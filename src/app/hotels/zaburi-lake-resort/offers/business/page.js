@@ -57,7 +57,7 @@ export default function Business() {
         </h1>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 mt-10 px-4 sm:px-10">
-        <h1 className="text-2xl text-center sm:text-left">Business Offer at Le Croissant</h1>
+        <h1 className="text-2xl text-center sm:text-left">Business Offer at Zaburi Lake Resort</h1>
         <p className="font-extralight text-center sm:text-left">
           Stay productive on the go with our exclusive Business Offer – enjoy
           comfortable stays, high-speed Wi-Fi, meeting facilities, and flexible

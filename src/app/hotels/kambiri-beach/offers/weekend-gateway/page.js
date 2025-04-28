@@ -56,7 +56,7 @@ export default function WeekendGateway() {
         </h1>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 mt-5 px-5 sm:px-10">
-        <h1 className="text-xl sm:text-2xl text-center">Weekend Gateway Offer at Le Croissant</h1>
+        <h1 className="text-xl sm:text-2xl text-center">Weekend Gateway Offer at Kambiri Beach</h1>
         <p className="font-extralight text-sm sm:text-base text-center sm:text-left px-3">
           Escape the routine and unwind in style! Enjoy a perfect weekend
           retreat with luxurious stays, delicious meals, and serene
