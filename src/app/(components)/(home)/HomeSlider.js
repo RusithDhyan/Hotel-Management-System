@@ -66,7 +66,7 @@ export default function HomeSlider({ sectionRef }) {
                   {slide.title}
                 </h1>
               </div>
-              <div className="sm:hidden absolute inset-0 flex justify-center items-end py-80 mt-20">
+              <div className="sm:hidden absolute inset-0 flex justify-center items-end py-70 mt-20">
                 <a onClick={handleScroll}>
                   <ChevronsDown
                     size={40}
