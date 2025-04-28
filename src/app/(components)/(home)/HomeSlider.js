@@ -69,7 +69,7 @@ export default function HomeSlider({ sectionRef }) {
               <div className="sm:hidden absolute inset-0 flex justify-center items-center mt-20">
                 <a onClick={handleScroll}>
                   <ChevronsDown
-                    size={40}
+                    size={50}
                     color="white"
                     className="animate-pulse "
                   />
