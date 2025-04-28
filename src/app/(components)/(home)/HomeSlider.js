@@ -32,7 +32,7 @@ export default function HomeSlider({ sectionRef }) {
     {
       url: "/images/bg5.jpg",
       title: "Embracing The Warm Heart Malawi: A Cultural Journey",
-    }
+    },
    
   ];
   return (
@@ -62,11 +62,11 @@ export default function HomeSlider({ sectionRef }) {
 
               {/* Title container with responsive position */}
               <div className="absolute inset-0 flex justify-center items-center sm:items-end pb-5">
-                <h1 className="text-3xl md:text-3xl lg:text-5xl text-white font-bold px-2 text-center drop-shadow-md mb-2">
+                <h1 className="text-2xl md:text-3xl lg:text-5xl text-white font-bold px-2 text-center drop-shadow-md mb-2">
                   {slide.title}
                 </h1>
               </div>
-              <div className="sm:hidden absolute inset-0 flex justify-center items-end py-70 mt-20">
+              <div className="sm:hidden absolute inset-0 flex justify-center items-end mt-20">
                 <a onClick={handleScroll}>
                   <ChevronsDown
                     size={40}
