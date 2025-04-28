@@ -88,6 +88,15 @@ const hotels = [
     description:
       "A modern and quiet hotel in Lilongwe with comfy rooms, a relaxing garden, and tasty meals — ideal for both business and casual stays.",
   },
+  {
+    id: 10,
+    image: "/hotels/h10.jpg",
+    title: "Serendib Travels",
+    url: "/hotels/serendib-travels",
+    location: "Senga Bay,Salima",
+    description:
+      "Our hotel offers a relaxing stay with modern amenities, warm hospitality, and a beautiful setting in Malawi.Enjoy a peaceful retreat with stunning views.",
+  },
 ];
 
 export default function HotelSlider() {
@@ -141,8 +150,9 @@ export default function HotelSlider() {
         </Link>
       </div>
       </div>
-
-      <div className="relative w-full max-w-6xl mx-auto mt-10 overflow-hidden p-4">
+      
+      <div className="sm:px-20">
+      <div className="relative  mx-auto mt-10 overflow-hidden p-4">
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{
@@ -171,7 +181,7 @@ export default function HotelSlider() {
                   width={1000}
                   height={100}
                 />
-                <div className={`p-1 ${i === index ? "h-40" : "h-auto"}`}>
+                <div className={`lg:p-4 ${i === index ? "h-40" : "h-auto"}`}>
                   <h3 className="text-lg font-semibold">{hotel.title}</h3>
                   <h4 className="text-gray-400">{hotel.location}</h4>
                   {i === index && (
@@ -220,6 +230,7 @@ export default function HotelSlider() {
             <CircleArrowRight size={30} />
           </button>
         </div>
+      </div>
       </div>
     </div>
   );

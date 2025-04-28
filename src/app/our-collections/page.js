@@ -76,6 +76,14 @@ export default function OurCollection() {
       location: "Mdoka Street, Area 12, Lilongwe, Malawi",
       description: "Stay in a beautifully restored colonial-era residence.",
     },
+    {
+      id: 10,
+      nav: "serendib-travels",
+      image: "/hotels/h10.jpg",
+      title: "Serendib Travels",
+      location: "Off Chilomoni Ring Road, Namiwawa, Blantyre, Malawi",
+      description: "Nestled in the tranquil Namiwawa neighborhood of Blantyre, Serendib Suites & Conference Center offers a harmonious blend of comfort and convenience."
+    },
   ];
 
   const items = [

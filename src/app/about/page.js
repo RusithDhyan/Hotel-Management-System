@@ -3,15 +3,16 @@ import Image from "next/image";
 
 function About() {
   const hotels = [
-    { url: "/logo/blue.png", name: "Blue Waters Lake Resort" },
-    { url: "/logo/Heritage.png", name: "Heritage Hotel" },
-    { url: "/logo/Kambiri.png", name: "Kambri Beach" },
-    { url: "/logo/Serendib-travels.png", name: "Serendib Tours" },
-    { url: "/logo/Kara-o-Mula.png", name: "Kara O Mula" },
-    { url: "/logo/Lotus.png", name: "Lotus Hotel" },
-    { url: "/logo/Zaburi.png", name: "Zaburi Lake Resort" },
-    { url: "/logo/Waters-Edge.png", name: "Waters Edge" },
-    { url: "/logo/Bamboo.png", name: "Bamboo Boutique" },
+    { image: "/logo/blue.png", name: "Blue Waters Lake Resort" },
+    { image: "/logo/Heritage.png", name: "Heritage Hotel" },
+    { image: "/logo/Kambiri.png", name: "Kambri Beach" },
+    { image: "/logo/Serendib-travels.png", name: "Serendib Tours" },
+    { image: "/logo/Kara-o-Mula.png", name: "Kara O Mula" },
+    { image: "/logo/Lotus.png", name: "Lotus Hotel" },
+    { image: "/logo/Zaburi.png", name: "Zaburi Lake Resort" },
+    { image: "/logo/Waters-Edge.png", name: "Waters Edge" },
+    { image: "/logo/Bamboo.png", name: "Bamboo Boutique" },
+
   ];
 
   return (
@@ -63,13 +64,12 @@ function About() {
               className="flex flex-col items-center justify-center p-4 bg-gray-100 rounded shadow-sm hover:scale-110 transition"
             >
               <Image
-                src={hotel.url}
+                src={hotel.image}
                 alt={hotel.name}
                 width={100}
                 height={100}
                 className="object-contain w-20 h-20"
               />
-              {/* <p className="text-center text-xs mt-2">{hotel.name}</p> */}
             </div>
           ))}
         </div>

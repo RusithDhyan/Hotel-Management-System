@@ -1,0 +1,182 @@
+"use client";
+import { useState, useRef } from "react";
+import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+const hotels = [
+  {
+    id: 1,
+    image: "/hotels/serendib-travels/accommodations/executive.jpeg",
+    title: "Executive Suite",
+    url: "/hotels/serendib-travels/accommodations/executive-suite",
+    description:
+      "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
+  },
+  {
+    id: 2,
+    image: "/hotels/serendib-travels/accommodations/family.jpeg",
+    title: "Family Twin Room",
+    url: "/hotels/serendib-travels/accommodations/family-twin",
+    description:
+      "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
+  },
+  {
+    id: 3,
+    image: "/hotels/serendib-travels/accommodations/deluxe.jpeg",
+    title: "Deluxe King Room",
+    url: "/hotels/serendib-travels/accommodations/deluxe-king",
+    description:
+      "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
+  },
+  {
+    id: 4,
+    image: "/hotels/serendib-travels/accommodations/premier.jpeg",
+    title: "Premier Heritage Suite",
+    url: "/hotels/serendib-travels/accommodations/premier",
+    description:
+      "Experience the perfect blend of timeless elegance and modern comfort in our Premier Heritage Suite. This spacious suite features a king-size bed with premium linens, a separate living area.",
+  },
+];
+
+export default function Accommodation() {
+  const [isActive, setIsActive] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  const sliderRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const isSwiping = useRef(false); // NEW: to track swipe separately
+
+  const activateHover = () => setIsActive(true);
+  const deactivateHover = () => setIsActive(false);
+
+  const nextSlide = () => {
+    if (!isSwiping.current) { // Only move if not swiping
+      setIndex((prev) => (prev + hotels.length) % hotels.length);
+    }
+  };
+
+  const prevSlide = () => {
+    if (!isSwiping.current) { // Only move if not swiping
+      setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
+    }
+  };
+
+  const handleTouchStart = (e) => {
+    isSwiping.current = true; // user is trying to swipe
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const distance = touchStartX.current - touchEndX.current;
+    if (distance > 50) {
+      setIndex((prev) => (prev + 1) % hotels.length);
+    }
+    if (distance < -50) {
+      setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
+    }
+    isSwiping.current = false; // reset after swipe finished
+  };
+
+  return (
+    <div>
+      <h1 className="text-center text-xl md:text-3xl lg:text-4xl">
+        Accommodations
+      </h1>
+      <div>
+        <Link href="/hotels/bamboo-boutique/accommodations" className="items-center justify-center flex text-sm md:text-md lg:text-lg">
+          <button
+            className="relative text-black py-1 px-2 border-b-2 border-transparent text-gray-500"
+            onMouseEnter={activateHover}
+            onMouseLeave={deactivateHover}
+            onTouchStart={activateHover}
+            onTouchEnd={deactivateHover}
+          >
+            View All
+            <span
+              className={`absolute left-0 bottom-0 h-[2px] bg-gray-400 transition-all duration-300 ${
+                isActive ? "w-full" : "w-10"
+              }`}
+            ></span>
+          </button>
+        </Link>
+      </div>
+
+      <div
+        className="relative w-full max-w-6xl mx-auto mt-10 overflow-hidden"
+        ref={sliderRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* Slider Container */}
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${index * 100}%)` }}
+        >
+          {hotels.map((hotel) => (
+            <div
+              key={hotel.id}
+              className="flex-shrink-0 w-full md:w-[50%] lg:w-[33.33%] p-4 transition-all duration-500"
+            >
+              <div className="bg-white">
+                <Image
+                  src={hotel.image}
+                  alt={hotel.title}
+                  className="w-full h-80 object-cover"
+                  width={1000}
+                  height={100}
+                />
+                <div className="p-2 shadow-md">
+                  <h3 className="text-lg font-semibold text-center">
+                    {hotel.title}
+                  </h3>
+                  <p className="text-sm">{hotel.description}</p>
+                  <div className="flex flex-row justify-start py-3">
+                    <Link href={hotel.url} className="text-sm md:text-md lg:text-lg">
+                      <button
+                        className="relative text-black py-1 px-2 border-b-2 border-transparent"
+                        onMouseEnter={activateHover}
+                        onMouseLeave={deactivateHover}
+                        onTouchStart={activateHover}
+                        onTouchEnd={deactivateHover}
+                      >
+                        Explore
+                        <span
+                          className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                            isActive ? "w-full" : "w-10"
+                          }`}
+                        ></span>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Navigation Buttons */}
+        <div className="flex items-center justify-between sm:justify-end gap-20 my-2 px-4">
+          <button onClick={prevSlide} className="text-gray-500">
+            <CircleArrowLeft size={30} />
+          </button>
+
+          {/* Mobile card number display */}
+          <h5 className="text-sm md:hidden text-gray-500">
+            {index + 1}/{hotels.length}
+          </h5>
+
+          <button onClick={nextSlide} className="text-gray-500">
+            <CircleArrowRight size={30} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
