@@ -34,21 +34,21 @@ const Tabs = () => {
       content:
         "Experience the ultimate adrenaline rush as you walk high above the ground, suspended by just a cable. Cable walking is not for the faint of heart, but for those seeking an unforgettable adventure, it offers a unique blend of excitement, breathtaking views, and personal challenge.",
       url: "/hotels/accordion/accordion3.jpeg",
-      nav: "/experiences/exp3-walk-in-cable",
+      nav: "/experiences/exp1-walk-in-cable",
     },
     {
       title: "Into the Wild: Explore Untouched Beauty",
       content:
         "Step off the beaten path and into the heart of nature. Our guided wilderness experiences take you deep into Malawi’s most scenic landscapes, where wildlife roams free and every step feels like a new discovery.",
       url: "/hotels/accordion/accordion6.jpg",
-      nav: "/experiences/",
+      nav: "/experiences/exp2-into-the-wild",
     },
     {
       title: "Whispers of the Lake",
       content:
         "Explore beautiful sites and local experiences just minutes away from our hotel.",
       url: "/hotels/accordion/accordion2.jpeg",
-      nav: "/experiences/",
+      nav: "/experiences/exp3-malawi-lake",
     }
     
   ];

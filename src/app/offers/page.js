@@ -5,11 +5,6 @@ import OfferGrid from "../(components)/(offer)/OfferGrid";
 export default function Offers() {
   const offers = [
     {
-      image: "/offers/offer1.jpg",
-      title: "Weekend Getaway Package",
-      url: "/offers/weekend-getaway",
-    },
-    {
       image: "/offers/offer2.jpg",
       title: "Early Bird Offer",
       url: "/offers/early-bird",
@@ -19,13 +14,27 @@ export default function Offers() {
       title: "Luxury Spa Retreat",
       url: "/offers/spa-retreat",
     },
-    { image: "/offers/offer4.jpg", title: "Extended Stay Discount", url: "" },
+    {
+      image: "/offers/offer4.jpg",
+      title: "Extended Stay Discount",
+      url: "/offers/extend-stay",
+    },
+
+    {
+      image: "/offers/offer6.jpg",
+      title: "Family Vacation Package",
+      url: "/offers/family-vacation",
+    },
+    {
+      image: "/offers/offer1.jpg",
+      title: "Weekend Getaway Package",
+      url: "/offers/weekend-getaway",
+    },
     {
       image: "/offers/offer5.jpg",
       title: "Business Traveler Special",
-      url: "",
+      url: "/offers/business-travel",
     },
-    { image: "/offers/offer6.jpg", title: "Family Vacation Package", url: "" },
   ];
   return (
     <div className="flex flex-col min-h-screen">

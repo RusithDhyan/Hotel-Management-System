@@ -56,7 +56,7 @@ export default function EarlyBird() {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-3 mt-10 px-4 sm:px-10 text-center">
-        <h1 className="text-xl sm:text-2xl">Early Bird Offer at Blue Waters</h1>
+        <h1 className="text-xl sm:text-2xl">Early Bird Offer at Waters Edge</h1>
         <p className="font-extralight text-sm sm:text-base">
           Plan ahead and enjoy more for less. Book 3 months or more in advance
           and enjoy up to 20% off your stay. This offer is valid for stays until

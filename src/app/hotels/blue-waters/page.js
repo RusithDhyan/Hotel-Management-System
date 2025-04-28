@@ -44,7 +44,7 @@ export default function BlueWatersEdge() {
           alt="blue-waters-img1"
           width={1500}
           height={100}
-          className="w-full md:w-1/2 h-100 object-cover rounded-lg"
+          className="w-full md:w-1/2 h-100 object-cover"
         />
 
         <div className="flex flex-col items-center justify-center gap-4 text-center md:text-left md:w-1/2">

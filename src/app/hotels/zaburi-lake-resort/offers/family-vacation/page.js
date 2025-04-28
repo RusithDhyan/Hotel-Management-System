@@ -56,7 +56,7 @@ export default function FamilyVacation() {
         </h1>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 mt-10 px-4 sm:px-10">
-        <h1 className="text-xl sm:text-2xl">Family Vacation Offer at Le Croissant</h1>
+        <h1 className="text-xl sm:text-2xl">Family Vacation Offer at Zaburi Lake Resort</h1>
         <p className="font-extralight text-sm sm:text-base">
           Make memories that last a lifetime! Enjoy a fun-filled getaway with
           special family packages, kid-friendly activities, and relaxing stays

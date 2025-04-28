@@ -16,7 +16,7 @@ export default function Blogs() {
         />
 
         <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
-          Inside the Haven: Discover More{" "}
+          Inside the Haven: Discover More
         </h1>
       </div>
       <Tabs />

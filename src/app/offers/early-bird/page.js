@@ -100,7 +100,7 @@ export default function page() {
       {/* Offer Cards Section */}
       <div className="mt-10 w-full px-4">
         {/* Mobile Vertical Scroll */}
-        <div className="flex md:hidden flex-col gap-4 max-h-[80vh] overflow-y-auto scroll-smooth pb-4">
+        <div className="flex md:hidden flex-col gap-4 pb-4">
           {ebOffers.map((eb, index) => (
             <div
               key={index}
@@ -111,7 +111,7 @@ export default function page() {
                 alt={eb.title}
                 width={1000}
                 height={100}
-                className="w-full h-60 object-cover rounded-md"
+                className="w-full h-60 object-cover"
               />
               <div className="p-4 bg-white bg-opacity-80 backdrop-blur-md rounded-b-md">
                 <h2 className="font-semibold text-md mb-1">{eb.title}</h2>

@@ -67,6 +67,7 @@ export default function Services() {
         </p>
       </div>
 
+      {/* --- Grid for all screens --- */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4 md:p-10 mt-10">
         {ebOffers.map((eb, index) => (
           <div key={index} className="relative overflow-hidden shadow-md group">
@@ -75,9 +76,12 @@ export default function Services() {
               alt={eb.title}
               width={1000}
               height={100}
-              className="w-full h-60 md:h-72 object-cover transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
             />
-            <div className="absolute inset-0 flex flex-col p-3 items-start justify-start border border-gray-300 bg-white/50 backdrop-blur-sm bg-opacity-10 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0 overflow-y-auto">
+
+            {/* --- Content overlay for mobile and hover for desktop --- */}
+            <div className="md:hidden flex flex-col p-4 bg-white">
+              {/* Mobile default content */}
               <h1 className="text-md md:text-lg font-medium">{eb.title}</h1>
               <p className="font-light text-sm md:text-base my-2">
                 {eb.description}
@@ -85,6 +89,20 @@ export default function Services() {
               <Link
                 href={eb.url}
                 className="text-gray-500 font-semibold hover:text-[#FF741E] duration-300 text-sm md:text-base"
+              >
+                Learn more
+              </Link>
+            </div>
+
+            {/* Hover overlay - only visible on desktop */}
+            <div className="hidden md:flex absolute inset-0 flex-col p-3 items-start justify-start border border-gray-300 bg-white/50 backdrop-blur-sm bg-opacity-10 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0 overflow-y-auto">
+              <h1 className="text-lg font-medium">{eb.title}</h1>
+              <p className="font-light text-base my-2">
+                {eb.description}
+              </p>
+              <Link
+                href={eb.url}
+                className="text-gray-500 font-semibold hover:text-[#FF741E] duration-300 text-base"
               >
                 Learn more
               </Link>
