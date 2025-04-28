@@ -14,17 +14,18 @@ export default function Offers() {
       title: "Luxury Spa Retreat",
       url: "/offers/spa-retreat",
     },
-    {
-      image: "/offers/offer4.jpg",
-      title: "Extended Stay Discount",
-      url: "/offers/extend-stay",
-    },
 
     {
       image: "/offers/offer6.jpg",
       title: "Family Vacation Package",
       url: "/offers/family-vacation",
     },
+    {
+      image: "/offers/offer4.jpg",
+      title: "Extended Stay Discount",
+      url: "/offers/extend-stay",
+    },
+
     {
       image: "/offers/offer1.jpg",
       title: "Weekend Getaway Package",

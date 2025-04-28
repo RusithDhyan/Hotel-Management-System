@@ -37,38 +37,62 @@ function About() {
       </div>
 
       {/* Contact Card over Background */}
-      <div className="flex justify-center items-center relative mt-10 pb-10">
-        <Image
-          src="/images/contact1.jpg"
-          alt="contact-img"
-          width={1500}
-          height={100}
-          className="w-full max-h-[500px] object-cover rounded"
-        />
-        <div className="absolute inset-0 flex items-end md:justify-left ml-5 p-4">
-          <div className="relative w-[90%] sm:w-80 h-60 overflow-hidden group">
-            {/* Front Card */}
-            <div className="absolute inset-0 flex justify-center items-center bg-gray-300 text-black text-xl sm:text-2xl transition-all duration-500 group-hover:opacity-0">
-              Reservations
-            </div>
+      <div className="flex flex-col md:flex-row justify-center items-center relative mt-10 pb-10 px-4">
+        <div className="w-full relative">
+          <Image
+            src="/images/contact1.jpg"
+            alt="contact-img"
+            width={1500}
+            height={500}
+            className="w-full h-100 object-cover"
+          />
 
-            {/* Hover Details */}
-            <div className="absolute inset-0 flex flex-col p-3 bg-white opacity-0 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0 text-sm sm:text-base">
-              {data.map((item, index) => (
-                <div key={index} className="flex flex-row items-center gap-2">
-                  <h1>{item.name}:</h1>
-                  <h2>{item.value}</h2>
-                </div>
-              ))}
-              <h1 className="text-center text-lg font-semibold mt-5 border-t pt-2">
-                Our Address
-              </h1>
-              <h2>
-                Magasa Avenue,
-                <br /> Off Chilomoni Ring Road,
-                <br /> Namiwawa, Blantyre, Malawi
-              </h2>
+          {/* Desktop View: Slide Card */}
+          <div className="hidden md:flex absolute bottom-0 left-0 m-5">
+            <div className="relative w-[300px] h-60 overflow-hidden group">
+              {/* Front Card */}
+              <div className="absolute inset-0 flex justify-center items-center bg-gray-300 text-black text-2xl transition-all duration-500 group-hover:opacity-0">
+                Reservations
+              </div>
+
+              {/* Hover Details */}
+              <div className="absolute inset-0 flex flex-col p-3 bg-white opacity-0 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0 text-base">
+                {data.map((item, index) => (
+                  <div key={index} className="flex flex-row items-center gap-2">
+                    <h1>{item.name}:</h1>
+                    <h2>{item.value}</h2>
+                  </div>
+                ))}
+                <h1 className="text-center text-lg font-semibold mt-5 border-t pt-2">
+                  Our Address
+                </h1>
+                <h2 className="text-center">
+                  Magasa Avenue,
+                  <br /> Off Chilomoni Ring Road,
+                  <br /> Namiwawa, Blantyre, Malawi
+                </h2>
+              </div>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile View: Simple Contact Info */}
+        <div className="block md:hidden mt-6 w-full text-center">
+          <h2 className="text-xl font-semibold mb-4">Reservations</h2>
+          <div className="flex flex-col gap-2 text-sm">
+            {data.map((item, index) => (
+              <div key={index}>
+                <span className="font-semibold">{item.name}:</span> {item.value}
+              </div>
+            ))}
+          </div>
+          <div className="mt-4 text-sm">
+            <h2 className="font-semibold">Our Address</h2>
+            <p>
+              Magasa Avenue,
+              <br /> Off Chilomoni Ring Road,
+              <br /> Namiwawa, Blantyre, Malawi
+            </p>
           </div>
         </div>
       </div>
