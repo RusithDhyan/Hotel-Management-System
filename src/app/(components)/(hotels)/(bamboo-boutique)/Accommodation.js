@@ -1,4 +1,3 @@
-
 "use client";
 import { useState, useRef } from "react";
 import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
@@ -47,20 +46,25 @@ export default function Accommodation() {
   const sliderRef = useRef(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const isSwiping = useRef(false); // NEW: to track swipe separately
 
   const activateHover = () => setIsActive(true);
   const deactivateHover = () => setIsActive(false);
 
   const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % hotels.length);
+    if (!isSwiping.current) { // Only move if not swiping
+      setIndex((prev) => (prev + hotels.length) % hotels.length);
+    }
   };
 
   const prevSlide = () => {
-    setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
+    if (!isSwiping.current) { // Only move if not swiping
+      setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
+    }
   };
 
-  // Handle Touch
   const handleTouchStart = (e) => {
+    isSwiping.current = true; // user is trying to swipe
     touchStartX.current = e.touches[0].clientX;
   };
 
@@ -69,12 +73,14 @@ export default function Accommodation() {
   };
 
   const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 50) {
-      nextSlide(); // swipe left
+    const distance = touchStartX.current - touchEndX.current;
+    if (distance > 50) {
+      setIndex((prev) => (prev + 1) % hotels.length);
     }
-    if (touchStartX.current - touchEndX.current < -50) {
-      prevSlide(); // swipe right
+    if (distance < -50) {
+      setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
     }
+    isSwiping.current = false; // reset after swipe finished
   };
 
   return (
@@ -110,7 +116,7 @@ export default function Accommodation() {
       >
         {/* Slider Container */}
         <div
-          className="flex transition-transform duration-300 ease-in-out"
+          className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {hotels.map((hotel) => (
@@ -155,17 +161,21 @@ export default function Accommodation() {
           ))}
         </div>
 
-        {/* Navigation Buttons (only show on desktop) */}
-        <div className="flex items-center justify-between  sm:justify-end gap-20 my-2 px-4">
+        {/* Navigation Buttons */}
+        <div className="flex items-center justify-between sm:justify-end gap-20 my-2 px-4">
           <button onClick={prevSlide} className="text-gray-500">
             <CircleArrowLeft size={30} />
           </button>
-          <h5 className="text-sm text-gray-500">{index + 1}/{hotels.length}</h5>
+
+          {/* Mobile card number display */}
+          <h5 className="text-sm md:hidden text-gray-500">
+            {index + 1}/{hotels.length}
+          </h5>
+
           <button onClick={nextSlide} className="text-gray-500">
             <CircleArrowRight size={30} />
           </button>
         </div>
-
       </div>
     </div>
   );
