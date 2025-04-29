@@ -27,11 +27,11 @@ export default function HomeSlider({ sectionRef }) {
     },
     {
       url: "/images/bg4.jpg",
-      title: "Malawi's Safari Magic:Where Nature Comes Alive",
+      title: "Malawi's Safari Magic : Where Nature Comes Alive",
     },
     {
       url: "/images/bg5.jpg",
-      title: "Embracing The Warm Heart Malawi: A Cultural Journey",
+      title: "Embracing The Warm Heart Malawi : A Cultural Journey",
     },
    
   ];
@@ -61,8 +61,8 @@ export default function HomeSlider({ sectionRef }) {
               />
 
               {/* Title container with responsive position */}
-              <div className="absolute inset-0 flex justify-center items-center sm:items-end pb-5">
-                <h1 className="text-2xl md:text-3xl lg:text-5xl text-white font-bold px-2 text-center drop-shadow-md mb-2">
+              <div className="absolute inset-0 flex justify-center items-center sm:px-10">
+                <h1 className="text-2xl md:text-3xl lg:text-6xl text-white font-bold px-2 text-center drop-shadow-md mb-2">
                   {slide.title}
                 </h1>
               </div>

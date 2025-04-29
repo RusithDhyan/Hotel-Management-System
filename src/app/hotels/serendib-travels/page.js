@@ -61,25 +61,7 @@ export default function BambooBoutique() {
             business and leisure travelers seeking a peaceful yet connected
             stay.
           </p>
-          <Link
-            href="/hotels/serendib-travels/location"
-            className="text-sm lg:text-lg md:text-md"
-          >
-            <button
-              className="relative text-black py-1 px-2 border-b-2 border-transparent"
-              onMouseEnter={activateHover}
-              onMouseLeave={deactivateHover}
-              onTouchStart={activateHover}
-              onTouchEnd={deactivateHover}
-            >
-              Discover Place
-              <span
-                className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-                  isActive ? "w-full" : "w-10"
-                }`}
-              ></span>
-            </button>
-          </Link>
+         
         </div>
       </div>
 
@@ -115,7 +97,7 @@ export default function BambooBoutique() {
       </div>
 
       <Experience />
-      <FoodFlavor />
+      {/* <FoodFlavor /> */}
       <OfferSlider nav={navLink} />
     </div>
   );

@@ -5,9 +5,6 @@ import React from "react";
 export default function OurStory() {
   return (
     <div className="mt-10">
-      <h1 className="text-xl lg:text-4xl md:text-3xl my-5 ml-2">
-        Iconic Elegance & Luxury
-      </h1>
       <div className="flex w-full relative">
         <Image
           src="/images/our-story.jpg"
@@ -18,6 +15,9 @@ export default function OurStory() {
         />
         <div className="flex absolute inset-0 items-center px-5">
           <div className="flex flex-col justify-between gap-2 lg:mt-60 md:mt-45 sm:mt-30">
+            <h1 className="text-xl lg:text-4xl md:text-3xl my-2 text-white">
+              Iconic Elegance & Luxury
+            </h1>
             <p className="text-white text-xs lg:text-lg ">
               Create unforgettable memories with the perfect father-and-son
               getaway at Lake Malawi. Enjoy thrilling water sports, <br />{" "}
@@ -26,12 +26,12 @@ export default function OurStory() {
               <br /> and share stories around a cozy lakeside campfire.
             </p>
             <div>
-            <Link
-              className="text-white text-xs lg:text-lg md:text-md"
-              href="/about"
-            >
-              View more
-            </Link>
+              <Link
+                className="text-white text-xs lg:text-lg md:text-md"
+                href="/about"
+              >
+                View more
+              </Link>
             </div>
           </div>
         </div>

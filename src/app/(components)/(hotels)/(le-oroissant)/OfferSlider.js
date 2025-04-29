@@ -66,21 +66,21 @@ export default function OfferSlider({ nav }) {
         </Link>
       </div>
       <Swiper
-        modules={[Autoplay]} // Enable Autoplay module
-        spaceBetween={0} // No space between slides
-        slidesPerView={1} // Only show one slide at a time
-        loop={true} // Enable infinite loop
-        autoplay={{ delay: 3000, disableOnInteraction: false }} // Autoplay settings
+        modules={[Autoplay]}
+        spaceBetween={0}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
         breakpoints={{
-          640: { slidesPerView: 1 }, // Show one slide on smaller screens
-          768: { slidesPerView: 1 }, // Show one slide on medium screens
-          1024: { slidesPerView: 1 }, // Show one slide on larger screens
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 1 },
+          1024: { slidesPerView: 1 }
         }}
       >
         {slider.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="flex flex-col sm:flex-row  items-center justify-center gap-5 mt-10 px-5">
-              <div className="w-80 h-80 relative">
+              <div className="w-125 h-125 relative">
                 <Image
                   src={slide.image}
                   alt="slide-image"

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, CircleArrowLeft, CircleArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -220,14 +220,14 @@ export default function HotelSlider() {
 
         {/* Navigation Buttons */}
         <div className="flex items-center justify-between sm:justify-end gap-20 my-5 border-t border-gray-300 py-3 px-4">
-          <button onClick={prevSlide} className="text-gray-500">
-            <CircleArrowLeft size={30} />
+          <button onClick={prevSlide} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+            <ArrowLeft size={25} />
           </button>
           <h5 className="text-sm text-gray-500">
             {index + 1}/{hotels.length}
           </h5>
-          <button onClick={nextSlide} className="text-gray-500">
-            <CircleArrowRight size={30} />
+          <button onClick={nextSlide} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+            <ArrowRight size={25} />
           </button>
         </div>
       </div>

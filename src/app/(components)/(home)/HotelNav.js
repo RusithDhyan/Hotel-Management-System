@@ -4,21 +4,21 @@ import React from "react";
 
 export default function HotelNav() {
     const hotels = [
-        { name: "Heritage Hotel", href: "/hotels/heritage-hotel", position: "top-[38%] left-[42%]" },
-        { name: "Blue Waters Lake Resort", href: "/hotels/blue-waters", position: "top-[16%] left-[28%]" },
-        { name: "Kambri Beach", href: "/hotels/kambiri-beach", position: "top-[50%] left-[18%]" },
-        { name: "Le Oroissant", href: "/hotels/le-oroissant", position: "top-[70%] left-[75%]" },
+        { name: "Heritage Hotel", href: "/hotels/heritage-hotel", position: "top-[30%] left-[38%]" },
+        { name: "Blue Waters Lake Resort", href: "/hotels/blue-waters", position: "top-[20%] left-[36%]" },
+        { name: "Kambri Beach", href: "/hotels/kambiri-beach", position: "top-[45%] left-[32%]" },
+        { name: "Le Croissant", href: "/hotels/le-croissant", position: "top-[70%] left-[60%]" },
         { name: "Kara O Mula", href: "/hotels/kara-o-mula", position: "top-[25%] left-[45%]" },
-        { name: "Waters Edge", href: "/hotels/waters-edge", position: "top-[3%] left-[38%]" },
-        { name: "Lotus Hotel", href: "/hotels/lotus-hotel", position: "top-[60%] left-[72%]" },
-        { name: "Bamboo Boutique", href: "/hotels/bamboo-boutique", position: "top-[80%] left-[70%]" },
-        { name: "Zaburi Lake Resort ", href: "/hotels/zaburi-lake-resort", position: "top-[63%] left-[30%]" },
+        { name: "Waters Edge", href: "/hotels/waters-edge", position: "top-[35%] left-[42%]" },
+        { name: "Lotus Hotel", href: "/hotels/lotus-hotel", position: "top-[60%] left-[65%]" },
+        { name: "Bamboo Boutique", href: "/hotels/bamboo-boutique", position: "top-[75%] left-[60%]" },
+        { name: "Zaburi Lake Resort ", href: "/hotels/zaburi-lake-resort", position: "top-[54%] left-[47%]" },
 
 
     ]
   return (
     <div>
-      <div className="flex absolute inset-0 scale-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-80">
+      <div className="flex absolute inset-0">
         
           
               {hotels.map((hotel,index)=>{
@@ -26,8 +26,8 @@ export default function HotelNav() {
                 return(
                 <Link key={index} href={hotel.href}>
                 <div className={`flex flex-row absolute right-0 gap-1 ${hotel.position}`}>
-                  <MapPin color="red" />
-                  <h4 className="hover:text-orange-600 transition duration-300 text-[14px]">{hotelName}</h4>
+                  <MapPin color="red" size={20}/>
+                  <h4 className="hover:text-orange-600 transition duration-300 text-[12px]">{hotelName}</h4>
 
                   </div>
                  

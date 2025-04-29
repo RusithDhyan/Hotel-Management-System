@@ -56,22 +56,7 @@ export default function WatersEdge() {
             comfortable accommodations and is an ideal base for exploring the
             nearby Liwonde National Park and other local attractions.
           </p>
-          <Link href="/hotels/waters-edge/location">
-          <button
-                className="relative text-black py-1 px-2 border-b-2 border-transparent"
-                onMouseEnter={activateHover}
-                onMouseLeave={deactivateHover}
-                onTouchStart={activateHover}
-                onTouchEnd={deactivateHover}
-              >
-                Discover Place
-                <span
-                  className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-                    isActive ? "w-full" : "w-10"
-                  }`}
-                ></span>
-              </button>
-          </Link>
+          
         </div>
       </div>
 
@@ -111,7 +96,7 @@ export default function WatersEdge() {
 
       {/* Experience, Food, Offers */}
       <Experience />
-      <FoodFlavor />
+      {/* <FoodFlavor /> */}
       <OfferSlider nav={navLink} />
     </div>
   );
