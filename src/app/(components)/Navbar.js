@@ -103,7 +103,7 @@ export default function Navbar() {
               >
                 Our Collection
               </Link>
-              <Link href="/offers" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
+              <Link href="/experiences" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
                 Experience
               </Link>
               <Link href="/offers" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
