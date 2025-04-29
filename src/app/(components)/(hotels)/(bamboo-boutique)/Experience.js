@@ -26,10 +26,7 @@ export default function Experience() {
             elegance and modern luxury offers a unique experience in a tranquil
             setting.
           </p>
-          <Link
-            href="/experiences"
-            className="text-sm lg:text-lg md:text-md"
-          >
+          <Link href="/experiences" className="text-sm lg:text-lg md:text-md">
             <button
               className="relative text-black py-1 px-2 border-b-2 border-transparent"
               onMouseEnter={activateHover}
@@ -61,7 +58,7 @@ export default function Experience() {
               className="w-full h-64 sm:h-80 md:h-96 object-cover transition-transform duration-300 group-hover:bg-opacity-60"
             />
             <div className="absolute inset-0 flex items-end px-4 sm:px-10 pb-5">
-              <p className="w-full text-center text-sm opacity-0 bg-white/60 transition-opacity duration-300 group-hover:opacity-100 p-2">
+              <p className="w-full text-center text-sm opacity-0 bg-white/60 transition-opacity duration-300 group-hover:opacity-100 group-active:opacity-100 p-2">
                 For those seeking extra space and comfort, the Executive Suite
                 offers a separate living area and bedroom, creating a private
                 and sophisticated ambiance.

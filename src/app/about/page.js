@@ -91,7 +91,7 @@ function About() {
     {/* Why Choose Us */}
       <div className="px-4 py-16 sm:px-6 lg:px-20 bg-gray-50 text-gray-800">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-xl md:text-2xl font-bold mb-12 text-center">
           Why Choose Serendib Hotels
         </h2>
 
@@ -101,7 +101,7 @@ function About() {
             <Image
               src="/about/choose1.jpg"
               alt="Excellence"
-              width={200}
+              width={1500}
               height={200}
               className="mb-4 object-cover"
             />
@@ -117,7 +117,7 @@ function About() {
             <Image
               src="/about/choose2.jpg"
               alt="Authenticity"
-              width={200}
+              width={1500}
               height={200}
               className="mb-4 object-cover"
             />
@@ -133,7 +133,7 @@ function About() {
             <Image
               src="/about/choose3.jpg"
               alt="Sustainability"
-              width={200}
+              width={1500}
               height={200}
               className="mb-4 object-cover"
             />
@@ -147,7 +147,31 @@ function About() {
       </div>
     </div>
 
-      <div className="flex flex-col items-center justify-center gap-4 px-4 md:px-20 text-center">
+    <div className="px-10">
+          <h2 className="text-2xl md:text-2xl font-bold text-gray-800 mb-6">
+            Why Partner With Us
+          </h2>
+          <p className="text-gray-600 text-lg leading-relaxed">
+            At Serendib Hotels, we believe that great partnerships are built on trust,
+            transparency, and a shared commitment to excellence. By partnering with us,
+            you join a hospitality brand that values innovation, sustainability, and
+            local empowerment — creating meaningful, lasting value for both our guests
+            and our collaborators.
+          </p>
+        </div>
+
+        {/* Image Section */}
+        <div className="px-10">
+          <Image
+            src="/about/bg-img3.jpg"
+            alt="Why Partner With Us"
+            width={1500}
+            height={200}
+            className=" shadow-lg object-cover w-full h-auto"
+          />
+        </div>
+
+      <div className="flex flex-col items-center justify-center gap-4 px-4 mt-5 md:px-20 text-center">
         <h1 className="text-xl md:text-2xl font-semibold">Serendib Hotels</h1>
         <p className="font-light max-w-6xl text-sm md:text-base">
           Serendib Hotels & Resorts is a prominent hospitality brand in Malawi,
