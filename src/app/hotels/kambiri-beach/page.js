@@ -56,28 +56,13 @@ export default function KambiriBeach() {
             cruises, tours of Namalenje Lizard Island, and vibrant beachside
             entertainment.
           </p>
-          <Link href="/hotels/kambiri-beach/location" className="text-sm lg:text-lg md:text-md">
-          <button
-                className="relative text-black py-1 px-2 border-b-2 border-transparent"
-                onMouseEnter={activateHover}
-                onMouseLeave={deactivateHover}
-                onTouchStart={activateHover}
-                onTouchEnd={deactivateHover}
-              >
-                Discover Place
-                <span
-                  className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-                    isActive ? "w-full" : "w-10"
-                  }`}
-                ></span>
-              </button>
-          </Link>
+          
         </div>
       </div>
 
       <Accommodation />
 
-      <div className="flex flex-col items-center justify-center mt-10 px-4">
+      <div className="flex flex-col items-center justify-center mt-5 px-4">
         <div className="text-center mb-6">
           <h1 className="text-2xl sm:text-3xl mt-10 text-gray-500">
             Included With Your Stay
@@ -108,7 +93,7 @@ export default function KambiriBeach() {
       </div>
 
       <Experience />
-      <FoodFlavor />
+      {/* <FoodFlavor /> */}
       <OfferSlider nav={navLink} />
     </div>
   );

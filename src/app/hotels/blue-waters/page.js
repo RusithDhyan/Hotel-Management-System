@@ -54,22 +54,7 @@ export default function BlueWatersEdge() {
           <p className="text-sm md:text-base text-gray-600">
             Nestled along the serene shores of Lake Malawi, Blue Waters Lake Resort offers a tranquil escape with rustic luxury. Guests can enjoy lakeview accommodations, a tranquil waterside pool, and exceptional event spaces accommodating up to 300 guests. The resort's "Pier Deck" and "Rain Tree" restaurants are renowned for their culinary delights, enhancing every occasion.
           </p>
-          <Link href="/hotels/blue-waters/location">
-          <button
-                className="relative text-black py-1 px-2 border-b-2 border-transparent"
-                onMouseEnter={activateHover}
-                onMouseLeave={deactivateHover}
-                onTouchStart={activateHover}
-                onTouchEnd={deactivateHover}
-              >
-                Discover Place
-                <span
-                  className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-                    isActive ? "w-full" : "w-10"
-                  }`}
-                ></span>
-              </button>
-          </Link>
+          
         </div>
       </div>
 
@@ -103,7 +88,7 @@ export default function BlueWatersEdge() {
 
       {/* More Sections */}
       <Experience />
-      <FoodFlavor />
+      {/* <FoodFlavor /> */}
       <OfferSlider nav={navLink} />
     </div>
   );

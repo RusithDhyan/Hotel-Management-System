@@ -1,7 +1,12 @@
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
+import React, { useState } from "react";
 
 export default function Experience() {
+  const [isActive, setIsActive] = useState(false);
+
+  const activateHover = () => setIsActive(true);
+  const deactivateHover = () => setIsActive(false);
   return (
     <div className="px-4 sm:px-6 md:px-10">
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 pt-10">
@@ -21,11 +26,14 @@ export default function Experience() {
             elegance and modern luxury offers a unique experience in a tranquil
             setting.
           </p>
+          
         </div>
 
         {/* Right Content */}
         <div className="flex flex-col w-full md:w-1/2 items-center justify-center gap-2 relative overflow-hidden group">
-          <h1 className="text-2xl sm:text-3xl text-center">Experience in Blue Waters</h1>
+          <h1 className="text-2xl sm:text-3xl text-center">
+            Experience in Blue Waters
+          </h1>
           <div className="relative w-full">
             <Image
               src="/hotels/kambiri-beach/kambiri-img3.jpeg"

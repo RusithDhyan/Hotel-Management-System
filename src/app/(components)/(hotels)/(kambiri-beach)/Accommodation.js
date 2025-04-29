@@ -1,6 +1,6 @@
 "use client";
 import { useState, useRef } from "react";
-import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,33 +9,65 @@ const hotels = [
     id: 1,
     image: "/hotels/kambiri-beach/accommodations/executive.jpeg",
     title: "Executive Suite",
+    size: "45 sqm",
     url: "/hotels/kambiri-beach/accommodations/executive-suite",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
+    features: [
+      "/icons/rooms/item1.png",
+      "/icons/rooms/item2.png",
+      "/icons/rooms/item3.png",
+      "/icons/rooms/item4.png",
+      "/icons/rooms/item5.png",
+    ],
   },
   {
     id: 2,
     image: "/hotels/kambiri-beach/accommodations/family.jpeg",
     title: "Family Twin Room",
+    size: "45 sqm",
     url: "/hotels/kambiri-beach/accommodations/family-twin",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
+    features: [
+      "/icons/rooms/item1.png",
+      "/icons/rooms/item2.png",
+      "/icons/rooms/item3.png",
+      "/icons/rooms/item4.png",
+      "/icons/rooms/item5.png",
+    ],
   },
   {
     id: 3,
     image: "/hotels/kambiri-beach/accommodations/deluxe.jpeg",
     title: "Deluxe King Room",
+    size: "45 sqm",
     url: "/hotels/kambiri-beach/accommodations/deluxe-king",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
+    features: [
+      "/icons/rooms/item1.png",
+      "/icons/rooms/item2.png",
+      "/icons/rooms/item3.png",
+      "/icons/rooms/item4.png",
+      "/icons/rooms/item5.png",
+    ],
   },
   {
     id: 4,
     image: "/hotels/kambiri-beach/accommodations/premier.jpeg",
     title: "Premier Heritage Suite",
+    size: "45 sqm",
     url: "/hotels/kambiri-beach/accommodations/premier",
     description:
       "Experience the perfect blend of timeless elegance and modern comfort in our Premier Heritage Suite. This spacious suite features a king-size bed with premium linens, a separate living area.",
+    features: [
+      "/icons/rooms/item1.png",
+      "/icons/rooms/item2.png",
+      "/icons/rooms/item3.png",
+      "/icons/rooms/item4.png",
+      "/icons/rooms/item5.png",
+    ],
   },
 ];
 
@@ -52,13 +84,15 @@ export default function Accommodation() {
   const deactivateHover = () => setIsActive(false);
 
   const nextSlide = () => {
-    if (!isSwiping.current) { // Only move if not swiping
-      setIndex((prev) => (prev + hotels.length) % hotels.length);
+    if (!isSwiping.current) {
+      // Only move if not swiping
+      setIndex((prev) => (prev + 1 + hotels.length) % hotels.length);
     }
   };
 
   const prevSlide = () => {
-    if (!isSwiping.current) { // Only move if not swiping
+    if (!isSwiping.current) {
+      // Only move if not swiping
       setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
     }
   };
@@ -88,7 +122,7 @@ export default function Accommodation() {
       <h1 className="text-center text-xl md:text-3xl lg:text-4xl">
         Accommodations
       </h1>
-      <div>
+      {/* <div>
         <Link href="/hotels/bamboo-boutique/accommodations" className="items-center justify-center flex text-sm md:text-md lg:text-lg">
           <button
             className="relative text-black py-1 px-2 border-b-2 border-transparent text-gray-500"
@@ -105,7 +139,7 @@ export default function Accommodation() {
             ></span>
           </button>
         </Link>
-      </div>
+      </div> */}
 
       <div
         className="relative w-full max-w-6xl mx-auto mt-10 overflow-hidden"
@@ -136,9 +170,27 @@ export default function Accommodation() {
                   <h3 className="text-lg font-semibold text-center">
                     {hotel.title}
                   </h3>
-                  <p className="text-sm">{hotel.description}</p>
+                  <p className="text-sm text-gray-600">
+                    Room Size: {hotel.size}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {hotel.features.map((icon, idx) => (
+                      <Image
+                        key={idx}
+                        src={icon}
+                        alt="feature"
+                        width={20}
+                        height={20}
+                        className="w-5 h-5"
+                      />
+                    ))}
+                  </div>
+                  <p className="text-sm mt-2">{hotel.description}</p>
                   <div className="flex flex-row justify-start py-3">
-                    <Link href={hotel.url} className="text-sm md:text-md lg:text-lg">
+                    <Link
+                      href={hotel.url}
+                      className="text-sm md:text-md lg:text-lg"
+                    >
                       <button
                         className="relative text-black py-1 px-2 border-b-2 border-transparent"
                         onMouseEnter={activateHover}
@@ -163,8 +215,8 @@ export default function Accommodation() {
 
         {/* Navigation Buttons */}
         <div className="flex items-center justify-between sm:justify-end gap-20 my-2 px-4">
-          <button onClick={prevSlide} className="text-gray-500">
-            <CircleArrowLeft size={30} />
+          <button onClick={prevSlide} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+            <ArrowLeft size={20} />
           </button>
 
           {/* Mobile card number display */}
@@ -172,13 +224,11 @@ export default function Accommodation() {
             {index + 1}/{hotels.length}
           </h5>
 
-          <button onClick={nextSlide} className="text-gray-500">
-            <CircleArrowRight size={30} />
+          <button onClick={nextSlide} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+            <ArrowRight size={20} />
           </button>
         </div>
       </div>
     </div>
   );
 }
-
-

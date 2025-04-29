@@ -57,22 +57,7 @@ export default function ZaburiLakeResort() {
             activities, and the natural beauty of the surrounding area, making
             it a perfect destination for relaxation and exploration.
           </p>
-          <Link href="/hotels/zaburi-lake-resort/location">
-          <button
-                className="relative text-black py-1 px-2 border-b-2 border-transparent"
-                onMouseEnter={activateHover}
-                onMouseLeave={deactivateHover}
-                onTouchStart={activateHover}
-                onTouchEnd={deactivateHover}
-              >
-                Discover Place
-                <span
-                  className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-                    isActive ? "w-full" : "w-10"
-                  }`}
-                ></span>
-              </button>
-          </Link>
+          
         </div>
       </div>
 
@@ -110,9 +95,8 @@ export default function ZaburiLakeResort() {
         </div>
       </div>
 
-      {/* More Sections */}
       <Experience />
-      <FoodFlavor />
+      {/* <FoodFlavor /> */}
       <OfferSlider nav={navLink} />
     </div>
   );

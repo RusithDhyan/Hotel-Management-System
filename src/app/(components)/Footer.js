@@ -22,8 +22,10 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-2 text-sm sm:text-base">
           <Link href="/">Home</Link>
           <Link href="/our-collections">Our Collection</Link>
+          <Link href="/experience">Experience</Link>
           <Link href="/offers">Offers</Link>
           <Link href="/blogs">Blogs</Link>
+          <Link href="/blogs">Galery</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
         </div>

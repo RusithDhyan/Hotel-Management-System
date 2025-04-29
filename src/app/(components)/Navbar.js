@@ -55,9 +55,11 @@ export default function Navbar() {
         <div className="flex flex-row gap-10 ">
           <ul className="hidden md:flex flex-row justify-center items-center gap-3 text-xs sm:text-sm md:text-base lg:text-md xl:text-md ">
             <a href="/">Home</a>
-            <Link href="/our-collections">Hotels</Link>
+            <Link href="/our-collections">Our Collection</Link>
+            <Link href="/experiences">Experience</Link>
             <Link href="/offers">Offers</Link>
-            <Link href="/blogs">Blogs & Exp</Link>
+            <Link href="/blogs">Blogs</Link>
+            <Link href="/galery">Galery</Link>
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
           </ul>
@@ -102,10 +104,16 @@ export default function Navbar() {
                 Our Collection
               </Link>
               <Link href="/offers" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
+                Experience
+              </Link>
+              <Link href="/offers" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
                 Offers
               </Link>
               <Link href="/blogs" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
                 Blogs
+              </Link>
+              <Link href="/offers" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
+                Galery
               </Link>
               <Link href="/about" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
                 About

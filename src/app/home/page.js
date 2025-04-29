@@ -110,7 +110,7 @@ export default function Home() {
             alt="card-image2"
             width={1000}
             height={10}
-            className="object-cover transition-transform duration-500 group-hover:scale-130"
+            className="object-cover"
           />
 
           <HotelNav />
@@ -160,7 +160,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <ServiceCardSlider />
+      {/* <ServiceCardSlider /> */}
       <OfferSlider nav={navLink} />
       <OurStory />
     </div>

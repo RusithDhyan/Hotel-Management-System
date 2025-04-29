@@ -118,7 +118,7 @@ export default function OurCollection() {
         </p>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-3 mt-10 px-5 text-center">
+      {/* <div className="flex flex-col items-center justify-center gap-3 mt-10 px-5 text-center">
         <h1 className="text-lg md:text-xl">Your Ideal Choice for Comfort & Luxury</h1>
         <div className="border-y border-gray-300 flex flex-wrap items-center justify-center gap-5 py-4 w-full">
           {items.map((item, index) => (
@@ -136,7 +136,7 @@ export default function OurCollection() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-5 mt-10 px-10">
         {hotels.map((hotel) => (
