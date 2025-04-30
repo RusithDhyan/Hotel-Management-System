@@ -1,7 +1,8 @@
 "use client"
 import Accommodation from "@/app/(components)/(hotels)/(heritage)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(heritage)/Experience";
-import FoodFlavor from "@/app/(components)/(hotels)/(heritage)/FoodFlavor";
+import Gallery from "@/app/(components)/(hotels)/(heritage)/Gallery";
+import FoodFlavor from "@/app/(components)/(hotels)/(heritage)/Gallery";
 import OfferSlider from "@/app/(components)/(hotels)/(heritage)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
@@ -92,7 +93,7 @@ export default function Heritage() {
       </div>
 
       <Experience />
-      {/* <FoodFlavor /> */}
+      <Gallery/>
       <OfferSlider nav={navLink} />
     </div>
   );
