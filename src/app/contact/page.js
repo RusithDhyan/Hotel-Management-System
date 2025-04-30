@@ -14,7 +14,7 @@ function About() {
       {/* Header image */}
       <div className="w-full relative h-[250px] md:h-[400px]">
         <Image
-          src="/images/contact.jpg"
+          src="/contact/contact-img1.jpg"
           alt="contact-img"
           fill
           className="object-cover"
@@ -37,21 +37,21 @@ function About() {
       </div>
 
       {/* Contact Card over Background */}
-      <div className="flex flex-col md:flex-row justify-center items-center relative mt-10 pb-10 px-4">
+      <div className="flex flex-col md:flex-row justify-center items-center relative mt-10 pb-10">
         <div className="w-full relative">
           <Image
-            src="/images/contact1.jpg"
+            src="/contact/contact-img2.jpg"
             alt="contact-img"
             width={1500}
             height={500}
-            className="w-full h-100 object-cover"
+            className="w-full h-150 object-cover"
           />
 
           {/* Desktop View: Slide Card */}
           <div className="hidden md:flex absolute bottom-0 left-0 m-5">
-            <div className="relative w-[300px] h-60 overflow-hidden group">
+            <div className="relative w-[350px] h-60 overflow-hidden group">
               {/* Front Card */}
-              <div className="absolute inset-0 flex justify-center items-center bg-gray-300 text-black text-2xl transition-all duration-500 group-hover:opacity-0">
+              <div className="absolute inset-0 flex justify-center items-center bg-gray-200 text-black text-2xl transition-all duration-500 group-hover:opacity-0">
                 Reservations
               </div>
 
