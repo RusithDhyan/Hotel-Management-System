@@ -27,7 +27,7 @@ export default function Experience() {
             setting.
           </p>
           <Link
-            href="/hotels/heritage-hotel/experience"
+            href="/experiences"
             className="text-sm lg:text-lg md:text-md"
           >
             <button

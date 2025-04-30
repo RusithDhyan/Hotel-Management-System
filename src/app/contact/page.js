@@ -1,7 +1,27 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import Image from "next/image";
 
 function About() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    question: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    
+  };
+
   const data = [
     { name: "Email", value: "contact@serendib.com" },
     { name: "Phone", value: "+265 123 456 789" },
@@ -14,7 +34,7 @@ function About() {
       {/* Header image */}
       <div className="w-full relative h-[250px] md:h-[400px]">
         <Image
-          src="/images/contact.jpg"
+          src="/contact/contact-img1.jpg"
           alt="contact-img"
           fill
           className="object-cover"
@@ -37,21 +57,21 @@ function About() {
       </div>
 
       {/* Contact Card over Background */}
-      <div className="flex flex-col md:flex-row justify-center items-center relative mt-10 pb-10 px-4">
+      <div className="flex flex-col md:flex-row justify-center items-center relative mt-10 pb-10">
         <div className="w-full relative">
           <Image
-            src="/images/contact1.jpg"
+            src="/contact/contact-img2.jpg"
             alt="contact-img"
             width={1500}
             height={500}
-            className="w-full h-100 object-cover"
+            className="w-full h-150 object-cover"
           />
 
           {/* Desktop View: Slide Card */}
           <div className="hidden md:flex absolute bottom-0 left-0 m-5">
-            <div className="relative w-[300px] h-60 overflow-hidden group">
+            <div className="relative w-[350px] h-60 overflow-hidden group">
               {/* Front Card */}
-              <div className="absolute inset-0 flex justify-center items-center bg-gray-300 text-black text-2xl transition-all duration-500 group-hover:opacity-0">
+              <div className="absolute inset-0 flex justify-center items-center bg-gray-200 text-black text-2xl transition-all duration-500 group-hover:opacity-0">
                 Reservations
               </div>
 
@@ -95,7 +115,61 @@ function About() {
             </p>
           </div>
         </div>
+
       </div>
+
+      <div className="mx-10 p-10 bg-white shadow-md">
+      <h2 className="text-2xl font-bold mb-4">Ask Any Questions?</h2>
+
+      <form className="space-y-4" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className="mt-1 block w-full border border-gray-300 shadow-sm p-2"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            className="mt-1 block w-full border border-gray-300 shadow-sm p-2"
+            placeholder="you@example.com"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="question" className="block text-sm font-medium text-gray-700">Ask Any Questions</label>
+          <textarea
+            name="question"
+            id="question"
+            rows="5"
+            className="mt-1 block w-full border border-gray-300 shadow-sm p-2"
+            placeholder="Type your question here..."
+            value={formData.question}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <button type="submit" className="w-full bg-blue-600 text-white py-2 px-4 hover:bg-blue-700 transition">
+          Submit
+        </button>
+      </form>
+    </div>
+      
     </div>
   );
 }

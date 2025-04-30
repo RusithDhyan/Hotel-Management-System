@@ -13,13 +13,13 @@ const hotels = [
     url: "/hotels/le-croissant/accommodations/executive-suite",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
-      features: [
-        "/icons/rooms/item1.png",
-        "/icons/rooms/item2.png",
-        "/icons/rooms/item3.png",
-        "/icons/rooms/item4.png",
-        "/icons/rooms/item5.png",
-      ]
+    features: [
+      "/icons/rooms/item1.png",
+      "/icons/rooms/item2.png",
+      "/icons/rooms/item3.png",
+      "/icons/rooms/item4.png",
+      "/icons/rooms/item5.png",
+    ],
   },
   {
     id: 2,
@@ -29,13 +29,13 @@ const hotels = [
     url: "/hotels/le-croissant/accommodations/family-twin",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
-      features: [
-        "/icons/rooms/item1.png",
-        "/icons/rooms/item2.png",
-        "/icons/rooms/item3.png",
-        "/icons/rooms/item4.png",
-        "/icons/rooms/item5.png",
-      ]
+    features: [
+      "/icons/rooms/item1.png",
+      "/icons/rooms/item2.png",
+      "/icons/rooms/item3.png",
+      "/icons/rooms/item4.png",
+      "/icons/rooms/item5.png",
+    ],
   },
   {
     id: 3,
@@ -45,13 +45,13 @@ const hotels = [
     url: "/hotels/le-croissant/accommodations/deluxe-king",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
-      features: [
-        "/icons/rooms/item1.png",
-        "/icons/rooms/item2.png",
-        "/icons/rooms/item3.png",
-        "/icons/rooms/item4.png",
-        "/icons/rooms/item5.png",
-      ]
+    features: [
+      "/icons/rooms/item1.png",
+      "/icons/rooms/item2.png",
+      "/icons/rooms/item3.png",
+      "/icons/rooms/item4.png",
+      "/icons/rooms/item5.png",
+    ],
   },
   {
     id: 4,
@@ -61,16 +61,15 @@ const hotels = [
     url: "/hotels/le-croissant/accommodations/premier",
     description:
       "Experience the perfect blend of timeless elegance and modern comfort in our Premier Heritage Suite. This spacious suite features a king-size bed with premium linens, a separate living area.",
-      features: [
-        "/icons/rooms/item1.png",
-        "/icons/rooms/item2.png",
-        "/icons/rooms/item3.png",
-        "/icons/rooms/item4.png",
-        "/icons/rooms/item5.png",
-      ]
+    features: [
+      "/icons/rooms/item1.png",
+      "/icons/rooms/item2.png",
+      "/icons/rooms/item3.png",
+      "/icons/rooms/item4.png",
+      "/icons/rooms/item5.png",
+    ],
   },
 ];
-
 
 export default function Accommodation() {
   const [isActive, setIsActive] = useState(false);
@@ -85,13 +84,15 @@ export default function Accommodation() {
   const deactivateHover = () => setIsActive(false);
 
   const nextSlide = () => {
-    if (!isSwiping.current) { // Only move if not swiping
+    if (!isSwiping.current) {
+      // Only move if not swiping
       setIndex((prev) => (prev + 1 + hotels.length) % hotels.length);
     }
   };
 
   const prevSlide = () => {
-    if (!isSwiping.current) { // Only move if not swiping
+    if (!isSwiping.current) {
+      // Only move if not swiping
       setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
     }
   };
@@ -155,13 +156,13 @@ export default function Accommodation() {
           {hotels.map((hotel) => (
             <div
               key={hotel.id}
-              className="flex-shrink-0 w-full md:w-[50%] lg:w-[33.33%] p-4 transition-all duration-500"
+              className="flex-shrink-0 w-full md:w-[50%] lg:w-[100%] p-4 transition-all duration-500"
             >
               <div className="bg-white">
                 <Image
                   src={hotel.image}
                   alt={hotel.title}
-                  className="w-full h-80 object-cover"
+                  className="w-full h-110 object-cover"
                   width={1000}
                   height={100}
                 />
@@ -170,23 +171,26 @@ export default function Accommodation() {
                     {hotel.title}
                   </h3>
                   <p className="text-sm text-gray-600">
-                                                        Room Size: {hotel.size}
-                                                      </p>
-                                                      <div className="flex flex-wrap gap-2 mt-2">
-                                                        {hotel.features.map((icon, idx) => (
-                                                          <Image
-                                                            key={idx}
-                                                            src={icon}
-                                                            alt="feature"
-                                                            width={20}
-                                                            height={20}
-                                                            className="w-5 h-5"
-                                                          />
-                                                        ))}
-                                                      </div>
+                    Room Size: {hotel.size}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {hotel.features.map((icon, idx) => (
+                      <Image
+                        key={idx}
+                        src={icon}
+                        alt="feature"
+                        width={20}
+                        height={20}
+                        className="w-5 h-5"
+                      />
+                    ))}
+                  </div>
                   <p className="text-sm mt-2">{hotel.description}</p>
                   <div className="flex flex-row justify-start py-3">
-                    <Link href={hotel.url} className="text-sm md:text-md lg:text-lg">
+                    <Link
+                      href={hotel.url}
+                      className="text-sm md:text-md lg:text-lg"
+                    >
                       <button
                         className="relative text-black py-1 px-2 border-b-2 border-transparent"
                         onMouseEnter={activateHover}
@@ -211,16 +215,22 @@ export default function Accommodation() {
 
         {/* Navigation Buttons */}
         <div className="flex items-center justify-between sm:justify-end gap-20 my-2 px-4">
-          <button onClick={prevSlide} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+          <button
+            onClick={prevSlide}
+            className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+          >
             <ArrowLeft size={20} />
           </button>
 
           {/* Mobile card number display */}
-          <h5 className="text-sm md:hidden text-gray-500">
+          <h5 className="text-sm text-gray-500">
             {index + 1}/{hotels.length}
           </h5>
 
-          <button onClick={nextSlide} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+          <button
+            onClick={nextSlide}
+            className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+          >
             <ArrowRight size={20} />
           </button>
         </div>
@@ -228,4 +238,3 @@ export default function Accommodation() {
     </div>
   );
 }
-

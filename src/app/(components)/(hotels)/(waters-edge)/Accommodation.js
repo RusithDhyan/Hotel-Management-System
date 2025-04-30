@@ -152,13 +152,13 @@ export default function Accommodation() {
           {hotels.map((hotel) => (
             <div
               key={hotel.id}
-              className="flex-shrink-0 w-full md:w-[50%] lg:w-[33.33%] p-4 transition-all duration-500"
+              className="flex-shrink-0 w-full md:w-[50%] lg:w-[100%] p-4 transition-all duration-500"
             >
               <div className="bg-white">
                 <Image
                   src={hotel.image}
                   alt={hotel.title}
-                  className="w-full h-80 object-cover"
+                  className="w-full h-110 object-cover"
                   width={1000}
                   height={100}
                 />
@@ -216,7 +216,7 @@ export default function Accommodation() {
           </button>
 
           {/* Mobile card number display */}
-          <h5 className="text-sm md:hidden text-gray-500">
+          <h5 className="text-sm text-gray-500">
             {index + 1}/{hotels.length}
           </h5>
 

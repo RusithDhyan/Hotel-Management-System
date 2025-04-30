@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 
 const experiences = [
@@ -12,7 +12,7 @@ const experiences = [
     description:
       "Experience comfort and elegance with our top-tier suites and personalized services.",
     image: "/experience/cable-walk.jpg",
-    url:"/experiences/exp1-walk-in-cable"
+    url: "/experiences/exp1-walk-in-cable",
   },
   {
     id: 2,
@@ -20,8 +20,7 @@ const experiences = [
     description:
       "Experience comfort and elegance with our top-tier suites and personalized services.",
     image: "/experience/into-wild.jpg",
-    url:"/experiences/exp2-into-the-wild"
-
+    url: "/experiences/exp2-into-the-wild",
   },
   {
     id: 3,
@@ -29,8 +28,7 @@ const experiences = [
     description:
       "Experience comfort and elegance with our top-tier suites and personalized services.",
     image: "/experience/malawi-lake.jpeg",
-    url:"/experiences/exp3-malawi-lake"
-
+    url: "/experiences/exp3-malawi-lake",
   },
   {
     id: 4,
@@ -38,8 +36,7 @@ const experiences = [
     description:
       "Experience comfort and elegance with our top-tier suites and personalized services.",
     image: "/experience/luxury-stay.jpg",
-    url:"/experiences/exp3-malawi-lake"
-
+    url: "/experiences/exp3-malawi-lake",
   },
   {
     id: 5,
@@ -47,8 +44,7 @@ const experiences = [
     description:
       "Discover thrilling adventures and breathtaking landscapes with guided tours.",
     image: "/experience/adventure-tour.jpeg",
-    url:"/experiences/exp3-malawi-lake"
-
+    url: "/experiences/exp3-malawi-lake",
   },
   {
     id: 6,
@@ -56,13 +52,13 @@ const experiences = [
     description:
       "Rejuvenate your senses with our world-class spa treatments and therapies.",
     image: "/experience/relaxing-spa.jpg",
-    url:"/experiences/exp3-malawi-lake"
-
+    url: "/experiences/exp3-malawi-lake",
   },
 ];
 
-export default function ExperiencePage() {
+export default function BlogPage() {
   const sliderRef = useRef(null);
+  const [showAll, setShowAll] = useState(false);
 
   const scrollLeft = () => {
     if (sliderRef.current) {
@@ -76,13 +72,14 @@ export default function ExperiencePage() {
     }
   };
 
-  // Auto scroll effect
+  // Auto scroll effect (disabled when grid is shown)
   useEffect(() => {
+    if (showAll) return;
+
     const interval = setInterval(() => {
       if (!sliderRef.current) return;
       const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
 
-      // If at end, scroll back to start
       if (scrollLeft + clientWidth >= scrollWidth - 10) {
         sliderRef.current.scrollTo({ left: 0, behavior: "smooth" });
       } else {
@@ -91,11 +88,11 @@ export default function ExperiencePage() {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [showAll]);
 
   return (
     <div className="min-h-screen">
-      {/* Top Cover Image */}
+      {/* Top Cover */}
       <div className="w-full relative h-[250px] md:h-[400px]">
         <Image
           src="/experience/exp-bg.jpg"
@@ -119,54 +116,67 @@ export default function ExperiencePage() {
           moment is designed to leave a lasting impression. Let your journey
           with us be more than a stay — let it be a story worth telling.
         </p>
+        <button
+          onClick={() => setShowAll(!showAll)}
+          className="mt-4 px-6 py-2 bg-blue-600 text-white hover:bg-blue-700 transition"
+        >
+          {showAll ? "Back to Slider" : "View All Experience"}
+        </button>
       </div>
 
-      {/* Slider Section */}
       <div className="container mx-auto px-4 md:px-6 pt-10 relative">
-        {/* Arrow buttons (hidden on small screens) */}
-        <div className="hidden sm:flex justify-end gap-4 mb-5">
-          <button
-            onClick={scrollLeft}
-            className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
-          >
-            <ArrowLeft className="h-6 w-6" />
-          </button>
-          <button
-            onClick={scrollRight}
-            className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
-          >
-            <ArrowRight className="h-6 w-6" />
-          </button>
-        </div>
+        {!showAll && (
+          <div className="hidden sm:flex justify-end gap-4 mb-5">
+            <button
+              onClick={scrollLeft}
+              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+            >
+              <ArrowLeft className="h-6 w-6" />
+            </button>
+            <button
+              onClick={scrollRight}
+              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+            >
+              <ArrowRight className="h-6 w-6" />
+            </button>
+          </div>
+        )}
 
-        {/* Cards */}
+        {/* Blog Cards */}
         <div
           ref={sliderRef}
-          className="flex overflow-x-auto gap-4 md:gap-6 scrollbar-hide scroll-smooth"
+          className={`${
+            showAll
+              ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              : "flex overflow-x-auto gap-4 md:gap-6 scrollbar-hide scroll-smooth"
+          }`}
         >
-          {experiences.map((experience) => (
-           
+          {experiences.map((exp) => (
             <div
-              key={experience.id}
-              className="w-[80%] sm:min-w-[300px] sm:w-[400px] flex-shrink-0 bg-white shadow-md hover:shadow-lg transition overflow-hidden mx-auto"
+              key={exp.id}
+              className={`${
+                showAll
+                  ? "w-full"
+                  : "w-[80%] sm:min-w-[300px] sm:w-[400px] flex-shrink-0"
+              } bg-white shadow-md hover:shadow-lg transition overflow-hidden`}
             >
-               <Link href={experience.url}>
               <div className="relative h-48 md:h-60 w-full">
                 <Image
-                  src={experience.image}
-                  alt={experience.title}
+                  src={exp.image}
+                  alt={exp.title}
                   layout="fill"
                   objectFit="cover"
                 />
               </div>
-              </Link>
-              <div className="p-4 md:p-6">
-                <h2 className="text-xl md:text-2xl font-semibold mb-2">
-                  {experience.title}
-                </h2>
-                <p className="text-gray-600 text-sm md:text-base">
-                  {experience.description}
-                </p>
+              <div className="p-2">
+                <h2 className="text-xl font-semibold mb-2">{exp.title}</h2>
+                <p className="text-sm md:text-base">{exp.description}</p>
+                <Link
+                  href={exp.url}
+                  className="text-blue-600 hover:text-[#FF741E] duration-300"
+                >
+                  Read more
+                </Link>
               </div>
             </div>
           ))}
