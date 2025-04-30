@@ -5,13 +5,13 @@ export default function Blog4() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Top Image */}
-      <div className="w-full h-auto">
+      <div className="w-full">
         <Image
-          src="/blogs/blog1.jpg"
+          src="/blogs/blog1/blog1.jpg"
           alt="blog-img"
           width={1500}
           height={10}
-          className="h-auto object-cover w-full"
+          className="h-100 object-cover w-full"
         />
       </div>
 
@@ -30,14 +30,14 @@ export default function Blog4() {
       {/* Slide Card Section */}
       <div className="flex justify-center items-center relative mt-10 pb-10">
         <Image
-          src="/blogs/blog-bg.jpg"
+          src="/blogs/blog1/blog-bg.jpg"
           alt="contact-img"
           width={1500}
           height={100}
           className="w-full h-100 object-cover"
         />
         <div className="absolute inset-0 px-4 sm:px-10 flex items-end justify-end">
-          <div className="relative w-full sm:w-100 h-80 overflow-hidden group">
+          <div className="relative w-full sm:w-100 h-50 overflow-hidden group">
             {/* Desktop View (Hover Effect) */}
             <div className="hidden sm:flex">
               {/* Front Card */}
@@ -52,11 +52,7 @@ export default function Blog4() {
                 through taste and tradition. Our curated menu features a
                 harmonious blend of local Sri Lankan flavors and international
                 favorites, crafted with the finest ingredients by our expert
-                chefs. Whether you're indulging in a rich curry, savoring a
-                perfectly grilled steak, or enjoying a light tropical dessert,
-                every dish is served with elegance and care. Join us for a
-                memorable culinary experience in a setting that’s as refined as
-                the flavors on your plate.
+                chefs.
                 </p>
               </div>
             </div>
@@ -71,11 +67,7 @@ export default function Blog4() {
                 through taste and tradition. Our curated menu features a
                 harmonious blend of local Sri Lankan flavors and international
                 favorites, crafted with the finest ingredients by our expert
-                chefs. Whether you're indulging in a rich curry, savoring a
-                perfectly grilled steak, or enjoying a light tropical dessert,
-                every dish is served with elegance and care. Join us for a
-                memorable culinary experience in a setting that’s as refined as
-                the flavors on your plate.{" "}
+                chefs.
               </p>
             </div>
           </div>
@@ -85,7 +77,7 @@ export default function Blog4() {
       {/* First Info Card */}
       <div className="flex flex-col md:flex-row items-center w-full px-4 sm:px-10 gap-5 mt-6">
         <Image
-          src="/blogs/blog4.jpg"
+          src="/blogs/blog1/blog4.jpg"
           alt="card-image2"
           width={1500}
           height={100}
@@ -119,7 +111,7 @@ export default function Blog4() {
           </p>
         </div>
         <Image
-          src="/blogs/blog5.jpg"
+          src="/blogs/blog1/blog5.jpg"
           alt="card-image2"
           width={1500}
           height={100}

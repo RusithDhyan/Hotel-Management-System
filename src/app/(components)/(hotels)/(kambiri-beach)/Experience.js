@@ -26,7 +26,25 @@ export default function Experience() {
             elegance and modern luxury offers a unique experience in a tranquil
             setting.
           </p>
-          
+          <Link
+            href="/experiences"
+            className="text-sm lg:text-lg md:text-md"
+          >
+            <button
+              className="relative text-black py-1 px-2 border-b-2 border-transparent"
+              onMouseEnter={activateHover}
+              onMouseLeave={deactivateHover}
+              onTouchStart={activateHover}
+              onTouchEnd={deactivateHover}
+            >
+              Discover
+              <span
+                className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                  isActive ? "w-full" : "w-10"
+                }`}
+              ></span>
+            </button>
+          </Link>
         </div>
 
         {/* Right Content */}

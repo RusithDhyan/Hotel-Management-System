@@ -55,7 +55,7 @@ export default function OurCollection() {
     {
       id: 7,
       nav: "zaburi-lake-resort",
-      image: "/hotels/h10.jpg",
+      image: "/hotels/h15.jpg",
       title: "Zaburi Lake Resort",
       location: "Bolera Village, Mangochi, Malawi",
       description: "Discover secluded island beauty with crystal-clear waters.",
@@ -138,7 +138,7 @@ export default function OurCollection() {
         </div>
       </div> */}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-5 mt-10 px-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 p-5 mt-10 px-10">
         {hotels.map((hotel) => (
           <div key={hotel.id} className="bg-white shadow-md overflow-hidden">
             <Link href={`/hotels/${hotel.nav}`}>
@@ -147,7 +147,7 @@ export default function OurCollection() {
                 alt={hotel.title}
                 width={600}
                 height={400}
-                className="w-full h-56 object-cover"
+                className="w-full h-80 object-cover"
               />
             </Link>
             <div className="p-4">
