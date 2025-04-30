@@ -55,7 +55,7 @@ export default function Home() {
           </p>
 
           <div>
-            <Link href="/about" className=" text-sm md:text-base">
+            <Link href="/about" className=" text-sm md:text-base text-gray-500 hover:text-gray-400 duration-300">
               Read more
             </Link>
           </div>
