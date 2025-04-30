@@ -14,7 +14,6 @@ function About() {
     { image: "/logo/Bamboo.png", name: "Bamboo Boutique" },
     { image: "/logo/Le-croissant.png", name: "Le Croissant" },
 
-
   ];
 
   return (
@@ -147,11 +146,11 @@ function About() {
       </div>
     </div>
 
-    <div className="px-10">
-          <h2 className="text-2xl md:text-2xl font-bold text-gray-800 mb-6">
+    <div className="px-10 flex flex-col items-center">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">
             Why Partner With Us
           </h2>
-          <p className="text-gray-600 text-lg leading-relaxed">
+          <p className="text-sm md:text-base text-center">
             At Serendib Hotels, we believe that great partnerships are built on trust,
             transparency, and a shared commitment to excellence. By partnering with us,
             you join a hospitality brand that values innovation, sustainability, and
@@ -161,7 +160,7 @@ function About() {
         </div>
 
         {/* Image Section */}
-        <div className="px-10">
+        <div className="px-10 mt-2">
           <Image
             src="/about/bg-img3.jpg"
             alt="Why Partner With Us"

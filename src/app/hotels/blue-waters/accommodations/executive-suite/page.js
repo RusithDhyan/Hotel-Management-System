@@ -56,31 +56,31 @@ export default function ExecutiveSuite() {
       {/* Room Details Section */}
       <div className="flex flex-col md:flex-row md:px-10 mt-10 gap-5">
         {/* Images */}
-        <div className="flex flex-col md:flex-row gap-4 w-full md:w-1/2">
-          <Image
-            src="/hotels/heritage/accommodations/div4.jpeg"
-            alt="main"
-            width={500}
-            height={300}
-            className="w-full md:h-[315px] h-[200px] object-cover"
-          />
-          <div className="flex flex-col gap-4">
-            <Image
-              src="/hotels/heritage/accommodations/div5.jpeg"
-              alt="sub1"
-              width={300}
-              height={100}
-              className="w-full h-[200px] md:h-[150px] object-cover"
-            />
-            <Image
-              src="/hotels/heritage/accommodations/div3.jpeg"
-              alt="sub2"
-              width={300}
-              height={100}
-              className="w-full h-[200px] md:h-[150px] object-cover"
-            />
-          </div>
-        </div>
+        <div className="flex flex-col md:flex-row gap-2 w-full md:w-1/2">
+                  <Image
+                    src="/hotels/heritage/accommodations/div4.jpeg"
+                    alt="main"
+                    width={500}
+                    height={300}
+                    className="md:h-[308px] h-[200px] object-cover"
+                  />
+                  <div className="flex flex-col gap-2">
+                    <Image
+                      src="/hotels/heritage/accommodations/div5.jpeg"
+                      alt="sub1"
+                      width={500}
+                      height={300}
+                      className=" h-[150px] md:h-[150px] object-cover"
+                    />
+                    <Image
+                      src="/hotels/heritage/accommodations/div3.jpeg"
+                      alt="sub2"
+                      width={500}
+                      height={300}
+                      className=" h-[200px] md:h-[150px] object-cover"
+                    />
+                  </div>
+                </div>
 
         {/* Text */}
         <div className="w-full text-sm md:text-base lg:text-lg flex flex-col justify-center gap-3">
