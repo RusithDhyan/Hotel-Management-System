@@ -116,7 +116,7 @@ export default function Home() {
           <HotelNav />
         </div>
       </div>
-      <div className="h-auto flex flex-col md:flex-row items-center w-full px-2 lg:px-10 gap-5">
+      <div className="h-auto flex flex-col md:flex-row items-center w-full px-2 lg:px-10 gap-5 mt-2">
         <Image
           src="/images/elephant.jpeg"
           alt="card-image2"
