@@ -19,90 +19,79 @@ const images = [
   { image: "/hotels/heritage/gallery/gallery-img12.jpg" },
   { image: "/hotels/heritage/gallery/gallery-img13.jpg" },
   { image: "/hotels/heritage/gallery/gallery-img14.jpg" },
-
 ];
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(images[0].image);
   const scrollRef = useRef(null);
   const thumbnailRefs = useRef([]);
+  const indexRef = useRef(0);
 
-  // Infinite auto-scroll with looping
-  useEffect(() => {
-    const container = scrollRef.current;
-    let index = 0;
-  
-    const scrollNext = () => {
-      if (!container || thumbnailRefs.current.length === 0) return;
-  
-      index = (index + 1) % thumbnailRefs.current.length;
-      const nextThumb = thumbnailRefs.current[index];
-  
-      if (nextThumb) {
-        container.scrollTo({ left: nextThumb.offsetLeft - 16, behavior: "smooth" }); // 16 = padding gap adjustment
-        setSelectedImage(images[index].image);
-      }
-    };
-  
-    const interval = setInterval(scrollNext, 3000);
-    return () => clearInterval(interval);
-  }, []);
-  
-
-  // Manual scroll buttons
-  const scrollLeft = () => {
-    scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
-  };
-
-  const scrollRight = () => {
-    scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
-  };
-
-  // Dynamically update selected image based on scroll
-  const handleScroll = () => {
-    const container = scrollRef.current;
-    const containerCenter = container.scrollLeft + container.offsetWidth / 2;
-
-    let closestIndex = 0;
-    let closestDistance = Infinity;
-
-    thumbnailRefs.current.forEach((ref, i) => {
-      if (ref) {
-        const rect = ref.getBoundingClientRect();
-        const thumbCenter = rect.left + rect.width / 2;
-        const containerRect = container.getBoundingClientRect();
-        const distance = Math.abs(thumbCenter - (containerRect.left + container.offsetWidth / 2));
-
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = i;
-        }
-      }
-    });
-
-    setSelectedImage(images[closestIndex].image);
-  };
-
-  // Attach scroll event
   useEffect(() => {
     const container = scrollRef.current;
     const firstThumb = thumbnailRefs.current[0];
-  
     if (container && firstThumb) {
       container.scrollTo({ left: firstThumb.offsetLeft - 16, behavior: "auto" });
     }
   }, []);
-  
+
+  useEffect(() => {
+    const container = scrollRef.current;
+
+    const scrollNext = () => {
+      if (!container || thumbnailRefs.current.length === 0) return;
+
+      indexRef.current = (indexRef.current + 1) % thumbnailRefs.current.length;
+      const nextThumb = thumbnailRefs.current[indexRef.current];
+
+      if (nextThumb) {
+        container.scrollTo({
+          left: nextThumb.offsetLeft - 16,
+          behavior: "smooth",
+        });
+        setSelectedImage(images[indexRef.current].image);
+      }
+    };
+
+    const interval = setInterval(scrollNext, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const scrollLeft = () => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    indexRef.current = (indexRef.current - 1 + images.length) % images.length;
+    const prevThumb = thumbnailRefs.current[indexRef.current];
+
+    if (prevThumb) {
+      container.scrollTo({ left: prevThumb.offsetLeft - 16, behavior: "smooth" });
+      setSelectedImage(images[indexRef.current].image);
+    }
+  };
+
+  const scrollRight = () => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    indexRef.current = (indexRef.current + 1) % images.length;
+    const nextThumb = thumbnailRefs.current[indexRef.current];
+
+    if (nextThumb) {
+      container.scrollTo({ left: nextThumb.offsetLeft - 16, behavior: "smooth" });
+      setSelectedImage(images[indexRef.current].image);
+    }
+  };
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto px-4 py-10">
-      <h2 className="text-2xl font-bold text-center">Delicious Foods Gallery</h2>
-      <p className="text-center text-gray-600 max-w-xl mx-auto">
+    <div className="space-y-6 max-w-full md:max-w-5xl mx-auto px-4 py-6 sm:py-10">
+      <h2 className="text-xl sm:text-2xl font-bold text-center">Delicious Foods Gallery</h2>
+      <p className="text-sm sm:text-base text-center text-gray-600 max-w-xl mx-auto">
         Explore our mouth-watering meals served with love and elegance in a luxury dining setting.
       </p>
 
       {/* Main Image */}
-      <div className="w-full aspect-video relative overflow-hidden shadow-lg">
+      <div className="w-full aspect-[16/9] relative overflow-hidden shadow-lg">
         <Image
           src={selectedImage}
           alt="Selected Food"
@@ -112,29 +101,38 @@ const Gallery = () => {
         />
       </div>
 
-      {/* Arrows */}
-      <div className="flex justify-between items-center">
-        <button onClick={scrollLeft} className="p-2 bg-white shadow hover:bg-gray-100">
-          <ChevronLeft className="w-6 h-6" />
+      {/* Arrow Buttons */}
+      <div className="flex justify-between items-center px-2 sm:px-4">
+        <button
+          onClick={scrollLeft}
+          className="p-2 bg-white shadow hover:bg-gray-100"
+        >
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
-        <button onClick={scrollRight} className="p-2 bg-white shadow hover:bg-gray-100">
-          <ChevronRight className="w-6 h-6" />
+        <button
+          onClick={scrollRight}
+          className="p-2 bg-white shadow hover:bg-gray-100"
+        >
+          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       </div>
 
-      {/* Thumbnails Scroll */}
+      {/* Thumbnails */}
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto py-2 scrollbar-hide scroll-smooth"
+        className="flex gap-3 overflow-x-auto py-2 px-1 scrollbar-hide scroll-smooth"
       >
         {images.map((img, index) => (
           <div
             key={index}
             ref={(el) => (thumbnailRefs.current[index] = el)}
-            className={`min-w-[100px] md:min-w-[150px] h-24 cursor-pointer overflow-hidden border-4 ${
+            className={`min-w-[80px] sm:min-w-[100px] md:min-w-[120px] h-20 sm:h-24 cursor-pointer overflow-hidden border-4 ${
               selectedImage === img.image ? "border-blue-500" : "border-transparent"
             }`}
-            onClick={() => setSelectedImage(img.image)}
+            onClick={() => {
+              indexRef.current = index;
+              setSelectedImage(img.image);
+            }}
           >
             <div className="relative w-full h-full">
               <Image
