@@ -1,25 +1,24 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import Image from "next/image";
 
 function About() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    question: ''
+    name: "",
+    email: "",
+    question: "",
   });
 
   const handleChange = (e) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    
+    console.log("Form submitted:", formData);
   };
 
   const data = [
@@ -115,61 +114,77 @@ function About() {
             </p>
           </div>
         </div>
-
       </div>
 
       <div className="mx-10 p-10 bg-white shadow-md">
-      <h2 className="text-2xl font-bold mb-4">Ask Any Questions?</h2>
+        <h2 className="text-2xl font-bold mb-4">Ask Any Questions?</h2>
 
-      <form className="space-y-4" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            className="mt-1 block w-full border border-gray-300 shadow-sm p-2"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <form className="space-y-4" onSubmit={handleSubmit}>
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              className="mt-1 block w-full border border-gray-300 shadow-sm p-2"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            className="mt-1 block w-full border border-gray-300 shadow-sm p-2"
-            placeholder="you@example.com"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className="mt-1 block w-full border border-gray-300 shadow-sm p-2"
+              placeholder="you@example.com"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div>
-          <label htmlFor="question" className="block text-sm font-medium text-gray-700">Ask Any Questions</label>
-          <textarea
-            name="question"
-            id="question"
-            rows="5"
-            className="mt-1 block w-full border border-gray-300 shadow-sm p-2"
-            placeholder="Type your question here..."
-            value={formData.question}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div>
+            <label
+              htmlFor="question"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Ask Any Questions
+            </label>
+            <textarea
+              name="question"
+              id="question"
+              rows="5"
+              className="mt-1 block w-full border border-gray-300 shadow-sm p-2"
+              placeholder="Type your question here..."
+              value={formData.question}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <button type="submit" className="w-full bg-blue-600 text-white py-2 px-4 hover:bg-blue-700 transition">
-          Submit
-        </button>
-      </form>
-    </div>
-      
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 px-4 hover:bg-blue-700 transition"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

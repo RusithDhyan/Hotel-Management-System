@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <div>
-      <HomeSlider sectionRef={sectionRef}/>
+      <HomeSlider sectionRef={sectionRef} />
 
       <div className="h-auto mt-10 w-full px-2 flex flex-col lg:flex-row items-center gap-4">
         <Image
@@ -39,7 +39,10 @@ export default function Home() {
           height={1000}
           className="sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-120 lg:h-130 object-cover "
         />
-        <div ref={sectionRef} className="flex flex-col gap-4 text-sm md:text-base lg:text-lg px-2 md:px-8">
+        <div
+          ref={sectionRef}
+          className="flex flex-col gap-4 text-sm md:text-base lg:text-lg px-2 md:px-8"
+        >
           <h1 className="text-2xl md:text-3xl lg:text-5xl">
             Eco Luxury Escapes <br /> in Malawi
           </h1>
@@ -55,7 +58,10 @@ export default function Home() {
           </p>
 
           <div>
-            <Link href="/about" className=" text-sm md:text-base text-gray-500 hover:text-gray-400 duration-300">
+            <Link
+              href="/about"
+              className=" text-sm md:text-base text-gray-500 hover:text-gray-400 duration-300"
+            >
               Read more
             </Link>
           </div>

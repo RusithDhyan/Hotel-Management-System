@@ -44,7 +44,7 @@ export default function LotusHotel() {
           alt="lotus-img1"
           width={1500}
           height={100}
-          className="w-full md:w-1/2 object-cover"
+          className="w-full sm:w-1/3 h-80 object-cover"
         />
 
         <div className="flex flex-col items-center justify-center gap-4 w-full md:w-1/2 px-2">

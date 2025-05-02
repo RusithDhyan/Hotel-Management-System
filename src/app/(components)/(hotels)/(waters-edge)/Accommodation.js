@@ -118,27 +118,9 @@ export default function Accommodation() {
       <h1 className="text-center text-xl md:text-3xl lg:text-4xl">
         Accommodations
       </h1>
-      {/* <div>
-        <Link href="/hotels/bamboo-boutique/accommodations" className="items-center justify-center flex text-sm md:text-md lg:text-lg">
-          <button
-            className="relative text-black py-1 px-2 border-b-2 border-transparent text-gray-500"
-            onMouseEnter={activateHover}
-            onMouseLeave={deactivateHover}
-            onTouchStart={activateHover}
-            onTouchEnd={deactivateHover}
-          >
-            View All
-            <span
-              className={`absolute left-0 bottom-0 h-[2px] bg-gray-400 transition-all duration-300 ${
-                isActive ? "w-full" : "w-10"
-              }`}
-            ></span>
-          </button>
-        </Link>
-      </div> */}
 
       <div
-        className="relative w-full max-w-6xl mx-auto mt-5 overflow-hidden"
+        className="relative w-full max-w-6xl mx-auto overflow-hidden"
         ref={sliderRef}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
@@ -158,7 +140,7 @@ export default function Accommodation() {
                 <Image
                   src={hotel.image}
                   alt={hotel.title}
-                  className="w-full h-110 object-cover"
+                  className="w-full h-60 sm:h-110 object-cover"
                   width={1000}
                   height={100}
                 />
@@ -210,7 +192,7 @@ export default function Accommodation() {
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex items-center justify-between sm:justify-end gap-20 my-2 px-4">
+        <div className="flex items-center justify-between sm:justify-end gap-20 px-4">
           <button onClick={prevSlide} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
             <ArrowLeft size={20} />
           </button>

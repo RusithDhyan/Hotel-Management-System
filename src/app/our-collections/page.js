@@ -10,7 +10,8 @@ export default function OurCollection() {
       image: "/hotels/h1.jpeg",
       title: "Blue Waters Lake Resort",
       location: "Senga Bay,Salima",
-      description: "Enjoy breathtaking sunsets over Lake Malawi in ultimate luxury.",
+      description:
+        "Enjoy breathtaking sunsets over Lake Malawi in ultimate luxury.",
     },
     {
       id: 2,
@@ -18,7 +19,8 @@ export default function OurCollection() {
       image: "/hotels/h14.jpg",
       title: "Le Croissant",
       location: "Limbe,Blantyre",
-      description: "A tranquil escape nestled in the highlands, perfect for relaxation.",
+      description:
+        "A tranquil escape nestled in the highlands, perfect for relaxation.",
     },
     {
       id: 3,
@@ -26,7 +28,8 @@ export default function OurCollection() {
       image: "/hotels/h3.jpeg",
       title: "Heritage Hotel",
       location: "Milward Road, Limbe, Blantyre, Malawi",
-      description: "Experience the charm of historic tea plantations in a cozy setting.",
+      description:
+        "Experience the charm of historic tea plantations in a cozy setting.",
     },
     {
       id: 4,
@@ -34,7 +37,8 @@ export default function OurCollection() {
       image: "/hotels/h4.jpeg",
       title: "Kambiri Beach",
       location: "Senga Bay,Salima",
-      description: "Step onto pristine sands and embrace the soothing waves of the lake.",
+      description:
+        "Step onto pristine sands and embrace the soothing waves of the lake.",
     },
     {
       id: 5,
@@ -42,7 +46,8 @@ export default function OurCollection() {
       image: "/hotels/h12.jpg",
       title: "Kara O Mula",
       location: "Boma Path – Bush, Mulanje, Malawi",
-      description: "Get up close with wildlife while staying in a luxurious safari retreat.",
+      description:
+        "Get up close with wildlife while staying in a luxurious safari retreat.",
     },
     {
       id: 6,
@@ -50,7 +55,8 @@ export default function OurCollection() {
       image: "/hotels/h11.jpg",
       title: "Lotus Hotel",
       location: "Glyn Jones Road, Namiwawa Avenue, Blantyre, Malawi",
-      description: "A modern hotel in the heart of Malawi’s vibrant capital city.",
+      description:
+        "A modern hotel in the heart of Malawi’s vibrant capital city.",
     },
     {
       id: 7,
@@ -82,7 +88,8 @@ export default function OurCollection() {
       image: "/hotels/h10.jpg",
       title: "Serendib Travels",
       location: "Off Chilomoni Ring Road, Namiwawa, Blantyre, Malawi",
-      description: "Nestled in the tranquil Namiwawa neighborhood of Blantyre, Serendib Suites & Conference Center offers a harmonious blend of comfort and convenience."
+      description:
+        "Nestled in the tranquil Namiwawa neighborhood of Blantyre, Serendib Suites & Conference Center offers a harmonious blend of comfort and convenience.",
     },
   ];
 
@@ -107,14 +114,15 @@ export default function OurCollection() {
         <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
           Our Collection
         </h1>
-
       </div>
 
       <div className="flex flex-col items-center justify-center gap-3 mt-10 px-5 text-center">
-        <h1 className="text-xl md:text-2xl">Discover Our Exclusive Hotel Collection</h1>
+        <h1 className="text-xl md:text-2xl">
+          Discover Our Exclusive Hotel Collection
+        </h1>
         <p className="font-extralight">
-          Experience a seamless blend of luxury, nature, and Malawian hospitality in our
-          carefully curated boutique hotels.
+          Experience a seamless blend of luxury, nature, and Malawian
+          hospitality in our carefully curated boutique hotels.
         </p>
       </div>
 

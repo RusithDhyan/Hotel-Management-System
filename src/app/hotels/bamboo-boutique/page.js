@@ -33,13 +33,13 @@ export default function BambooBoutique() {
         </h1>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center p-10 gap-5">
+      <div className="flex flex-col md:flex-row items-center p-5 gap-5">
         <Image
           src="/hotels/bamboo-boutique/bamboo-img1.jpeg"
           alt="bamboo-img1"
           width={1500}
           height={100}
-          className="w-full md:w-1/2 h-64 md:h-96 object-cover"
+          className="w-full sm:w-1 h-80 md:h-96 object-cover"
         />
 
         <div className="flex flex-col items-center justify-center gap-4 mt-4 md:mt-0">
