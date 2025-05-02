@@ -139,7 +139,7 @@ export default function BlogPage() {
       {/* Top Cover */}
       <div className="w-full relative h-[250px] md:h-[400px]">
         <Image
-          src="/images/gallery.jpg"
+          src="/hotels/heritage/gallery/gallery.jpg"
           alt="Gallery Cover"
           fill
           className="object-cover"
