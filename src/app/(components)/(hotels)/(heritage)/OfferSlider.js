@@ -86,9 +86,10 @@ export default function OfferSlider({ nav }) {
                   alt="slide-image"
                   layout="fill" 
                   objectFit="cover"
+                  
                 />
               </div>
-              <div className="flex flex-col items-center justify-center gap-2 text-sm md:text-md lg:text-lg ">
+              <div className="flex flex-col items-center justify-center gap-2 text-sm md:text-md lg:text-lg text-center">
                 <h1>{slide.title}</h1>
                 <h1 className="text-xl md:text-2xl lg:text-4xl text-gray-400">
                   {slide.offerType}
