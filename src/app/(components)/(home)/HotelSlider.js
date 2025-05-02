@@ -151,7 +151,7 @@ export default function HotelSlider() {
       </div>
       </div>
       
-      <div className="sm:px-20">
+      <div className="sm:px-20 mt-5">
       <div className="relative  mx-auto overflow-hidden p-4">
         <div
           className="flex transition-transform duration-500 ease-in-out"

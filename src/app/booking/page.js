@@ -188,7 +188,7 @@ export default function BookingPage() {
                     alt={selectedRoom}
                     width={1000}
                     height={100}
-                    className="w-full h-35 sm:h-30 object-cover"
+                    className="w-full h-50 sm:h-30 object-cover"
                   />
                 )}
               </div>

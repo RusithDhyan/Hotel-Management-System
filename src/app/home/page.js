@@ -108,15 +108,15 @@ export default function Home() {
           <Image
             src="/images/map2.png"
             alt="card-image2"
-            width={1000}
+            width={800}
             height={10}
-            className="object-cover"
+            className="object-cover h-112"
           />
 
           <HotelNav />
         </div>
       </div>
-      <div className=" h-auto flex flex-col md:flex-row items-center w-full px-2 lg:px-10 gap-5">
+      <div className="h-auto flex flex-col md:flex-row items-center w-full px-2 lg:px-10 gap-5">
         <Image
           src="/images/elephant.jpeg"
           alt="card-image2"
