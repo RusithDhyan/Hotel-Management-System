@@ -122,7 +122,7 @@ export default function Home() {
           alt="card-image2"
           width={500}
           height={100}
-          className="w-110 h-110"
+          className="w-100 h-100 object-cover"
         />
         <div className="flex flex-col items-left gap-2 text-xs lg:text-lg md:text-md">
           <h1 className="text-xl lg:text-4xl md:text-3xl">

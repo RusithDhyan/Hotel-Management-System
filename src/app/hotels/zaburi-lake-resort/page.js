@@ -1,7 +1,7 @@
 "use client"
 import Accommodation from "@/app/(components)/(hotels)/(zaburi-lake-resort)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(zaburi-lake-resort)/Experience";
-import FoodFlavor from "@/app/(components)/(hotels)/(zaburi-lake-resort)/FoodFlavor";
+import Gallery from "@/app/(components)/(hotels)/(zaburi-lake-resort)/Gallery";
 import OfferSlider from "@/app/(components)/(hotels)/(zaburi-lake-resort)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
@@ -65,38 +65,34 @@ export default function ZaburiLakeResort() {
       <Accommodation />
 
       {/* Perks Section */}
-      <div className="flex flex-col items-center justify-center mt-10 px-4">
-        <div className="text-center mb-6">
-          <h1 className="text-2xl sm:text-3xl mt-10 text-gray-500">
-            Included With Your Stay
-          </h1>
-          <h2 className="text-sm sm:text-md text-gray-500">
-            Enjoy These Perks On Us
-          </h2>
-        </div>
-        <div className="flex flex-wrap justify-center gap-6 w-full">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center px-4 md:border-r last:border-r-0"
-            >
-              <div className="flex items-center justify-center mb-2">
-                <Image
-                  src={item.url}
-                  alt="images"
-                  width={1500}
-                  height={100}
-                  className="w-10"
-                />
-              </div>
-              <h2 className="text-sm text-center">{item.title}</h2>
-            </div>
-          ))}
-        </div>
-      </div>
+      <div className="flex flex-col md:flex-row items-center justify-center gap-5 mt-10 px-4">
+             <div className="text-center">
+               <h1 className="text-2xl sm:text-3xl mt-6 text-gray-500">
+                 Included With Your Stay
+               </h1>
+               <h2 className="text-md text-gray-500">Enjoy These Perks On Us</h2>
+             </div>
+             <div className="flex flex-wrap justify-center gap-5 mt-4">
+               {items.map((item, index) => (
+                 <div
+                   key={index}
+                   className="flex sm:flex-col items-center px-4 md:border-r last:border-r-0"
+                 >
+                   <Image
+                     src={item.url}
+                     alt="icon"
+                     width={40}
+                     height={40}
+                     className="w-10"
+                   />
+                   <h2 className="text-sm text-center mt-2">{item.title}</h2>
+                 </div>
+               ))}
+             </div>
+           </div>
 
       <Experience />
-      {/* <FoodFlavor /> */}
+      <Gallery/>
       <OfferSlider nav={navLink} />
     </div>
   );

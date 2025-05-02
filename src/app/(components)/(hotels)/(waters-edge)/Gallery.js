@@ -107,7 +107,7 @@ const Gallery = () => {
         luxury dining setting.
       </p>
       <Link
-        href="/hotels/heritage-hotel/gallery"
+        href="/hotels/waters-edge/gallery"
         className="text-sm lg:text-lg md:text-md flex justify-center"
       >
         <button
