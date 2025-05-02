@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const images = [
   { image: "/hotels/heritage/gallery/gallery-img1.jpg" },
@@ -22,6 +23,11 @@ const images = [
 ];
 
 const Gallery = () => {
+  
+  const [isActive, setIsActive] = useState(false);
+  const activateHover = () => setIsActive(true);
+  const deactivateHover = () => setIsActive(false);
+
   const [selectedImage, setSelectedImage] = useState(images[0].image);
   const scrollRef = useRef(null);
   const thumbnailRefs = useRef([]);
@@ -89,6 +95,22 @@ const Gallery = () => {
       <p className="text-sm sm:text-base text-center text-gray-600 max-w-xl mx-auto">
         Explore our mouth-watering meals served with love and elegance in a luxury dining setting.
       </p>
+      <Link href="/hotels/heritage-hotel/gallery" className="text-sm lg:text-lg md:text-md">
+            <button
+              className="relative text-black py-1 px-2 border-b-2 border-transparent"
+              onMouseEnter={activateHover}
+              onMouseLeave={deactivateHover}
+              onTouchStart={activateHover}
+              onTouchEnd={deactivateHover}
+            >
+              Explore
+              <span
+                className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                  isActive ? "w-full" : "w-10"
+                }`}
+              ></span>
+            </button>
+          </Link>
 
       {/* Main Image */}
       <div className="w-full aspect-[16/9] relative overflow-hidden shadow-lg">
