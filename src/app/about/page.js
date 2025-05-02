@@ -13,7 +13,6 @@ function About() {
     { image: "/logo/Waters-Edge.png", name: "Waters Edge" },
     { image: "/logo/Bamboo.png", name: "Bamboo Boutique" },
     { image: "/logo/Le-croissant.png", name: "Le Croissant" },
-
   ];
 
   return (
@@ -66,13 +65,12 @@ function About() {
             elegance and modern luxury offers a unique experience in a tranquil
             setting.
           </p>
-          
         </div>
 
         {/* Right Content */}
         <div className="flex flex-col w-full md:w-1/2 items-center justify-center gap-2 relative overflow-hidden group">
           <h1 className="text-2xl sm:text-3xl text-center">
-          Discover Authentic Malawian Hospitality
+            Discover Authentic Malawian Hospitality
           </h1>
           <div className="relative w-full">
             <Image
@@ -82,93 +80,98 @@ function About() {
               height={100}
               className="w-full h-64 sm:h-80 md:h-96 object-cover"
             />
-            
           </div>
         </div>
       </div>
 
-    {/* Why Choose Us */}
+      {/* Why Choose Us */}
       <div className="px-4 py-16 sm:px-6 lg:px-20 bg-gray-50 text-gray-800">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-xl md:text-2xl font-bold mb-12 text-center">
-          Why Choose Serendib Hotels
-        </h2>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-xl md:text-2xl font-bold mb-12 text-center">
+            Why Choose Serendib Hotels
+          </h2>
 
-        <div className="grid gap-10 lg:grid-cols-3">
-          {/* Card 1 */}
-          <div className="bg-white shadow-md p-6 flex flex-col items-center text-center">
-            <Image
-              src="/about/choose1.jpg"
-              alt="Excellence"
-              width={1500}
-              height={200}
-              className="mb-4 object-cover"
-            />
-            <h3 className="text-xl font-semibold mb-2">World-Class Service</h3>
-            <p className="text-gray-600">
-              We deliver personalized, world-class service to ensure your stay is
-              exceptional from start to finish.
-            </p>
-          </div>
+          <div className="grid gap-10 lg:grid-cols-3">
+            {/* Card 1 */}
+            <div className="bg-white shadow-md p-6 flex flex-col items-center text-center">
+              <Image
+                src="/about/choose1.jpg"
+                alt="Excellence"
+                width={1500}
+                height={200}
+                className="mb-4 object-cover"
+              />
+              <h3 className="text-xl font-semibold mb-2">
+                World-Class Service
+              </h3>
+              <p className="text-gray-600">
+                We deliver personalized, world-class service to ensure your stay
+                is exceptional from start to finish.
+              </p>
+            </div>
 
-          {/* Card 2 */}
-          <div className="bg-white shadow-md p-6 flex flex-col items-center text-center">
-            <Image
-              src="/about/choose2.jpg"
-              alt="Authenticity"
-              width={1500}
-              height={200}
-              className="mb-4 object-cover"
-            />
-            <h3 className="text-xl font-semibold mb-2">Authentic Experience</h3>
-            <p className="text-gray-600">
-              From food to decor, we celebrate Malawian culture in every detail of your
-              experience.
-            </p>
-          </div>
+            {/* Card 2 */}
+            <div className="bg-white shadow-md p-6 flex flex-col items-center text-center">
+              <Image
+                src="/about/choose2.jpg"
+                alt="Authenticity"
+                width={1500}
+                height={200}
+                className="mb-4 object-cover"
+              />
+              <h3 className="text-xl font-semibold mb-2">
+                Authentic Experience
+              </h3>
+              <p className="text-gray-600">
+                From food to decor, we celebrate Malawian culture in every
+                detail of your experience.
+              </p>
+            </div>
 
-          {/* Card 3 */}
-          <div className="bg-white shadow-md p-6 flex flex-col items-center text-center">
-            <Image
-              src="/about/choose3.jpg"
-              alt="Sustainability"
-              width={1500}
-              height={200}
-              className="mb-4 object-cover"
-            />
-            <h3 className="text-xl font-semibold mb-2">Eco & Community Friendly</h3>
-            <p className="text-gray-600">
-              We support local communities and operate with environmentally conscious
-              practices at all locations.
-            </p>
+            {/* Card 3 */}
+            <div className="bg-white shadow-md p-6 flex flex-col items-center text-center">
+              <Image
+                src="/about/choose3.jpg"
+                alt="Sustainability"
+                width={1500}
+                height={200}
+                className="mb-4 object-cover"
+              />
+              <h3 className="text-xl font-semibold mb-2">
+                Eco & Community Friendly
+              </h3>
+              <p className="text-gray-600">
+                We support local communities and operate with environmentally
+                conscious practices at all locations.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div className="px-10 flex flex-col items-center">
-          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">
-            Why Partner With Us
-          </h2>
-          <p className="text-sm md:text-base text-center">
-            At Serendib Hotels, we believe that great partnerships are built on trust,
-            transparency, and a shared commitment to excellence. By partnering with us,
-            you join a hospitality brand that values innovation, sustainability, and
-            local empowerment — creating meaningful, lasting value for both our guests
-            and our collaborators.
-          </p>
-        </div>
+      <div className="px-10 flex flex-col items-center">
+        <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">
+          Why Partner With Us
+        </h2>
+        <p className="text-sm md:text-base text-center">
+          At Serendib Hotels, we believe that great partnerships are built on
+          trust, transparency, and a shared commitment to excellence. By
+          partnering with us, you join a hospitality brand that values
+          innovation, sustainability, and local empowerment — creating
+          meaningful, lasting value for both our guests and our collaborators.
+        </p>
+      </div>
 
-        {/* Image Section */}
-        <div className="px-10 mt-2">
-          <Image
-            src="/about/bg-img3.jpg"
-            alt="Why Partner With Us"
-            width={1500}
-            height={200}
-            className=" shadow-lg object-cover w-full h-auto"
-          />
-        </div>
+      {/* Image Section */}
+      <div className="px-10 mt-2">
+        <Image
+          src="/about/bg-img3.jpg"
+          alt="Why Partner With Us"
+          width={1500}
+          height={200}
+          className=" shadow-lg object-cover w-full h-auto"
+        />
+      </div>
 
       <div className="flex flex-col items-center justify-center gap-4 px-4 mt-5 md:px-20 text-center">
         <h1 className="text-xl md:text-2xl font-semibold">Serendib Hotels</h1>
@@ -196,8 +199,6 @@ function About() {
           ))}
         </div>
       </div>
-
-      
     </div>
   );
 }

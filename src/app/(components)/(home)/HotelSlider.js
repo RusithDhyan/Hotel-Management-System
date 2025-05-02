@@ -1,7 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowLeft, ArrowRight, CircleArrowLeft, CircleArrowRight } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CircleArrowLeft,
+  CircleArrowRight,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -100,10 +105,10 @@ const hotels = [
 ];
 
 export default function HotelSlider() {
-    const [isActive, setIsActive] = useState(false);
-    
-      const activateHover = () => setIsActive(true);
-      const deactivateHover = () => setIsActive(false);
+  const [isActive, setIsActive] = useState(false);
+
+  const activateHover = () => setIsActive(true);
+  const deactivateHover = () => setIsActive(false);
 
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -131,106 +136,112 @@ export default function HotelSlider() {
       </h1>
 
       <div>
-      <div>
-        <Link href="/our-collections" className="text-sm lg:text-lg md:text-md flex items-center justify-center">
-          <button
-            className="relative text-black py-1 px-2 border-b-2 border-transparent text-gray-500"
-            onMouseEnter={activateHover}
-            onMouseLeave={deactivateHover}
-            onTouchStart={activateHover}
-            onTouchEnd={deactivateHover}
+        <div>
+          <Link
+            href="/our-collections"
+            className="text-sm lg:text-lg md:text-md flex items-center justify-center"
           >
-            View All
-            <span
-              className={`absolute left-0 bottom-0 h-[2px] bg-gray-400 transition-all duration-300 ${
-                isActive ? "w-full" : "w-10"
-              }`}
-            ></span>
-          </button>
-        </Link>
-      </div>
-      </div>
-      
-      <div className="sm:px-20">
-      <div className="relative  mx-auto overflow-hidden p-4">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{
-            transform: `translateX(-${index * (isMobile ? 100 : 33.33)}%)`,
-          }}
-        >
-          {hotels.map((hotel, i) => (
-            <div
-              key={hotel.id}
-              className={`flex-shrink-0 ${
-                isMobile ? "w-full" : "w-[33.33%]"
-              } p-2 transition-all duration-500 ${
-                !isMobile &&
-                (i === index ? "scale-110 w-[50%]" : "scale-90 w-[25%]")
-              }`}
-              style={{
-                opacity: isMobile && i !== index ? 0 : 1,
-                
-              }}                        
+            <button
+              className="relative text-black py-1 px-2 border-b-2 border-transparent text-gray-500"
+              onMouseEnter={activateHover}
+              onMouseLeave={deactivateHover}
+              onTouchStart={activateHover}
+              onTouchEnd={deactivateHover}
             >
-              <div className="bg-white">
-                <Image
-                  src={hotel.image}
-                  alt={hotel.title}
-                  className="w-full h-70 object-cover"
-                  width={1000}
-                  height={100}
-                />
-                <div className={`lg:p-4 ${i === index ? "h-40" : "h-auto"}`}>
-                  <h3 className="text-lg font-semibold">{hotel.title}</h3>
-                  <h4 className="text-gray-400">{hotel.location}</h4>
-                  {i === index && (
-                    <p className="text-sm">{hotel.description}</p>
-                  )}
-                  <div className="flex flex-row justify-end pb-3">
-                    <Link
-                      href={hotel.url}
-                      className="text-sm lg:text-lg md:text-md"
-                    >
-                      {i === index && (
-                        <button
-                        className="relative text-black py-1 px-2 border-b-2 border-transparent"
-                        onMouseEnter={activateHover}
-                        onMouseLeave={deactivateHover}
-                        onTouchStart={activateHover}
-                        onTouchEnd={deactivateHover}
+              View All
+              <span
+                className={`absolute left-0 bottom-0 h-[2px] bg-gray-400 transition-all duration-300 ${
+                  isActive ? "w-full" : "w-10"
+                }`}
+              ></span>
+            </button>
+          </Link>
+        </div>
+      </div>
+
+      <div className="sm:px-20 mt-5">
+        <div className="relative  mx-auto overflow-hidden p-4">
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{
+              transform: `translateX(-${index * (isMobile ? 100 : 33.33)}%)`,
+            }}
+          >
+            {hotels.map((hotel, i) => (
+              <div
+                key={hotel.id}
+                className={`flex-shrink-0 ${
+                  isMobile ? "w-full" : "w-[33.33%]"
+                } p-2 transition-all duration-500 ${
+                  !isMobile &&
+                  (i === index ? "scale-110 w-[50%]" : "scale-90 w-[25%]")
+                }`}
+                style={{
+                  opacity: isMobile && i !== index ? 0 : 1,
+                }}
+              >
+                <div className="bg-white">
+                  <Image
+                    src={hotel.image}
+                    alt={hotel.title}
+                    className="w-full h-70 object-cover"
+                    width={1000}
+                    height={100}
+                  />
+                  <div className={`lg:p-4 ${i === index ? "h-40" : "h-auto"}`}>
+                    <h3 className="text-lg font-semibold">{hotel.title}</h3>
+                    <h4 className="text-gray-400">{hotel.location}</h4>
+                    {i === index && (
+                      <p className="text-sm">{hotel.description}</p>
+                    )}
+                    <div className="flex flex-row justify-end pb-3">
+                      <Link
+                        href={hotel.url}
+                        className="text-sm lg:text-lg md:text-md"
                       >
-                        Explore
-                        <span
-                          className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-                            isActive ? "w-full" : "w-10"
-                          }`}
-                        ></span>
-                      </button>
-                        
-                      )}
-                    </Link>
-                  
+                        {i === index && (
+                          <button
+                            className="relative text-black py-1 px-2 border-b-2 border-transparent"
+                            onMouseEnter={activateHover}
+                            onMouseLeave={deactivateHover}
+                            onTouchStart={activateHover}
+                            onTouchEnd={deactivateHover}
+                          >
+                            Explore
+                            <span
+                              className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                                isActive ? "w-full" : "w-10"
+                              }`}
+                            ></span>
+                          </button>
+                        )}
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Navigation Buttons */}
-        <div className="flex items-center justify-between sm:justify-end gap-20 my-5 border-t border-gray-300 py-3 px-4">
-          <button onClick={prevSlide} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
-            <ArrowLeft size={25} />
-          </button>
-          <h5 className="text-sm text-gray-500">
-            {index + 1}/{hotels.length}
-          </h5>
-          <button onClick={nextSlide} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
-            <ArrowRight size={25} />
-          </button>
+          {/* Navigation Buttons */}
+          <div className="flex items-center justify-between sm:justify-end gap-20 my-5 border-t border-gray-300 py-3 px-4">
+            <button
+              onClick={prevSlide}
+              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+            >
+              <ArrowLeft size={25} />
+            </button>
+            <h5 className="text-sm text-gray-500">
+              {index + 1}/{hotels.length}
+            </h5>
+            <button
+              onClick={nextSlide}
+              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+            >
+              <ArrowRight size={25} />
+            </button>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );

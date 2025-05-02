@@ -33,7 +33,6 @@ export default function HomeSlider({ sectionRef }) {
       url: "/images/bg5.jpg",
       title: "Embracing The Warm Heart Malawi : A Cultural Journey",
     },
-   
   ];
   return (
     <div className="w-full">

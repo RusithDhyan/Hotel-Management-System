@@ -6,82 +6,202 @@ import Image from "next/image";
 const hotelOptions = {
   "Blue Waters": {
     rooms: {
-      "Executive Room": {image:"/hotels/blue-waters/accommodations/executive.jpeg",price:200},
-      "Family Room": {image:"/hotels/blue-waters/accommodations/family.jpeg",price:350},
-      "Deluxe King Room": {image:"/hotels/blue-waters/accommodations/deluxe.jpeg",price:400},
-      "Premier Room": {image:"/hotels/blue-waters/accommodations/premier.jpeg",price:450},
+      "Executive Room": {
+        image: "/hotels/blue-waters/accommodations/executive.jpeg",
+        price: 200,
+      },
+      "Family Room": {
+        image: "/hotels/blue-waters/accommodations/family.jpeg",
+        price: 350,
+      },
+      "Deluxe King Room": {
+        image: "/hotels/blue-waters/accommodations/deluxe.jpeg",
+        price: 400,
+      },
+      "Premier Room": {
+        image: "/hotels/blue-waters/accommodations/premier.jpeg",
+        price: 450,
+      },
     },
   },
   "Heritage Hotel": {
     rooms: {
-      "Executive Room": {image:"/hotels/heritage/accommodations/executive.jpg",price:200},
-      "Family Room": {image:"/hotels/heritage/accommodations/family.jpg",price:350},
-      "Deluxe King Room": {image:"/hotels/heritage/accommodations/deluxe.jpg",price:400},
-      "Premier Room": {image:"/hotels/heritage/accommodations/premier.jpeg",price:450},
+      "Executive Room": {
+        image: "/hotels/heritage/accommodations/executive.jpg",
+        price: 200,
+      },
+      "Family Room": {
+        image: "/hotels/heritage/accommodations/family.jpg",
+        price: 350,
+      },
+      "Deluxe King Room": {
+        image: "/hotels/heritage/accommodations/deluxe.jpg",
+        price: 400,
+      },
+      "Premier Room": {
+        image: "/hotels/heritage/accommodations/premier.jpeg",
+        price: 450,
+      },
     },
   },
   "Le Croissant": {
     rooms: {
-      "Executive Room": {image:"/hotels/le-croissant/accommodations/executive.jpeg",price:200},
-      "Family Room": {image:"/hotels/le-croissant/accommodations/family.jpeg",price:350},
-      "Deluxe King Room": {image:"/hotels/le-croissant/accommodations/deluxe.jpeg",price:400},
-      "Premier Room": {image:"/hotels/le-croissant/accommodations/premier.jpeg",price:450},
+      "Executive Room": {
+        image: "/hotels/le-croissant/accommodations/executive.jpeg",
+        price: 200,
+      },
+      "Family Room": {
+        image: "/hotels/le-croissant/accommodations/family.jpeg",
+        price: 350,
+      },
+      "Deluxe King Room": {
+        image: "/hotels/le-croissant/accommodations/deluxe.jpeg",
+        price: 400,
+      },
+      "Premier Room": {
+        image: "/hotels/le-croissant/accommodations/premier.jpeg",
+        price: 450,
+      },
     },
   },
   "Bamboo Boutique": {
     rooms: {
-      "Executive Room": {image:"/hotels/bamboo-boutique/accommodations/executive.jpeg",price:200},
-      "Family Room": {image:"/hotels/bamboo-boutique/accommodations/family.jpeg",price:350},
-      "Deluxe King Room": {image:"/hotels/bamboo-boutique/accommodations/deluxe.jpeg",price:400},
-      "Premier Room": {image:"/hotels/bamboo-boutique/accommodations/premier.jpeg",price:450},
+      "Executive Room": {
+        image: "/hotels/bamboo-boutique/accommodations/executive.jpeg",
+        price: 200,
+      },
+      "Family Room": {
+        image: "/hotels/bamboo-boutique/accommodations/family.jpeg",
+        price: 350,
+      },
+      "Deluxe King Room": {
+        image: "/hotels/bamboo-boutique/accommodations/deluxe.jpeg",
+        price: 400,
+      },
+      "Premier Room": {
+        image: "/hotels/bamboo-boutique/accommodations/premier.jpeg",
+        price: 450,
+      },
     },
   },
   "Kambiri Beach": {
     rooms: {
-      "Executive Room": {image:"/hotels/kambiri-beach/accommodations/executive.jpeg",price:200},
-      "Family Room": {image:"/hotels/kambiri-beach/accommodations/family.jpeg",price:350},
-      "Deluxe King Room": {image:"/hotels/kambiri-beach/accommodations/deluxe.jpeg",price:400},
-      "Premier Room": {image:"/hotels/kambiri-beach/accommodations/premier.jpeg",price:450},
+      "Executive Room": {
+        image: "/hotels/kambiri-beach/accommodations/executive.jpeg",
+        price: 200,
+      },
+      "Family Room": {
+        image: "/hotels/kambiri-beach/accommodations/family.jpeg",
+        price: 350,
+      },
+      "Deluxe King Room": {
+        image: "/hotels/kambiri-beach/accommodations/deluxe.jpeg",
+        price: 400,
+      },
+      "Premier Room": {
+        image: "/hotels/kambiri-beach/accommodations/premier.jpeg",
+        price: 450,
+      },
     },
   },
   "Kara O Mula": {
     rooms: {
-      "Executive Room": {image:"/hotels/kara-o-mula/accommodations/executive.jpeg",price:200},
-      "Family Room": {image:"/hotels/kara-o-mula/accommodations/family.jpeg",price:350},
-      "Deluxe King Room": {image:"/hotels/kara-o-mula/accommodations/deluxe.jpeg",price:400},
-      "Premier Room": {image:"/hotels/kara-o-mula/accommodations/premier.jpeg",price:450},
+      "Executive Room": {
+        image: "/hotels/kara-o-mula/accommodations/executive.jpeg",
+        price: 200,
+      },
+      "Family Room": {
+        image: "/hotels/kara-o-mula/accommodations/family.jpeg",
+        price: 350,
+      },
+      "Deluxe King Room": {
+        image: "/hotels/kara-o-mula/accommodations/deluxe.jpeg",
+        price: 400,
+      },
+      "Premier Room": {
+        image: "/hotels/kara-o-mula/accommodations/premier.jpeg",
+        price: 450,
+      },
     },
   },
   "Lotus Hotel": {
     rooms: {
-      "Executive Room": {image:"/hotels/lotus-hotel/accommodations/executive.jpeg",price:200},
-      "Family Room": {image:"/hotels/lotus-hotel/accommodations/family.jpeg",price:350},
-      "Deluxe King Room": {image:"/hotels/lotus-hotel/accommodations/deluxe.jpeg",price:400},
-      "Premier Room": {image:"/hotels/lotus-hotel/accommodations/premier.jpeg",price:450},
+      "Executive Room": {
+        image: "/hotels/lotus-hotel/accommodations/executive.jpeg",
+        price: 200,
+      },
+      "Family Room": {
+        image: "/hotels/lotus-hotel/accommodations/family.jpeg",
+        price: 350,
+      },
+      "Deluxe King Room": {
+        image: "/hotels/lotus-hotel/accommodations/deluxe.jpeg",
+        price: 400,
+      },
+      "Premier Room": {
+        image: "/hotels/lotus-hotel/accommodations/premier.jpeg",
+        price: 450,
+      },
     },
   },
   "Serendib Travels": {
     rooms: {
-      "Executive Room": {image:"/hotels/serendib-travels/accommodations/executive.jpeg",price:200},
-      "Family Room": {image:"/hotels/serendib-travels/accommodations/family.jpeg",price:350},
-      "Deluxe King Room": {image:"/hotels/serendib-travels/accommodations/deluxe.jpeg",price:400},
-      "Premier Room": {image:"/hotels/serendib-travels/accommodations/premier.jpeg",price:450},
+      "Executive Room": {
+        image: "/hotels/serendib-travels/accommodations/executive.jpeg",
+        price: 200,
+      },
+      "Family Room": {
+        image: "/hotels/serendib-travels/accommodations/family.jpeg",
+        price: 350,
+      },
+      "Deluxe King Room": {
+        image: "/hotels/serendib-travels/accommodations/deluxe.jpeg",
+        price: 400,
+      },
+      "Premier Room": {
+        image: "/hotels/serendib-travels/accommodations/premier.jpeg",
+        price: 450,
+      },
     },
   },
   "Waters Edge": {
     rooms: {
-      "Executive Room": {image:"/hotels/waters-edge/accommodations/executive.jpeg",price:200},
-      "Family Room": {image:"/hotels/waters-edge/accommodations/family.jpeg",price:350},
-      "Deluxe King Room": {image:"/hotels/waters-edge/accommodations/deluxe.jpeg",price:400},
-      "Premier Room": {image:"/hotels/waters-edge/accommodations/premier.jpeg",price:450},
+      "Executive Room": {
+        image: "/hotels/waters-edge/accommodations/executive.jpeg",
+        price: 200,
+      },
+      "Family Room": {
+        image: "/hotels/waters-edge/accommodations/family.jpeg",
+        price: 350,
+      },
+      "Deluxe King Room": {
+        image: "/hotels/waters-edge/accommodations/deluxe.jpeg",
+        price: 400,
+      },
+      "Premier Room": {
+        image: "/hotels/waters-edge/accommodations/premier.jpeg",
+        price: 450,
+      },
     },
   },
   "Zaburi Lake Resort": {
     rooms: {
-      "Executive Room": {image:"/hotels/zaburi-lake/accommodations/executive.jpeg",price:200},
-      "Family Room": {image:"/hotels/zaburi-lake/accommodations/family.jpeg",price:350},
-      "Deluxe King Room": {image:"/hotels/zaburi-lake/accommodations/deluxe.jpeg",price:400},
-      "Premier Room": {image:"/hotels/zaburi-lake/accommodations/premier.jpeg",price:450},
+      "Executive Room": {
+        image: "/hotels/zaburi-lake/accommodations/executive.jpeg",
+        price: 200,
+      },
+      "Family Room": {
+        image: "/hotels/zaburi-lake/accommodations/family.jpeg",
+        price: 350,
+      },
+      "Deluxe King Room": {
+        image: "/hotels/zaburi-lake/accommodations/deluxe.jpeg",
+        price: 400,
+      },
+      "Premier Room": {
+        image: "/hotels/zaburi-lake/accommodations/premier.jpeg",
+        price: 450,
+      },
     },
   },
 };
@@ -188,7 +308,7 @@ export default function BookingPage() {
                     alt={selectedRoom}
                     width={1000}
                     height={100}
-                    className="w-full h-35 sm:h-30 object-cover"
+                    className="w-full h-50 sm:h-30 object-cover"
                   />
                 )}
               </div>
