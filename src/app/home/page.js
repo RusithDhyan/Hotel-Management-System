@@ -41,7 +41,7 @@ export default function Home() {
         />
         <div
           ref={sectionRef}
-          className="flex flex-col gap-4 text-sm md:text-base lg:text-lg px-2 md:px-8"
+          className="flex flex-col gap-4 text-sm md:text-base lg:text-lg px-1 md:px-8"
         >
           <h1 className="text-2xl md:text-3xl lg:text-5xl">
             Eco Luxury Escapes <br /> in Malawi

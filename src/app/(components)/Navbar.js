@@ -59,7 +59,7 @@ export default function Navbar() {
             <Link href="/experiences">Experience</Link>
             <Link href="/offers">Offers</Link>
             <Link href="/blogs">Blogs</Link>
-            <Link href="/galery">Galery</Link>
+            <Link href="/gallery">Gallery</Link>
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
           </ul>
@@ -112,8 +112,8 @@ export default function Navbar() {
               <Link href="/blogs" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
                 Blogs
               </Link>
-              <Link href="/offers" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
-                Galery
+              <Link href="/gallery" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
+                Gallery
               </Link>
               <Link href="/about" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
                 About

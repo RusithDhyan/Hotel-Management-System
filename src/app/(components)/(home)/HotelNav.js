@@ -12,7 +12,7 @@ export default function HotelNav() {
     {
       name: "Blue Waters Lake Resort",
       href: "/hotels/blue-waters",
-      position: "top-[10%] left-[38%]",
+      position: "top-[5%] left-[38%]",
     },
     {
       name: "Kambri Beach",
@@ -42,7 +42,7 @@ export default function HotelNav() {
     {
       name: "Bamboo Boutique",
       href: "/hotels/bamboo-boutique",
-      position: "top-[82%] left-[55%]",
+      position: "top-[85%] left-[55%]",
     },
     {
       name: "Zaburi Lake Resort ",

@@ -172,7 +172,7 @@ export default function HotelSlider() {
                 key={hotel.id}
                 className={`flex-shrink-0 ${
                   isMobile ? "w-full" : "w-[33.33%]"
-                } p-2 transition-all duration-500 ${
+                }  transition-all duration-500 ${
                   !isMobile &&
                   (i === index ? "scale-110 w-[50%]" : "scale-90 w-[25%]")
                 }`}
@@ -184,7 +184,7 @@ export default function HotelSlider() {
                   <Image
                     src={hotel.image}
                     alt={hotel.title}
-                    className="w-full h-70 object-cover"
+                    className="w-full h-60 object-cover"
                     width={1000}
                     height={100}
                   />
@@ -202,10 +202,10 @@ export default function HotelSlider() {
                         {i === index && (
                           <button
                             className="relative text-black py-1 px-2 border-b-2 border-transparent"
-                            onMouseEnter={activateHover}
-                            onMouseLeave={deactivateHover}
-                            onTouchStart={activateHover}
-                            onTouchEnd={deactivateHover}
+                            onMouseEnter={() => setHoveredId(hotel.id)}
+                            onMouseLeave={() => setHoveredId(null)}
+                            onTouchStart={() => setHoveredId(hotel.id)}
+                            onTouchEnd={() => setHoveredId(null)}
                           >
                             Explore
                             <span

@@ -13,9 +13,9 @@ export default function OurStory() {
           height={50}
           className="max-h-screen w-full"
         />
-        <div className="flex absolute inset-0 items-center px-5">
+        <div className="flex absolute inset-0 items-center px-2">
           <div className="flex flex-col justify-between gap-2 lg:mt-60 md:mt-45 sm:mt-30">
-            <h1 className="text-xl lg:text-4xl md:text-3xl my-2 text-white">
+            <h1 className="text-xl lg:text-4xl md:text-3xl text-white">
               Iconic Elegance & Luxury
             </h1>
             <p className="text-white text-xs lg:text-lg ">
