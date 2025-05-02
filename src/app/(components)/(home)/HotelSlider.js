@@ -152,7 +152,7 @@ export default function HotelSlider() {
       </div>
       
       <div className="sm:px-20">
-      <div className="relative  mx-auto mt-10 overflow-hidden p-4">
+      <div className="relative  mx-auto overflow-hidden p-4">
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{
@@ -177,7 +177,7 @@ export default function HotelSlider() {
                 <Image
                   src={hotel.image}
                   alt={hotel.title}
-                  className="w-full h-80 object-cover"
+                  className="w-full h-70 object-cover"
                   width={1000}
                   height={100}
                 />

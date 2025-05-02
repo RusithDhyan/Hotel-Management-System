@@ -1,7 +1,7 @@
 "use client"
 import Accommodation from "@/app/(components)/(hotels)/(blue-waters)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(blue-waters)/Experience";
-import FoodFlavor from "@/app/(components)/(hotels)/(blue-waters)/FoodFlavor";
+import Gallery from "@/app/(components)/(hotels)/(blue-waters)/Gallery";
 import OfferSlider from "@/app/(components)/(hotels)/(blue-waters)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
@@ -62,25 +62,27 @@ export default function BlueWatersEdge() {
       <Accommodation />
 
       {/* Included with Stay */}
-      <div className="flex flex-col items-center justify-center mt-10 px-4">
-        <h1 className="text-2xl md:text-3xl text-center text-gray-600 font-semibold">
-          Included With Your Stay
-        </h1>
-        <h2 className="text-md md:text-lg text-gray-500 text-center mb-6">
-          Enjoy These Perks On Us
-        </h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+ <div className="flex flex-col md:flex-row items-center justify-center gap-5 mt-10 px-4">
+        <div className="text-center">
+          <h1 className="text-2xl sm:text-3xl mt-6 text-gray-500">
+            Included With Your Stay
+          </h1>
+          <h2 className="text-md text-gray-500">Enjoy These Perks On Us</h2>
+        </div>
+        <div className="flex flex-wrap justify-center gap-5 mt-4">
           {items.map((item, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
+            <div
+              key={index}
+              className="flex sm:flex-col items-center px-4 md:border-r last:border-r-0"
+            >
               <Image
                 src={item.url}
-                alt={item.title}
+                alt="icon"
                 width={40}
                 height={40}
-                className="mb-2"
+                className="w-10"
               />
-              <h2 className="text-sm md:text-base">{item.title}</h2>
+              <h2 className="text-sm text-center mt-2">{item.title}</h2>
             </div>
           ))}
         </div>
@@ -88,7 +90,7 @@ export default function BlueWatersEdge() {
 
       {/* More Sections */}
       <Experience />
-      {/* <FoodFlavor /> */}
+      <Gallery/>
       <OfferSlider nav={navLink} />
     </div>
   );

@@ -147,10 +147,10 @@ export default function OurCollection() {
                 alt={hotel.title}
                 width={600}
                 height={400}
-                className="w-full h-80 object-cover"
+                className="w-full h-70 object-cover"
               />
             </Link>
-            <div className="p-4">
+            <div className="p-1">
               <h2 className="text-lg font-semibold">{hotel.title}</h2>
               <h3 className="text-gray-600 text-sm">{hotel.location}</h3>
               <p className="text-sm mt-2">{hotel.description}</p>
