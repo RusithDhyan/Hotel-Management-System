@@ -50,11 +50,35 @@ export default function HomeSlider({ sectionRef }) {
     visible: { opacity: 1, y: 0 },
   };
 
+
+  const smoothScrollTo = (targetY, duration = 2500) => {
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    let startTime = null;
+
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 2);
+
+    const animateScroll = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeOutCubic(progress);
+
+      window.scrollTo(0, startY + distance * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  };
+
   const handleScroll = () => {
-    if (sectionRef?.current) {
+    if (sectionRef.current) {
       const targetY =
         sectionRef.current.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: targetY, behavior: "smooth" });
+      smoothScrollTo(targetY);
     }
   };
 
@@ -127,7 +151,7 @@ export default function HomeSlider({ sectionRef }) {
                 </div>
 
                 {/* Scroll Down Icon */}
-                <div className="absolute bottom-10 left-0 right-0 flex justify-center item sm:hidden max-h-screen">
+                <div className="absolute inset-0 flex items-center justify-center sm:hidden mt-25">
                   <a onClick={handleScroll} className="cursor-pointer">
                     <ChevronsDown
                       size={36}
