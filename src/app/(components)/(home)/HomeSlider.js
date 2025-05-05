@@ -127,7 +127,7 @@ export default function HomeSlider({ sectionRef }) {
                 </div>
 
                 {/* Scroll Down Icon */}
-                <div className="absolute bottom-10 left-0 right-0 flex justify-center sm:hidden">
+                <div className="absolute bottom-10 left-0 right-0 flex justify-center item sm:hidden max-h-screen">
                   <a onClick={handleScroll} className="cursor-pointer">
                     <ChevronsDown
                       size={36}
