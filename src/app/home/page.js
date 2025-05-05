@@ -104,7 +104,7 @@ export default function Home() {
           </p>
         </div>
         <div
-          className="flex relative items-center justify-center overflow-hidden group"
+          className="flex relative items-center justify-center overflow-hidden group aspect-ratio"
           onTouchStart={handleTouch}
         >
           <Image
