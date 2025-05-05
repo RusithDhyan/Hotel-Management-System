@@ -60,7 +60,7 @@ export default function BlueWatersOffer() {
           className="h-100 object-cover w-full"
         />
         <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
-          All Blue Waters Offers
+          All Waters Edge Offers
         </h1>
       </div>
 

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Accommodation from "@/app/(components)/(hotels)/(kara-o-mula)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(kara-o-mula)/Experience";
 import Gallery from "@/app/(components)/(hotels)/(kara-o-mula)/Gallery";
@@ -9,9 +9,9 @@ import React, { useState } from "react";
 
 export default function KaraOMula() {
   const [isActive, setIsActive] = useState(false);
-    
-      const activateHover = () => setIsActive(true);
-      const deactivateHover = () => setIsActive(false);
+
+  const activateHover = () => setIsActive(true);
+  const deactivateHover = () => setIsActive(false);
 
   const navLink = "hotels/kara-o-mula/offers";
   const items = [
@@ -58,7 +58,6 @@ export default function KaraOMula() {
             can enjoy splendid mountain views and explore nearby attractions
             with assistance from the tour desk.​
           </p>
-          
         </div>
       </div>
 
@@ -66,34 +65,34 @@ export default function KaraOMula() {
       <Accommodation />
 
       {/* Perks Section */}
-       <div className="flex flex-col md:flex-row items-center justify-center gap-5 mt-10 px-4">
-              <div className="text-center">
-                <h1 className="text-2xl sm:text-3xl mt-6 text-gray-500">
-                  Included With Your Stay
-                </h1>
-                <h2 className="text-md text-gray-500">Enjoy These Perks On Us</h2>
-              </div>
-              <div className="flex flex-wrap justify-center gap-5 mt-4">
-                {items.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex sm:flex-col items-center px-4 md:border-r last:border-r-0"
-                  >
-                    <Image
-                      src={item.url}
-                      alt="icon"
-                      width={40}
-                      height={40}
-                      className="w-10"
-                    />
-                    <h2 className="text-sm text-center mt-2">{item.title}</h2>
-                  </div>
-                ))}
-              </div>
+      <div className="flex flex-col md:flex-row items-center justify-center gap-5 mt-10 px-4">
+        <div className="text-center">
+          <h1 className="text-2xl sm:text-3xl mt-6 text-gray-500">
+            Included With Your Stay
+          </h1>
+          <h2 className="text-md text-gray-500">Enjoy These Perks On Us</h2>
+        </div>
+        <div className="flex flex-wrap justify-center gap-5 mt-4">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="flex sm:flex-col items-center px-4 md:border-r last:border-r-0"
+            >
+              <Image
+                src={item.url}
+                alt="icon"
+                width={40}
+                height={40}
+                className="w-10"
+              />
+              <h2 className="text-sm text-center mt-2">{item.title}</h2>
             </div>
+          ))}
+        </div>
+      </div>
 
       <Experience />
-      <Gallery/>
+      <Gallery />
       <OfferSlider nav={navLink} />
     </div>
   );

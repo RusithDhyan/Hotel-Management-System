@@ -81,7 +81,7 @@ export default function Navbar() {
           </Link>
           {/* <Menu className="text-blue-400" /> */}
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? null : <AlignLeft size={28} className=""/>}
+            {isOpen ? null : <AlignLeft size={28} className="" />}
           </button>
 
           {isOpen && (
@@ -93,32 +93,60 @@ export default function Navbar() {
                 <X size={32} className="text-black" />
               </button>
 
-              <Link href="/" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
+              <Link
+                href="/"
+                className="text-xl hover:text-gray-400"
+                onClick={() => setIsOpen(false)}
+              >
                 Home
               </Link>
               <Link
                 href="/our-collections"
-                onClick={()=>setIsOpen(false)}
+                onClick={() => setIsOpen(false)}
                 className="text-lg hover:text-gray-400"
               >
                 Our Collection
               </Link>
-              <Link href="/experiences" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
+              <Link
+                href="/experiences"
+                className="text-xl hover:text-gray-400"
+                onClick={() => setIsOpen(false)}
+              >
                 Experience
               </Link>
-              <Link href="/offers" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
+              <Link
+                href="/offers"
+                className="text-xl hover:text-gray-400"
+                onClick={() => setIsOpen(false)}
+              >
                 Offers
               </Link>
-              <Link href="/blogs" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
+              <Link
+                href="/blogs"
+                className="text-xl hover:text-gray-400"
+                onClick={() => setIsOpen(false)}
+              >
                 Blogs
               </Link>
-              <Link href="/gallery" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
+              <Link
+                href="/gallery"
+                className="text-xl hover:text-gray-400"
+                onClick={() => setIsOpen(false)}
+              >
                 Gallery
               </Link>
-              <Link href="/about" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
+              <Link
+                href="/about"
+                className="text-xl hover:text-gray-400"
+                onClick={() => setIsOpen(false)}
+              >
                 About
               </Link>
-              <Link href="/contact" className="text-xl hover:text-gray-400" onClick={()=>setIsOpen(false)}>
+              <Link
+                href="/contact"
+                className="text-xl hover:text-gray-400"
+                onClick={() => setIsOpen(false)}
+              >
                 Contact
               </Link>
             </div>

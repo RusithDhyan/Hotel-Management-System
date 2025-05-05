@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Accommodation from "@/app/(components)/(hotels)/(blue-waters)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(blue-waters)/Experience";
 import Gallery from "@/app/(components)/(hotels)/(blue-waters)/Gallery";
@@ -9,9 +9,9 @@ import React, { useState } from "react";
 
 export default function BlueWatersEdge() {
   const [isActive, setIsActive] = useState(false);
-    
-      const activateHover = () => setIsActive(true);
-      const deactivateHover = () => setIsActive(false);
+
+  const activateHover = () => setIsActive(true);
+  const deactivateHover = () => setIsActive(false);
 
   const navLink = "hotels/blue-waters/offers";
   const items = [
@@ -32,7 +32,7 @@ export default function BlueWatersEdge() {
           height={100}
           className="object-cover h-100 sm:max-h-screen w-full"
         />
-         <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl text-white pb-4 font-bold px-4">
+        <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl text-white pb-4 font-bold px-4">
           Blue Waters Edge
         </h1>
       </div>
@@ -52,9 +52,13 @@ export default function BlueWatersEdge() {
             Where Lake Dreams Begin Serenity by the Shoreline of Salima
           </h1>
           <p className="text-sm md:text-base text-gray-600">
-            Nestled along the serene shores of Lake Malawi, Blue Waters Lake Resort offers a tranquil escape with rustic luxury. Guests can enjoy lakeview accommodations, a tranquil waterside pool, and exceptional event spaces accommodating up to 300 guests. The resort's "Pier Deck" and "Rain Tree" restaurants are renowned for their culinary delights, enhancing every occasion.
+            Nestled along the serene shores of Lake Malawi, Blue Waters Lake
+            Resort offers a tranquil escape with rustic luxury. Guests can enjoy
+            lakeview accommodations, a tranquil waterside pool, and exceptional
+            event spaces accommodating up to 300 guests. The resort's "Pier
+            Deck" and "Rain Tree" restaurants are renowned for their culinary
+            delights, enhancing every occasion.
           </p>
-          
         </div>
       </div>
 
@@ -62,7 +66,7 @@ export default function BlueWatersEdge() {
       <Accommodation />
 
       {/* Included with Stay */}
- <div className="flex flex-col md:flex-row items-center justify-center gap-5 mt-10 px-4">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-5 mt-10 px-4">
         <div className="text-center">
           <h1 className="text-2xl sm:text-3xl mt-6 text-gray-500">
             Included With Your Stay
@@ -90,7 +94,7 @@ export default function BlueWatersEdge() {
 
       {/* More Sections */}
       <Experience />
-      <Gallery/>
+      <Gallery />
       <OfferSlider nav={navLink} />
     </div>
   );

@@ -1,12 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import {
-  ArrowLeft,
-  ArrowRight,
-  CircleArrowLeft,
-  CircleArrowRight,
-} from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -106,12 +101,11 @@ const hotels = [
 
 export default function HotelSlider() {
   const [isActive, setIsActive] = useState(false);
-
-  const activateHover = () => setIsActive(true);
-  const deactivateHover = () => setIsActive(false);
-
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
 
   // ✅ Detect screen size
   useEffect(() => {
@@ -129,43 +123,64 @@ export default function HotelSlider() {
     setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
   };
 
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+
+    const diff = touchStartX.current - touchEndX.current;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextSlide(); // swipe left
+      } else {
+        prevSlide(); // swipe right
+      }
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   return (
     <div>
-      <h1 className="text-center text-xl lg:text-4xl md:text-3xl">
-        Find Your Place
-      </h1>
+      <h1 className="text-center text-xl lg:text-4xl md:text-3xl">Find Your Place</h1>
 
-      <div>
-        <div>
-          <Link
-            href="/our-collections"
-            className="text-sm lg:text-lg md:text-md flex items-center justify-center"
+      <div className="text-center mt-2">
+        <Link href="/our-collections" className="text-sm lg:text-lg md:text-md">
+          <button
+            className="relative text-black py-1 px-2 border-b-2 border-transparent text-gray-500"
+            onMouseEnter={() => setIsActive(true)}
+            onMouseLeave={() => setIsActive(false)}
+            onTouchStart={() => setIsActive(true)}
+            onTouchEnd={() => setIsActive(false)}
           >
-            <button
-              className="relative text-black py-1 px-2 border-b-2 border-transparent text-gray-500"
-              onMouseEnter={activateHover}
-              onMouseLeave={deactivateHover}
-              onTouchStart={activateHover}
-              onTouchEnd={deactivateHover}
-            >
-              View All
-              <span
-                className={`absolute left-0 bottom-0 h-[2px] bg-gray-400 transition-all duration-300 ${
-                  isActive ? "w-full" : "w-10"
-                }`}
-              ></span>
-            </button>
-          </Link>
-        </div>
+            View All
+            <span
+              className={`absolute left-0 bottom-0 h-[2px] bg-gray-400 transition-all duration-300 ${
+                isActive ? "w-full" : "w-10"
+              }`}
+            ></span>
+          </button>
+        </Link>
       </div>
 
       <div className="sm:px-20 mt-5">
-        <div className="relative  mx-auto overflow-hidden p-4">
+        <div className="relative mx-auto overflow-hidden p-4">
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{
               transform: `translateX(-${index * (isMobile ? 100 : 33.33)}%)`,
             }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             {hotels.map((hotel, i) => (
               <div
@@ -184,28 +199,23 @@ export default function HotelSlider() {
                   <Image
                     src={hotel.image}
                     alt={hotel.title}
-                    className="w-full h-60 object-cover"
+                    className="w-full h-60 sm:h-70 object-cover"
                     width={1000}
                     height={100}
                   />
                   <div className={`lg:p-4 ${i === index ? "h-40" : "h-auto"}`}>
                     <h3 className="text-lg font-semibold">{hotel.title}</h3>
-                    <h4 className="text-gray-400">{hotel.location}</h4>
-                    {i === index && (
-                      <p className="text-sm">{hotel.description}</p>
-                    )}
+                    <h4 className="text-gray-400 text-sm">{hotel.location}</h4>
+                    {i === index && <p className="text-sm">{hotel.description}</p>}
                     <div className="flex flex-row justify-end pb-3">
-                      <Link
-                        href={hotel.url}
-                        className="text-sm lg:text-lg md:text-md"
-                      >
-                        {i === index && (
+                      {i === index && (
+                        <Link href={hotel.url} className="text-sm lg:text-lg md:text-md">
                           <button
                             className="relative text-black py-1 px-2 border-b-2 border-transparent"
-                            onMouseEnter={() => setHoveredId(hotel.id)}
-                            onMouseLeave={() => setHoveredId(null)}
-                            onTouchStart={() => setHoveredId(hotel.id)}
-                            onTouchEnd={() => setHoveredId(null)}
+                            onMouseEnter={() => setIsActive(true)}
+                            onMouseLeave={() => setIsActive(false)}
+                            onTouchStart={() => setIsActive(true)}
+                            onTouchEnd={() => setIsActive(false)}
                           >
                             Explore
                             <span
@@ -214,8 +224,8 @@ export default function HotelSlider() {
                               }`}
                             ></span>
                           </button>
-                        )}
-                      </Link>
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </div>
