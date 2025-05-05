@@ -112,7 +112,7 @@ export default function Home() {
             alt="card-image2"
             width={800}
             height={10}
-            className="object-cover h-112"
+            className="object-cover h-115 md:h-120"
           />
 
           <HotelNav />

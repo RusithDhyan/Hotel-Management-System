@@ -111,7 +111,7 @@ const Gallery = () => {
         className="text-sm lg:text-lg md:text-md flex justify-center"
       >
         <button
-          className="relative text-black px-2 border-b-2 border-transparent"
+          className="relative text-black py-1 px-2 border-b-2 border-transparent"
           onMouseEnter={activateHover}
           onMouseLeave={deactivateHover}
           onTouchStart={activateHover}

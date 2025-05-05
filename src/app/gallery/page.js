@@ -7,6 +7,37 @@ const hotels = [
     id: 1,
     name: "Blue Waters",
     images: [
+      "/hotels/blue-waters/gallery/gallery-img1.jpeg",
+      "/hotels/blue-waters/gallery/gallery-img2.jpeg",
+      "/hotels/blue-waters/gallery/gallery-img3.jpeg",
+      "/hotels/blue-waters/gallery/gallery-img4.jpeg",
+      "/hotels/blue-waters/gallery/gallery-img5.jpeg",
+      "/hotels/blue-waters/gallery/gallery-img6.jpeg",
+      "/hotels/blue-waters/gallery/gallery-img7.jpeg",
+
+
+    ],
+  },
+  {
+    id: 2,
+    name: "Bamboo Boutique",
+    images: [
+      "/hotels/bamboo-boutique/gallery/gallery-img1.jpeg",
+      "/hotels/bamboo-boutique/gallery/gallery-img2.jpeg",
+      "/hotels/bamboo-boutique/gallery/gallery-img3.jpeg",
+      "/hotels/bamboo-boutique/gallery/gallery-img4.jpeg",
+      "/hotels/bamboo-boutique/gallery/gallery-img5.jpeg",
+      "/hotels/bamboo-boutique/gallery/gallery-img6.jpeg",
+      "/hotels/bamboo-boutique/gallery/gallery-img7.jpeg",
+      "/hotels/bamboo-boutique/gallery/gallery-img8.jpeg",
+      "/hotels/bamboo-boutique/gallery/gallery-img9.jpeg",
+
+    ],
+  },
+  {
+    id: 3,
+    name: "Heritage Hotel",
+    images: [
       "/hotels/heritage/gallery/gallery-img1.jpg",
       "/hotels/heritage/gallery/gallery-img2.jpeg",
       "/hotels/heritage/gallery/gallery-img3.jpg",
@@ -23,23 +54,41 @@ const hotels = [
       "/hotels/heritage/gallery/gallery-img14.jpg",
 
 
+     
     ],
   },
   {
-    id: 2,
-    name: "Bamboo Boutique",
+    id: 4,
+    name: "Kambiri Beach",
     images: [
-      "/hotels/heritage/gallery/gallery-img5.jpg",
-      "/hotels/heritage/gallery/gallery-img6.jpg",
-      "/hotels/heritage/gallery/gallery-img7.jpg",
-      "/hotels/heritage/gallery/gallery-img8.jpg",
-      "/hotels/heritage/gallery/gallery-img9.jpg",
-      "/hotels/heritage/gallery/gallery-img10.jpg",
-      "/hotels/heritage/gallery/gallery-img11.jpg",
-      "/hotels/heritage/gallery/gallery-img12.jpg",
-      "/hotels/heritage/gallery/gallery-img13.jpg",
-      "/hotels/heritage/gallery/gallery-img14.jpg",
+      "/hotels/kambiri-beach/gallery/gallery-img1.jpeg",
+      "/hotels/kambiri-beach/gallery/gallery-img2.jpeg",
+      "/hotels/kambiri-beach/gallery/gallery-img3.jpeg",
+      "/hotels/kambiri-beach/gallery/gallery-img4.jpeg",
+      "/hotels/kambiri-beach/gallery/gallery-img5.jpeg",
+      "/hotels/kambiri-beach/gallery/gallery-img6.jpeg",
+      "/hotels/kambiri-beach/gallery/gallery-img7.jpeg",
+      "/hotels/kambiri-beach/gallery/gallery-img8.jpeg",
+      "/hotels/kambiri-beach/gallery/gallery-img9.jpeg",
 
+      
+
+    ],
+  },
+  {
+    id: 5,
+    name: "Kara O Mula",
+    images: [
+      "/hotels/kara-o-mula/gallery/gallery-img1.jpeg",
+      "/hotels/kara-o-mula/gallery/gallery-img2.jpeg",
+      "/hotels/kara-o-mula/gallery/gallery-img3.jpeg",
+      "/hotels/kara-o-mula/gallery/gallery-img4.jpeg",
+      "/hotels/kara-o-mula/gallery/gallery-img5.jpeg",
+      "/hotels/kara-o-mula/gallery/gallery-img6.jpeg",
+      "/hotels/kara-o-mula/gallery/gallery-img7.jpeg",
+      "/hotels/kara-o-mula/gallery/gallery-img8.jpeg",
+      "/hotels/kara-o-mula/gallery/gallery-img9.jpeg",
+      
     ],
   },
 ];
