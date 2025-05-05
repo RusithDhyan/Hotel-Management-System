@@ -93,14 +93,6 @@ export default function OurCollection() {
     },
   ];
 
-  const items = [
-    { url: "/icons/item1.png", title: "Deals You'll Love" },
-    { url: "/icons/item2.png", title: "24/7 Call Suport" },
-    { url: "/icons/item3.png", title: "Top Hotel Selection" },
-    { url: "/icons/item4.png", title: "Easy & Secure" },
-    { url: "/icons/item5.png", title: "Travel Sentiments" },
-  ];
-
   return (
     <div className="flex flex-col min-h-screen">
       <div className="relative w-full h-auto">
@@ -108,8 +100,8 @@ export default function OurCollection() {
           src="/images/our-collection.jpg"
           alt=""
           width={1500}
-          height={500}
-          className="w-full h-[250px] md:h-[400px] object-cover"
+          height={100}
+          className="w-full h-100 object-cover"
         />
         <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
           Our Collection
@@ -125,26 +117,6 @@ export default function OurCollection() {
           hospitality in our carefully curated boutique hotels.
         </p>
       </div>
-
-      {/* <div className="flex flex-col items-center justify-center gap-3 mt-10 px-5 text-center">
-        <h1 className="text-lg md:text-xl">Your Ideal Choice for Comfort & Luxury</h1>
-        <div className="border-y border-gray-300 flex flex-wrap items-center justify-center gap-5 py-4 w-full">
-          {items.map((item, index) => (
-            <div key={index} className="flex flex-col items-center  sm:w-25">
-              <div className="rounded-full w-20 h-20 flex items-center justify-center">
-                <Image
-                  src={item.url}
-                  alt="icon"
-                  width={40}
-                  height={40}
-                  className="w-10"
-                />
-              </div>
-              <h2 className="text-xs md:text-sm text-center">{item.title}</h2>
-            </div>
-          ))}
-        </div>
-      </div> */}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 p-5 mt-10 px-5">
         {hotels.map((hotel) => (

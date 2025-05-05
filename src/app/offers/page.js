@@ -44,7 +44,7 @@ export default function Offers() {
           src="/images/offer.jpg"
           alt=""
           width={1500}
-          height={10}
+          height={100}
           className="h-100 object-cover w-full"
         />
 

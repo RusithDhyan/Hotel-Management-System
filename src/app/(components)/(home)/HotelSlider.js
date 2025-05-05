@@ -229,7 +229,7 @@ export default function HotelSlider() {
               onClick={prevSlide}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
             >
-              <ArrowLeft size={25} />
+              <ArrowLeft size={20} />
             </button>
             <h5 className="text-sm text-gray-500">
               {index + 1}/{hotels.length}
@@ -238,7 +238,7 @@ export default function HotelSlider() {
               onClick={nextSlide}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
             >
-              <ArrowRight size={25} />
+              <ArrowRight size={20} />
             </button>
           </div>
         </div>

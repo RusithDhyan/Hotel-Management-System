@@ -97,12 +97,13 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen">
       {/* Top Cover */}
-      <div className="w-full relative h-[250px] md:h-[400px]">
+      <div className="w-full relative">
         <Image
           src="/images/blog.jpg"
           alt="Experience Cover"
-          fill
-          className="object-cover"
+          width={1500}
+          height={100}
+          className="object-cover w-full h-100"
         />
         <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold text-center px-4">
           Blogs
