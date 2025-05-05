@@ -161,13 +161,7 @@ export default function HomeSlider({ sectionRef }) {
         >
           Zoom-in
         </button>
-        <button
-          onClick={() => setAnimationType(2)}
-          className="bg-white text-black p-2 rounded"
-        >
-          Parallax Fade
-        </button>
-      </div>
+        
     </div>
   );
 }
