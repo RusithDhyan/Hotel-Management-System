@@ -48,7 +48,7 @@ export default function HotelGallery() {
   const [selectedHotel, setSelectedHotel] = useState(hotels[0]);
 
   return (
-    <div className="flex flex-col min-h-sc\">
+    <div className="flex flex-col min-h-screen">
        <div className="w-full h-auto relative">
               <Image
                 src="/images/gallery.jpg"

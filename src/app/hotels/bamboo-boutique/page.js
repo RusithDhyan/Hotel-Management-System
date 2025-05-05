@@ -4,8 +4,7 @@ import Experience from "@/app/(components)/(hotels)/(bamboo-boutique)/Experience
 import Gallery from "@/app/(components)/(hotels)/(bamboo-boutique)/Gallery";
 import OfferSlider from "@/app/(components)/(hotels)/(bamboo-boutique)/OfferSlider";
 import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 
 export default function BambooBoutique() {
   const navLink = "hotels/bamboo-boutique/offers";
@@ -19,13 +18,13 @@ export default function BambooBoutique() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="w-full h-auto relative">
+      <div className="w-full relative">
         <Image
           src="/hotels/bamboo-boutique.jpg"
           alt=""
           width={1500}
           height={100}
-          className="object-cover max-h-screen w-full"
+          className="object-cover h-100 sm:max-h-screen w-full"
         />
 
         <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl text-white pb-4 font-bold px-4">
@@ -39,7 +38,7 @@ export default function BambooBoutique() {
           alt="bamboo-img1"
           width={1500}
           height={100}
-          className="w-full sm:w-1 h-80 md:h-96 object-cover"
+          className="w-full sm:w-500 h-80 md:h-96 object-cover"
         />
 
         <div className="flex flex-col items-center justify-center gap-4 mt-4 md:mt-0">

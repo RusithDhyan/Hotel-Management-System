@@ -17,12 +17,13 @@ function About() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="w-full relative h-[250px] md:h-[400px]">
+      <div className="w-full relative">
         <Image
           src="/about/about.jpg"
           alt="About cover"
-          fill
-          className="object-cover"
+          width={1500}
+          height={100}
+          className="object-cover w-full h-100"
         />
         <h1 className="absolute inset-0 flex items-end justify-center text-4xl md:text-5xl text-white pb-4 font-bold">
           About

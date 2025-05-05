@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-function About() {
+function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,12 +31,13 @@ function About() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header image */}
-      <div className="w-full relative h-[250px] md:h-[400px]">
+      <div className="w-full h-auto relative ">
         <Image
           src="/contact/contact-img1.jpg"
           alt="contact-img"
-          fill
-          className="object-cover"
+          width={1500}
+          height={100}
+          className="object-cover w-full h-100"
         />
         <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
           Contact Us
@@ -189,4 +190,4 @@ function About() {
   );
 }
 
-export default About;
+export default Contact;
