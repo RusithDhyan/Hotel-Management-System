@@ -161,7 +161,8 @@ export default function HomeSlider({ sectionRef }) {
         >
           Zoom-in
         </button>
-        
+       
+      </div>
     </div>
   );
 }
