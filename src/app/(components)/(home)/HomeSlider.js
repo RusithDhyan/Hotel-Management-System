@@ -6,39 +6,36 @@ import Image from "next/image";
 import { ChevronsDown } from "lucide-react";
 
 export default function HomeSlider({ sectionRef }) {
-
   const smoothScrollTo = (targetY, duration = 2500) => {
     const startY = window.scrollY;
     const distance = targetY - startY;
     let startTime = null;
-  
+
     const easeOutCubic = (t) => 1 - Math.pow(1 - t, 2);
-  
+
     const animateScroll = (currentTime) => {
       if (!startTime) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
       const progress = Math.min(timeElapsed / duration, 1);
       const ease = easeOutCubic(progress);
-  
+
       window.scrollTo(0, startY + distance * ease);
-  
+
       if (timeElapsed < duration) {
         requestAnimationFrame(animateScroll);
       }
     };
-  
+
     requestAnimationFrame(animateScroll);
   };
-  
 
-   const handleScroll = () => {
-      if (sectionRef.current) {
-        const targetY =
-          sectionRef.current.getBoundingClientRect().top +
-          window.scrollY;
-        smoothScrollTo(targetY);
-      }
-    };
+  const handleScroll = () => {
+    if (sectionRef.current) {
+      const targetY =
+        sectionRef.current.getBoundingClientRect().top + window.scrollY;
+      smoothScrollTo(targetY);
+    }
+  };
 
   const homeSlider = [
     {
@@ -101,7 +98,6 @@ export default function HomeSlider({ sectionRef }) {
                     className="animate-pulse "
                   />
                 </a>
-                
               </div>
             </div>
           </SwiperSlide>

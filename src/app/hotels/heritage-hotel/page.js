@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Accommodation from "@/app/(components)/(hotels)/(heritage)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(heritage)/Experience";
 import Gallery from "@/app/(components)/(hotels)/(heritage)/Gallery";
@@ -10,9 +10,9 @@ import React, { useState } from "react";
 
 export default function Heritage() {
   const [isActive, setIsActive] = useState(false);
-    
-      const activateHover = () => setIsActive(true);
-      const deactivateHover = () => setIsActive(false);
+
+  const activateHover = () => setIsActive(true);
+  const deactivateHover = () => setIsActive(false);
 
   const navLink = "hotels/heritage-hotel/offers";
   const items = [
@@ -21,7 +21,7 @@ export default function Heritage() {
     { url: "/icons/hotels/coffee.png", title: "Evening Tea & Coffee" },
     { url: "/icons/hotels/wine.png", title: "Mini Bar" },
   ];
-  
+
   return (
     <div className="flex flex-col min-h-screen">
       <div className="w-full h-auto relative">
@@ -32,7 +32,7 @@ export default function Heritage() {
           height={100}
           className="object-cover h-100 sm:max-h-screen w-full"
         />
-         <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl text-white pb-4 font-bold px-4">
+        <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl text-white pb-4 font-bold px-4">
           Heritage Hotel
         </h1>
       </div>
@@ -60,7 +60,6 @@ export default function Heritage() {
             and personalized services, the hotel ensures an unforgettable
             experience for both leisure and business travelers.
           </p>
-          
         </div>
       </div>
 
@@ -93,7 +92,7 @@ export default function Heritage() {
       </div>
 
       <Experience />
-      <Gallery/>
+      <Gallery />
       <OfferSlider nav={navLink} />
     </div>
   );

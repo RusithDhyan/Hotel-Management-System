@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Accommodation from "@/app/(components)/(hotels)/(waters-edge)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(waters-edge)/Experience";
 import Gallery from "@/app/(components)/(hotels)/(waters-edge)/Gallery";
@@ -9,9 +9,9 @@ import React, { useState } from "react";
 
 export default function WatersEdge() {
   const [isActive, setIsActive] = useState(false);
-    
-      const activateHover = () => setIsActive(true);
-      const deactivateHover = () => setIsActive(false);
+
+  const activateHover = () => setIsActive(true);
+  const deactivateHover = () => setIsActive(false);
 
   const navLink = "hotels/waters-edge/offers";
   const items = [
@@ -56,7 +56,6 @@ export default function WatersEdge() {
             comfortable accommodations and is an ideal base for exploring the
             nearby Liwonde National Park and other local attractions.
           </p>
-          
         </div>
       </div>
 
@@ -65,34 +64,34 @@ export default function WatersEdge() {
 
       {/* Perks Section */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-5 mt-10 px-4">
-             <div className="text-center">
-               <h1 className="text-2xl sm:text-3xl mt-6 text-gray-500">
-                 Included With Your Stay
-               </h1>
-               <h2 className="text-md text-gray-500">Enjoy These Perks On Us</h2>
-             </div>
-             <div className="flex flex-wrap justify-center gap-5 mt-4">
-               {items.map((item, index) => (
-                 <div
-                   key={index}
-                   className="flex sm:flex-col items-center px-4 md:border-r last:border-r-0"
-                 >
-                   <Image
-                     src={item.url}
-                     alt="icon"
-                     width={40}
-                     height={40}
-                     className="w-10"
-                   />
-                   <h2 className="text-sm text-center mt-2">{item.title}</h2>
-                 </div>
-               ))}
-             </div>
-           </div>
+        <div className="text-center">
+          <h1 className="text-2xl sm:text-3xl mt-6 text-gray-500">
+            Included With Your Stay
+          </h1>
+          <h2 className="text-md text-gray-500">Enjoy These Perks On Us</h2>
+        </div>
+        <div className="flex flex-wrap justify-center gap-5 mt-4">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="flex sm:flex-col items-center px-4 md:border-r last:border-r-0"
+            >
+              <Image
+                src={item.url}
+                alt="icon"
+                width={40}
+                height={40}
+                className="w-10"
+              />
+              <h2 className="text-sm text-center mt-2">{item.title}</h2>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Experience, Food, Offers */}
       <Experience />
-      <Gallery/>
+      <Gallery />
       <OfferSlider nav={navLink} />
     </div>
   );
