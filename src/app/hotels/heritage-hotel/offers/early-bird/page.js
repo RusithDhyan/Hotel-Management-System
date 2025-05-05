@@ -48,7 +48,7 @@ export default function EarlyBird() {
           alt="early-bird-img"
           width={1500}
           height={100}
-          className="w-full h-64 sm:h-96 object-cover"
+          className="w-full h-100 sm:max-h-screen object-cover"
         />
         <h1 className="absolute inset-0 flex items-end justify-center text-2xl sm:text-5xl text-white pb-4 text-center">
           Early Bird Offer
