@@ -151,7 +151,7 @@ export default function HomeSlider({ sectionRef }) {
                 </div>
 
                 {/* Scroll Down Icon */}
-                <div className="absolute inset-0 flex items-center justify-center sm:hidden mt-25">
+                <div className="absolute inset-0 flex items-end justify-center sm:hidden mb-10">
                   <a onClick={handleScroll} className="cursor-pointer">
                     <ChevronsDown
                       size={36}
