@@ -6,11 +6,39 @@ import Image from "next/image";
 import { ChevronsDown } from "lucide-react";
 
 export default function HomeSlider({ sectionRef }) {
-  const handleScroll = () => {
-    if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+
+  const smoothScrollTo = (targetY, duration = 2500) => {
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    let startTime = null;
+  
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 2);
+  
+    const animateScroll = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeOutCubic(progress);
+  
+      window.scrollTo(0, startY + distance * ease);
+  
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+  
+    requestAnimationFrame(animateScroll);
   };
+  
+
+   const handleScroll = () => {
+      if (sectionRef.current) {
+        const targetY =
+          sectionRef.current.getBoundingClientRect().top +
+          window.scrollY;
+        smoothScrollTo(targetY);
+      }
+    };
 
   const homeSlider = [
     {
@@ -65,14 +93,15 @@ export default function HomeSlider({ sectionRef }) {
                   {slide.title}
                 </h1>
               </div>
-              <div className="sm:hidden absolute inset-0 flex justify-center items-center mt-20">
-                <a onClick={handleScroll}>
+              <div className="sm:hidden absolute inset-0 flex justify-center items-center mt-25">
+                <a onClick={handleScroll} className="cursor-pointer">
                   <ChevronsDown
-                    size={50}
+                    size={40}
                     color="white"
                     className="animate-pulse "
                   />
                 </a>
+                
               </div>
             </div>
           </SwiperSlide>

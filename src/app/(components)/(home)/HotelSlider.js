@@ -180,7 +180,7 @@ export default function HotelSlider() {
                   opacity: isMobile && i !== index ? 0 : 1,
                 }}
               >
-                <div className="bg-white">
+                <div className="bg-white p-2">
                   <Image
                     src={hotel.image}
                     alt={hotel.title}
