@@ -146,7 +146,7 @@ export default function OurCollection() {
         </div>
       </div> */}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 p-5 mt-10 px-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 p-5 mt-10 px-5">
         {hotels.map((hotel) => (
           <div key={hotel.id} className="bg-white shadow-md overflow-hidden">
             <Link href={`/hotels/${hotel.nav}`}>
@@ -155,7 +155,7 @@ export default function OurCollection() {
                 alt={hotel.title}
                 width={600}
                 height={400}
-                className="w-full h-70 object-cover"
+                className="w-full h-50 sm:h-70 object-cover"
               />
             </Link>
             <div className="p-1">

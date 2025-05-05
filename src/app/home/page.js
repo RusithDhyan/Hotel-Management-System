@@ -15,10 +15,6 @@ export default function Home() {
   const activateHover = () => setIsActive(true);
   const deactivateHover = () => setIsActive(false);
 
-  const [showNav, setShowNav] = useState(false);
-
-  const [showHotelNav, setShowHotelNav] = useState(false);
-
   const handleTouch = () => {
     setShowNav((prev) => !prev);
   };

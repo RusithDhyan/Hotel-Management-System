@@ -81,13 +81,13 @@ export default function Navbar() {
           </Link>
           {/* <Menu className="text-blue-400" /> */}
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? null : <AlignLeft size={28} />}
+            {isOpen ? null : <AlignLeft size={28} className=""/>}
           </button>
 
           {isOpen && (
-            <div className="fixed inset-0 bottom-0 left-0 top-0 pt-20 w-full h-screen z-1 bg-gray-100 flex flex-col items-center justify-start gap-2 md:hidden">
+            <div className="fixed inset-0 bottom-0 left-0 top-0 pt-20 w-full h-screen z-50 bg-gray-100 flex flex-col items-center justify-start gap-2 md:hidden bg-white/30 backdrop-blur-md">
               <button
-                className="absolute top-4 right-4"
+                className="absolute top-4 right-2"
                 onClick={() => setIsOpen(false)}
               >
                 <X size={32} className="text-black" />
