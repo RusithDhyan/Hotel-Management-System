@@ -5,8 +5,8 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import Image from "next/image";
 import { ChevronsDown } from "lucide-react";
-import { motion, useAnimation } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function HomeSlider({ sectionRef }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -19,7 +19,7 @@ export default function HomeSlider({ sectionRef }) {
     },
     {
       url: "/images/bg2.jpg",
-      title: "A Pool with a View Unwind in Malawi's Hidden Oasis",
+      title: "A Pool with a View — Unwind in Malawi's Hidden Oasis",
     },
     {
       url: "/images/bg3.jpg",
@@ -27,7 +27,7 @@ export default function HomeSlider({ sectionRef }) {
     },
     {
       url: "/images/bg4.jpg",
-      title: "Malawi's Safari Magic Where Nature Comes Alive",
+      title: "Malawi's Safari Magic: Where Nature Comes Alive",
     },
     {
       url: "/images/bg5.jpg",
@@ -35,24 +35,23 @@ export default function HomeSlider({ sectionRef }) {
     },
   ];
 
-  // Fancy animation variant options
   const containerVariant = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05,
+        staggerChildren: 0.04,
       },
     },
   };
 
   const letterVariant = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     visible: { opacity: 1, y: 0 },
   };
 
   const handleScroll = () => {
-    if (sectionRef.current) {
+    if (sectionRef?.current) {
       const targetY =
         sectionRef.current.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({ top: targetY, behavior: "smooth" });
@@ -60,28 +59,16 @@ export default function HomeSlider({ sectionRef }) {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full relative">
       <Swiper
         modules={[Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Update active slide
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
       >
         {homeSlider.map((slide, index) => {
-          const controls = useAnimation();
-
-          useEffect(() => {
-            if (index === activeIndex) {
-              controls.start({
-                opacity: [0, 1],
-                y: [50, 0],
-                transition: { duration: 1, ease: "easeOut" },
-              });
-            }
-          }, [activeIndex]);
-
           return (
             <SwiperSlide key={index}>
               <div className="relative w-full h-screen">
@@ -93,13 +80,14 @@ export default function HomeSlider({ sectionRef }) {
                   priority
                 />
 
-                <div className="absolute inset-0 flex justify-center items-center sm:px-10">
+                {/* Title Area */}
+                <div className="absolute inset-0 flex justify-center items-center px-4 sm:px-8">
                   {animationType === 0 && (
                     <motion.h1
                       variants={containerVariant}
                       initial="hidden"
                       animate={index === activeIndex ? "visible" : "hidden"}
-                      className="text-2xl md:text-3xl lg:text-6xl text-white font-bold px-2 text-center drop-shadow-md mb-2 flex flex-wrap justify-center"
+                      className="text-xl sm:text-3xl md:text-4xl lg:text-6xl text-white font-bold text-center drop-shadow-md flex flex-wrap justify-center leading-tight"
                     >
                       {slide.title.split("").map((char, i) => (
                         <motion.span key={i} variants={letterVariant}>
@@ -112,9 +100,11 @@ export default function HomeSlider({ sectionRef }) {
                   {animationType === 1 && (
                     <motion.h1
                       initial={{ scale: 0.8, opacity: 0 }}
-                      animate={index === activeIndex ? { scale: 1, opacity: 1 } : {}}
+                      animate={
+                        index === activeIndex ? { scale: 1, opacity: 1 } : {}
+                      }
                       transition={{ duration: 1, ease: "easeOut" }}
-                      className="text-2xl md:text-3xl lg:text-6xl text-white font-bold px-10 text-center drop-shadow-md mb-2"
+                      className="text-xl sm:text-3xl md:text-4xl lg:text-6xl text-white font-bold text-center drop-shadow-md px-2 leading-tight"
                     >
                       {slide.title}
                     </motion.h1>
@@ -122,20 +112,25 @@ export default function HomeSlider({ sectionRef }) {
 
                   {animationType === 2 && (
                     <motion.h1
-                      initial={{ opacity: 0, y: 100, scale: 1.2 }}
-                      animate={index === activeIndex ? { opacity: 1, y: 0, scale: 1 } : {}}
+                      initial={{ opacity: 0, y: 50, scale: 1.1 }}
+                      animate={
+                        index === activeIndex
+                          ? { opacity: 1, y: 0, scale: 1 }
+                          : {}
+                      }
                       transition={{ duration: 1.2, ease: "easeOut" }}
-                      className="text-2xl md:text-3xl lg:text-6xl text-white font-bold px-2 text-center drop-shadow-md mb-2"
+                      className="text-xl sm:text-3xl md:text-4xl lg:text-6xl text-white font-bold text-center drop-shadow-md px-2 leading-tight"
                     >
                       {slide.title}
                     </motion.h1>
                   )}
                 </div>
 
-                <div className="sm:hidden absolute inset-0 flex justify-center items-center mt-25">
+                {/* Scroll Down Icon */}
+                <div className="absolute bottom-10 left-0 right-0 flex justify-center sm:hidden">
                   <a onClick={handleScroll} className="cursor-pointer">
                     <ChevronsDown
-                      size={40}
+                      size={36}
                       color="white"
                       className="animate-pulse"
                     />
@@ -147,22 +142,27 @@ export default function HomeSlider({ sectionRef }) {
         })}
       </Swiper>
 
-      {/* Add buttons to toggle between animations */}
-      <div className="absolute top-0 right-0 p-4">
+      {/* Animation Buttons */}
+      {/* <div className="absolute z-20 top-40 right-4 space-y-2 sm:space-y-0 sm:space-x-2 flex flex-col sm:flex-row items-end">
         <button
           onClick={() => setAnimationType(0)}
-          className="bg-white text-black p-2 rounded mb-2"
+          className="bg-white/90 text-black px-3 py-1 text-sm sm:text-base rounded shadow"
         >
-          Letter-by-Letter
+          Letter
         </button>
         <button
           onClick={() => setAnimationType(1)}
-          className="bg-white text-black p-2 rounded mb-2"
+          className="bg-white/90 text-black px-3 py-1 text-sm sm:text-base rounded shadow"
         >
-          Zoom-in
+          Zoom
         </button>
-       
-      </div>
+        <button
+          onClick={() => setAnimationType(2)}
+          className="bg-white/90 text-black px-3 py-1 text-sm sm:text-base rounded shadow"
+        >
+          Parallax
+        </button>
+      </div> */}
     </div>
   );
 }
