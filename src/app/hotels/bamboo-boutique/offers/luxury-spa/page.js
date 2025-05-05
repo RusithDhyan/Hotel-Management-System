@@ -50,7 +50,7 @@ export default function LuxurySpa() {
           alt="luxury-spa-img"
           width={1500}
           height={100}
-          className="h-[300px] sm:h-[400px] object-cover"
+          className="h-100 w-full object-cover"
         />
         <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 px-4">
           Luxury Spa Offer

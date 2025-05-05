@@ -6,20 +6,16 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 const images = [
-  { image: "/hotels/heritage/gallery/gallery-img1.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img2.jpeg" },
-  { image: "/hotels/heritage/gallery/gallery-img3.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img4.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img5.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img6.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img7.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img8.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img9.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img10.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img11.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img12.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img13.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img14.jpg" },
+  { image: "/hotels/kambiri-beach/gallery/gallery-img1.jpeg" },
+  { image: "/hotels/kambiri-beach/gallery/gallery-img2.jpeg" },
+  { image: "/hotels/kambiri-beach/gallery/gallery-img3.jpeg" },
+  { image: "/hotels/kambiri-beach/gallery/gallery-img4.jpeg" },
+  { image: "/hotels/kambiri-beach/gallery/gallery-img5.jpeg" },
+  { image: "/hotels/kambiri-beach/gallery/gallery-img6.jpeg" },
+  { image: "/hotels/kambiri-beach/gallery/gallery-img7.jpeg" },
+  { image: "/hotels/kambiri-beach/gallery/gallery-img8.jpeg" },
+  { image: "/hotels/kambiri-beach/gallery/gallery-img9.jpeg" },
+
 ];
 
 const Gallery = () => {
