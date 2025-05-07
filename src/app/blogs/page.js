@@ -129,18 +129,18 @@ export default function BlogPage() {
 
       <div className="container mx-auto px-4 md:px-6 pt-10 relative">
         {!showAll && (
-          <div className="hidden sm:flex justify-end gap-4 mb-5">
+          <div className="hidden sm:flex justify-end gap-10 mb-5">
             <button
               onClick={scrollLeft}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
             >
-              <ArrowLeft className="h-6 w-6" />
+              <ArrowLeft className="h-5 w-5" />
             </button>
             <button
               onClick={scrollRight}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
             >
-              <ArrowRight className="h-6 w-6" />
+              <ArrowRight className="h-5 w-5" />
             </button>
           </div>
         )}
