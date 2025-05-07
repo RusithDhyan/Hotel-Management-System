@@ -102,7 +102,7 @@ export default function BlogPage() {
           className="object-cover w-full h-100"
         />
         <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold text-center px-4">
-          Our Experience
+          Our Experiences
         </h1>
       </div>
 
@@ -121,25 +121,25 @@ export default function BlogPage() {
           onClick={() => setShowAll(!showAll)}
           className="mt-4 px-3 py-2 bg-gray-600 text-white hover:bg-gray-700 transition"
         >
-          {showAll ? "Back to Slider" : "View All Experience"}
+          {showAll ? "Back to Slider" : "View All Experiences"}
         </button>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 pt-10 relative">
         {!showAll && (
-          <div className="hidden sm:flex justify-end gap-4 mb-5">
+          <div className="hidden sm:flex justify-end gap-10 mb-5">
             <button
               onClick={scrollLeft}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
             >
-              <ArrowLeft className="h-6 w-6" />
-            </button>
+              <ArrowLeft className="h-5 w-5"/>
+           </button>
             <button
               onClick={scrollRight}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
             >
-              <ArrowRight className="h-6 w-6" />
-            </button>
+              <ArrowRight className="h-5 w-5"/>
+          </button>
           </div>
         )}
 
