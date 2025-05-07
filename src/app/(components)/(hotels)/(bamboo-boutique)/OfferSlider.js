@@ -85,7 +85,8 @@ export default function OfferSlider({ nav }) {
                   src={slide.image}
                   alt="slide-image"
                   layout="fill"
-                  objectFit="cover"
+                  className="object-cover"
+                  
                 />
               </div>
               <div className="flex flex-col items-center justify-center gap-2 text-sm md:text-md lg:text-lg ">

@@ -157,7 +157,8 @@ export default function Accommodation() {
                   </p>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {hotel.features.map((icon, idx) => (
-                      <Image
+                      <div className="border-r last:border-0 pr-1">
+                        <Image
                         key={idx}
                         src={icon}
                         alt="feature"
@@ -165,6 +166,8 @@ export default function Accommodation() {
                         height={20}
                         className="w-5 h-5"
                       />
+                      </div>
+                      
                     ))}
                   </div>
                   <p className="text-sm mt-1">{hotel.description}</p>

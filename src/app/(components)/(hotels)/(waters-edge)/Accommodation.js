@@ -12,13 +12,13 @@ const hotels = [
     url: "/hotels/waters-edge/accommodations/executive-suite",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
-      features: [
-        "/icons/rooms/item1.png",
-        "/icons/rooms/item2.png",
-        "/icons/rooms/item3.png",
-        "/icons/rooms/item4.png",
-        "/icons/rooms/item5.png",
-      ]
+    features: [
+      "/icons/rooms/item1.png",
+      "/icons/rooms/item2.png",
+      "/icons/rooms/item3.png",
+      "/icons/rooms/item4.png",
+      "/icons/rooms/item5.png",
+    ],
   },
   {
     id: 2,
@@ -27,13 +27,13 @@ const hotels = [
     url: "/hotels/waters-edge/accommodations/family-twin",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
-      features: [
-        "/icons/rooms/item1.png",
-        "/icons/rooms/item2.png",
-        "/icons/rooms/item3.png",
-        "/icons/rooms/item4.png",
-        "/icons/rooms/item5.png",
-      ]
+    features: [
+      "/icons/rooms/item1.png",
+      "/icons/rooms/item2.png",
+      "/icons/rooms/item3.png",
+      "/icons/rooms/item4.png",
+      "/icons/rooms/item5.png",
+    ],
   },
   {
     id: 3,
@@ -42,13 +42,13 @@ const hotels = [
     url: "/hotels/waters-edge/accommodations/deluxe-king",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom, creating a private and sophisticated ambiance.",
-      features: [
-        "/icons/rooms/item1.png",
-        "/icons/rooms/item2.png",
-        "/icons/rooms/item3.png",
-        "/icons/rooms/item4.png",
-        "/icons/rooms/item5.png",
-      ]
+    features: [
+      "/icons/rooms/item1.png",
+      "/icons/rooms/item2.png",
+      "/icons/rooms/item3.png",
+      "/icons/rooms/item4.png",
+      "/icons/rooms/item5.png",
+    ],
   },
   {
     id: 4,
@@ -57,13 +57,13 @@ const hotels = [
     url: "/hotels/waters-edge/accommodations/premier",
     description:
       "Experience the perfect blend of timeless elegance and modern comfort in our Premier Heritage Suite. This spacious suite features a king-size bed with premium linens, a separate living area.",
-      features: [
-        "/icons/rooms/item1.png",
-        "/icons/rooms/item2.png",
-        "/icons/rooms/item3.png",
-        "/icons/rooms/item4.png",
-        "/icons/rooms/item5.png",
-      ]
+    features: [
+      "/icons/rooms/item1.png",
+      "/icons/rooms/item2.png",
+      "/icons/rooms/item3.png",
+      "/icons/rooms/item4.png",
+      "/icons/rooms/item5.png",
+    ],
   },
 ];
 
@@ -153,22 +153,21 @@ export default function Accommodation() {
                   </p>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {hotel.features.map((icon, idx) => (
-                      <Image
-                        key={idx}
-                        src={icon}
-                        alt="feature"
-                        width={20}
-                        height={20}
-                        className="w-5 h-5"
-                      />
+                      <div className="border-r last:border-0 pr-1">
+                        <Image
+                          key={idx}
+                          src={icon}
+                          alt="feature"
+                          width={20}
+                          height={20}
+                          className="w-5 h-5"
+                        />
+                      </div>
                     ))}
                   </div>
                   <p className="text-sm mt-1">{hotel.description}</p>
                   <div className="flex flex-row justify-start">
-                    <Link
-                      href={hotel.url}
-                      className="sm:text-sm"
-                    >
+                    <Link href={hotel.url} className="sm:text-sm">
                       <button
                         className="relative text-black py-1 border-b-2 border-transparent"
                         onMouseEnter={activateHover}
@@ -193,7 +192,10 @@ export default function Accommodation() {
 
         {/* Navigation Buttons */}
         <div className="flex items-center justify-between sm:justify-end gap-20 px-4">
-          <button onClick={prevSlide} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+          <button
+            onClick={prevSlide}
+            className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+          >
             <ArrowLeft size={20} />
           </button>
 
@@ -202,7 +204,10 @@ export default function Accommodation() {
             {index + 1}/{hotels.length}
           </h5>
 
-          <button onClick={nextSlide} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+          <button
+            onClick={nextSlide}
+            className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+          >
             <ArrowRight size={20} />
           </button>
         </div>
