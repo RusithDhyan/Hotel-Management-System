@@ -143,7 +143,7 @@ export default function HomeSlider({ sectionRef }) {
                           : {}
                       }
                       transition={{ duration: 1.2, ease: "easeOut" }}
-                      className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-white font-bold text-center drop-shadow-md leading-tight"
+                      className="text-xl sm:text-3xl md:text-4xl lg:text-6xl text-white font-bold text-center drop-shadow-md leading-tight"
                     >
                       {slide.title}
                     </motion.h1>
