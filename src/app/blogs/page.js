@@ -99,7 +99,7 @@ export default function BlogPage() {
       {/* Top Cover */}
       <div className="w-full relative">
         <Image
-          src="/images/blog.jpg"
+          src="/images/blogs.jpg"
           alt="Experience Cover"
           width={1500}
           height={100}
