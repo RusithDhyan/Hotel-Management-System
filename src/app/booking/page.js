@@ -249,7 +249,7 @@ export default function BookingPage() {
               className="w-full border border-gray-300 px-4 py-2"
             >
               <option value="">Select Hotel</option>
-              {Object.keys(hotelOptions).map((hotel) => 
+              {Object.keys(hotelOptions).map((hotel) => (
                 <option key={hotel} value={hotel}>
                   {hotel}
                 </option>
