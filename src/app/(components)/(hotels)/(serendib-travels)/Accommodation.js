@@ -174,7 +174,7 @@ export default function Accommodation() {
                       className="sm:text-sm"
                     >
                       <button
-                        className="relative text-black py-1border-b-2 border-transparent"
+                        className="relative text-black py-1 border-b-2 border-transparent"
                         onMouseEnter={activateHover}
                         onMouseLeave={deactivateHover}
                         onTouchStart={activateHover}

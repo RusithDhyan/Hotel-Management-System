@@ -107,7 +107,7 @@ const Gallery = () => {
         className="text-sm lg:text-lg md:text-md flex justify-center"
       >
         <button
-          className="relative text-black py-1 px-2 border-b-2 border-transparent"
+          className="relative text-black py-1 border-b-2 border-transparent"
           onMouseEnter={activateHover}
           onMouseLeave={deactivateHover}
           onTouchStart={activateHover}
@@ -116,7 +116,7 @@ const Gallery = () => {
           Explore
           <span
             className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-              isActive ? "w-full" : "w-10"
+              isActive ? "w-full" : "w-7"
             }`}
           ></span>
         </button>

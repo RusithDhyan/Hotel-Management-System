@@ -90,7 +90,7 @@ export default function Home() {
       <div className=" h-auto mt-10 w-full">
         <HotelSlider />
       </div>
-      <div className="h-auto w-full flex flex-col md:flex-row items-center justify-center sm:justify-between">
+      <div className="h-auto w-full flex flex-col md:flex-row items-center justify-center sm:justify-between mt-2">
         <div className="flex flex-col items-left gap-2 text-xs lg:text-lg md:text-md px-4">
           <h1 className="text-xl lg:text-4xl md:text-3xl">Explore Malawi...</h1>
           <p>
@@ -145,7 +145,7 @@ export default function Home() {
           <div>
             <Link href="/blogs" className="text-sm lg:text-lg md:text-md">
               <button
-                className="relative text-black py-1 px-2 border-b-2 border-transparent"
+                className="relative text-black py-1 border-b-2 border-transparent"
                 onMouseEnter={activateHover}
                 onMouseLeave={deactivateHover}
                 onTouchStart={activateHover}
@@ -154,7 +154,7 @@ export default function Home() {
                 Discover
                 <span
                   className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-                    isActive ? "w-full" : "w-10"
+                    isActive ? "w-full" : "w-8"
                   }`}
                 ></span>
               </button>

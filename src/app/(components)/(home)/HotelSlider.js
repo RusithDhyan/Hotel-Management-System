@@ -157,7 +157,7 @@ export default function HotelSlider() {
       <div className="text-center mt-2">
         <Link href="/our-collections" className="text-sm lg:text-lg md:text-md">
           <button
-            className="relative text-black py-1 px-2 border-b-2 border-transparent text-gray-500"
+            className="relative text-black py-1 border-b-2 border-transparent text-gray-500"
             onMouseEnter={() => setIsActive(true)}
             onMouseLeave={() => setIsActive(false)}
             onTouchStart={() => setIsActive(true)}
@@ -166,7 +166,7 @@ export default function HotelSlider() {
             View All
             <span
               className={`absolute left-0 bottom-0 h-[2px] bg-gray-400 transition-all duration-300 ${
-                isActive ? "w-full" : "w-10"
+                isActive ? "w-full" : "w-7"
               }`}
             ></span>
           </button>
