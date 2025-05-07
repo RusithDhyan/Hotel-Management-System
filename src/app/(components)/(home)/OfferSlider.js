@@ -58,7 +58,7 @@ export default function OfferSlider({ nav }) {
           className="items-center justify-center flex text-sm lg:text-lg md:text-md"
         >
           <button
-            className="relative text-black py-1 px-2 border-b-2 border-transparent text-gray-500"
+            className="relative text-black py-1 border-b-2 border-transparent text-gray-500"
             onMouseEnter={activateHover}
             onMouseLeave={deactivateHover}
             onTouchStart={activateHover}
@@ -67,7 +67,7 @@ export default function OfferSlider({ nav }) {
             View All
             <span
               className={`absolute left-0 bottom-0 h-[2px] bg-gray-400 transition-all duration-300 ${
-                isActive ? "w-full" : "w-10"
+                isActive ? "w-full" : "w-7"
               }`}
             ></span>
           </button>
@@ -104,7 +104,7 @@ export default function OfferSlider({ nav }) {
                 <h2 className="text-center">{slide.description}</h2>
                 <Link href={slide.url}>
                   <button
-                    className="relative text-black py-1 px-2 border-b-2 border-transparent"
+                    className="relative text-black py-1 border-b-2 border-transparent"
                     onMouseEnter={activateHover}
                     onMouseLeave={deactivateHover}
                     onTouchStart={activateHover}
@@ -113,7 +113,7 @@ export default function OfferSlider({ nav }) {
                     Explore
                     <span
                       className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-                        isActive ? "w-full" : "w-10"
+                        isActive ? "w-full" : "w-7"
                       }`}
                     ></span>
                   </button>

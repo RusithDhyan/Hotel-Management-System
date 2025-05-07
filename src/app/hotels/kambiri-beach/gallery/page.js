@@ -143,7 +143,7 @@ export default function BlogPage() {
         </p>
         <button
           onClick={() => setShowAll(!showAll)}
-          className="mt-4 px-6 py-2 bg-blue-600 text-white hover:bg-blue-700 transition"
+          className="mt-4 px-3 py-2 bg-gray-600 text-white hover:bg-gray-700 transition"
         >
           {showAll ? "Back to Slider" : "View All"}
         </button>

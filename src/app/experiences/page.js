@@ -119,7 +119,7 @@ export default function BlogPage() {
         </p>
         <button
           onClick={() => setShowAll(!showAll)}
-          className="mt-4 px-6 py-2 bg-blue-600 text-white hover:bg-blue-700 transition"
+          className="mt-4 px-3 py-2 bg-gray-600 text-white hover:bg-gray-700 transition"
         >
           {showAll ? "Back to Slider" : "View All Experience"}
         </button>
@@ -174,7 +174,7 @@ export default function BlogPage() {
                 <p className="text-sm md:text-base">{exp.description}</p>
                 <Link
                   href={exp.url}
-                  className="text-blue-600 hover:text-[#FF741E] duration-300"
+                  className="text-gray-600 hover:text-[#FF741E] duration-300"
                 >
                   Read more
                 </Link>
