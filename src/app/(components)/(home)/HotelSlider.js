@@ -150,7 +150,9 @@ export default function HotelSlider() {
 
   return (
     <div>
-      <h1 className="text-center text-xl lg:text-4xl md:text-3xl">Find Your Place</h1>
+      <h1 className="text-center text-xl lg:text-4xl md:text-3xl">
+        Find Your Place
+      </h1>
 
       <div className="text-center mt-2">
         <Link href="/our-collections" className="text-sm lg:text-lg md:text-md">
@@ -172,7 +174,7 @@ export default function HotelSlider() {
       </div>
 
       <div className="sm:px-20 mt-5">
-        <div className="relative mx-auto overflow-hidden p-4">
+        <div className="relative mx-auto overflow-hidden">
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{
@@ -206,10 +208,15 @@ export default function HotelSlider() {
                   <div className={`lg:p-4 ${i === index ? "h-40" : "h-auto"}`}>
                     <h3 className="text-lg font-semibold">{hotel.title}</h3>
                     <h4 className="text-gray-400 text-sm">{hotel.location}</h4>
-                    {i === index && <p className="text-sm">{hotel.description}</p>}
+                    {i === index && (
+                      <p className="text-sm">{hotel.description}</p>
+                    )}
                     <div className="flex flex-row justify-end pb-3">
                       {i === index && (
-                        <Link href={hotel.url} className="text-sm lg:text-lg md:text-md">
+                        <Link
+                          href={hotel.url}
+                          className="text-sm lg:text-lg md:text-md"
+                        >
                           <button
                             className="relative text-black py-1 px-2 border-b-2 border-transparent"
                             onMouseEnter={() => setIsActive(true)}
@@ -234,7 +241,7 @@ export default function HotelSlider() {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex items-center justify-between sm:justify-end gap-20 my-5 border-t border-gray-300 py-3 px-4">
+          <div className="flex items-center justify-between sm:justify-end gap-20 border-t border-gray-300 py-2 px-4">
             <button
               onClick={prevSlide}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"

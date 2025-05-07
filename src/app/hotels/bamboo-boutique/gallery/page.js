@@ -11,16 +11,16 @@ const blogPosts = [
     title: "A Culinary Journey Through Fine Dining",
     description:
       "Enjoy an exquisite selection of dishes crafted by our expert chefs.",
-    image: "/hotels/heritage/gallery/gallery-img1.jpg",
+    image: "/hotels/bamboo-boutique/gallery/gallery-img1.jpeg",
     url: "/blogs/blog1-dining-in-malawi",
     date: "April 20, 2025",
   },
   {
     id: 2,
-    title: "Exploring Luxury at Heritage by Serendib",
+    title: "Exploring Luxury at bamboo-boutique by Serendib",
     description:
       "Discover the elegance and comfort of our hotel with world-class amenities.",
-    image: "/hotels/heritage/gallery/gallery-img2.jpeg",
+    image: "/hotels/bamboo-boutique/gallery/gallery-img2.jpeg",
     url: "/blogs",
     date: "April 20, 2025",
   },
@@ -29,7 +29,7 @@ const blogPosts = [
     title: "Top Attractions Near Limbe, Blantyre",
     description:
       "Explore beautiful sites and local experiences just minutes away from our hotel.",
-    image: "/hotels/heritage/gallery/gallery-img3.jpg",
+    image: "/hotels/bamboo-boutique/gallery/gallery-img3.jpeg",
     url: "/blogs",
     date: "April 20, 2025",
   },
@@ -38,7 +38,7 @@ const blogPosts = [
     title: "Top 10 Travel Tips for 2025",
     description:
       "Make your next trip unforgettable with these expert tips and tricks.",
-    image: "/hotels/heritage/gallery/gallery-img4.jpg",
+    image: "/hotels/bamboo-boutique/gallery/gallery-img4.jpeg",
     url: "/blogs",
     date: "April 20, 2025",
   },
@@ -46,7 +46,7 @@ const blogPosts = [
     id: 5,
     title: "Why Malawi is Africa’s Hidden Gem",
     summary: "Explore Malawi’s best-kept secrets and cultural wonders.",
-    image: "/hotels/heritage/gallery/gallery-img5.jpg",
+    image: "/hotels/bamboo-boutique/gallery/gallery-img5.jpeg",
     url: "/blogs",
     date: "April 18, 2025",
   },
@@ -54,7 +54,7 @@ const blogPosts = [
     id: 6,
     title: "Hotel Trends to Watch This Year",
     summary: "From eco-luxury to AI concierge—what’s changing in hospitality.",
-    image: "/hotels/heritage/gallery/gallery-img6.jpg",
+    image: "/hotels/bamboo-boutique/gallery/gallery-img6.jpeg",
     url: "/blogs",
     date: "April 15, 2025",
   },
@@ -62,7 +62,7 @@ const blogPosts = [
     id: 7,
     title: "Hotel Trends to Watch This Year",
     summary: "From eco-luxury to AI concierge—what’s changing in hospitality.",
-    image: "/hotels/heritage/gallery/gallery-img7.jpg",
+    image: "/hotels/bamboo-boutique/gallery/gallery-img7.jpeg",
     url: "/blogs",
     date: "April 15, 2025",
   },
@@ -70,7 +70,7 @@ const blogPosts = [
     id: 8,
     title: "Hotel Trends to Watch This Year",
     summary: "From eco-luxury to AI concierge—what’s changing in hospitality.",
-    image: "/hotels/heritage/gallery/gallery-img8.jpg",
+    image: "/hotels/bamboo-boutique/gallery/gallery-img8.jpeg",
     url: "/blogs",
     date: "April 15, 2025",
   },
@@ -78,26 +78,11 @@ const blogPosts = [
     id: 9,
     title: "Hotel Trends to Watch This Year",
     summary: "From eco-luxury to AI concierge—what’s changing in hospitality.",
-    image: "/hotels/heritage/gallery/gallery-img9.jpg",
+    image: "/hotels/bamboo-boutique/gallery/gallery-img9.jpeg",
     url: "/blogs",
     date: "April 15, 2025",
   },
-  {
-    id: 10,
-    title: "Hotel Trends to Watch This Year",
-    summary: "From eco-luxury to AI concierge—what’s changing in hospitality.",
-    image: "/hotels/heritage/gallery/gallery-img10.jpg",
-    url: "/blogs",
-    date: "April 15, 2025",
-  },
-  {
-    id: 11,
-    title: "Hotel Trends to Watch This Year",
-    summary: "From eco-luxury to AI concierge—what’s changing in hospitality.",
-    image: "/hotels/heritage/gallery/gallery-img11.jpg",
-    url: "/blogs",
-    date: "April 15, 2025",
-  },
+ 
 ];
 
 export default function BlogPage() {
@@ -139,7 +124,7 @@ export default function BlogPage() {
       {/* Top Cover */}
       <div className="w-full relative h-[250px] md:h-[400px]">
         <Image
-          src="/hotels/heritage/gallery/gallery.jpg"
+          src="/hotels/bamboo-boutique/gallery/gallery.jpeg"
           alt="Gallery Cover"
           fill
           className="object-cover"
@@ -151,7 +136,7 @@ export default function BlogPage() {
 
       <div className="flex flex-col items-center justify-center gap-4 mt-10 px-4 md:px-10 text-center">
         <h1 className="text-xl md:text-2xl font-semibold">
-        Step Into Elegance: A Visual Journey Through Heritage
+        Step Into Elegance: A Visual Journey Through bamboo-boutique
         </h1>
         <p className="font-light max-w-6xl text-sm md:text-base">
           Discover the charm and elegance of our hotel through a curated
