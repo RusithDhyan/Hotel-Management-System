@@ -164,11 +164,11 @@ export default function Accommodation() {
                                                       />
                                                     ))}
                                                   </div>
-                  <p className="text-sm mt-2">{hotel.description}</p>
-                  <div className="flex flex-row justify-start py-3">
-                    <Link href={hotel.url} className="text-sm md:text-md lg:text-lg">
+                  <p className="text-sm mt-1">{hotel.description}</p>
+                  <div className="flex flex-row justify-start">
+                    <Link href={hotel.url} className="text-sm">
                       <button
-                        className="relative text-black py-1 px-2 border-b-2 border-transparent"
+                        className="relative text-black py-1 border-b-2 border-transparent"
                         onMouseEnter={activateHover}
                         onMouseLeave={deactivateHover}
                         onTouchStart={activateHover}
@@ -177,7 +177,7 @@ export default function Accommodation() {
                         Explore
                         <span
                           className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-                            isActive ? "w-full" : "w-10"
+                            isActive ? "w-full" : "w-7"
                           }`}
                         ></span>
                       </button>

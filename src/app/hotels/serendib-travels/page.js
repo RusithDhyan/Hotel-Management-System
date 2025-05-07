@@ -44,7 +44,7 @@ export default function BambooBoutique() {
           alt="serendib-img1"
           width={1500}
           height={100}
-          className="w-full sm:w-1/3 h-80 md:h-96 object-cover"
+          className="w-full h-80 md:h-96 object-cover"
         />
 
         <div className="flex flex-col items-center justify-center gap-4 mt-4 md:mt-0">

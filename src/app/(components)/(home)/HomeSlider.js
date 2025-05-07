@@ -19,7 +19,7 @@ export default function HomeSlider({ sectionRef }) {
     },
     {
       url: "/images/bg2.jpg",
-      title: "A Pool with a View — Unwind in Malawi's Hidden Oasis",
+      title: "A Pool with a View Unwind in Malawi's Hidden Oasis",
     },
     {
       url: "/images/bg3.jpg",
@@ -27,11 +27,11 @@ export default function HomeSlider({ sectionRef }) {
     },
     {
       url: "/images/bg4.jpg",
-      title: "Malawi's Safari Magic: Where Nature Comes Alive",
+      title: "Malawi's Safari Magic Where Nature Comes Alive",
     },
     {
       url: "/images/bg5.jpg",
-      title: "Embracing the Warm Heart of Malawi: A Cultural Journey",
+      title: "Embracing the Warm Heart of Malawi A Cultural Journey",
     },
   ];
 
@@ -143,7 +143,7 @@ export default function HomeSlider({ sectionRef }) {
                           : {}
                       }
                       transition={{ duration: 1.2, ease: "easeOut" }}
-                      className="text-xl sm:text-3xl md:text-4xl lg:text-6xl text-white font-bold text-center drop-shadow-md px-2 leading-tight"
+                      className="text-xl sm:text-3xl md:text-4xl lg:text-6xl text-white font-bold text-center drop-shadow-md leading-tight"
                     >
                       {slide.title}
                     </motion.h1>
@@ -151,7 +151,7 @@ export default function HomeSlider({ sectionRef }) {
                 </div>
 
                 {/* Scroll Down Icon */}
-                <div className="absolute inset-0 flex items-center justify-center sm:hidden mt-25">
+                <div className="absolute inset-0 flex items-end justify-center sm:hidden mb-10">
                   <a onClick={handleScroll} className="cursor-pointer">
                     <ChevronsDown
                       size={36}
@@ -165,28 +165,6 @@ export default function HomeSlider({ sectionRef }) {
           );
         })}
       </Swiper>
-
-      {/* Animation Buttons */}
-      {/* <div className="absolute z-20 top-40 right-4 space-y-2 sm:space-y-0 sm:space-x-2 flex flex-col sm:flex-row items-end">
-        <button
-          onClick={() => setAnimationType(0)}
-          className="bg-white/90 text-black px-3 py-1 text-sm sm:text-base rounded shadow"
-        >
-          Letter
-        </button>
-        <button
-          onClick={() => setAnimationType(1)}
-          className="bg-white/90 text-black px-3 py-1 text-sm sm:text-base rounded shadow"
-        >
-          Zoom
-        </button>
-        <button
-          onClick={() => setAnimationType(2)}
-          className="bg-white/90 text-black px-3 py-1 text-sm sm:text-base rounded shadow"
-        >
-          Parallax
-        </button>
-      </div> */}
     </div>
   );
 }
