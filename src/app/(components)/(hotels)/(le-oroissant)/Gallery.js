@@ -127,7 +127,7 @@ const Gallery = () => {
       </Link>
 
       {/* Main Image */}
-      <div className="w-full aspect-[16/9] relative overflow-hidden shadow-lg mt-10">
+      <div className="w-full aspect-[21/9] relative overflow-hidden shadow-lg mt-5">
         <Image
           src={selectedImage}
           alt="Selected Food"
@@ -138,16 +138,16 @@ const Gallery = () => {
       </div>
 
       {/* Arrow Buttons */}
-      <div className="flex justify-between items-center px-2 sm:px-4">
+      <div className="flex justify-between items-center">
         <button
           onClick={scrollLeft}
-          className="p-2 bg-white shadow hover:bg-gray-100"
+          className="bg-white shadow hover:bg-gray-300"
         >
           <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
         <button
           onClick={scrollRight}
-          className="p-2 bg-white shadow hover:bg-gray-100"
+          className="bg-white shadow hover:bg-gray-300"
         >
           <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
@@ -162,7 +162,7 @@ const Gallery = () => {
           <div
             key={index}
             ref={(el) => (thumbnailRefs.current[index] = el)}
-            className={`min-w-[80px] sm:min-w-[100px] md:min-w-[120px] h-20 sm:h-24 cursor-pointer overflow-hidden border-4 ${
+            className={`min-w-[80px] sm:min-w-[100px] md:min-w-[120px] h-20 sm:h-24 cursor-pointer overflow-hidden border-2 ${
               selectedImage === img.image
                 ? "border-blue-500"
                 : "border-transparent"
