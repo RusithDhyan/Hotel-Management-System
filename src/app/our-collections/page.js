@@ -13,17 +13,9 @@ export default function OurCollection() {
       description:
         "Enjoy breathtaking sunsets over Lake Malawi in ultimate luxury.",
     },
+    
     {
       id: 2,
-      nav: "le-croissant",
-      image: "/hotels/h14.jpg",
-      title: "Le Croissant",
-      location: "Limbe, Blantyre",
-      description:
-        "A tranquil escape nestled in the highlands, perfect for relaxation.",
-    },
-    {
-      id: 3,
       nav: "heritage-hotel",
       image: "/hotels/h3.jpeg",
       title: "Heritage Hotel",
@@ -32,7 +24,7 @@ export default function OurCollection() {
         "Experience the charm of historic tea plantations in a cozy setting.",
     },
     {
-      id: 4,
+      id: 3,
       nav: "kambiri-beach",
       image: "/hotels/h4.jpeg",
       title: "Kambiri Beach",
@@ -41,7 +33,7 @@ export default function OurCollection() {
         "Step onto pristine sands and embrace the soothing waves of the lake.",
     },
     {
-      id: 5,
+      id: 4,
       nav: "kara-o-mula",
       image: "/hotels/h12.jpg",
       title: "Kara O Mula",
@@ -50,7 +42,7 @@ export default function OurCollection() {
         "Get up close with wildlife while staying in a luxurious safari retreat.",
     },
     {
-      id: 6,
+      id: 5,
       nav: "lotus-hotel",
       image: "/hotels/h11.jpg",
       title: "Lotus Hotel",
@@ -58,16 +50,9 @@ export default function OurCollection() {
       description:
         "A modern hotel in the heart of Malawi’s vibrant capital city.",
     },
+    
     {
-      id: 7,
-      nav: "zaburi-lake-resort",
-      image: "/hotels/h15.jpg",
-      title: "Zaburi Lake Resort",
-      location: "Bolera Village, Mangochi, Malawi",
-      description: "Discover secluded island beauty with crystal-clear waters.",
-    },
-    {
-      id: 8,
+      id: 6,
       nav: "waters-edge",
       image: "/hotels/h8.jpg",
       title: "Waters Edge",
@@ -75,7 +60,7 @@ export default function OurCollection() {
       description: "Immerse yourself in lush greenery and exotic wildlife.",
     },
     {
-      id: 9,
+      id: 7,
       nav: "bamboo-boutique",
       image: "/hotels/h9.jpg",
       title: "Bamboo Boutique",
@@ -83,7 +68,7 @@ export default function OurCollection() {
       description: "Stay in a beautifully restored colonial-era residence.",
     },
     {
-      id: 10,
+      id: 8,
       nav: "serendib-travels",
       image: "/hotels/h10.jpg",
       title: "Serendib Travels",

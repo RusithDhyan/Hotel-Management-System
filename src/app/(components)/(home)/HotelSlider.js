@@ -16,17 +16,17 @@ const hotels = [
     description:
       "Our hotel offers a relaxing stay with modern amenities, warm hospitality, and a beautiful setting in Malawi.Enjoy a peaceful retreat with stunning views.",
   },
+  // {
+  //   id: 2,
+  //   image: "/hotels/h14.jpg",
+  //   title: "Le Croissant",
+  //   url: "/hotels/le-croissant",
+  //   location: "Limbe,Blantyre",
+  //   description:
+  //     "Le Croissant Patisserie is located within the Heritage by Serendib hotel on Milward Road in Limbe, Blantyre, Malawi.",
+  // },
   {
     id: 2,
-    image: "/hotels/h14.jpg",
-    title: "Le Croissant",
-    url: "/hotels/le-croissant",
-    location: "Limbe,Blantyre",
-    description:
-      "Le Croissant Patisserie is located within the Heritage by Serendib hotel on Milward Road in Limbe, Blantyre, Malawi.",
-  },
-  {
-    id: 3,
     image: "/hotels/h3.jpeg",
     title: "Heritage Hotel",
     url: "/hotels/heritage-hotel",
@@ -35,7 +35,7 @@ const hotels = [
       "A blend of colonial charm and modern comfort, this hotel features 40 elegantly furnished rooms, a spa, outdoor pool, and the Balmoral Restaurant serving Continental and Indian cuisine.",
   },
   {
-    id: 4,
+    id: 3,
     image: "/hotels/h4.jpeg",
     title: "Kambiri Beach",
     url: "/hotels/kambiri-beach",
@@ -44,7 +44,7 @@ const hotels = [
       "Located on the shores of Lake Malawi, this resort offers beachfront cottages, a restaurant, and various water sports, providing a serene getaway.",
   },
   {
-    id: 5,
+    id: 4,
     image: "/hotels/h12.jpg",
     title: "Kara O Mula",
     url: "/hotels/kara-o-mula",
@@ -53,7 +53,7 @@ const hotels = [
       "Nestled at the foot of Mount Mulanje, this lodge provides cozy rooms, a restaurant, and opportunities for hiking and exploring the surrounding nature.",
   },
   {
-    id: 6,
+    id: 5,
     image: "/hotels/h11.jpg",
     title: "Lotus Hotel",
     url: "/hotels/lotus-hotel",
@@ -61,17 +61,17 @@ const hotels = [
     description:
       "A modern hotel located in the capital city, offering comfortable rooms, dining facilities, and convenient access to government and commercial centers.",
   },
+  // {
+  //   id: 7,
+  //   image: "/hotels/h10.jpg",
+  //   title: "Zaburi Lake Resort",
+  //   url: "/hotels/zaburi-lake-resort",
+  //   location: "Bolera Village, Mangochi, Malawi",
+  //   description:
+  //     "A peaceful lakefront resort on the shores of Lake Malawi. It offers cozy chalets, a private beach, an indoor pool, and delicious food — perfect for a relaxing escape.",
+  // },
   {
-    id: 7,
-    image: "/hotels/h10.jpg",
-    title: "Zaburi Lake Resort",
-    url: "/hotels/zaburi-lake-resort",
-    location: "Bolera Village, Mangochi, Malawi",
-    description:
-      "A peaceful lakefront resort on the shores of Lake Malawi. It offers cozy chalets, a private beach, an indoor pool, and delicious food — perfect for a relaxing escape.",
-  },
-  {
-    id: 8,
+    id: 6,
     image: "/hotels/h8.jpg",
     title: "Waters Edge",
     url: "/hotels/waters-edge",
@@ -80,7 +80,7 @@ const hotels = [
       "A quiet hotel by the Shire River with river-view suites, a pool, and boat safaris. Great for nature lovers and those looking for calm surroundings.",
   },
   {
-    id: 9,
+    id: 7,
     image: "/hotels/h9.jpg",
     title: "Bamboo Boutique",
     url: "/hotels/bamboo-boutique",
@@ -89,7 +89,7 @@ const hotels = [
       "A modern and quiet hotel in Lilongwe with comfy rooms, a relaxing garden, and tasty meals — ideal for both business and casual stays.",
   },
   {
-    id: 10,
+    id: 8,
     image: "/hotels/h10.jpg",
     title: "Serendib Travels",
     url: "/hotels/serendib-travels",
