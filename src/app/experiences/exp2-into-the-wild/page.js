@@ -1,7 +1,24 @@
+"use client"
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-export default function Experience3() {
+const images = [
+  "/experience/exp2-into-wild/exp1.jpeg",
+  "/experience/exp2-into-wild/exp2.jpeg",
+  "/experience/exp2-into-wild/exp3.jpg",
+];
+
+export default function Experience3(){
+const [current, setCurrent] = useState(0);
+    
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setCurrent((prev) => (prev + 1) % images.length);
+        }, 4000);
+    
+        return () => clearInterval(interval);
+      }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Top Image */}
@@ -20,7 +37,6 @@ export default function Experience3() {
         <h1 className="text-xl sm:text-2xl text-center">
           Discovering Malawi: Africa’s Hidden Wild Paradise
         </h1>
-        <h3 className="text-sm">15/08/2024</h3>
         <p className="font-light text-sm sm:text-base text-justify">
           Embark on an exhilarating adventure into the heart of Malawi, where
           nature’s raw beauty flourishes. From the dense forests to the
@@ -34,63 +50,17 @@ export default function Experience3() {
         </p>
       </div>
 
-      {/* Slide Card Section */}
-      <div className="flex justify-center items-center relative mt-10 pb-10">
-        <Image
-          src="/experience/exp2-into-wild/exp-bg2.jpg"
-          alt="exp-img"
-          width={1500}
-          height={100}
-          className="w-full h-100 object-cover"
-        />
-        <div className="absolute inset-0 px-4 sm:px-10 flex items-end justify-end">
-          <div className="relative w-full sm:w-100 h-50 overflow-hidden group">
-            {/* Desktop View (Hover Effect) */}
-            <div className="hidden sm:flex">
-              {/* Front Card */}
-              <div className="absolute inset-0 flex justify-center items-center bg-gray-300 text-black text-xl transition-all duration-500 group-hover:opacity-0">
-              A Hidden Gem of Malawi
-              </div>
-
-              {/* Slide-In Card */}
-              <div className="absolute inset-0 flex flex-col p-2 items-center justify-start bg-white opacity-0 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0">
-                <p className="text-sm">
-                  Majete Wildlife Reserve offers an intimate safari experience
-                  with the chance to see the "Big Five" in a peaceful setting.
-                  Once restored, the reserve now boasts rich wildlife and
-                  stunning landscapes, perfect for game drives and walking
-                  safaris.
-                </p>
-              </div>
-            </div>
-
-            {/* Mobile View (Static Stacked View) */}
-            <div className="flex flex-col sm:hidden bg-white bg-opacity-90 p-4 text-sm">
-              <div className="text-black font-semibold mb-2">
-                A Hidden Gem of Malawi
-              </div>
-              <p>
-                Majete Wildlife Reserve offers an intimate safari experience
-                with the chance to see the "Big Five" in a peaceful setting.
-                Once restored, the reserve now boasts rich wildlife and stunning
-                landscapes, perfect for game drives and walking safaris.
-              </p>
-            </div>
-          </div>
+      <div className="flex flex-col md:flex-row items-center w-full px-4 sm:px-10 gap-5 mt-6">
+        <div className="w-full h-80 relative aspect-video">
+          <Image
+            src={images[current]}
+            alt="Exp"
+            fill
+            className="object-cover"
+          />
         </div>
-      </div>
-
-      {/* Info Card Section */}
-      <div className="flex flex-col md:flex-row items-center mt-10 px-4 sm:px-10 gap-5">
-        <Image
-          src="/experience/exp2-into-wild/exp.jpeg"
-          alt="card-image2"
-          width={1500}
-          height={100}
-          className="w-full md:w-1/2 h-auto"
-        />
-        <div className="flex flex-col items-start gap-2 text-sm md:text-base">
-          <h1 className="text-xl md:text-3xl lg:text-4xl font-semibold">
+        <div className="flex flex-col items-start gap-2 text-sm sm:text-base">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
             A Journey Through Malawi's Untamed Wilderness
           </h1>
           <p>

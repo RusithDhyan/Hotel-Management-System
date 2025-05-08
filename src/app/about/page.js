@@ -9,10 +9,8 @@ function About() {
     { image: "/logo/Serendib-travels.png", name: "Serendib Tours" },
     { image: "/logo/Kara-o-Mula.png", name: "Kara O Mula" },
     { image: "/logo/Lotus.png", name: "Lotus Hotel" },
-    { image: "/logo/Zaburi.png", name: "Zaburi Lake Resort" },
     { image: "/logo/Waters-Edge.png", name: "Waters Edge" },
     { image: "/logo/Bamboo.png", name: "Bamboo Boutique" },
-    { image: "/logo/Le-croissant.png", name: "Le Croissant" },
   ];
 
   return (
@@ -49,9 +47,9 @@ function About() {
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-10 pt-10 px-5">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-2 pt-10 px-5">
         {/* Left Content */}
-        <div className="flex flex-col w-full md:w-1/2 items-center justify-center gap-5 p-2">
+        <div className=" w-full md:w-1/2 p-2">
           <Image
             src="/about/bg-img1.jpg"
             alt="bamboo-img2"
@@ -59,28 +57,22 @@ function About() {
             height={100}
             className="w-full h-64 sm:h-80 md:h-96 object-cover"
           />
-          <p className="text-center text-sm sm:text-base">
+        
+        </div>
+
+        {/* Right Content */}
+        <div className="flex flex-col w-full md:w-1/2 gap-2 relative overflow-hidden group">
+          <h1 className="text-2xl sm:text-3xl">
+            Discover Authentic Malawian Hospitality
+          </h1>
+          <div className="relative w-full">
+          <p className="text-sm sm:text-base">
             From the moment you arrive at Heritage Hotel, you are welcomed with
             warm hospitality and a refreshing welcome drink, setting the tone
             for an unforgettable stay. The hotel’s charming blend of traditional
             elegance and modern luxury offers a unique experience in a tranquil
             setting.
           </p>
-        </div>
-
-        {/* Right Content */}
-        <div className="flex flex-col w-full md:w-1/2 items-center justify-center gap-2 relative overflow-hidden group">
-          <h1 className="text-2xl sm:text-3xl text-center">
-            Discover Authentic Malawian Hospitality
-          </h1>
-          <div className="relative w-full">
-            <Image
-              src="/about/bg-img2.jpg"
-              alt="bamboo-img3"
-              width={1000}
-              height={100}
-              className="w-full h-64 sm:h-80 md:h-96 object-cover"
-            />
           </div>
         </div>
       </div>
@@ -150,31 +142,7 @@ function About() {
         </div>
       </div>
 
-      <div className="px-10 flex flex-col items-center">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">
-          Why Partner With Us
-        </h2>
-        <p className="text-sm md:text-base text-center">
-          At Serendib Hotels, we believe that great partnerships are built on
-          trust, transparency, and a shared commitment to excellence. By
-          partnering with us, you join a hospitality brand that values
-          innovation, sustainability, and local empowerment — creating
-          meaningful, lasting value for both our guests and our collaborators.
-        </p>
-      </div>
-
-      {/* Image Section */}
-      <div className="px-10 mt-2">
-        <Image
-          src="/about/bg-img3.jpg"
-          alt="Why Partner With Us"
-          width={1500}
-          height={200}
-          className=" shadow-lg object-cover w-full h-auto"
-        />
-      </div>
-
-      <div className="flex flex-col items-center justify-center gap-4 px-4 mt-5 md:px-20 text-center">
+      <div className="flex flex-col items-center justify-center gap-4 px-4 md:px-10 text-center">
         <h1 className="text-xl md:text-2xl font-semibold">Serendib Hotels</h1>
         <p className="font-light max-w-6xl text-sm md:text-base">
           Serendib Hotels & Resorts is a prominent hospitality brand in Malawi,
@@ -183,7 +151,7 @@ function About() {
           expanded to become a leading name in Malawi's tourism sector.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mt-10 px-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-8 gap-4 mt-10 px-4">
           {hotels.map((hotel, index) => (
             <div
               key={index}

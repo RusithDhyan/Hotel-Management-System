@@ -27,7 +27,7 @@ export default function Home() {
     <div>
       <HomeSlider sectionRef={sectionRef} />
 
-      <div className="h-auto mt-10 w-full px-2 flex flex-col lg:flex-row items-center gap-4">
+      <div className="h-auto mt-10 w-full px-2 sm:px-10 flex flex-col lg:flex-row items-center gap-4">
         <Image
           src="/images/home1.jpeg"
           alt="card-image1"
@@ -90,48 +90,54 @@ export default function Home() {
       <div className=" h-auto mt-10 w-full">
         <HotelSlider />
       </div>
-      <div className="h-auto w-full flex flex-col md:flex-row items-center justify-center sm:justify-between mt-2">
-        <div className="flex flex-col items-left gap-2 text-xs lg:text-lg md:text-md px-4">
-          <h1 className="text-xl lg:text-4xl md:text-3xl">Explore Malawi...</h1>
-          <p>
+      <div className="h-auto w-full flex flex-col md:flex-row items-center justify-center md:justify-between my-10 px-5 sm:px-10">
+        <div className="flex flex-col text-left text-sm sm:text-base md:text-md lg:text-lg max-w-3xl">
+          <h1 className="text-lg sm:text-xl md:text-3xl lg:text-4xl mb-4">
+            Explore Malawi...
+          </h1>
+          <p className="leading-relaxed">
             Malawi is a landlocked country in southeastern Africa, bordered by
             Tanzania, Mozambique, and Zambia. It is known as the "Warm Heart of
             Africa" due to the friendliness of its people. The country features
             stunning landscapes,
-            <br /> including Lake Malawi, one of Africa’s largest and most
-            biodiverse lakes,which offers pristine beaches, water activities,
-            and wildlife.
+            <br className="hidden sm:block" />
+            including Lake Malawi, one of Africa’s largest and most biodiverse
+            lakes, which offers pristine beaches, water activities, and
+            wildlife.
           </p>
         </div>
+
         <div
-          className="flex relative items-center justify-center overflow-hidden group aspect-ratio"
+          className="relative flex items-center justify-center overflow-hidden group w-full sm:w-[90%] md:w-[50%] max-w-xl"
           onTouchStart={handleTouch}
         >
           <Image
             src="/images/map2.png"
             alt="card-image2"
             width={800}
-            height={10}
-            className="object-cover h-115 md:h-120"
+            height={500}
+            className="object-cover w-65 sm:h-100 h-80"
           />
 
           <HotelNav />
         </div>
       </div>
-      <div className="h-auto flex flex-col md:flex-row items-center w-full px-2 lg:px-10 gap-5 mt-2">
+
+      <div className="flex flex-col md:flex-row items-center justify-center gap-10 px-2 sm:px-10 py-10">
         <Image
           src="/images/elephant.jpeg"
           alt="card-image2"
           width={500}
-          height={100}
-          className="w-100 h-100 object-cover"
+          height={300}
+          className="w-full sm:w-[80%] md:w-[50%] h-64 sm:h-85 md:h-125 object-cover"
         />
-        <div className="flex flex-col items-left gap-2 text-xs lg:text-lg md:text-md">
-          <h1 className="text-xl lg:text-4xl md:text-3xl">
+
+        <div className="flex flex-col text-left text-sm sm:text-base md:text-md lg:text-lg w-full md:w-[50%]">
+          <h1 className="text-lg sm:text-xl md:text-3xl lg:text-4xl mb-4">
             Lakeside Adventure
           </h1>
-          <p>
-            Handpicked adventures Nestled in the heart of Lake Malawi, the
+          <p className="leading-relaxed">
+            Handpicked adventures nestled in the heart of Lake Malawi, the
             islands of Likoma and Chizumulu offer a secluded paradise filled
             with crystal-clear waters, sandy beaches, and vibrant marine life.
             Unlike the bustling mainland, these islands provide an intimate and
@@ -139,10 +145,10 @@ export default function Home() {
             arrive, whether by boat or a small charter plane, you’ll be greeted
             by warm Malawian hospitality and breathtaking views of the
             shimmering lake stretching to the horizon. The gentle lapping of
-            waves against the shore sets the tone for a peaceful escape. vibrant
-            spirit and breathtaking beauty
+            waves against the shore sets the tone for a peaceful escape.
           </p>
-          <div>
+
+          <div className="mt-4">
             <Link href="/blogs" className="text-sm lg:text-lg md:text-md">
               <button
                 className="relative text-black py-1 border-b-2 border-transparent"
@@ -162,6 +168,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       {/* <ServiceCardSlider /> */}
       <OfferSlider nav={navLink} />
       <OurStory />

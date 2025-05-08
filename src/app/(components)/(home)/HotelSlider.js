@@ -154,26 +154,7 @@ export default function HotelSlider() {
         Find Your Place
       </h1>
 
-      <div className="text-center mt-2">
-        <Link href="/our-collections" className="text-sm lg:text-lg md:text-md">
-          <button
-            className="relative text-black py-1 border-b-2 border-transparent text-gray-500"
-            onMouseEnter={() => setIsActive(true)}
-            onMouseLeave={() => setIsActive(false)}
-            onTouchStart={() => setIsActive(true)}
-            onTouchEnd={() => setIsActive(false)}
-          >
-            View All
-            <span
-              className={`absolute left-0 bottom-0 h-[2px] bg-gray-400 transition-all duration-300 ${
-                isActive ? "w-full" : "w-7"
-              }`}
-            ></span>
-          </button>
-        </Link>
-      </div>
-
-      <div className="sm:px-20 mt-5">
+      <div className="sm:px-10 px-2 mt-10">
         <div className="relative mx-auto overflow-hidden">
           <div
             className="flex transition-transform duration-500 ease-in-out"
@@ -206,12 +187,12 @@ export default function HotelSlider() {
                     height={100}
                   />
                   <div className={`lg:p-4 ${i === index ? "h-40" : "h-auto"}`}>
-                    <h3 className="text-lg font-semibold">{hotel.title}</h3>
-                    <h4 className="text-gray-400 text-sm">{hotel.location}</h4>
+                    <h3 className="text-lg font-semibold px-2">{hotel.title}</h3>
+                    <h4 className="text-gray-400 text-sm px-2">{hotel.location}</h4>
                     {i === index && (
-                      <p className="text-sm">{hotel.description}</p>
+                      <p className="text-sm px-2">{hotel.description}</p>
                     )}
-                    <div className="flex flex-row justify-start">
+                    <div className="flex flex-row justify-start px-2">
                       {i === index && (
                         <Link
                           href={hotel.url}
@@ -248,9 +229,14 @@ export default function HotelSlider() {
             >
               <ArrowLeft size={20} />
             </button>
-            <h5 className="text-sm text-gray-500">
-              {index + 1}/{hotels.length}
-            </h5>
+            
+            <div className="text-center mt-2">
+        <Link href="/our-collections" className="text-sm text-gray-500">
+          
+            View all
+        
+        </Link>
+      </div>
             <button
               onClick={nextSlide}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
@@ -258,6 +244,8 @@ export default function HotelSlider() {
               <ArrowRight size={20} />
             </button>
           </div>
+
+          
         </div>
       </div>
     </div>

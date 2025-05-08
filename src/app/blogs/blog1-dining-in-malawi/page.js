@@ -1,7 +1,26 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import { useEffect, useState } from "react";
+
+const images = [
+  "/blogs/blog1/blog4.jpg",
+  "/blogs/blog1/blog2.jpg",
+  "/blogs/blog1/blog3.jpg",
+  "/blogs/blog1/blog5.jpg",
+  "/blogs/blog1/blog6.jpg",
+];
 
 export default function Blog4() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 4000); // change every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Top Image */}
@@ -27,62 +46,16 @@ export default function Blog4() {
         </p>
       </div>
 
-      {/* Slide Card Section */}
-      <div className="flex justify-center items-center relative mt-10 pb-10">
-        <Image
-          src="/blogs/blog1/blog-bg.jpg"
-          alt="contact-img"
-          width={1500}
-          height={100}
-          className="w-full h-100 object-cover"
-        />
-        <div className="absolute inset-0 px-4 sm:px-10 flex items-end justify-end">
-          <div className="relative w-full sm:w-100 h-50 overflow-hidden group">
-            {/* Desktop View (Hover Effect) */}
-            <div className="hidden sm:flex">
-              {/* Front Card */}
-              <div className="absolute inset-0 flex justify-center items-center bg-gray-300 text-black text-xl transition-all duration-500 group-hover:opacity-0">
-                Experience the Flavors of Heritage
-              </div>
-
-              {/* Slide-In Card */}
-              <div className="absolute inset-0 flex flex-col p-2 items-center justify-start bg-white opacity-0 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0">
-                <p className="text-sm">
-                At Heritage Hotels, dining is more than a meal—it's a journey
-                through taste and tradition. Our curated menu features a
-                harmonious blend of local Sri Lankan flavors and international
-                favorites, crafted with the finest ingredients by our expert
-                chefs.
-                </p>
-              </div>
-            </div>
-
-            {/* Mobile View (Always Visible Content) */}
-            <div className="flex flex-col sm:hidden bg-white bg-opacity-90 p-4 text-sm">
-              <div className="text-black font-semibold mb-2">
-                Experience the Flavors of Heritage
-              </div>
-              <p>
-                At Heritage Hotels, dining is more than a meal—it's a journey
-                through taste and tradition. Our curated menu features a
-                harmonious blend of local Sri Lankan flavors and international
-                favorites, crafted with the finest ingredients by our expert
-                chefs.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* First Info Card */}
       <div className="flex flex-col md:flex-row items-center w-full px-4 sm:px-10 gap-5 mt-6">
-        <Image
-          src="/blogs/blog1/blog4.jpg"
-          alt="card-image2"
-          width={1500}
-          height={100}
-          className="w-full md:w-1/2 h-auto"
-        />
+        <div className="w-full h-80 relative aspect-video">
+          <Image
+            src={images[current]}
+            alt="Chef Special"
+            fill
+            className="object-cover"
+          />
+        </div>
         <div className="flex flex-col items-start gap-2 text-sm sm:text-base">
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
             Chef’s Special Creations

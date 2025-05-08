@@ -1,8 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 
 const blogPosts = [
@@ -45,7 +43,7 @@ const blogPosts = [
   {
     id: 5,
     title: "Why Malawi is Africa’s Hidden Gem",
-    summary: "Explore Malawi’s best-kept secrets and cultural wonders.",
+    description: "Explore Malawi’s best-kept secrets and cultural wonders.",
     image: "/blogs/blog5.jpg",
     url: "/blogs",
     date: "April 18, 2025",
@@ -53,7 +51,7 @@ const blogPosts = [
   {
     id: 6,
     title: "Hotel Trends to Watch This Year",
-    summary: "From eco-luxury to AI concierge—what’s changing in hospitality.",
+    description: "From eco-luxury to AI concierge—what’s changing in hospitality.",
     image: "/blogs/blog6.jpg",
     url: "/blogs",
     date: "April 15, 2025",
@@ -61,46 +59,13 @@ const blogPosts = [
 ];
 
 export default function BlogPage() {
-  const sliderRef = useRef(null);
-  const [showAll, setShowAll] = useState(false);
-
-  const scrollLeft = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({ left: -300, behavior: "smooth" });
-    }
-  };
-
-  const scrollRight = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({ left: 300, behavior: "smooth" });
-    }
-  };
-
-  // Auto scroll effect (disabled when grid is shown)
-  useEffect(() => {
-    if (showAll) return;
-
-    const interval = setInterval(() => {
-      if (!sliderRef.current) return;
-      const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
-
-      if (scrollLeft + clientWidth >= scrollWidth - 10) {
-        sliderRef.current.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        sliderRef.current.scrollBy({ left: 300, behavior: "smooth" });
-      }
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [showAll]);
-
   return (
     <div className="min-h-screen">
       {/* Top Cover */}
       <div className="w-full relative">
         <Image
           src="/images/blogs.jpg"
-          alt="Experience Cover"
+          alt="Blog Cover"
           width={1500}
           height={100}
           className="object-cover w-full h-100"
@@ -119,49 +84,15 @@ export default function BlogPage() {
           updates in the world of travel, tourism, and hospitality. Whether
           you're a traveler or a hotelier, we’ve got something for you.
         </p>
-        <button
-          onClick={() => setShowAll(!showAll)}
-          className="mt-4 px-3 py-2 bg-gray-600 text-white hover:bg-gray-700 transition"
-        >
-          {showAll ? "Back to Slider" : "View All Blogs"}
-        </button>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 pt-10 relative">
-        {!showAll && (
-          <div className="hidden sm:flex justify-end gap-10 mb-5">
-            <button
-              onClick={scrollLeft}
-              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
-            >
-              <ArrowLeft className="h-5 w-5" />
-            </button>
-            <button
-              onClick={scrollRight}
-              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
-            >
-              <ArrowRight className="h-5 w-5" />
-            </button>
-          </div>
-        )}
-
-        {/* Blog Cards */}
-        <div
-          ref={sliderRef}
-          className={`${
-            showAll
-              ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-              : "flex overflow-x-auto gap-4 md:gap-6 scrollbar-hide scroll-smooth"
-          }`}
-        >
+      <div className="container mx-auto px-4 md:px-6 pt-10">
+        {/* Blog Cards Grid View */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogPosts.map((blog) => (
             <div
               key={blog.id}
-              className={`${
-                showAll
-                  ? "w-full"
-                  : "w-[80%] sm:min-w-[300px] sm:w-[400px] flex-shrink-0"
-              } bg-white shadow-md hover:shadow-lg transition overflow-hidden`}
+              className="w-full bg-white shadow-md hover:shadow-lg transition overflow-hidden"
             >
               <div className="relative h-48 md:h-60 w-full">
                 <Image
