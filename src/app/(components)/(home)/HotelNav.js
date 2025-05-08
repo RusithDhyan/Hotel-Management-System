@@ -60,8 +60,8 @@ export default function HotelNav() {
               <div
                 className={`flex flex-row absolute right-0 gap-1 ${hotel.position}`}
               >
-                <MapPin color="red" size={20} />
-                <h4 className="hover:text-orange-600 transition duration-300 text-[12px]">
+                <MapPin color="red" size={15} />
+                <h4 className="hover:text-orange-600 transition duration-300 text-[8px] font-semibold">
                   {hotelName}
                 </h4>
               </div>

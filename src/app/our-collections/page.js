@@ -9,7 +9,7 @@ export default function OurCollection() {
       nav: "blue-waters",
       image: "/hotels/h1.jpeg",
       title: "Blue Waters Lake Resort",
-      location: "Senga Bay,Salima",
+      location: "Senga Bay, Salima",
       description:
         "Enjoy breathtaking sunsets over Lake Malawi in ultimate luxury.",
     },
@@ -18,7 +18,7 @@ export default function OurCollection() {
       nav: "le-croissant",
       image: "/hotels/h14.jpg",
       title: "Le Croissant",
-      location: "Limbe,Blantyre",
+      location: "Limbe, Blantyre",
       description:
         "A tranquil escape nestled in the highlands, perfect for relaxation.",
     },
@@ -120,17 +120,28 @@ export default function OurCollection() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 p-5 mt-10 px-5">
         {hotels.map((hotel) => (
-          <div key={hotel.id} className="bg-white shadow-md overflow-hidden">
-            <Link href={`/hotels/${hotel.nav}`}>
+          <div
+            key={hotel.id}
+            className="relative overflow-hidden shadow-md group transition transform duration-300 hover:scale-105"
+          >
+            <div className="relative w-full h-[300px]">
               <Image
                 src={hotel.image}
                 alt={hotel.title}
-                width={600}
-                height={400}
-                className="w-full h-50 sm:h-70 object-cover"
+                fill
+                className="object-cover transition-all duration-500 group-hover:brightness-75"
               />
-            </Link>
-            <div className="p-1">
+              {/* Explore Button on Hover */}
+              {/* Explore Button on Hover */}
+              <Link href={`/hotels/${hotel.nav}`}>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 cursor-pointer">
+                  <button className="text-white px-5 py-2 border border-white font-semibold bg-black/30 backdrop-blur-sm transform translate-y-5 group-hover:translate-y-0 transition-all duration-500 ease-in-out hover:scale-105 hover:bg-white hover:text-black">
+                    Explore
+                  </button>
+                </div>
+              </Link>
+            </div>
+            <div className="p-4 bg-white">
               <h2 className="text-lg font-semibold">{hotel.title}</h2>
               <h3 className="text-gray-600 text-sm">{hotel.location}</h3>
               <p className="text-sm mt-2">{hotel.description}</p>

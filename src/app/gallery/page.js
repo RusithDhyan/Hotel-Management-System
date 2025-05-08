@@ -86,8 +86,15 @@ const hotels = [
 export default function HotelGallery() {
   const [selectedHotel, setSelectedHotel] = useState(hotels[0]);
 
+  const handleSelectChange = (e) => {
+    const selectedId = parseInt(e.target.value);
+    const hotel = hotels.find((h) => h.id === selectedId);
+    if (hotel) setSelectedHotel(hotel);
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Top Image Banner */}
       <div className="w-full h-auto relative">
         <Image
           src="/images/gallery.jpg"
@@ -100,43 +107,39 @@ export default function HotelGallery() {
           Gallery
         </h1>
       </div>
-      <div className="w-full relative h-auto">
-        <div className="flex flex-col md:flex-row h-screen">
-          {/* Left Side - Hotel Cards */}
-          <div className="w-full md:w-1/3 bg-gray-100 p-4 overflow-y-auto">
-            <h2 className="text-xl font-semibold mb-4">Hotels</h2>
-            {hotels.map((hotel) => (
-              <div
-                key={hotel.id}
-                className={`p-4 mb-2 border  cursor-pointer hover:bg-gray-200 ${
-                  selectedHotel.id === hotel.id ? "bg-blue-100" : ""
-                }`}
-                onClick={() => setSelectedHotel(hotel)}
-              >
-                <h3 className="text-lg font-medium">{hotel.name}</h3>
-              </div>
-            ))}
-          </div>
 
-          {/* Right Side - Hotel Gallery */}
-          <div className="w-full md:w-2/3 p-4 overflow-y-auto">
-            <h2 className="text-xl font-semibold mb-4">
-              {selectedHotel.name} - Gallery
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-              {selectedHotel.images.map((img, index) => (
-                <Image
-                  key={index}
-                  width={1000}
-                  height={100}
-                  src={img}
-                  alt={`Gallery ${index}`}
-                  className="w-full h-auto object-cover"
-                  style={{ aspectRatio: index % 2 === 0 ? "4/3" : "1/1" }}
-                />
-              ))}
-            </div>
-          </div>
+      {/* Dropdown*/}
+      <div className="w-full flex justify-center my-6">
+        <select
+          onChange={handleSelectChange}
+          value={selectedHotel.id}
+          className="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+          {hotels.map((hotel) => (
+            <option key={hotel.id} value={hotel.id}>
+              {hotel.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Gallery Section */}
+      <div className="w-full px-4 pb-8">
+        <h2 className="text-2xl font-semibold text-center mb-6">
+          {selectedHotel.name} - Gallery
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {selectedHotel.images.map((img, index) => (
+            <Image
+              key={index}
+              width={1000}
+              height={100}
+              src={img}
+              alt={`Gallery ${index}`}
+              className="w-full h-auto object-cover"
+              style={{ aspectRatio: index % 2 === 0 ? "4/3" : "1/1" }}
+            />
+          ))}
         </div>
       </div>
     </div>

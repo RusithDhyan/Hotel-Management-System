@@ -5,30 +5,30 @@ import React from "react";
 export default function OurStory() {
   return (
     <div className="mt-10">
-      <div className="flex w-full relative">
+      <div className="relative w-full">
         <Image
           src="/images/our-story.jpg"
           alt="our-story-image"
           width={1500}
-          height={50}
-          className="max-h-screen w-full"
+          height={500}
+          className="w-full h-[200px] sm:h-[400px] md:h-[500px] object-cover"
         />
-        <div className="flex absolute inset-0 items-center px-2">
-          <div className="flex flex-col justify-between gap-2 lg:mt-60 md:mt-45 sm:mt-30">
-            <h1 className="text-xl lg:text-4xl md:text-3xl text-white">
+        <div className="absolute inset-0 flex items-start sm:items-center px-2">
+          <div className="mt-5 max-w-2xl">
+            <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-white font-semibold mb-2">
               Iconic Elegance & Luxury
             </h1>
-            <p className="text-white text-xs lg:text-lg ">
+            <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed">
               Create unforgettable memories with the perfect father-and-son
-              getaway at Lake Malawi. Enjoy thrilling water sports, <br />{" "}
-              scenic boat rides, and fishing adventures on the crystal-clear
-              waters. Explore the rich wildlife, unwind on pristine beaches,
-              <br /> and share stories around a cozy lakeside campfire.
+              getaway at Lake Malawi. Enjoy thrilling water sports, scenic boat
+              rides, and fishing adventures on the crystal-clear waters.
+              Explore the rich wildlife, unwind on pristine beaches, and share
+              stories around a cozy lakeside campfire.
             </p>
             <div>
               <Link
-                className="text-white text-xs lg:text-lg md:text-md"
                 href="/about"
+                className="text-white text-xs sm:text-sm md:text-base"
               >
                 View more
               </Link>
