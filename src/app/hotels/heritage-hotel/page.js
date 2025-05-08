@@ -11,10 +11,7 @@ import React, { useState } from "react";
 export default function Heritage() {
   const [isActive, setIsActive] = useState(false);
 
-  const activateHover = () => setIsActive(true);
-  const deactivateHover = () => setIsActive(false);
-
-  const navLink = "hotels/heritage-hotel/offers";
+  const navLink = "/hotels/heritage-hotel/offers";
   const items = [
     { url: "/icons/hotels/bed-single.png", title: "Modern & Spacious Rooms" },
     { url: "/icons/hotels/leaf.png", title: "Wellness & Spa Services" },
@@ -45,11 +42,11 @@ export default function Heritage() {
           height={100}
           className="w-full sm:w-1/3 h-80 object-cover h-64 sm:h-80 md:h-96"
         />
-        <div className="flex flex-col items-center justify-center gap-4 md:w-1/2 px-2">
+        <div className="flex flex-col items-center justify-center gap-4 md:w-200 px-2">
           <h1 className="text-xl sm:text-2xl md:text-3xl text-center md:text-left">
             A Secret Haven of Luxury, Right Outside the Heart of Limbe
           </h1>
-          <p className="text-center text-sm sm:text-base">
+          <p className="text-sm sm:text-base">
             Heritage by Serendib, established in 2018, is a distinguished hotel
             located in the heart of Limbe, Blantyre, Malawi. This hotel
             masterfully combines historical charm with modern amenities,
@@ -64,32 +61,6 @@ export default function Heritage() {
       </div>
 
       <Accommodation />
-
-      <div className="flex flex-col md:flex-row items-center justify-center gap-5 mt-10 px-4">
-        <div className="text-center">
-          <h1 className="text-2xl sm:text-3xl mt-6 text-gray-500">
-            Included With Your Stay
-          </h1>
-          <h2 className="text-md text-gray-500">Enjoy These Perks On Us</h2>
-        </div>
-        <div className="flex flex-wrap justify-center gap-5 mt-4">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className="flex sm:flex-col items-center px-4 md:border-r last:border-r-0"
-            >
-              <Image
-                src={item.url}
-                alt="icon"
-                width={40}
-                height={40}
-                className="w-10"
-              />
-              <h2 className="text-sm text-center mt-2">{item.title}</h2>
-            </div>
-          ))}
-        </div>
-      </div>
 
       <Experience />
       <Gallery />

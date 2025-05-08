@@ -1,192 +1,117 @@
 "use client";
-import { useState, useRef } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const hotels = [
   {
     id: 1,
-    image: "/hotels/heritage/accommodations/executive.jpg",
+    images: [
+      "/hotels/heritage/accommodations/executive.jpg",
+      "/hotels/heritage/accommodations/executive/executive-pop1.jpeg",
+      "/hotels/heritage/accommodations/executive/executive-pop2.jpeg",
+      "/hotels/heritage/accommodations/executive/executive-pop3.jpeg",
+
+    ],
     title: "Executive Suite",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/executive-suite",
     description:
       "For those seeking extra space and comfort, the Executive Suite offers a separate living area and bedroom",
-    features: [
-      "/icons/rooms/item1.png",
-      "/icons/rooms/item2.png",
-      "/icons/rooms/item3.png",
-      "/icons/rooms/item4.png",
-      "/icons/rooms/item5.png",
-    ],
   },
   {
     id: 2,
-    image: "/hotels/heritage/accommodations/family.jpg",
+    images: [
+      "/hotels/heritage/accommodations/family.jpg",
+      "/hotels/heritage/accommodations/family/family-pop1.jpeg",
+      "/hotels/heritage/accommodations/family/family-pop2.jpeg",
+      "/hotels/heritage/accommodations/family/family-pop3.jpeg",
+
+    ],
     title: "Family Twin Room",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/family-twin",
     description:
       "Ideal for families, offering two cozy beds and modern amenities for a comfortable stay together.",
-    features: [
-      "/icons/rooms/item1.png",
-      "/icons/rooms/item2.png",
-      "/icons/rooms/item3.png",
-      "/icons/rooms/item4.png",
-      "/icons/rooms/item5.png",
-    ],
   },
   {
     id: 3,
-    image: "/hotels/heritage/accommodations/deluxe.jpg",
+    images: [
+      "/hotels/heritage/accommodations/deluxe.jpg",
+      "/hotels/heritage/accommodations/deluxe/deluxe-pop1.jpeg",
+      "/hotels/heritage/accommodations/deluxe/deluxe-pop2.jpeg",
+      "/hotels/heritage/accommodations/deluxe/deluxe-pop3.jpeg",
+
+    ],
     title: "Deluxe King Room",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/deluxe-king",
     description:
       "Unwind in the Deluxe King Room, boasting stylish decor, a plush king bed, and relaxing ambiance.",
-    features: [
-      "/icons/rooms/item1.png",
-      "/icons/rooms/item2.png",
-      "/icons/rooms/item3.png",
-      "/icons/rooms/item4.png",
-      "/icons/rooms/item5.png",
-    ],
   },
   {
     id: 4,
-    image: "/hotels/heritage/accommodations/premier.jpeg",
+    images: [
+      "/hotels/heritage/accommodations/premier.jpeg",
+      "/hotels/heritage/accommodations/premier/premier-pop1.jpeg",
+      "/hotels/heritage/accommodations/premier/premier-pop2.jpeg",
+      "/hotels/heritage/accommodations/premier/premier-pop3.jpeg",
+
+    ],
     title: "Premier Heritage Suite",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/premier",
     description:
       "Experience elegance and space in the Premier Heritage Suite, complete with a king bed and private lounge.",
-    features: [
-      "/icons/rooms/item1.png",
-      "/icons/rooms/item2.png",
-      "/icons/rooms/item3.png",
-      "/icons/rooms/item4.png",
-      "/icons/rooms/item5.png",
-    ],
   },
 ];
 
 export default function Accommodation() {
-  const [isActive, setIsActive] = useState(false);
   const [index, setIndex] = useState(0);
+  const [selectedRoom, setSelectedRoom] = useState(null);
+  const [imageIndex, setImageIndex] = useState(0);
 
-  const sliderRef = useRef(null);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
-  const isSwiping = useRef(false); // NEW: to track swipe separately
-
-  const activateHover = () => setIsActive(true);
-  const deactivateHover = () => setIsActive(false);
-
-  const nextSlide = () => {
-    if (!isSwiping.current) {
-      // Only move if not swiping
-      setIndex((prev) => (prev + 1 + hotels.length) % hotels.length);
-    }
+  const nextSlide = () => setIndex((prev) => (prev + 1) % hotels.length);
+  const prevSlide = () => setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
+  const openPopup = (room) => {
+    setSelectedRoom(room);
+    setImageIndex(0);
   };
-
-  const prevSlide = () => {
-    if (!isSwiping.current) {
-      // Only move if not swiping
-      setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
-    }
-  };
-
-  const handleTouchStart = (e) => {
-    isSwiping.current = true; // user is trying to swipe
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    const distance = touchStartX.current - touchEndX.current;
-    if (distance > 50) {
-      setIndex((prev) => (prev + 1) % hotels.length);
-    }
-    if (distance < -50) {
-      setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
-    }
-    isSwiping.current = false; // reset after swipe finished
-  };
+  const closePopup = () => setSelectedRoom(null);
+  const nextImage = () => setImageIndex((prev) => (prev + 1) % (selectedRoom?.images?.length || 1));
+  const prevImage = () => setImageIndex((prev) =>
+    (prev - 1 + (selectedRoom?.images?.length || 1)) % (selectedRoom?.images?.length || 1)
+  );
 
   return (
-    <div>
-      <h1 className="text-center text-xl md:text-3xl lg:text-4xl">
-        Accommodations
-      </h1>
+    <div className="relative z-10 px-4 sm:px-6 md:px-10">
+      <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold mt-4">Accommodations</h1>
 
-      <div
-        className="relative w-full max-w-6xl mx-auto overflow-hidden"
-        ref={sliderRef}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        {/* Slider Container */}
+      <div className="relative w-full mx-auto overflow-hidden mt-6">
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {hotels.map((hotel) => (
-            <div
-              key={hotel.id}
-              className="flex-shrink-0 w-full md:w-[50%] lg:w-[100%] p-4 transition-all duration-500"
-            >
-              <div className="bg-white">
+            <div key={hotel.id} className="flex-shrink-0 w-full">
+              <div className="bg-white shadow-md overflow-hidden">
                 <Image
-                  src={hotel.image}
+                  src={hotel.images[0]}
                   alt={hotel.title}
-                  className="w-full h-60 sm:h-110 object-cover"
                   width={1000}
-                  height={100}
+                  height={500}
+                  className="w-full h-64 sm:h-80 md:h-96 object-cover"
                 />
-                <div className="p-2 shadow-md">
-                  <h3 className="text-lg font-semibold text-center">
-                    {hotel.title}
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Room Size: {hotel.size}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {hotel.features.map((icon, idx) => (
-                      <div key={idx} className="border-r last:border-0 pr-1">
-                        <Image
-                          key={idx}
-                          src={icon}
-                          alt="feature"
-                          width={20}
-                          height={20}
-                          className="w-5 h-5"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-sm mt-1">{hotel.description}</p>
-                  <div className="flex flex-row justify-start">
-                    <Link href={hotel.url} className="text-sm">
-                      <button
-                        className="relative text-black py-1 border-b-2 border-transparent"
-                        onMouseEnter={activateHover}
-                        onMouseLeave={deactivateHover}
-                        onTouchStart={activateHover}
-                        onTouchEnd={deactivateHover}
-                      >
-                        Explore
-                        <span
-                          className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-                            isActive ? "w-full" : "w-7"
-                          }`}
-                        ></span>
-                      </button>
-                    </Link>
+                <div className="p-4">
+                  <h3 className="text-xl sm:text-2xl font-semibold">{hotel.title}</h3>
+                  <div className="mt-2 flex gap-4">
+                    <button
+                      className="text-sm text-gray-800 hover:text-orange-600"
+                      onClick={() => openPopup(hotel)}
+                    >
+                      View more
+                    </button>
                   </div>
                 </div>
               </div>
@@ -194,28 +119,73 @@ export default function Accommodation() {
           ))}
         </div>
 
-        {/* Navigation Buttons */}
-        <div className="flex items-center justify-between sm:justify-end gap-20 px-4">
-          <button
-            onClick={prevSlide}
-            className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
-          >
-            <ArrowLeft size={20} />
+        <div className="flex items-center justify-center sm:justify-end gap-20 mt-6">
+          <button onClick={prevSlide} className="p-2 sm:p-3 bg-gray-200 rounded-full hover:bg-gray-300">
+            <ArrowLeft size={18} />
           </button>
-
-          {/* Mobile card number display */}
-          <h5 className="text-sm text-gray-500">
+          <span className="text-sm text-gray-500">
             {index + 1}/{hotels.length}
-          </h5>
-
-          <button
-            onClick={nextSlide}
-            className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
-          >
-            <ArrowRight size={20} />
+          </span>
+          <button onClick={nextSlide} className="p-2 sm:p-3 bg-gray-200 rounded-full hover:bg-gray-300">
+            <ArrowRight size={18} />
           </button>
         </div>
       </div>
+
+      {/* Popup */}
+      {selectedRoom && (
+        <div
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black/30 backdrop-blur-sm px-2"
+          onClick={closePopup}
+        >
+          <div
+            className="bg-white w-full max-w-3xl h-[60vh] sm:h-[65vh] shadow-2xl flex flex-col md:flex-row relative border border-gray-300 overflow-hidden rounded-md"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-2 right-2 text-gray-600 hover:text-black z-10"
+              onClick={closePopup}
+            >
+              <X size={22} />
+            </button>
+
+            {/* Image section */}
+            <div className="w-full md:w-1/2 relative bg-black h-64 md:h-full">
+              <Image
+                src={selectedRoom.images[imageIndex]}
+                alt="Room Image"
+                fill
+                className="object-cover"
+              />
+              <button
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1 rounded-full"
+                onClick={prevImage}
+              >
+                <ArrowLeft size={18} />
+              </button>
+              <button
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1 rounded-full"
+                onClick={nextImage}
+              >
+                <ArrowRight size={18} />
+              </button>
+            </div>
+
+            {/* Text section */}
+            <div className="w-full md:w-1/2 p-4 sm:p-6 overflow-y-auto">
+              <h2 className="text-lg sm:text-xl font-bold mb-2">{selectedRoom.title}</h2>
+              <p className="text-sm text-gray-500 mb-1">Size: {selectedRoom.size}</p>
+              <p className="text-sm mb-4">{selectedRoom.description}</p>
+              <Link href="/booking">
+                <button className="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-700 w-full sm:w-auto">
+                  Book Now
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+
