@@ -117,11 +117,11 @@ export default function Accommodation() {
                   alt={hotel.title}
                   width={1000}
                   height={500}
-                  className="w-full h-64 sm:h-80 md:h-96 object-cover"
+                  className="w-full h-50 sm:h-80 md:h-96 object-cover"
                 />
-                <div className="p-4">
-                  <h3 className="text-xl sm:text-2xl font-semibold">{hotel.title}</h3>
-                  <div className="mt-2 flex gap-4">
+                <div className="p-2">
+                  <h3 className="text-md sm:text-2xl font-semibold">{hotel.title}</h3>
+                  <div className=" flex gap-4">
                     <button
                       className="text-sm text-gray-800 hover:text-orange-600"
                       onClick={() => openPopup(hotel)}
@@ -135,7 +135,7 @@ export default function Accommodation() {
           ))}
         </div>
 
-        <div className="flex items-center justify-center sm:justify-end gap-20 mt-6">
+        <div className="flex items-center justify-between sm:justify-end gap-20 mt-5">
           <button onClick={prevSlide} className="p-2 sm:p-3 bg-gray-200 rounded-full hover:bg-gray-300">
             <ArrowLeft size={18} />
           </button>

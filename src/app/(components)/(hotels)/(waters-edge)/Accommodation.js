@@ -87,19 +87,27 @@ export default function Accommodation() {
   };
 
   const nextSlide = () => setIndex((prev) => (prev + 1) % hotels.length);
-  const prevSlide = () => setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
+  const prevSlide = () =>
+    setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
   const openPopup = (room) => {
     setSelectedRoom(room);
     setImageIndex(0);
   };
   const closePopup = () => setSelectedRoom(null);
-  const nextImage = () => setImageIndex((prev) => (prev + 1) % (selectedRoom?.images?.length || 1));
+  const nextImage = () =>
+    setImageIndex((prev) => (prev + 1) % (selectedRoom?.images?.length || 1));
   const prevImage = () =>
-    setImageIndex((prev) => (prev - 1 + (selectedRoom?.images?.length || 1)) % (selectedRoom?.images?.length || 1));
+    setImageIndex(
+      (prev) =>
+        (prev - 1 + (selectedRoom?.images?.length || 1)) %
+        (selectedRoom?.images?.length || 1)
+    );
 
   return (
     <div className="relative z-10 px-4 sm:px-6 md:px-10">
-      <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold mt-4">Accommodations</h1>
+      <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold mt-4">
+        Accommodations
+      </h1>
 
       <div className="relative w-full mx-auto overflow-hidden mt-6">
         <div
@@ -120,7 +128,9 @@ export default function Accommodation() {
                   className="w-full h-64 sm:h-80 md:h-96 object-cover"
                 />
                 <div className="p-4">
-                  <h3 className="text-xl sm:text-2xl font-semibold">{hotel.title}</h3>
+                  <h3 className="text-xl sm:text-2xl font-semibold">
+                    {hotel.title}
+                  </h3>
                   <div className="mt-2 flex gap-4">
                     <button
                       className="text-sm text-gray-800 hover:text-orange-600"
@@ -135,14 +145,20 @@ export default function Accommodation() {
           ))}
         </div>
 
-        <div className="flex items-center justify-center sm:justify-end gap-20 mt-6">
-          <button onClick={prevSlide} className="p-2 sm:p-3 bg-gray-200 rounded-full hover:bg-gray-300">
+        <div className="flex items-center justify-between sm:justify-end gap-20 mt-5">
+          <button
+            onClick={prevSlide}
+            className="p-2 sm:p-3 bg-gray-200 rounded-full hover:bg-gray-300"
+          >
             <ArrowLeft size={18} />
           </button>
           <span className="text-sm text-gray-500">
             {index + 1}/{hotels.length}
           </span>
-          <button onClick={nextSlide} className="p-2 sm:p-3 bg-gray-200 rounded-full hover:bg-gray-300">
+          <button
+            onClick={nextSlide}
+            className="p-2 sm:p-3 bg-gray-200 rounded-full hover:bg-gray-300"
+          >
             <ArrowRight size={18} />
           </button>
         </div>
@@ -186,8 +202,12 @@ export default function Accommodation() {
             </div>
 
             <div className="w-full md:w-1/2 p-4 sm:p-6 overflow-y-auto">
-              <h2 className="text-lg sm:text-xl font-bold mb-2">{selectedRoom.title}</h2>
-              <p className="text-sm text-gray-500 mb-1">Size: {selectedRoom.size}</p>
+              <h2 className="text-lg sm:text-xl font-bold mb-2">
+                {selectedRoom.title}
+              </h2>
+              <p className="text-sm text-gray-500 mb-1">
+                Size: {selectedRoom.size}
+              </p>
               <p className="text-sm mb-4">{selectedRoom.description}</p>
               <Link href="/booking">
                 <button className="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-700 w-full sm:w-auto">
