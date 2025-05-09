@@ -154,7 +154,7 @@ export default function Accommodation() {
           onClick={closePopup}
         >
           <div
-            className="bg-white w-full max-w-3xl h-[60vh] sm:h-[65vh] shadow-2xl flex flex-col md:flex-row relative border border-gray-300 overflow-hidden"
+            className="bg-white/50 w-full max-w-3xl h-[60vh] sm:h-[70vh] shadow-2xl flex flex-col md:flex-row relative overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <button

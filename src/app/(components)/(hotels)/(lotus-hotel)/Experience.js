@@ -9,21 +9,21 @@ export default function Experience() {
   const deactivateHover = () => setIsActive(false);
 
   return (
-    <div className="px-4 sm:px-6 md:px-10 max-w-screen-lg mx-auto">
+    <div className="px-4 sm:px-6 md:px-10">
       <h1 className="text-2xl sm:text-3xl text-center mt-10">
         Experience in Lotus Hotel
       </h1>
 
-      <div className="flex flex-col gap-10 pt-10">
+      <div className="flex flex-col pt-10">
         {/* Top Section */}
-        <div className="flex flex-col md:flex-row items-center gap-6">
-          <div className="w-full md:w-125">
+        <div className="flex flex-col md:flex-row items-center gap-5">
+          <div className="w-full md:w-1/2">
             <Image
               src="/hotels/lotus-hotel/lotus-img2.jpeg"
               alt="heritage-img2"
               width={1000}
               height={600}
-              className="w-full h-64 sm:h-80 md:h-96 object-cover"
+              className="w-full h-64 sm:h-80 md:h-100 object-cover"
             />
           </div>
           <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left px-2">
@@ -54,7 +54,7 @@ export default function Experience() {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-row items-center gap-6">         
+        <div className="flex flex-row items-center gap-5">         
           <div className="w-full md:w-1/2 text-center md:text-left px-2">
             <p className="text-sm sm:text-base">
               For those seeking extra space and comfort, the Executive Suite
@@ -68,7 +68,7 @@ export default function Experience() {
               alt="heritage-img3"
               width={1000}
               height={600}
-              className="w-full h-64 sm:h-80 md:h-96 object-cover"
+              className="w-full h-64 sm:h-80 md:h-100 object-cover"
             />
           </div>
         </div>
