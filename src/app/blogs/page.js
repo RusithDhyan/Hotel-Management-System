@@ -94,12 +94,13 @@ export default function BlogPage() {
               key={blog.id}
               className="w-full bg-white shadow-md hover:shadow-lg transition overflow-hidden"
             >
-              <div className="relative h-48 md:h-60 w-full">
+              <div className="relative h-48 md:h-60 w-full group">
                 <Image
                   src={blog.image}
                   alt={blog.title}
                   layout="fill"
                   objectFit="cover"
+                  className=" transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
               <div className="p-2">
@@ -108,7 +109,7 @@ export default function BlogPage() {
                 <p className="text-sm md:text-base">{blog.description}</p>
                 <Link
                   href={blog.url}
-                  className="text-gray-600 hover:text-[#FF741E] duration-300"
+                  className="text-gray-400 hover:text-[#FF741E] duration-300 hover:underline font-semibold"
                 >
                   Read more
                 </Link>

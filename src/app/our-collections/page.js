@@ -13,7 +13,7 @@ export default function OurCollection() {
       description:
         "Enjoy breathtaking sunsets over Lake Malawi in ultimate luxury.",
     },
-    
+
     {
       id: 2,
       nav: "heritage-hotel",
@@ -50,7 +50,7 @@ export default function OurCollection() {
       description:
         "A modern hotel in the heart of Malawi’s vibrant capital city.",
     },
-    
+
     {
       id: 6,
       nav: "waters-edge",
@@ -116,11 +116,9 @@ export default function OurCollection() {
                 fill
                 className="object-cover transition-all duration-500 group-hover:brightness-75"
               />
-              {/* Explore Button on Hover */}
-              {/* Explore Button on Hover */}
               <Link href={`/hotels/${hotel.nav}`}>
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 cursor-pointer">
-                  <button className="text-white px-5 py-2 border border-white font-semibold bg-black/30 backdrop-blur-sm transform translate-y-5 group-hover:translate-y-0 transition-all duration-500 ease-in-out hover:scale-105 hover:bg-white hover:text-black">
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ">
+                  <button className="text-white px-5 py-2 border border-white font-semibold bg-black/30 backdrop-blur-sm transform translate-y-5 group-hover:translate-y-0 transition-all duration-1000 ease-in-out hover:scale-150 hover:bg-gray-300/10 hover:text-black hover:border-black cursor-pointer">
                     Explore
                   </button>
                 </div>

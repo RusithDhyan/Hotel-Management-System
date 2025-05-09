@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import InquiryForm from "../(components)/(experience)/InquiryForm";
 
 const experiences = [
   {
@@ -92,12 +94,13 @@ export default function ExperiencePage() {
               key={exp.id}
               className="w-full bg-white shadow-md hover:shadow-lg transition overflow-hidden"
             >
-              <div className="relative h-48 md:h-60 w-full">
+              <div className="relative h-48 md:h-60 w-full group">
                 <Image
                   src={exp.image}
                   alt={exp.title}
                   layout="fill"
                   objectFit="cover"
+                  className=" transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
               <div className="p-2">
@@ -105,7 +108,7 @@ export default function ExperiencePage() {
                 <p className="text-sm md:text-base">{exp.description}</p>
                 <Link
                   href={exp.url}
-                  className="text-gray-600 hover:text-[#FF741E] duration-300"
+                  className="text-gray-400 hover:text-[#FF741E] duration-300 font-semibold hover:underline"
                 >
                   Read more
                 </Link>
@@ -114,6 +117,9 @@ export default function ExperiencePage() {
           ))}
         </div>
       </div>
+
+      {/* Inquiry Form Section */}
+      <InquiryForm/>
     </div>
   );
 }

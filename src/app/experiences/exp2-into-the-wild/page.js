@@ -6,9 +6,15 @@ const images = [
   "/experience/exp2-into-wild/exp1.jpeg",
   "/experience/exp2-into-wild/exp2.jpeg",
   "/experience/exp2-into-wild/exp3.jpg",
+  "/experience/exp2-into-wild/exp4.jpeg",
+  "/experience/exp2-into-wild/exp5.jpeg",
+  "/experience/exp2-into-wild/exp6.jpeg",
+  "/experience/exp2-into-wild/exp7.jpeg",
+
+
 ];
 
-export default function Experience3(){
+export default function Experience2(){
 const [current, setCurrent] = useState(0);
 
 const [formData, setFormData] = useState({

@@ -11,13 +11,7 @@ export default function page() {
       description:
         "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
     },
-    {
-      url: "/hotels/le-croissant/offers/luxury-spa",
-      title: "Spa Retreat Offer at Le Orroissant",
-      image: "/offers/spa-retreat/sp2.jpg",
-      description:
-        "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
-    },
+    
     {
       url: "/hotels/heritage-hotel/offers/luxury-spa",
       title: "Spa Retreat Offer at Heritage Hotel",
@@ -46,13 +40,7 @@ export default function page() {
       description:
         "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
     },
-    {
-      url: "/hotels/zaburi-lake-resort/offers/luxury-spa",
-      title: "Spa Retreat Offer at Zaburi Lake Resort",
-      image: "/offers/spa-retreat/sp7.jpg",
-      description:
-        "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
-    },
+    
     {
       url: "/hotels/waters-edge/offers/luxury-spa",
       title: "Spa Retreat Offer at Waters Edge",
@@ -102,7 +90,7 @@ export default function page() {
       {/* Offer Cards Section */}
       <div className="mt-10 w-full px-4">
         {/* Mobile Vertical Scroll */}
-        <div className="flex md:hidden flex-col gap-4 pb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pb-4">
           {spOffers.map((sp, index) => (
             <div
               key={index}
@@ -113,14 +101,14 @@ export default function page() {
                 alt={sp.title}
                 width={1000}
                 height={100}
-                className="w-full h-60 object-cover"
+                className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="p-4 bg-white bg-opacity-80 backdrop-blur-md rounded-b-md">
                 <h2 className="font-semibold text-md mb-1">{sp.title}</h2>
                 <p className="text-sm font-light">{sp.description}</p>
                 <Link
                   href={sp.url}
-                  className="text-[#FF741E] font-semibold text-sm"
+                  className="text-gray-400 hover:text-[#FF741E] duration-300 font-semibold text-sm hover:underline"
                 >
                   Learn more
                 </Link>
@@ -130,7 +118,7 @@ export default function page() {
         </div>
 
         {/* Desktop Grid View */}
-        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {/* <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {spOffers.map((sp, index) => (
             <div
               key={index}
@@ -155,7 +143,7 @@ export default function page() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

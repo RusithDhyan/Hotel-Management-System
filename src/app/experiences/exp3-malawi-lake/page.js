@@ -5,8 +5,12 @@ import { useEffect, useState } from "react";
 const images = [
   "/experience/exp3-malawi-lake/exp1.jpeg",
   "/experience/exp3-malawi-lake/exp2.jpg",
-  "/experience/exp3-malawi-lake/exp3.jpg",
-  "/experience/exp3-malawi-lake/exp4.jpg",
+  "/experience/exp3-malawi-lake/exp3.jpeg",
+  "/experience/exp3-malawi-lake/exp4.jpeg",
+  "/experience/exp3-malawi-lake/exp5.jpeg",
+  "/experience/exp3-malawi-lake/exp6.jpeg",
+  "/experience/exp3-malawi-lake/exp7.jpeg",
+
 ];
 export default function Experience3() {
   const [current, setCurrent] = useState(0);
