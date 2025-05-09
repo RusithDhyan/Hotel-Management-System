@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +12,6 @@ const hotels = [
       "/hotels/heritage/accommodations/executive/executive-pop1.jpeg",
       "/hotels/heritage/accommodations/executive/executive-pop2.jpeg",
       "/hotels/heritage/accommodations/executive/executive-pop3.jpeg",
-
     ],
     title: "Executive Suite",
     size: "45 sqm",
@@ -27,7 +26,6 @@ const hotels = [
       "/hotels/heritage/accommodations/family/family-pop1.jpeg",
       "/hotels/heritage/accommodations/family/family-pop2.jpeg",
       "/hotels/heritage/accommodations/family/family-pop3.jpeg",
-
     ],
     title: "Family Twin Room",
     size: "45 sqm",
@@ -42,7 +40,6 @@ const hotels = [
       "/hotels/heritage/accommodations/deluxe/deluxe-pop1.jpeg",
       "/hotels/heritage/accommodations/deluxe/deluxe-pop2.jpeg",
       "/hotels/heritage/accommodations/deluxe/deluxe-pop3.jpeg",
-
     ],
     title: "Deluxe King Room",
     size: "45 sqm",
@@ -57,7 +54,6 @@ const hotels = [
       "/hotels/heritage/accommodations/premier/premier-pop1.jpeg",
       "/hotels/heritage/accommodations/premier/premier-pop2.jpeg",
       "/hotels/heritage/accommodations/premier/premier-pop3.jpeg",
-
     ],
     title: "Premier Heritage Suite",
     size: "45 sqm",
@@ -72,6 +68,24 @@ export default function Accommodation() {
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [imageIndex, setImageIndex] = useState(0);
 
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const threshold = 50;
+    const delta = touchStartX.current - touchEndX.current;
+    if (delta > threshold) nextSlide();
+    else if (delta < -threshold) prevSlide();
+  };
+
   const nextSlide = () => setIndex((prev) => (prev + 1) % hotels.length);
   const prevSlide = () => setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
   const openPopup = (room) => {
@@ -80,9 +94,8 @@ export default function Accommodation() {
   };
   const closePopup = () => setSelectedRoom(null);
   const nextImage = () => setImageIndex((prev) => (prev + 1) % (selectedRoom?.images?.length || 1));
-  const prevImage = () => setImageIndex((prev) =>
-    (prev - 1 + (selectedRoom?.images?.length || 1)) % (selectedRoom?.images?.length || 1)
-  );
+  const prevImage = () =>
+    setImageIndex((prev) => (prev - 1 + (selectedRoom?.images?.length || 1)) % (selectedRoom?.images?.length || 1));
 
   return (
     <div className="relative z-10 px-4 sm:px-6 md:px-10">
@@ -92,6 +105,9 @@ export default function Accommodation() {
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${index * 100}%)` }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           {hotels.map((hotel) => (
             <div key={hotel.id} className="flex-shrink-0 w-full">
@@ -132,14 +148,13 @@ export default function Accommodation() {
         </div>
       </div>
 
-      {/* Popup */}
       {selectedRoom && (
         <div
           className="fixed inset-0 flex items-center justify-center z-50 bg-black/30 backdrop-blur-sm px-2"
           onClick={closePopup}
         >
           <div
-            className="bg-white w-full max-w-3xl h-[60vh] sm:h-[65vh] shadow-2xl flex flex-col md:flex-row relative border border-gray-300 overflow-hidden rounded-md"
+            className="bg-white w-full max-w-3xl h-[60vh] sm:h-[65vh] shadow-2xl flex flex-col md:flex-row relative border border-gray-300 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -149,7 +164,6 @@ export default function Accommodation() {
               <X size={22} />
             </button>
 
-            {/* Image section */}
             <div className="w-full md:w-1/2 relative bg-black h-64 md:h-full">
               <Image
                 src={selectedRoom.images[imageIndex]}
@@ -171,7 +185,6 @@ export default function Accommodation() {
               </button>
             </div>
 
-            {/* Text section */}
             <div className="w-full md:w-1/2 p-4 sm:p-6 overflow-y-auto">
               <h2 className="text-lg sm:text-xl font-bold mb-2">{selectedRoom.title}</h2>
               <p className="text-sm text-gray-500 mb-1">Size: {selectedRoom.size}</p>
@@ -188,4 +201,3 @@ export default function Accommodation() {
     </div>
   );
 }
-

@@ -91,28 +91,17 @@ export default function BlueWatersOffer() {
             />
 
             {/* MOBILE VIEW (info always visible below image) */}
-            <div className="md:hidden p-4">
+            <div className=" p-4">
               <h2 className="text-lg font-semibold">{offer.title}</h2>
               <p className="text-sm font-light my-2">{offer.description}</p>
               <Link
                 href={offer.url}
-                className="text-[#FF741E] text-sm font-medium hover:underline"
+                className="text-gray-400 hover:text-[#FF741E] text-sm font-medium hover:underline"
               >
                 Learn more
               </Link>
             </div>
 
-            {/* DESKTOP VIEW (hover slide-in detail) */}
-            <div className="hidden md:flex absolute inset-0 flex-col p-4 bg-white/60 backdrop-blur-sm translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500">
-              <h2 className="text-lg font-semibold">{offer.title}</h2>
-              <p className="text-sm font-light my-2">{offer.description}</p>
-              <Link
-                href={offer.url}
-                className="text-gray-500 font-semibold hover:text-[#FF741E] duration-300"
-              >
-                Learn more
-              </Link>
-            </div>
           </div>
         ))}
       </div>

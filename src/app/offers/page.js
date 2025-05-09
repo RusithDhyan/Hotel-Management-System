@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import OfferGrid from "../(components)/(offer)/OfferGrid";
+import InquiryForm from "../(components)/(offer)/InquiryForm";
 
 export default function Offers() {
   const offers = [
@@ -63,6 +64,7 @@ export default function Offers() {
       </div>
 
       <OfferGrid offers={offers} />
+      <InquiryForm />
     </div>
   );
 }

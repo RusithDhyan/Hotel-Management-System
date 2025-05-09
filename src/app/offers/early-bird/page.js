@@ -12,13 +12,6 @@ export default function page() {
         "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
     },
     {
-      url: "/hotels/le-croissant/offers/early-bird",
-      title: "Early Bird Offer at Le Orroissant",
-      image: "/offers/early-bird/eb2.jpeg",
-      description:
-        "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
-    },
-    {
       url: "/hotels/heritage-hotel/offers/early-bird",
       title: "Early Bird Offer at Heritage Hotel",
       image: "/offers/early-bird/eb3.jpeg",
@@ -46,13 +39,7 @@ export default function page() {
       description:
         "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
     },
-    {
-      url: "/hotels/zaburi-lake-resort/offers/early-bird",
-      title: "Early Bird Offer at Zaburi Lake Resort",
-      image: "/offers/early-bird/eb7.jpeg",
-      description:
-        "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
-    },
+    
     {
       url: "/hotels/waters-edge/offers/early-bird",
       title: "Early Bird Offer at Waters Edge",
@@ -99,8 +86,7 @@ export default function page() {
 
       {/* Offer Cards Section */}
       <div className="mt-10 w-full px-4">
-        {/* Mobile Vertical Scroll */}
-        <div className="flex md:hidden flex-col gap-4 pb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pb-4">
           {ebOffers.map((eb, index) => (
             <div
               key={index}
@@ -111,14 +97,14 @@ export default function page() {
                 alt={eb.title}
                 width={1000}
                 height={100}
-                className="w-full h-60 object-cover"
+                className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="p-4 bg-white bg-opacity-80 backdrop-blur-md rounded-b-md">
                 <h2 className="font-semibold text-md mb-1">{eb.title}</h2>
                 <p className="text-sm font-light">{eb.description}</p>
                 <Link
                   href={eb.url}
-                  className="text-[#FF741E] font-semibold text-sm"
+                  className="text-gray-400 hover:text-[#FF741E] duration-300 font-semibold text-sm hover:underline"
                 >
                   Learn more
                 </Link>
@@ -127,33 +113,6 @@ export default function page() {
           ))}
         </div>
 
-        {/* Desktop Grid View */}
-        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {ebOffers.map((eb, index) => (
-            <div
-              key={index}
-              className="relative overflow-hidden shadow-md group transition-transform duration-300"
-            >
-              <Image
-                src={eb.image}
-                alt={eb.title}
-                width={1000}
-                height={100}
-                className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 flex flex-col p-3 items-start justify-start border border-gray-300 bg-white/40 backdrop-blur-sm bg-opacity-10 transition-all duration-500 transform translate-x-full group-hover:opacity-100 group-hover:translate-x-0">
-                <h1 className="text-md font-medium">{eb.title}</h1>
-                <p className="font-light text-md">{eb.description}</p>
-                <Link
-                  href={eb.url}
-                  className="text-gray-500 font-semibold hover:text-[#FF741E] duration-300"
-                >
-                  Learn more
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
