@@ -37,7 +37,7 @@ export default function Home() {
         />
         <div
           ref={sectionRef}
-          className="flex flex-col gap-4 text-sm md:text-base lg:text-lg px-1 md:px-8"
+          className="flex flex-col gap-4 text-sm md:text-base lg:text-lg px-1 md:px-10 mt-10"
         >
           <h1 className="text-2xl md:text-3xl lg:text-5xl">
             Eco Luxury Escapes <br /> in Malawi
@@ -87,7 +87,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className=" h-auto mt-10 w-full">
+      <div className=" h-auto my-20 w-full">
         <HotelSlider />
       </div>
       <div className="h-auto w-full flex flex-col md:flex-row items-center justify-center md:justify-between my-10 px-5 sm:px-10">

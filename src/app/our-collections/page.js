@@ -109,7 +109,7 @@ export default function OurCollection() {
             key={hotel.id}
             className="relative overflow-hidden shadow-md group transition transform duration-300 hover:scale-105"
           >
-            <div className="relative w-full h-[300px]">
+            <div className="relative w-full h-[200px] sm:h-[300px]">
               <Image
                 src={hotel.image}
                 alt={hotel.title}
@@ -124,8 +124,8 @@ export default function OurCollection() {
                 </div>
               </Link>
             </div>
-            <div className="p-4 bg-white">
-              <h2 className="text-lg font-semibold">{hotel.title}</h2>
+            <div className="p-1 bg-white">
+              <h2 className="text-md sm:text-lg font-semibold">{hotel.title}</h2>
               <h3 className="text-gray-600 text-sm">{hotel.location}</h3>
               <p className="text-sm mt-2">{hotel.description}</p>
             </div>
