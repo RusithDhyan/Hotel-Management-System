@@ -187,12 +187,12 @@ export default function HotelSlider() {
                     height={100}
                   />
                   <div className={`lg:p-4 ${i === index ? "h-40" : "h-auto"}`}>
-                    <h3 className="text-md font-semibold px-1">{hotel.title}</h3>
-                    <h4 className="text-gray-400 text-sm px-1">{hotel.location}</h4>
+                    <h3 className="text-md font-semibold px-2">{hotel.title}</h3>
+                    <h4 className="text-gray-400 text-sm px-2">{hotel.location}</h4>
                     {i === index && (
-                      <p className="text-sm px-1">{hotel.description}</p>
+                      <p className="text-sm px-2">{hotel.description}</p>
                     )}
-                    <div className="flex flex-row justify-start px-1">
+                    <div className="flex flex-row justify-start px-2">
                       {i === index && (
                         <Link
                           href={hotel.url}

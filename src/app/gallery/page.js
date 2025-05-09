@@ -128,17 +128,17 @@ export default function HotelGallery() {
         <h2 className="text-2xl font-semibold text-center mb-6">
           {selectedHotel.name} - Gallery
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="columns-2 md:columns-3 gap-2 space-y-2">
           {selectedHotel.images.map((img, index) => (
-            <Image
-              key={index}
-              width={1000}
-              height={100}
-              src={img}
-              alt={`Gallery ${index}`}
-              className="w-full h-auto object-cover"
-              style={{ aspectRatio: index % 2 === 0 ? "4/3" : "1/1" }}
-            />
+            <div key={index} className="break-inside-avoid">
+              <Image
+                width={1000}
+                height={index % 3 === 0 ? 800 : index % 3 === 1 ? 600 : 400}
+                src={img}
+                alt={`Gallery ${index}`}
+                className="w-full h-auto object-cover"
+              />
+            </div>
           ))}
         </div>
       </div>
