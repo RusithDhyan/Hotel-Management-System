@@ -26,7 +26,7 @@ export default function OurCollection() {
     {
       id: 3,
       nav: "kambiri-beach",
-      image: "/hotels/h4.jpeg",
+      image: "/hotels/h14.jpg",
       title: "Kambiri Beach",
       location: "Senga Bay,Salima",
       description:

@@ -155,7 +155,7 @@ export default function InquiryForm() {
           ></textarea>
           <button
             type="submit"
-            className="bg-blue-600 text-white py-2 px-6 hover:bg-blue-700 transition-all"
+            className="bg-[#FF741E] text-white py-2 px-6 hover:bg-orange-500 transition-all"
           >
             Submit Inquiry
           </button>
