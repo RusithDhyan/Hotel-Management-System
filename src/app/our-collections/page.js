@@ -110,22 +110,19 @@ export default function OurCollection() {
             className="relative overflow-hidden shadow-md group transition transform duration-300 hover:scale-105"
           >
             <div className="relative w-full h-[200px] sm:h-[300px]">
-              <Image
-                src={hotel.image}
-                alt={hotel.title}
-                fill
-                className="object-cover transition-all duration-500 group-hover:brightness-75"
-              />
               <Link href={`/hotels/${hotel.nav}`}>
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ">
-                  <button className="text-white px-5 py-2 border border-white font-semibold bg-black/30 backdrop-blur-sm transform translate-y-5 group-hover:translate-y-0 transition-all duration-1000 ease-in-out hover:scale-150 hover:bg-gray-300/10 hover:text-black hover:border-black cursor-pointer">
-                    Explore
-                  </button>
-                </div>
+                <Image
+                  src={hotel.image}
+                  alt={hotel.title}
+                  fill
+                  className="object-cover transition-all duration-500 group-hover:brightness-75"
+                />
               </Link>
             </div>
             <div className="p-1 bg-white">
-              <h2 className="text-md sm:text-lg font-semibold">{hotel.title}</h2>
+              <h2 className="text-md sm:text-lg font-semibold">
+                {hotel.title}
+              </h2>
               <h3 className="text-gray-600 text-sm">{hotel.location}</h3>
               <p className="text-sm mt-2">{hotel.description}</p>
             </div>

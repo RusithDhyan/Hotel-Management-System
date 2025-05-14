@@ -6,7 +6,7 @@ function About() {
     { image: "/logo/blue.png", name: "Blue Waters Lake Resort" },
     { image: "/logo/Heritage.png", name: "Heritage Hotel" },
     { image: "/logo/Kambiri.png", name: "Kambri Beach" },
-    { image: "/logo/Serendib-travels.png", name: "Serendib Tours" },
+    { image: "/logo/Serendib-tours.png", name: "Serendib Tours" },
     { image: "/logo/Kara-o-Mula.png", name: "Kara O Mula" },
     { image: "/logo/Lotus.png", name: "Lotus Hotel" },
     { image: "/logo/Waters-Edge.png", name: "Waters Edge" },

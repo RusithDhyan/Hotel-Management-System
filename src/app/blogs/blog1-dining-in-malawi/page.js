@@ -69,28 +69,6 @@ export default function Blog4() {
           </p>
         </div>
       </div>
-
-      {/* Second Info Card */}
-      <div className="flex flex-col md:flex-row items-center w-full px-4 sm:px-10 gap-5 mt-6">
-        <div className="flex flex-col items-start gap-2 text-sm sm:text-base">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
-            Fresh, Local, and Sustainable
-          </h1>
-          <p>
-            At Heritage Hotels, we believe in using only the freshest local
-            produce and sustainable ingredients in our dishes. From farm to
-            table, we take pride in supporting local farmers and ensuring that
-            every meal is as fresh and eco-friendly as possible.
-          </p>
-        </div>
-        <Image
-          src="/blogs/blog1/blog5.jpg"
-          alt="card-image2"
-          width={1500}
-          height={100}
-          className="w-full md:w-1/2 h-auto"
-        />
-      </div>
     </div>
   );
 }

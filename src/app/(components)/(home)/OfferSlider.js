@@ -63,7 +63,7 @@ export default function OfferSlider({ nav }) {
 
   return (
     <div className="w-full mt-5 px-4 sm:px-10">
-      <h1 className="text-3xl sm:text-4xl text-center">Offer</h1>
+      <h1 className="text-3xl sm:text-4xl text-center font-semibold">Special Offers</h1>
 
       <Swiper
         modules={[Autoplay]}

@@ -1,4 +1,5 @@
 "use client";
+import InquiryForm from "@/app/(components)/(offer)/InquiryForm";
 import { Disc, Goal, LayoutList } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -118,6 +119,7 @@ export default function EarlyBird() {
           </div>
         ))}
       </div>
+      <InquiryForm/>
     </div>
   );
 }

@@ -90,8 +90,8 @@ export default function Home() {
       <div className=" h-auto my-20 w-full">
         <HotelSlider />
       </div>
-      <div className="h-auto w-full flex flex-col md:flex-row items-center justify-center md:justify-between my-10 px-5 sm:px-10">
-        <div className="flex flex-col text-left text-sm sm:text-base md:text-md lg:text-lg max-w-3xl">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center md:justify-between mt-20 px-5 sm:px-10">
+        <div className="flex flex-col text-left text-sm sm:text-base md:text-md lg:text-lg max-w-xl">
           <h1 className="text-lg sm:text-xl md:text-3xl lg:text-4xl mb-4">
             Explore Malawi...
           </h1>
@@ -108,15 +108,15 @@ export default function Home() {
         </div>
 
         <div
-          className="relative flex items-center justify-center overflow-hidden group w-full sm:w-[90%] md:w-[50%] max-w-xl"
+          className="relative flex items-center justify-center overflow-hidden group w-full"
           onTouchStart={handleTouch}
         >
           <Image
             src="/images/map2.png"
             alt="card-image2"
-            width={800}
-            height={500}
-            className="object-cover w-65 sm:h-150 h-80"
+            width={1500}
+            height={100}
+            className="object-cover w-80 sm:h-150 md:h-200"
           />
 
           <HotelNav />
