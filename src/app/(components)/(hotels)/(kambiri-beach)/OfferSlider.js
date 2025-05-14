@@ -78,10 +78,10 @@ export default function OfferSlider({ nav }) {
                   className="w-100 h-100"
                 />
               </div>
-              <div className="flex flex-col items-center justify-center gap-2 text-sm md:text-md lg:text-lg text-center sm:text-left px-2">
-                <h1 className="text-xl sm:text-2xl font-semibold">{slide.title}</h1>
-                <p>{slide.offerType}</p>
-                <p className="text-center">{slide.description}</p>
+              <div className="flex flex-col items-center gap-2 text-sm md:text-md lg:text-lg text-center sm:text-left pt-30">
+                <h1 className="text-xl sm:text-2xl font-semibold ">{slide.title}</h1>
+                <h2 className="text-md sm:text-lg text-gray-600">{slide.offerType}</h2>
+                <p className="text-center my-10">{slide.description}</p>
                 <Link href={slide.url}>
                   <button
                     className="relative text-black py-1 border-b-2 border-transparent"
