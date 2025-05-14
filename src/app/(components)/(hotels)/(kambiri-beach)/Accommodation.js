@@ -64,6 +64,10 @@ const hotels = [
 ];
 
 export default function Accommodation() {
+  const [isActive, setIsActive] = useState(false);
+  const activateHover = () => setIsActive(true);
+  const deactivateHover = () => setIsActive(false);
+
   const [index, setIndex] = useState(0);
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [imageIndex, setImageIndex] = useState(0);
@@ -121,13 +125,33 @@ export default function Accommodation() {
                 />
                 <div className="p-2">
                   <h3 className="text-md sm:text-2xl font-semibold">{hotel.title}</h3>
-                  <div className=" flex gap-4">
-                    <button
-                      className="text-sm text-gray-800 hover:text-orange-600"
+                  <div className="flex gap-5 items-center justify-end">
+                  <button
+                      className="text-sm md:text-md hover:text-orange-600"
                       onClick={() => openPopup(hotel)}
                     >
                       View more
                     </button>
+                    <Link
+                      href="/booking"
+                      className="text-sm md:text-md"
+                    >
+                      <button
+                        className="relative text-black py-1 border-b-2 border-transparent"
+                        onMouseEnter={activateHover}
+                        onMouseLeave={deactivateHover}
+                        onTouchStart={activateHover}
+                        onTouchEnd={deactivateHover}
+                      >
+                        Book Now
+                        <span
+                          className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                            isActive ? "w-full" : "w-7"
+                          }`}
+                        ></span>
+                      </button>
+                    </Link>
+                  
                   </div>
                 </div>
               </div>

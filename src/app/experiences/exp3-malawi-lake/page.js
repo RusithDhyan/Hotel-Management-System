@@ -1,4 +1,6 @@
 "use client";
+import InquiryForm from "@/app/(components)/(experience)/InquiryForm";
+import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -13,11 +15,19 @@ const images = [
 
 ];
 export default function Experience3() {
-  const [current, setCurrent] = useState(0);
+    const [index, setIndex] = useState(0);
+
+  const nextSlide = () => {
+    setIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
+      setIndex((prev) => (prev + 1) % images.length);
     }, 4000); // change every 4 seconds
 
     return () => clearInterval(interval);
@@ -34,6 +44,7 @@ export default function Experience3() {
           height={10}
           className="h-100 object-cover w-full"
         />
+       
       </div>
 
       {/* Header Section */}
@@ -53,11 +64,22 @@ export default function Experience3() {
       <div className="flex flex-col md:flex-row items-center w-full px-4 sm:px-10 gap-5 mt-6">
         <div className="w-full h-80 relative aspect-video">
           <Image
-            src={images[current]}
+            src={images[index]}
             alt="Exp"
             fill
             className="object-cover"
           />
+           <div className="absolute inset-0 flex items-center justify-between gap-5 px-2">
+            <button
+              onClick={prevSlide}
+              className="p-1 rounded-full hover:bg-black"
+            >
+              <CircleChevronLeft size={30} color="white"/>
+            </button>
+            <button onClick={nextSlide} className="p-1 rounded-full hover:bg-black">
+              <CircleChevronRight size={30} color="white" />
+            </button>
+          </div>
         </div>
         <div className="flex flex-col items-start gap-2 text-sm sm:text-base">
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
@@ -74,6 +96,7 @@ export default function Experience3() {
           </p>
         </div>
       </div>
+      <InquiryForm/>
     </div>
   );
 }

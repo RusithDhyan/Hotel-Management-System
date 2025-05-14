@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import InquiryForm from "../(components)/(experience)/InquiryForm";
 
 const experiences = [
   {
@@ -117,9 +115,6 @@ export default function ExperiencePage() {
           ))}
         </div>
       </div>
-
-      {/* Inquiry Form Section */}
-      <InquiryForm/>
     </div>
   );
 }

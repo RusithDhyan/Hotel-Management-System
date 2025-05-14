@@ -187,8 +187,12 @@ export default function HotelSlider() {
                     height={100}
                   />
                   <div className={`lg:p-4 ${i === index ? "h-40" : "h-auto"}`}>
-                    <h3 className="text-md font-semibold px-2">{hotel.title}</h3>
-                    <h4 className="text-gray-400 text-sm px-2">{hotel.location}</h4>
+                    <h3 className="text-md font-semibold px-2">
+                      {hotel.title}
+                    </h3>
+                    <h4 className="text-gray-400 text-sm px-2">
+                      {hotel.location}
+                    </h4>
                     {i === index && (
                       <p className="text-sm px-2">{hotel.description}</p>
                     )}
@@ -229,14 +233,12 @@ export default function HotelSlider() {
             >
               <ArrowLeft size={20} />
             </button>
-            
+
             <div className="text-center mt-2">
-        <Link href="/our-collections" className="text-sm text-gray-500">
-          
-            View all
-        
-        </Link>
-      </div>
+              <Link href="/our-collections" className="text-sm text-gray-500">
+                View all
+              </Link>
+            </div>
             <button
               onClick={nextSlide}
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
@@ -244,8 +246,6 @@ export default function HotelSlider() {
               <ArrowRight size={20} />
             </button>
           </div>
-
-          
         </div>
       </div>
     </div>
