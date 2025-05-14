@@ -12,22 +12,28 @@ export default function Footer() {
         <div className="flex justify-center lg:justify-start">
           <Image
             className="w-40 sm:w-48 md:w-56 lg:w-60"
-            src="/logo/Serendib-tours.png"
+            src="/logo/Serendib.png"
             alt="serendib logo"
             width={1500}
             height={100}
           />
         </div>
 
-        <div className="flex flex-col items-center gap-2 text-sm sm:text-base">
-          <Link href="/">Home</Link>
+        <div className="flex flex-row items-center justify-between gap-10 text-sm sm:text-base p-2">
+          <div className="flex flex-col items-center justify-center gap-2">
+            <Link href="/">Home</Link>
           <Link href="/our-collections">Our Collection</Link>
           <Link href="/experience">Experience</Link>
           <Link href="/offers">Offers</Link>
+          </div>
+          <div className="flex flex-col items-center justify-center gap-2">
+
           <Link href="/blogs">Blogs</Link>
           <Link href="/blogs">Galery</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
+          </div>
+          
         </div>
 
         <div className="flex flex-col items-center gap-4 text-center text-sm sm:text-base">

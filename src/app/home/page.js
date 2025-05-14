@@ -90,7 +90,7 @@ export default function Home() {
       <div className=" h-auto my-20 w-full">
         <HotelSlider />
       </div>
-      <div className="w-full flex flex-col md:flex-row items-center justify-center md:justify-between mt-20 px-5 sm:px-10">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-40 md:justify-between mt-20 px-5 sm:px-10">
         <div className="flex flex-col text-left text-sm sm:text-base md:text-md lg:text-lg max-w-xl">
           <h1 className="text-lg sm:text-xl md:text-3xl lg:text-4xl mb-4">
             Explore Malawi...
