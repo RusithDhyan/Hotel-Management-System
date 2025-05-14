@@ -67,11 +67,11 @@ export default function Experience1() {
           <div className="absolute inset-0 flex items-center justify-between gap-5 px-2">
             <button
               onClick={prevSlide}
-              className="p-1 rounded-full hover:bg-black"
+              className="p-1 rounded-full hover:bg-black/50"
             >
               <CircleChevronLeft size={30} color="white"/>
             </button>
-            <button onClick={nextSlide} className="p-1 rounded-full hover:bg-black">
+            <button onClick={nextSlide} className="p-1 rounded-full hover:bg-black/50">
               <CircleChevronRight size={30} color="white" />
             </button>
           </div>

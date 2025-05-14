@@ -89,6 +89,7 @@ export default function EarlyBird() {
           </Link>
         </div>
       </div>
+      <InquiryForm/>
 
       <div className="flex flex-col px-4 sm:px-10 mt-10 space-y-2">
         {accordion.map((acc, index) => (
@@ -119,7 +120,6 @@ export default function EarlyBird() {
           </div>
         ))}
       </div>
-      <InquiryForm/>
     </div>
   );
 }
