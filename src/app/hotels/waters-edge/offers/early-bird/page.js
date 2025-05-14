@@ -6,30 +6,6 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 export default function EarlyBird() {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  const accordion = [
-    {
-      title: "Terms & Conditions",
-      content: [
-        "This offer is valid for stays until 30th April 2026",
-        "Additional guest charges will apply",
-        "Offer cannot be combined with any other offers",
-      ],
-    },
-    {
-      title: "Cancellation Policy",
-      content: [
-        "No cancellation charge for reservations (less than 3 rooms) cancelled more than 30 days prior to the check-in date.",
-        "1 night’s cancellation charge per room for reservations (less than 3 rooms) cancelled 29-14 days prior to the check-in date.",
-        "Full cancellation charge for reservations (less than 3 rooms) cancelled less than 13 days prior to the check-in date",
-      ],
-    },
-  ];
 
   const offers = [
     { name: "20% off for stays between 1st May to 19th December 2025" },
@@ -91,35 +67,6 @@ export default function EarlyBird() {
       </div>
       <InquiryForm/>
 
-      <div className="flex flex-col px-4 sm:px-10 mt-10 space-y-2">
-        {accordion.map((acc, index) => (
-          <div key={index} className="border rounded-lg">
-            <button
-              onClick={() => toggleAccordion(index)}
-              className="flex justify-between items-center w-full p-4 bg-gray-100 hover:bg-gray-200 transition"
-            >
-              <span className="text-base sm:text-lg font-semibold">{acc.title}</span>
-              <LayoutList
-                className={`w-5 h-5 transition-transform ${
-                  openIndex === index ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-            {openIndex === index && (
-              <div className="p-4 bg-white border-t">
-                <div className="flex flex-col items-start gap-2 justify-center">
-                  {acc.content.map((item, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <Disc size={15} />
-                      <h3 className="text-sm font-light">{item}</h3>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
