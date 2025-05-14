@@ -67,7 +67,7 @@ function Contact() {
       </div>
 
       {/* Form Section */}
-      <div className="mx-4 md:mx-10 mt-10 p-6 md:p-10 bg-white shadow-md rounded-lg">
+      <div className="mx-4 md:mx-10 mt-10 p-6 md:pt-10 flex flex-col items-center">
         <h2 className="text-xl md:text-2xl font-bold mb-4 text-center">Ask Any Questions?</h2>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
@@ -123,7 +123,7 @@ function Contact() {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 hover:bg-blue-700 transition rounded"
+            className="w-full bg-blue-600 text-white py-2 px-4 hover:bg-blue-700 transition"
           >
             Submit
           </button>

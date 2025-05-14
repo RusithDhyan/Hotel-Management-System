@@ -1,4 +1,5 @@
 "use client";
+import InquiryForm from "@/app/(components)/(offer)/InquiryForm";
 import { Disc, Goal, LayoutList } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -88,6 +89,7 @@ export default function EarlyBird() {
           </Link>
         </div>
       </div>
+      <InquiryForm/>
 
       <div className="flex flex-col px-4 sm:px-10 mt-10 space-y-2">
         {accordion.map((acc, index) => (
