@@ -5,6 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
+const offers = [
+  { name: "20% off for stays between 1st May to 19th December 2025" },
+  { name: "20% off for stays between 1st May to 19th December 2025" },
+  { name: "20% off for stays between 1st May to 19th December 2025" },
+  { name: "20% off for stays between 1st May to 19th December 2025" },
+  { name: "20% off for stays between 1st May to 19th December 2025" },
+  { name: "20% off for stays between 1st May to 19th December 2025" },
+  { name: "20% off for stays between 1st May to 19th December 2025" },
+];
+
 export default function EarlyBird() {
 
   return (
