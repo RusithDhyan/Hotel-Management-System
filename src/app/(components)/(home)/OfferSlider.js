@@ -76,7 +76,7 @@ export default function OfferSlider({ nav }) {
       >
         {slider.map((slide, idx) => (
           <SwiperSlide key={idx}>
-            <div className="flex flex-col sm:flex-row gap-5 mt-10">
+            <div className="flex flex-col sm:flex-row gap-5 sm:gap-20 mt-10 items-center">
               <div className="relative w-80 h-80 sm:h-125 sm:w-125">
                 <Image
                   src={slide.image}
