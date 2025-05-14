@@ -93,6 +93,7 @@ export default function ExperiencePage() {
               className="w-full bg-white shadow-md hover:shadow-lg transition overflow-hidden"
             >
               <div className="relative h-48 md:h-60 w-full group">
+                <Link href={exp.url}>
                 <Image
                   src={exp.image}
                   alt={exp.title}
@@ -100,16 +101,12 @@ export default function ExperiencePage() {
                   objectFit="cover"
                   className=" transition-transform duration-300 group-hover:scale-105"
                 />
+                </Link>
               </div>
               <div className="p-2">
                 <h2 className="text-xl font-semibold mb-2">{exp.title}</h2>
                 <p className="text-sm md:text-base">{exp.description}</p>
-                <Link
-                  href={exp.url}
-                  className="text-gray-400 hover:text-[#FF741E] duration-300 font-semibold hover:underline"
-                >
-                  Read more
-                </Link>
+                
               </div>
             </div>
           ))}

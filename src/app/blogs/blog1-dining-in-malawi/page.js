@@ -3,25 +3,7 @@ import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const images = [
-  "/blogs/blog1/blog4.jpg",
-  "/blogs/blog1/blog2.jpg",
-  "/blogs/blog1/blog3.jpg",
-  "/blogs/blog1/blog5.jpg",
-  "/blogs/blog1/blog6.jpg",
-];
-
 export default function Blog4() {
-  const [index, setIndex] = useState(0);
-
-  const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const prevSlide = () => {
-    setIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
@@ -59,22 +41,12 @@ export default function Blog4() {
       <div className="flex flex-col md:flex-row items-center w-full px-4 sm:px-10 gap-5 mt-6">
         <div className="w-full h-80 relative aspect-video">
           <Image
-            src={images[index]}
+            src="/blogs/blog1/blog3.jpg"
             alt="Chef Special"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 flex items-center justify-between gap-5 px-2">
-            <button
-              onClick={prevSlide}
-              className="p-1 rounded-full hover:bg-black/50"
-            >
-              <CircleChevronLeft size={30} color="white"/>
-            </button>
-            <button onClick={nextSlide} className="p-1 rounded-full hover:bg-black/50">
-              <CircleChevronRight size={30} color="white" />
-            </button>
-          </div>
+        
         </div>
         <div className="flex flex-col items-start gap-2 text-sm sm:text-base">
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">

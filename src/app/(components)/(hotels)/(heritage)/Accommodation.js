@@ -64,42 +64,30 @@ const hotels = [
 ];
 
 export default function Accommodation() {
-  const [isActive, setIsActive] = useState(false);
-  const activateHover = () => setIsActive(true);
-  const deactivateHover = () => setIsActive(false);
-
-  const [index, setIndex] = useState(0);
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [imageIndex, setImageIndex] = useState(0);
+  const scrollRef = useRef(null);
 
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
-
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
+  const scroll = (direction) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const scrollAmount = container.offsetWidth / 3;
+    container.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
   };
 
-  const handleTouchMove = (e) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    const threshold = 50;
-    const delta = touchStartX.current - touchEndX.current;
-    if (delta > threshold) nextSlide();
-    else if (delta < -threshold) prevSlide();
-  };
-
-  const nextSlide = () => setIndex((prev) => (prev + 1) % hotels.length);
-  const prevSlide = () =>
-    setIndex((prev) => (prev - 1 + hotels.length) % hotels.length);
   const openPopup = (room) => {
     setSelectedRoom(room);
     setImageIndex(0);
   };
+
   const closePopup = () => setSelectedRoom(null);
+
   const nextImage = () =>
     setImageIndex((prev) => (prev + 1) % (selectedRoom?.images?.length || 1));
+
   const prevImage = () =>
     setImageIndex(
       (prev) =>
@@ -113,75 +101,62 @@ export default function Accommodation() {
         Accommodations
       </h1>
 
-      <div className="relative w-full mx-auto overflow-hidden mt-6">
+      <div className="relative w-full mt-6">
         <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${index * 100}%)` }}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
+          ref={scrollRef}
+          className="grid grid-flow-col auto-cols-[100%] sm:auto-cols-[33%] gap-2 overflow-hidden scroll-smooth scrollbar-hide"
         >
           {hotels.map((hotel) => (
-            <div key={hotel.id} className="flex-shrink-0 w-full">
-              <div className="bg-white shadow-md overflow-hidden">
-                <Image
-                  src={hotel.images[0]}
-                  alt={hotel.title}
-                  width={1000}
-                  height={500}
-                  className="w-full h-50 sm:h-80 md:h-96 object-cover"
-                />
-                <div className="p-2">
-                  <h3 className="text-md sm:text-2xl text-gray-600 font-semibold">
-                    {hotel.title}
-                  </h3>
-                  <div className="flex gap-5 items-center justify-end">
+            <div
+              key={hotel.id}
+              className="bg-white shadow-md overflow-hidden hover:shadow-lg transition"
+              
+            >
+              <Image
+                src={hotel.images[0]}
+                alt={hotel.title}
+                width={1000}
+                height={500}
+                className="w-full h-50 sm:h-80 md:h-96 object-cover"
+              />
+              <div className="p-2">
+                <h3 className="text-md sm:text-2xl text-gray-600 font-semibold">
+                  {hotel.title}
+                </h3>
+                <div className="flex gap-5 items-center">
                   <button
-                      className="text-sm md:text-md hover:text-orange-600"
-                      onClick={() => openPopup(hotel)}
+                    className="text-sm md:text-md hover:text-orange-600"
+                    onClick={(e) => {
+                      e.stopPropagation(); // prevent card click from firing
+                      openPopup(hotel);
+                    }}
+                  >
+                    View more
+                  </button>
+                  <Link href="/booking" className="text-sm md:text-md">
+                    <button
+                      className="relative text-black py-1 border-b-2 border-transparent group"
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      View more
+                      Book Now
+                      <span className="absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 w-7 group-hover:w-full"></span>
                     </button>
-                    <Link
-                      href="/booking"
-                      className="text-sm md:text-md"
-                    >
-                      <button
-                        className="relative text-black py-1 border-b-2 border-transparent"
-                        onMouseEnter={activateHover}
-                        onMouseLeave={deactivateHover}
-                        onTouchStart={activateHover}
-                        onTouchEnd={deactivateHover}
-                      >
-                        Book Now
-                        <span
-                          className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
-                            isActive ? "w-full" : "w-7"
-                          }`}
-                        ></span>
-                      </button>
-                    </Link>
-                  
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        <div className="flex items-center justify-between sm:justify-end gap-20 mt-5">
+        <div className="flex justify-between sm:justify-end items-center gap-20 mt-4">
           <button
-            onClick={prevSlide}
-            className="p-2 sm:p-3 bg-gray-200 rounded-full hover:bg-gray-300"
+            onClick={() => scroll("left")}
+            className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
           >
             <ArrowLeft size={18} />
           </button>
-          <span className="text-sm text-gray-500">
-            {index + 1}/{hotels.length}
-          </span>
           <button
-            onClick={nextSlide}
-            className="p-2 sm:p-3 bg-gray-200 rounded-full hover:bg-gray-300"
+            onClick={() => scroll("right")}
+            className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
           >
             <ArrowRight size={18} />
           </button>

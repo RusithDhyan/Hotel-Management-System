@@ -95,6 +95,7 @@ export default function BlogPage() {
               className="w-full bg-white shadow-md hover:shadow-lg transition overflow-hidden"
             >
               <div className="relative h-48 md:h-60 w-full group">
+                <Link href={blog.url}>
                 <Image
                   src={blog.image}
                   alt={blog.title}
@@ -102,17 +103,13 @@ export default function BlogPage() {
                   objectFit="cover"
                   className=" transition-transform duration-300 group-hover:scale-105"
                 />
+                </Link>
               </div>
               <div className="p-2">
                 <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
                 <h5 className="text-gray-500">{blog.date}</h5>
                 <p className="text-sm md:text-base">{blog.description}</p>
-                <Link
-                  href={blog.url}
-                  className="text-gray-400 hover:text-[#FF741E] duration-300 hover:underline font-semibold"
-                >
-                  Read more
-                </Link>
+               
               </div>
             </div>
           ))}

@@ -196,7 +196,7 @@ export default function HotelSlider() {
                     {i === index && (
                       <p className="text-sm px-2">{hotel.description}</p>
                     )}
-                    <div className="flex flex-row justify-start px-2">
+                    <div className="flex flex-row justify-start px-2 mt-10">
                       {i === index && (
                         <Link
                           href={hotel.url}
@@ -211,7 +211,7 @@ export default function HotelSlider() {
                           >
                             Explore
                             <span
-                              className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
+                              className={`absolute left-0 bottom-0 h-[1.5px] bg-orange-600 transition-all duration-300 ${
                                 isActive ? "w-full" : "w-7"
                               }`}
                             ></span>
