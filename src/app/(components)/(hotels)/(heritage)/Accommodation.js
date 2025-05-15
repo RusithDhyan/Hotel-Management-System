@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -112,15 +112,49 @@ export default function Accommodation() {
   const [imageIndex, setImageIndex] = useState(0);
   const scrollRef = useRef(null);
 
-  const scroll = (direction) => {
+  const [centerIndex, setCenterIndex] = useState(0);
+
+  const handlePrev = () => {
+    setActiveIndex((prevIndex) =>
+      prevIndex === 0 ? hotels.length - 1 : prevIndex - 1
+    );
+  };
+  
+  const handleNext = () => {
+    setActiveIndex((prevIndex) =>
+      prevIndex === hotels.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+  
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const children = Array.from(container.children);
+    const containerCenter = container.scrollLeft + container.offsetWidth / 2;
+
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+
+    children.forEach((child, index) => {
+      const childCenter = child.offsetLeft + child.offsetWidth / 2;
+      const distance = Math.abs(containerCenter - childCenter);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    setCenterIndex(closestIndex);
+  };
+
+  useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
-    const scrollAmount = container.offsetWidth / 3;
-    container.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const openPopup = (room) => {
     setSelectedRoom(room);
@@ -150,55 +184,69 @@ export default function Accommodation() {
           ref={scrollRef}
           className="flex gap-2 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory sm:grid sm:grid-flow-col sm:auto-cols-[33%] sm:overflow-hidden"
         >
-          {hotels.map((hotel) => (
-            <div
-              key={hotel.id}
-              className="bg-white shadow-md overflow-hidden hover:shadow-lg transition snap-start min-w-[80%] sm:min-w-0"
-            >
-              <Image
-                src={hotel.images[0]}
-                alt={hotel.title}
-                width={1000}
-                height={500}
-                className="w-full h-50 sm:h-80 md:h-96 object-cover"
-              />
-              <div className="p-2">
-                <h3 className="text-md sm:text-2xl text-gray-600 font-semibold">
-                  {hotel.title}
-                </h3>
-                <div className="flex gap-5 items-center">
-                  <button
-                    className="text-sm md:text-md hover:text-orange-600"
-                    onClick={(e) => {
-                      e.stopPropagation(); // prevent card click from firing
-                      openPopup(hotel);
-                    }}
-                  >
-                    View more
-                  </button>
-                  <Link href="/booking" className="text-sm md:text-md">
+          {hotels.map((hotel, index) => {
+            const offset = index - centerIndex;
+            const translateY = Math.min(0, Math.abs(offset) * -5);
+            const scale = offset === 0 ? 1.1 : 0.8;
+            const opacity = offset === 0 ? 1 : 1;
+
+            return (
+              <div
+                key={hotel.id}
+                className="bg-white shadow-md overflow-hidden hover:shadow-lg transition-all duration-500 ease-in-out snap-start min-w-[80%] sm:min-w-0"
+                style={{
+                  transform: `translateY(${translateY}px) scale(${scale})`,
+                  opacity,
+                  zIndex: offset === 0 ? 10 : 5,
+                  cursor: "pointer",
+                }}
+                onClick={() => openPopup(hotel)}
+              >
+                <Image
+                  src={hotel.images[0]}
+                  alt={hotel.title}
+                  width={1000}
+                  height={500}
+                  className="w-full h-50 sm:h-80 md:h-96 object-cover"
+                />
+                <div className="p-2">
+                  <h3 className="text-md sm:text-2xl text-gray-600 text-center font-semibold">
+                    {hotel.title}
+                  </h3>
+                  <div className="flex gap-5 items-center justify-center pb-5">
                     <button
-                      className="relative text-black py-1 border-b-2 border-transparent group"
-                      onClick={(e) => e.stopPropagation()}
+                      className="text-sm md:text-md hover:text-orange-600"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openPopup(hotel);
+                      }}
                     >
-                      Book Now
-                      <span className="absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 w-7 group-hover:w-full"></span>
+                      View more
                     </button>
-                  </Link>
+                    <Link href="/booking" className="text-sm md:text-md">
+                      <button
+                        className="relative text-black py-1 border-b-2 border-transparent group"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Book Now
+                        <span className="absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 w-7 group-hover:w-full"></span>
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
-        <div className="flex justify-between sm:justify-end items-center gap-50 mt-4 px-4">
+        <div className="flex justify-between sm:justify-end items-center gap-50 mt-10 px-4">
           <button
-            onClick={() => scroll("left")}
+            onClick={handlePrev}
             className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
           >
             <ArrowLeft size={18} />
           </button>
           <button
-            onClick={() => scroll("right")}
+            onClick={handleNext}
             className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
           >
             <ArrowRight size={18} />
