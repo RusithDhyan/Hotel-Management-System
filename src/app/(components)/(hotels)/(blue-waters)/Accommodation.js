@@ -24,7 +24,7 @@ const hotels = [
       { url: "/icons/rooms/item9.png", title: "Four Beds" },
     ],
     title: "Executive Suite",
-    bed:"King-size or queen-size bed",
+    bed: "King-size or queen-size bed",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/executive-suite",
     description:
@@ -49,7 +49,7 @@ const hotels = [
       { url: "/icons/rooms/item9.png", title: "Four Beds" },
     ],
     title: "Family Twin Room",
-    bed:"1 King bed + 1 or 2 single beds / sofa bed",
+    bed: "1 King bed + 1 or 2 single beds / sofa bed",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/family-twin",
     description:
@@ -74,7 +74,7 @@ const hotels = [
       { url: "/icons/rooms/item9.png", title: "Four Beds" },
     ],
     title: "Deluxe King Room",
-    bed:"King-size bed (or twin beds)",
+    bed: "King-size bed (or twin beds)",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/deluxe-king",
     description:
@@ -99,7 +99,7 @@ const hotels = [
       { url: "/icons/rooms/item9.png", title: "Four Beds" },
     ],
     title: "Premier Heritage Suite",
-    bed:"Premium king bed with high-thread-count linens",
+    bed: "Premium king bed with high-thread-count linens",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/premier",
     description:
@@ -247,7 +247,9 @@ export default function Accommodation() {
               <h1 className="text-lg sm:text-xl font-bold mb-2">
                 {selectedRoom.title}
               </h1>
-              <h2 className="text-md font-semibold text-gray-700">{selectedRoom.bed}</h2>
+              <h2 className="text-md font-semibold text-gray-700">
+                {selectedRoom.bed}
+              </h2>
               <p className="text-sm text-gray-600 mb-1">
                 Size: {selectedRoom.size}
               </p>
