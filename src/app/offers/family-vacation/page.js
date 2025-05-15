@@ -1,123 +1,94 @@
+"use client";
+import InquiryForm from "@/app/(components)/(offer)/InquiryForm";
+import { Disc, Goal, LayoutList } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
-export default function page() {
-  const fvOffers = [
+export default function FamilyVacation() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+  const accordion = [
     {
-      url: "/hotels/blue-waters/offers/family-vacation",
-      title: "Family Vacation Offer at Blue Waters Lake Resort",
-      image: "/offers/family-vacation/fv1.jpeg",
-      description:
-        "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
-    },
-   
-    {
-      url: "/hotels/heritage-hotel/offers/family-vacation",
-      title: "Family Vacation Offer at Heritage Hotel",
-      image: "/offers/family-vacation/fv3.jpeg",
-      description:
-        "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
-    },
-    {
-      url: "/hotels/kambiri-beach/offers/family-vacation",
-      title: "Family Vacation Offer at Kambiri Beach",
-      image: "/offers/family-vacation/fv4.jpeg",
-      description:
-        "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
+      title: "Terms & Conditions",
+      content: [
+        "This offer is valid for stays until 30th April 2026",
+        "This offer is not valid from 20th December 2025 – 10th January 2026",
+        "Valid on USD rates only, for single or double-sharing basis",
+        "Additional guest charges will apply",
+        "Offer cannot be combined with any other offers",
+      ],
     },
     {
-      url: "/hotels/kara-o-mula/offers/family-vacation",
-      title: "Family Vacation Offer at Kara O Mula",
-      image: "/offers/family-vacation/fv5.jpeg",
-      description:
-        "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
+      title: "Cancellation Policy",
+      content: [
+        "No cancellation charge for reservations (less than 3 rooms) cancelled more than 30 days prior to the check-in date. Payments collected prior to this date will be refunded less bank charges",
+        "1 night’s cancellation charge per room for reservations (less than 3 rooms) cancelled 29-14 days prior to the check-in date. Refundable payments (if applicable) collected prior to this date will be refunded less bank charges",
+        "Full cancellation charge for reservations (less than 3 rooms) cancelled less than 13 days prior to the check-in date",
+      ],
     },
-    {
-      url: "/hotels/lotus-hotel/offers/family-vacation",
-      title: "Family Vacation Offer at Lotus Hotel",
-      image: "/offers/family-vacation/fv6.jpeg",
-      description:
-        "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
-    },
-    
-    {
-      url: "/hotels/waters-edge/offers/family-vacation",
-      title: "Family Vacation Offer at Waters Edge",
-      image: "/offers/family-vacation/fv8.jpeg",
-      description:
-        "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
-    },
-    {
-      url: "/hotels/bamboo-boutique/offers/family-vacation",
-      title: "Family Vacation Offer at Bamboo Boutique",
-      image: "/offers/family-vacation/fv9.jpeg",
-      description:
-        "Save up to 20% when you book 90 days (or more) prior to the date of arrival",
-    },
+  ];
+  const offers = [
+    { name: "20% off for stays between 1st May to 19th June 2025" },
+    { name: "10% off for stays between 1st May to 19th December 2025" },
+    { name: "20% off for stays between 1st May to 19th December 2025" },
+    { name: "50% off for stays between 1st May to 19th December 2025" },
+    { name: "20% off for stays between 1st May to 19th December 2025" },
+    { name: "20% off for stays between 1st May to 19th December 2025" },
+    { name: "20% off for stays between 1st May to 19th December 2025" },
   ];
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Image */}
       <div className="w-full h-auto relative">
         <Image
-          src="/offers/family-vacation/fv-img.jpg"
-          alt="early-bird-img"
+          src="/hotels/heritage/offers/family-vacation/bg.jpg"
+          alt="family-vacation-img"
           width={1500}
           height={100}
-          className="h-100 object-cover w-full"
+          className="h-100 object-cover"
         />
-        <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
+
+        <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4">
           Family Vacation Offer
         </h1>
       </div>
-
-      {/* Description Section */}
-      <div className="flex flex-col items-center justify-center gap-3 mt-10 px-4 sm:px-6 md:px-10">
-        <h1 className="text-xl sm:text-2xl text-center">
-          Plan ahead and enjoy more for less
-        </h1>
-        <p className="font-extralight text-center text-sm sm:text-base">
-          Create unforgettable memories with your loved ones through our Family
-          Vacation Offer. Enjoy special family-friendly rates, complimentary
-          meals for kids, and fun activities for all ages. Book your stay in
-          advance and make the most of quality time together across all Serendib
-          Collection properties. Offer valid until 30th April 2026.
+      <div className="flex flex-col items-center justify-center gap-3 mt-10 px-4 sm:px-10">
+        <h1 className="text-xl sm:text-2xl">Family Vacation Offer</h1>
+        <p className="font-extralight text-sm sm:text-base">
+          Make memories that last a lifetime! Enjoy a fun-filled getaway with
+          special family packages, kid-friendly activities, and relaxing stays
+          for everyone. The perfect holiday for the whole family starts here!
         </p>
       </div>
-
-      {/* Offer Cards Section */}
-      <div className="mt-10 w-full px-4">
-        {/* Mobile Vertical Scroll */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pb-4">
-          {fvOffers.map((fv, index) => (
-            <div
-              key={index}
-              className="w-full relative shadow-md group transition-transform duration-300"
-            >
-              <Image
-                src={fv.image}
-                alt={fv.title}
-                width={1000}
-                height={100}
-                className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="p-2 bg-white bg-opacity-80 backdrop-blur-md rounded-b-md">
-                <h2 className="font-semibold text-md mb-1">{fv.title}</h2>
-                <p className="text-sm font-light">{fv.description}</p>
-                <Link
-                  href={fv.url}
-                  className="text-gray-400 hover:text-[#FF741E] duration-300 font-semibold text-sm hover:underline"
-                >
-                  Learn more
-                </Link>
-              </div>
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-10 px-4 sm:px-10">
+        <Image
+          src="/hotels/heritage/offers/family-vacation/bg-img.jpg"
+          alt="family-vacation-img"
+          width={1000}
+          height={100}
+          className="w-full md:w-1/2 h-auto object-cover"
+        />
+        <div className="flex flex-col items-start justify-center gap-1">
+          <h1 className="text-xl sm:text-2xl py-2">Offer Inclusions</h1>
+          {offers.map((offer, index) => (
+            <div key={index} className="flex items-center gap-2">
+              <Goal size={15} />
+              <h3 className="text-sm sm:text-base font-light">{offer.name}</h3>
             </div>
           ))}
+          <Link href="/">
+            <button className="relative group text-black py-1 px-2 border-transparent">
+              Book
+              <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
+            </button>
+          </Link>
         </div>
-
       </div>
+      <InquiryForm/>
     </div>
   );
 }
