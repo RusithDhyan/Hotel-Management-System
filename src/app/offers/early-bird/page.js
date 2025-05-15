@@ -180,9 +180,9 @@ export default function EarlyBird() {
             </div>
           ))}
           <Link href="/">
-            <button className="relative group text-black py-2 px-4 mt-2 rounded-md hover:bg-orange-100">
+            <button className="relative group text-black py-1 px-2 mt-2">
               Book
-              <span className="absolute left-0 bottom-0 w-10 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute left-0 bottom-0 w-7 h-[2px] bg-orange-600 group-hover:w-full transition-all duration-300"></span>
             </button>
           </Link>
         </div>
