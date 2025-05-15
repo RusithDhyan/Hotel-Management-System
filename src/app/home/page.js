@@ -31,8 +31,8 @@ export default function Home() {
         <Image
           src="/images/home1.jpeg"
           alt="card-image1"
-          width={700}
-          height={1000}
+          width={1500}
+          height={100}
           className="sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-120 lg:h-130 object-cover "
         />
         <div

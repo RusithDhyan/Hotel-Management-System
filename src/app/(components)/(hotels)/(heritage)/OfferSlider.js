@@ -78,7 +78,7 @@ export default function OfferSlider({ nav }) {
                   className="w-100 h-100"
                 />
               </div>
-              <diiv className="flex flex-col items-center gap-2 text-sm md:text-md lg:text-lg text-center sm:text-left pt-30">
+              <div className="flex flex-col items-center gap-2 text-sm md:text-md lg:text-lg text-center sm:text-left pt-30">
                 <h1 className="text-xl sm:text-2xl font-semibold ">{slide.title}</h1>
                 <h2 className="text-md sm:text-lg text-gray-600">{slide.offerType}</h2>
                 <p className="text-center my-10">{slide.description}</p>
@@ -98,7 +98,7 @@ export default function OfferSlider({ nav }) {
                     ></span>
                   </button>
                 </Link>
-              </diiv>
+              </div>
             </div>
           </SwiperSlide>
         ))}

@@ -13,6 +13,16 @@ const hotels = [
       "/hotels/heritage/accommodations/executive/executive-pop2.jpeg",
       "/hotels/heritage/accommodations/executive/executive-pop3.jpeg",
     ],
+    specs: [
+      { url: "/icons/rooms/item1.png", title: "Bath Tub" },
+      { url: "/icons/rooms/item2.png", title: "Air Condition" },
+      { url: "/icons/rooms/item3.png", title: "Kitchen" },
+      { url: "/icons/rooms/item4.png", title: "Refrigerator" },
+      { url: "/icons/rooms/item5.png", title: "TV" },
+      { url: "/icons/rooms/item7.png", title: "WiFi" },
+      { url: "/icons/rooms/item8.png", title: "Tea & Coffee" },
+      { url: "/icons/rooms/item9.png", title: "Four Beds" },
+    ],
     title: "Executive Suite",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/executive-suite",
@@ -26,6 +36,16 @@ const hotels = [
       "/hotels/heritage/accommodations/family/family-pop1.jpeg",
       "/hotels/heritage/accommodations/family/family-pop2.jpeg",
       "/hotels/heritage/accommodations/family/family-pop3.jpeg",
+    ],
+    specs: [
+      { url: "/icons/rooms/item1.png", title: "Bath Tub" },
+      { url: "/icons/rooms/item2.png", title: "Air Condition" },
+      { url: "/icons/rooms/item3.png", title: "Kitchen" },
+      { url: "/icons/rooms/item4.png", title: "Refrigerator" },
+      { url: "/icons/rooms/item5.png", title: "TV" },
+      { url: "/icons/rooms/item7.png", title: "WiFi" },
+      { url: "/icons/rooms/item8.png", title: "Tea & Coffee" },
+      { url: "/icons/rooms/item9.png", title: "Four Beds" },
     ],
     title: "Family Twin Room",
     size: "45 sqm",
@@ -41,6 +61,16 @@ const hotels = [
       "/hotels/heritage/accommodations/deluxe/deluxe-pop2.jpeg",
       "/hotels/heritage/accommodations/deluxe/deluxe-pop3.jpeg",
     ],
+    specs: [
+      { url: "/icons/rooms/item1.png", title: "Bath Tub" },
+      { url: "/icons/rooms/item2.png", title: "Air Condition" },
+      { url: "/icons/rooms/item3.png", title: "Kitchen" },
+      { url: "/icons/rooms/item4.png", title: "Refrigerator" },
+      { url: "/icons/rooms/item5.png", title: "TV" },
+      { url: "/icons/rooms/item7.png", title: "WiFi" },
+      { url: "/icons/rooms/item8.png", title: "Tea & Coffee" },
+      { url: "/icons/rooms/item9.png", title: "Four Beds" },
+    ],
     title: "Deluxe King Room",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/deluxe-king",
@@ -54,6 +84,16 @@ const hotels = [
       "/hotels/heritage/accommodations/premier/premier-pop1.jpeg",
       "/hotels/heritage/accommodations/premier/premier-pop2.jpeg",
       "/hotels/heritage/accommodations/premier/premier-pop3.jpeg",
+    ],
+    specs: [
+      { url: "/icons/rooms/item1.png", title: "Bath Tub" },
+      { url: "/icons/rooms/item2.png", title: "Air Condition" },
+      { url: "/icons/rooms/item3.png", title: "Kitchen" },
+      { url: "/icons/rooms/item4.png", title: "Refrigerator" },
+      { url: "/icons/rooms/item5.png", title: "TV" },
+      { url: "/icons/rooms/item7.png", title: "WiFi" },
+      { url: "/icons/rooms/item8.png", title: "Tea & Coffee" },
+      { url: "/icons/rooms/item9.png", title: "Four Beds" },
     ],
     title: "Premier Heritage Suite",
     size: "45 sqm",
@@ -104,13 +144,12 @@ export default function Accommodation() {
       <div className="relative w-full mt-6">
         <div
           ref={scrollRef}
-          className="grid grid-flow-col auto-cols-[100%] sm:auto-cols-[33%] gap-2 overflow-hidden scroll-smooth scrollbar-hide"
+          className="flex gap-2 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory sm:grid sm:grid-flow-col sm:auto-cols-[33%] sm:overflow-hidden"
         >
           {hotels.map((hotel) => (
             <div
               key={hotel.id}
-              className="bg-white shadow-md overflow-hidden hover:shadow-lg transition"
-              
+              className="bg-white shadow-md overflow-hidden hover:shadow-lg transition snap-start min-w-[80%] sm:min-w-0"
             >
               <Image
                 src={hotel.images[0]}
@@ -147,7 +186,7 @@ export default function Accommodation() {
             </div>
           ))}
         </div>
-        <div className="flex justify-between sm:justify-end items-center gap-20 mt-4">
+        <div className="flex justify-between sm:justify-end items-center gap-50 mt-4 px-4">
           <button
             onClick={() => scroll("left")}
             className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
@@ -204,10 +243,34 @@ export default function Accommodation() {
               <h2 className="text-lg sm:text-xl font-bold mb-2">
                 {selectedRoom.title}
               </h2>
-              <p className="text-sm text-gray-500 mb-1">
+              <p className="text-sm text-gray-600 mb-1">
                 Size: {selectedRoom.size}
               </p>
               <p className="text-sm mb-4">{selectedRoom.description}</p>
+
+              {/* features */}
+
+              <div>
+                <h1 className="font-semibold text-gray-600">What's Inside</h1>
+                <div className="grid grid-cols-2 gap-2 pb-5 mt-2">
+                  {selectedRoom.specs?.map((spec, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between text-sm"
+                    >
+                      <span>{spec.title}</span>
+                      <Image
+                        src={spec.url}
+                        alt={spec.title}
+                        width={20}
+                        height={20}
+                        className="w-5 h-5 mr-7"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               <Link href="/booking">
                 <button className="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-700 w-full sm:w-auto">
                   Book Now

@@ -1,16 +1,6 @@
-"use client";
-import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export default function Blog4() {
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 4000); // change every 4 seconds
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
