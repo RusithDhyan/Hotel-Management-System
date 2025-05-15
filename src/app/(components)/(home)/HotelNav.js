@@ -7,7 +7,7 @@ export default function HotelNav() {
     {
       name: "Heritage Hotel",
       href: "/hotels/heritage-hotel",
-      position: "top-[32%] left-[42%]",
+      position: "top-[32%] left-[38%]",
     },
     {
       name: "Blue Waters Lake Resort",
@@ -38,6 +38,11 @@ export default function HotelNav() {
       name: "Bamboo Boutique",
       href: "/hotels/bamboo-boutique",
       position: "top-[74%] left-[55%]",
+    },
+    {
+      name: "Serendib Suite",
+      href: "/hotels/serendib-travels",
+      position: "top-[55%] left-[62%]",
     },
     
   ];

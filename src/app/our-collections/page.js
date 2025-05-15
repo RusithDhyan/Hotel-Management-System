@@ -71,7 +71,7 @@ export default function OurCollection() {
       id: 8,
       nav: "serendib-travels",
       image: "/hotels/h10.jpg",
-      title: "Serendib Travels",
+      title: "Serendib Suites",
       location: "Off Chilomoni Ring Road, Namiwawa, Blantyre, Malawi",
       description:
         "Nestled in the tranquil Namiwawa neighborhood of Blantyre, Serendib Suites & Conference Center offers a harmonious blend of comfort and convenience.",
