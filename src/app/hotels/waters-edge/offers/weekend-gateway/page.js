@@ -1,9 +1,8 @@
 "use client";
 import InquiryForm from "@/app/(components)/(offer)/InquiryForm";
-import { Disc, Goal, LayoutList } from "lucide-react";
+import {Goal } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
 
 export default function WeekendGateway() {
 
