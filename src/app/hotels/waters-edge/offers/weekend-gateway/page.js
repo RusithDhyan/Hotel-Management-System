@@ -4,6 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function WeekendGateway() {
+  const offers = [
+    { name: "20% off for stays between 1st May to 19th June 2025" },
+    { name: "10% off for stays between 1st May to 19th December 2025" },
+    { name: "20% off for stays between 1st May to 19th December 2025" },
+    { name: "50% off for stays between 1st May to 19th December 2025" },
+    { name: "20% off for stays between 1st May to 19th December 2025" },
+    { name: "20% off for stays between 1st May to 19th December 2025" },
+    { name: "20% off for stays between 1st May to 19th December 2025" },
+  ];
 
   return (
     <div className="flex flex-col min-h-screen">
