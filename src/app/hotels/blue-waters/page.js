@@ -3,6 +3,7 @@ import Accommodation from "@/app/(components)/(hotels)/(blue-waters)/Accommodati
 import Experience from "@/app/(components)/(hotels)/(blue-waters)/Experience";
 import Gallery from "@/app/(components)/(hotels)/(blue-waters)/Gallery";
 import OfferSlider from "@/app/(components)/(hotels)/(blue-waters)/OfferSlider";
+import InquiryForm from "@/app/(components)/(hotels)/(heritage)/InquiryForm";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -89,6 +90,7 @@ export default function BlueWatersEdge() {
             </div>
       <Gallery />
       <OfferSlider nav={navLink} />
+      <InquiryForm/>
     </div>
   );
 }
