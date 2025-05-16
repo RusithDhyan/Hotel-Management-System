@@ -3,6 +3,7 @@ import Accommodation from "@/app/(components)/(hotels)/(heritage)/Accommodation"
 import Experience from "@/app/(components)/(hotels)/(heritage)/Experience";
 import Gallery from "@/app/(components)/(hotels)/(heritage)/Gallery";
 import FoodFlavor from "@/app/(components)/(hotels)/(heritage)/Gallery";
+import InquiryForm from "@/app/(components)/(hotels)/(heritage)/InquiryForm";
 import OfferSlider from "@/app/(components)/(hotels)/(heritage)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
@@ -63,8 +64,31 @@ export default function Heritage() {
       <Accommodation />
 
       <Experience />
+      <div className="flex flex-col items-center gap-5 mt-20 px-4">
+        <h1 className="text-xl md:text-3xl text-gray-500">
+          Services & Facilities
+        </h1>
+        <div className="flex flex-wrap items-center justify-center gap-5 w-full max-w-6xl">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center px-10 w-36 md:w-auto text-center border-r-2 last:border-0"
+            >
+              <Image
+                src={item.url}
+                alt="images"
+                width={50}
+                height={50}
+                className="w-10 md:w-12"
+              />
+              <h2 className="text-xs md:text-sm mt-3">{item.title}</h2>
+            </div>
+          ))}
+        </div>
+      </div>
       <Gallery />
       <OfferSlider nav={navLink} />
+      <InquiryForm />
     </div>
   );
 }
