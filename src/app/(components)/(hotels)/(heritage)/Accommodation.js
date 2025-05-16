@@ -106,54 +106,41 @@ const hotels = [
       "Experience elegance and space in the Premier Heritage Suite, complete with a king bed and private lounge.",
   },
 ];
-
 export default function Accommodation() {
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [imageIndex, setImageIndex] = useState(0);
   const scrollRef = useRef(null);
-
   const [centerIndex, setCenterIndex] = useState(0);
 
-  const handlePrev = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? hotels.length - 1 : prevIndex - 1
-    );
-  };
-  
-  const handleNext = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === hotels.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-  
-
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
+  const scrollToCard = (index) => {
     const container = scrollRef.current;
-    const children = Array.from(container.children);
-    const containerCenter = container.scrollLeft + container.offsetWidth / 2;
-
-    let closestIndex = 0;
-    let closestDistance = Infinity;
-
-    children.forEach((child, index) => {
-      const childCenter = child.offsetLeft + child.offsetWidth / 2;
-      const distance = Math.abs(containerCenter - childCenter);
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestIndex = index;
-      }
-    });
-
-    setCenterIndex(closestIndex);
+    const card = container?.children[index];
+    if (card && container) {
+      const containerCenter = container.offsetWidth / 2;
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const scrollPosition = cardCenter - containerCenter;
+      container.scrollTo({ left: scrollPosition, behavior: "smooth" });
+    }
   };
 
+  const goToPrevious = () => {
+    const newIndex = centerIndex > 0 ? centerIndex - 1 : hotels.length - 1;
+    setCenterIndex(newIndex);
+    scrollToCard(newIndex);
+  };
+
+  const goToNext = () => {
+    const newIndex = centerIndex < hotels.length - 1 ? centerIndex + 1 : 0;
+    setCenterIndex(newIndex);
+    scrollToCard(newIndex);
+  };
+
+  // ✅ Center the Executive Room on mount
   useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-    container.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => container.removeEventListener("scroll", handleScroll);
+    const timeout = setTimeout(() => {
+      scrollToCard(centerIndex);
+    }, 200); // Small delay for smoother initial animation
+    return () => clearTimeout(timeout);
   }, []);
 
   const openPopup = (room) => {
@@ -185,22 +172,21 @@ export default function Accommodation() {
           className="flex gap-2 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory sm:grid sm:grid-flow-col sm:auto-cols-[33%] sm:overflow-hidden"
         >
           {hotels.map((hotel, index) => {
-            const offset = index - centerIndex;
-            const translateY = Math.min(0, Math.abs(offset) * -5);
-            const scale = offset === 0 ? 1.1 : 0.8;
-            const opacity = offset === 0 ? 1 : 1;
+            const isActive = index === centerIndex;
+            const scale = isActive ? 1.1 : 0.9;
+            const opacity = isActive ? 1 : 0.6;
+            const translateY = isActive ? "-10px" : "0px";
+            const zIndex = isActive ? 10 : 1;
 
             return (
               <div
                 key={hotel.id}
                 className="bg-white shadow-md overflow-hidden hover:shadow-lg transition-all duration-500 ease-in-out snap-start min-w-[80%] sm:min-w-0"
                 style={{
-                  transform: `translateY(${translateY}px) scale(${scale})`,
+                  transform: `scale(${scale}) translateY(${translateY})`,
                   opacity,
-                  zIndex: offset === 0 ? 10 : 5,
-                  cursor: "pointer",
+                  zIndex,
                 }}
-                onClick={() => openPopup(hotel)}
               >
                 <Image
                   src={hotel.images[0]}
@@ -238,22 +224,23 @@ export default function Accommodation() {
             );
           })}
         </div>
-        <div className="flex justify-between sm:justify-end items-center gap-50 mt-10 px-4">
+
+        {/* Arrows */}
+        <div className="flex justify-between sm:justify-end items-center gap-40 mt-10 px-4">
           <button
-            onClick={handlePrev}
+            onClick={goToPrevious}
             className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
           >
-            <ArrowLeft size={18} />
+            <ArrowLeft size={18}/>
           </button>
           <button
-            onClick={handleNext}
+            onClick={goToNext}
             className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
           >
             <ArrowRight size={18} />
           </button>
         </div>
       </div>
-
       {selectedRoom && (
         <div
           className="fixed inset-0 flex items-center justify-center z-50 bg-black/30 backdrop-blur-sm px-2"
