@@ -98,7 +98,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="space-y-2 max-w-full md:max-w-5xl mx-auto px-4 py-6 sm:py-10">
+    <div className="space-y-2 max-w-full md:max-w-5xl mx-auto px-4 py-6 sm:py-20">
       <h2 className="text-xl sm:text-2xl font-bold text-center">
         Delicious Foods Gallery
       </h2>

@@ -6,6 +6,13 @@ import OfferSlider from "@/app/(components)/(hotels)/(bamboo-boutique)/OfferSlid
 import Image from "next/image";
 import React from "react";
 
+const items = [
+  { url: "/icons/hotels/bed-single.png", title: "Modern & Spacious Rooms" },
+  { url: "/icons/hotels/leaf.png", title: "Wellness & Spa Services" },
+  { url: "/icons/hotels/coffee.png", title: "Evening Tea & Coffee" },
+  { url: "/icons/hotels/wine.png", title: "Mini Bar" },
+];
+
 export default function BambooBoutique() {
   const navLink = "/hotels/bamboo-boutique/offers";
 
@@ -53,6 +60,28 @@ export default function BambooBoutique() {
       <Accommodation />
 
       <Experience />
+            <div className="flex flex-col items-center gap-5 mt-20 px-4">
+              <h1 className="text-xl md:text-3xl text-gray-500">
+                Services & Facilities
+              </h1>
+              <div className="flex flex-wrap items-center justify-center gap-5 w-full max-w-6xl">
+                {items.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center px-10 w-36 md:w-auto text-center border-r-2 last:border-0"
+                  >
+                    <Image
+                      src={item.url}
+                      alt="images"
+                      width={50}
+                      height={50}
+                      className="w-10 md:w-12"
+                    />
+                    <h2 className="text-xs md:text-sm mt-3">{item.title}</h2>
+                  </div>
+                ))}
+              </div>
+            </div>
       <Gallery />
       <OfferSlider nav={navLink} />
     </div>
