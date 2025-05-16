@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,7 +24,7 @@ const hotels = [
       { url: "/icons/rooms/item9.png", title: "Four Beds" },
     ],
     title: "Executive Suite",
-    bed:"King-size or queen-size bed",
+    bed: "King-size or queen-size bed",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/executive-suite",
     description:
@@ -49,7 +49,7 @@ const hotels = [
       { url: "/icons/rooms/item9.png", title: "Four Beds" },
     ],
     title: "Family Twin Room",
-    bed:"1 King bed + 1 or 2 single beds / sofa bed",
+    bed: "1 King bed + 1 or 2 single beds / sofa bed",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/family-twin",
     description:
@@ -74,7 +74,7 @@ const hotels = [
       { url: "/icons/rooms/item9.png", title: "Four Beds" },
     ],
     title: "Deluxe King Room",
-    bed:"King-size bed (or twin beds)",
+    bed: "King-size bed (or twin beds)",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/deluxe-king",
     description:
@@ -99,28 +99,49 @@ const hotels = [
       { url: "/icons/rooms/item9.png", title: "Four Beds" },
     ],
     title: "Premier Heritage Suite",
-    bed:"Premium king bed with high-thread-count linens",
+    bed: "Premium king bed with high-thread-count linens",
     size: "45 sqm",
     url: "/hotels/heritage-hotel/accommodations/premier",
     description:
       "Experience elegance and space in the Premier Heritage Suite, complete with a king bed and private lounge.",
   },
 ];
-
 export default function Accommodation() {
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [imageIndex, setImageIndex] = useState(0);
   const scrollRef = useRef(null);
+  const [centerIndex, setCenterIndex] = useState(0);
 
-  const scroll = (direction) => {
+  const scrollToCard = (index) => {
     const container = scrollRef.current;
-    if (!container) return;
-    const scrollAmount = container.offsetWidth / 3;
-    container.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
+    const card = container?.children[index];
+    if (card && container) {
+      const containerCenter = container.offsetWidth / 2;
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const scrollPosition = cardCenter - containerCenter;
+      container.scrollTo({ left: scrollPosition, behavior: "smooth" });
+    }
   };
+
+  const goToPrevious = () => {
+    const newIndex = centerIndex > 0 ? centerIndex - 1 : hotels.length - 1;
+    setCenterIndex(newIndex);
+    scrollToCard(newIndex);
+  };
+
+  const goToNext = () => {
+    const newIndex = centerIndex < hotels.length - 1 ? centerIndex + 1 : 0;
+    setCenterIndex(newIndex);
+    scrollToCard(newIndex);
+  };
+
+  // ✅ Center the Executive Room on mount
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      scrollToCard(centerIndex);
+    }, 200); // Small delay for smoother initial animation
+    return () => clearTimeout(timeout);
+  }, []);
 
   const openPopup = (room) => {
     setSelectedRoom(room);
@@ -150,62 +171,76 @@ export default function Accommodation() {
           ref={scrollRef}
           className="flex gap-2 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory sm:grid sm:grid-flow-col sm:auto-cols-[33%] sm:overflow-hidden"
         >
-          {hotels.map((hotel) => (
-            <div
-              key={hotel.id}
-              className="bg-white shadow-md overflow-hidden hover:shadow-lg transition snap-start min-w-[80%] sm:min-w-0"
-            >
-              <Image
-                src={hotel.images[0]}
-                alt={hotel.title}
-                width={1000}
-                height={500}
-                className="w-full h-50 sm:h-80 md:h-96 object-cover"
-              />
-              <div className="p-2">
-                <h3 className="text-md sm:text-2xl text-gray-600 font-semibold">
-                  {hotel.title}
-                </h3>
-                <div className="flex gap-5 items-center">
-                  <button
-                    className="text-sm md:text-md hover:text-orange-600"
-                    onClick={(e) => {
-                      e.stopPropagation(); // prevent card click from firing
-                      openPopup(hotel);
-                    }}
-                  >
-                    View more
-                  </button>
-                  <Link href="/booking" className="text-sm md:text-md">
+          {hotels.map((hotel, index) => {
+            const isActive = index === centerIndex;
+            const scale = isActive ? 1.1 : 0.9;
+            const opacity = isActive ? 1 : 0.6;
+            const translateY = isActive ? "-10px" : "0px";
+            const zIndex = isActive ? 10 : 1;
+
+            return (
+              <div
+                key={hotel.id}
+                className="bg-white shadow-md overflow-hidden hover:shadow-lg transition-all duration-500 ease-in-out snap-start min-w-[80%] sm:min-w-0"
+                style={{
+                  transform: `scale(${scale}) translateY(${translateY})`,
+                  opacity,
+                  zIndex,
+                }}
+              >
+                <Image
+                  src={hotel.images[0]}
+                  alt={hotel.title}
+                  width={1000}
+                  height={500}
+                  className="w-full h-50 sm:h-80 md:h-96 object-cover"
+                />
+                <div className="p-2">
+                  <h3 className="text-md sm:text-2xl text-gray-600 text-center font-semibold">
+                    {hotel.title}
+                  </h3>
+                  <div className="flex gap-5 items-center justify-center pb-5">
                     <button
-                      className="relative text-black py-1 border-b-2 border-transparent group"
-                      onClick={(e) => e.stopPropagation()}
+                      className="text-sm md:text-md hover:text-orange-600"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openPopup(hotel);
+                      }}
                     >
-                      Book Now
-                      <span className="absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 w-7 group-hover:w-full"></span>
+                      View more
                     </button>
-                  </Link>
+                    <Link href="/booking" className="text-sm md:text-md">
+                      <button
+                        className="relative text-black py-1 border-b-2 border-transparent group"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Book Now
+                        <span className="absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 w-7 group-hover:w-full"></span>
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
-        <div className="flex justify-between sm:justify-end items-center gap-50 mt-4 px-4">
+
+        {/* Arrows */}
+        <div className="flex justify-between sm:justify-end items-center gap-40 mt-10 px-4">
           <button
-            onClick={() => scroll("left")}
+            onClick={goToPrevious}
             className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
           >
-            <ArrowLeft size={18} />
+            <ArrowLeft size={18}/>
           </button>
           <button
-            onClick={() => scroll("right")}
+            onClick={goToNext}
             className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
           >
             <ArrowRight size={18} />
           </button>
         </div>
       </div>
-
       {selectedRoom && (
         <div
           className="fixed inset-0 flex items-center justify-center z-50 bg-black/30 backdrop-blur-sm px-2"
@@ -247,7 +282,9 @@ export default function Accommodation() {
               <h1 className="text-lg sm:text-xl font-bold mb-2">
                 {selectedRoom.title}
               </h1>
-              <h2 className="text-md font-semibold text-gray-700">{selectedRoom.bed}</h2>
+              <h2 className="text-md font-semibold text-gray-700">
+                {selectedRoom.bed}
+              </h2>
               <p className="text-sm text-gray-600 mb-1">
                 Size: {selectedRoom.size}
               </p>
