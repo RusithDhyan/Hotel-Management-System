@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 
 export default function InquiryForm() {
@@ -45,10 +46,11 @@ export default function InquiryForm() {
         </h2>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col items-center justify-center gap-20 max-w-2xl mx-auto"
+          className="flex flex-col items-center justify-center gap-10 max-w-4xl mx-auto"
         >
-          <div className="flex items-center justify-center gap-30">
-            <div className="flex flex-col gap-2">
+          <div className="flex flex-col lg:flex-row items-center gap-10 w-full">
+            {/* Left Column */}
+            <div className="flex flex-col gap-4 w-full">
               <input
                 type="text"
                 name="name"
@@ -104,7 +106,9 @@ export default function InquiryForm() {
                 className="border-b px-4 py-2"
               />
             </div>
-            <div className="flex flex-col justify-center gap-4">
+
+            {/* Right Column */}
+            <div className="flex flex-col gap-4 w-full">
               <select
                 name="inquiryType"
                 value={formData.inquiryType}
@@ -116,9 +120,7 @@ export default function InquiryForm() {
                 <option value="Booking">Booking</option>
                 <option value="General">General</option>
                 <option value="Group Request">Group Request</option>
-                <option value="Special Requirements">
-                  Special Requirements
-                </option>
+                <option value="Special Requirements">Special Requirements</option>
               </select>
               <select
                 name="hotel"
@@ -130,12 +132,12 @@ export default function InquiryForm() {
                 <option value="">Select Hotel</option>
                 <option value="Bamboo Boutique">Bamboo Boutique</option>
                 <option value="Blue Waters">Blue Waters</option>
-                <option value="Blue Waters">Heritage Hotel</option>
-                <option value="Blue Waters">Kambiri Beach</option>
-                <option value="Blue Waters">Kara O Mula</option>
-                <option value="Blue Waters">Lotus Hotel</option>
-                <option value="Blue Waters">Serendib Travels</option>
-                <option value="Blue Waters">Waters Edge</option>
+                <option value="Heritage Hotel">Heritage Hotel</option>
+                <option value="Kambiri Beach">Kambiri Beach</option>
+                <option value="Kara O Mula">Kara O Mula</option>
+                <option value="Lotus Hotel">Lotus Hotel</option>
+                <option value="Serendib Travels">Serendib Travels</option>
+                <option value="Waters Edge">Waters Edge</option>
               </select>
               <select
                 name="roomType"
