@@ -5,43 +5,43 @@ import React from "react";
 export default function BlueWatersOffer() {
   const allOffers = [
     {
-      url: "/hotels/blue-waters/offers/weekend-gateway",
-      title: "Weekend Gateway at Blue Waters",
+      url: "/hotels/heritage-hotel/offers/weekend-gateway",
+      title: "Weekend Gateway at Heritage Hotel",
       image: "/hotels/heritage/offers/offer1.jpg",
       description:
         "Escape the city for a relaxing weekend and enjoy exclusive savings on your stay. Perfect for a quick recharge!",
     },
     {
-      url: "/hotels/blue-waters/offers/luxury-spa",
-      title: "Luxury Spa Retreat at Blue Waters",
+      url: "/hotels/heritage-hotel/offers/luxury-spa",
+      title: "Luxury Spa Retreat at Heritage Hotel",
       image: "/hotels/heritage/offers/offer2.jpg",
       description:
         "Indulge in a serene spa experience with our luxury retreat offer. Book in advance and pamper yourself for less.",
     },
     {
-      url: "/hotels/blue-waters/offers/early-bird",
-      title: "Early Bird Offer at Blue Waters",
+      url: "/hotels/heritage-hotel/offers/early-bird",
+      title: "Early Bird Offer at Heritage Hotel",
       image: "/hotels/heritage/offers/offer3.jpg",
       description:
         "Plan ahead and save up to 20%! Secure your dream getaway by booking 90 days in advance.",
     },
     {
-      url: "/hotels/blue-waters/offers/extend-stay",
-      title: "Extended Stay Discount at Blue Waters",
+      url: "/hotels/heritage-hotel/offers/extend-stay",
+      title: "Extended Stay Discount at Heritage Hotel",
       image: "/hotels/heritage/offers/offer4.jpg",
       description:
         "Make the most of your trip with our extended stay rates. Stay longer and enjoy more value with every extra night.",
     },
     {
-      url: "/hotels/blue-waters/offers/business",
-      title: "Business Traveler Special at Blue Waters",
+      url: "/hotels/heritage-hotel/offers/business",
+      title: "Business Traveler Special at Heritage Hotel",
       image: "/hotels/heritage/offers/offer5.jpg",
       description:
         "Tailored for busy professionals — enjoy comfort, convenience, and savings when you book your business trip early.",
     },
     {
-      url: "/hotels/blue-waters/offers/family-vacation",
-      title: "Family Vacation Package at Blue Waters",
+      url: "/hotels/heritage-hotel/offers/family-vacation",
+      title: "Family Vacation Package at Heritage Hotel",
       image: "/hotels/heritage/offers/offer6.jpg",
       description:
         "Create unforgettable family memories with our special package. Great rates, spacious rooms, and fun for all ages!",
@@ -80,28 +80,26 @@ export default function BlueWatersOffer() {
       {/* Offer Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
         {allOffers.map((offer, index) => (
-          <div key={index} className="relative overflow-hidden shadow-md group bg-white">
+          <div
+            key={index}
+            className="relative overflow-hidden shadow-md group bg-white"
+          >
             {/* Image */}
-            <Image
-              src={offer.image}
-              alt={offer.title}
-              width={1000}
-              height={100}
-              className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
-            />
+            <Link href={offer.url}>
+              <Image
+                src={offer.image}
+                alt={offer.title}
+                width={1000}
+                height={100}
+                className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </Link>
 
             {/* MOBILE VIEW (info always visible below image) */}
             <div className=" p-4">
               <h2 className="text-lg font-semibold">{offer.title}</h2>
               <p className="text-sm font-light my-2">{offer.description}</p>
-              <Link
-                href={offer.url}
-                className="text-gray-400 hover:text-[#FF741E] text-sm font-medium hover:underline"
-              >
-                Learn more
-              </Link>
             </div>
-
           </div>
         ))}
       </div>

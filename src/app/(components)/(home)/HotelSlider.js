@@ -16,15 +16,7 @@ const hotels = [
     description:
       "Our hotel offers a relaxing stay with modern amenities, warm hospitality, and a beautiful setting in Malawi.Enjoy a peaceful retreat with stunning views.",
   },
-  // {
-  //   id: 2,
-  //   image: "/hotels/h14.jpg",
-  //   title: "Le Croissant",
-  //   url: "/hotels/le-croissant",
-  //   location: "Limbe,Blantyre",
-  //   description:
-  //     "Le Croissant Patisserie is located within the Heritage by Serendib hotel on Milward Road in Limbe, Blantyre, Malawi.",
-  // },
+ 
   {
     id: 2,
     image: "/hotels/h3.jpeg",
@@ -32,7 +24,7 @@ const hotels = [
     url: "/hotels/heritage-hotel",
     location: "Milward Road, Limbe, Blantyre, Malawi",
     description:
-      "A blend of colonial charm and modern comfort, this hotel features 40 elegantly furnished rooms, a spa, outdoor pool, and the Balmoral Restaurant serving Continental and Indian cuisine.",
+      "A blend of colonial charm and modern comfort, this hotel features 40 elegantly furnished rooms, a spa, outdoor pool.",
   },
   {
     id: 3,
@@ -61,15 +53,6 @@ const hotels = [
     description:
       "A modern hotel located in the capital city, offering comfortable rooms, dining facilities, and convenient access to government and commercial centers.",
   },
-  // {
-  //   id: 7,
-  //   image: "/hotels/h10.jpg",
-  //   title: "Zaburi Lake Resort",
-  //   url: "/hotels/zaburi-lake-resort",
-  //   location: "Bolera Village, Mangochi, Malawi",
-  //   description:
-  //     "A peaceful lakefront resort on the shores of Lake Malawi. It offers cozy chalets, a private beach, an indoor pool, and delicious food — perfect for a relaxing escape.",
-  // },
   {
     id: 6,
     image: "/hotels/h8.jpg",
@@ -182,28 +165,28 @@ export default function HotelSlider() {
                   <Image
                     src={hotel.image}
                     alt={hotel.title}
-                    className="w-full h-50 sm:h-70 object-cover"
+                    className="w-full h-50 sm:h-80 object-cover"
                     width={1000}
                     height={100}
                   />
                   <div className={`lg:p-4 ${i === index ? "h-40" : "h-auto"}`}>
-                    <h3 className="text-md font-semibold px-2">
+                    <h3 className="sm:text-sm md:text-md lg:text-lg font-semibold px-2">
                       {hotel.title}
                     </h3>
-                    <h4 className="text-gray-400 text-sm px-2">
+                    <h4 className="text-gray-400 sm:text-sm md:text-md lg:text-lg px-2">
                       {hotel.location}
                     </h4>
                     {i === index && (
-                      <p className="text-sm px-2">{hotel.description}</p>
+                      <p className="sm:text-sm md:text-md lg:text-lg px-2 ">{hotel.description}</p>
                     )}
-                    <div className="flex flex-row justify-start px-2 mt-10">
+                    <div className="flex flex-row justify-start px-2 mt-8">
                       {i === index && (
                         <Link
                           href={hotel.url}
                           className="text-sm lg:text-lg md:text-md"
                         >
                           <button
-                            className="relative text-black py-1 border-b-2 border-transparent"
+                            className="relative text-black pb-2 border-b-2 border-transparent"
                             onMouseEnter={() => setIsActive(true)}
                             onMouseLeave={() => setIsActive(false)}
                             onTouchStart={() => setIsActive(true)}
@@ -211,7 +194,7 @@ export default function HotelSlider() {
                           >
                             Explore
                             <span
-                              className={`absolute left-0 bottom-0 h-[1.5px] bg-orange-600 transition-all duration-300 ${
+                              className={`absolute left-0 bottom-0 h-[2px] bg-orange-600 transition-all duration-300 ${
                                 isActive ? "w-full" : "w-7"
                               }`}
                             ></span>
@@ -226,26 +209,27 @@ export default function HotelSlider() {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex items-center justify-between sm:justify-end gap-20 border-t border-gray-300 py-2 px-4">
-            <button
-              onClick={prevSlide}
-              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
-            >
-              <ArrowLeft size={20} />
-            </button>
+          <div className="flex flex-row items-center justify-between sm:justify-end gap-10 sm:gap-20 px-2 sm:px-4 mt-10 xl:gap-20 2xl:gap-25">
+        <button
+          onClick={prevSlide}
+          className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 2xl:p-4"
+          aria-label="Previous Slide"
+        >
+          <ArrowLeft size={20} />
+        </button>
 
-            <div className="text-center mt-2">
-              <Link href="/our-collections" className="text-sm text-gray-500">
-                View all
-              </Link>
-            </div>
-            <button
-              onClick={nextSlide}
-              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
-            >
-              <ArrowRight size={20} />
-            </button>
-          </div>
+        <Link href="/our-collections" className="text-sm sm:text-base xl:text-lg 2xl:text-xl text-gray-500">
+          View all
+        </Link>
+
+        <button
+          onClick={nextSlide}
+          className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 2xl:p-4"
+          aria-label="Next Slide"
+        >
+          <ArrowRight size={20} />
+        </button>
+      </div>
         </div>
       </div>
     </div>

@@ -11,33 +11,29 @@ import HotelSlider from "../(components)/(home)/HotelSlider";
 
 export default function Home() {
   const [isActive, setIsActive] = useState(false);
+  const sectionRef = useRef(null);
+  const navLink = "offers";
 
   const activateHover = () => setIsActive(true);
   const deactivateHover = () => setIsActive(false);
-
-  const handleTouch = () => {
-    setShowNav((prev) => !prev);
-  };
-
-  const sectionRef = useRef(null);
-
-  const navLink = "offers";
+  const handleTouch = () => setShowNav((prev) => !prev);
 
   return (
-    <div>
+    <div className="w-full">
       <HomeSlider sectionRef={sectionRef} />
 
-      <div className="h-auto mt-10 w-full px-2 sm:px-10 flex flex-col lg:flex-row items-center gap-4">
+      <div className="max-w-screen-2xl mx-auto h-auto mt-10 w-full px-4 sm:px-10 flex flex-col lg:flex-row items-center gap-6 xl:gap-10 2xl:gap-20">
         <Image
           src="/images/home1.jpeg"
           alt="card-image1"
           width={1500}
           height={100}
-          className="sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-120 lg:h-130 object-cover "
+          className="w-full sm:w-80 sm:h-80 md:w-100 md:h-100 lg:w-[30rem] lg:h-[34rem] object-cover"
         />
+
         <div
           ref={sectionRef}
-          className="flex flex-col gap-4 text-sm md:text-base lg:text-lg px-1 md:px-10 mt-10"
+          className="flex flex-col gap-4 text-sm md:text-base lg:text-lg xl:text-xl px-1 md:px-10 mt-10 max-w-4xl"
         >
           <h1 className="text-2xl md:text-3xl lg:text-5xl">
             Eco Luxury Escapes <br /> in Malawi
@@ -56,7 +52,7 @@ export default function Home() {
           <div>
             <Link
               href="/about"
-              className=" text-sm md:text-base text-gray-500 hover:text-gray-400 duration-300"
+              className="text-sm md:text-base text-gray-500 hover:text-gray-400 duration-300"
             >
               Read more
             </Link>
@@ -87,10 +83,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className=" h-auto my-20 w-full">
+
+      <div className="h-auto my-20 w-full max-w-screen-2xl mx-auto">
         <HotelSlider />
       </div>
-      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-40 md:justify-between mt-20 px-5 sm:px-10">
+
+      <div className="w-full max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center justify-center sm:gap-20 xl:gap-32 md:justify-between mt-20 px-5 sm:px-10">
         <div className="flex flex-col text-left text-sm sm:text-base md:text-md lg:text-lg max-w-xl">
           <h1 className="text-lg sm:text-xl md:text-3xl lg:text-4xl mb-4">
             Explore Malawi...
@@ -116,14 +114,14 @@ export default function Home() {
             alt="card-image2"
             width={1500}
             height={100}
-            className="object-cover w-80 sm:h-150 md:h-200"
+            className="object-cover w-80 sm:h-150 md:h-200 lg:h-[24rem] xl:h-[60rem]"
           />
 
           <HotelNav />
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-10 px-2 sm:px-10 py-10">
+      <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center justify-center gap-10 px-2 sm:px-10 py-10">
         <Image
           src="/images/elephant.jpeg"
           alt="card-image2"
