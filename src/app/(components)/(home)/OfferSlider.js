@@ -62,8 +62,10 @@ export default function OfferSlider({ nav }) {
   };
 
   return (
-    <div className="w-full mt-5 px-4 sm:px-10">
-      <h1 className="text-3xl sm:text-4xl text-center font-semibold">Special Offers</h1>
+    <div className="w-full mt-5 px-4 sm:px-10 xl:px-20 2xl:px-40">
+      <h1 className="text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl text-center font-semibold">
+        Special Offers
+      </h1>
 
       <Swiper
         modules={[Autoplay]}
@@ -76,8 +78,8 @@ export default function OfferSlider({ nav }) {
       >
         {slider.map((slide, idx) => (
           <SwiperSlide key={idx}>
-            <div className="flex flex-col sm:flex-row gap-5 sm:gap-20 mt-10">
-              <div className="relative w-80 h-80 sm:h-125 sm:w-125">
+            <div className="flex flex-col items-center sm:flex-row gap-5 sm:gap-20 mt-10 xl:gap-32 2xl:gap-40">
+              <div className="relative w-80 h-80 sm:h-125 sm:w-125 xl:w-[600px] xl:h-[450px] 2xl:w-[700px] 2xl:h-[600px]">
                 <Image
                   src={slide.image}
                   alt="slide-image"
@@ -86,10 +88,16 @@ export default function OfferSlider({ nav }) {
                   className="w-100 h-100"
                 />
               </div>
-              <div className="flex flex-col items-center gap-2 text-sm md:text-md lg:text-lg text-center sm:text-left pt-30">
-                <h1 className="text-xl sm:text-2xl font-semibold ">{slide.title}</h1>
-                <h2 className="text-md sm:text-lg text-gray-600">{slide.offerType}</h2>
-                <p className="text-center my-10">{slide.description}</p>
+              <div className="flex flex-col items-center gap-3 text-sm md:text-md lg:text-lg text-center sm:text-left max-w-xl xl:max-w-2xl 2xl:max-w-3xl">
+                <h1 className="xl:text-2xl font-semibold">
+                  {slide.title}
+                </h1>
+                <h2 className=" xl:text-xl  text-gray-600">
+                  {slide.offerType}
+                </h2>
+                <p className="text-center my-10 xl:my-12 2xl:my-16">
+                  {slide.description}
+                </p>
                 <Link href={slide.url}>
                   <button
                     className="relative text-black py-1 border-b-2 border-transparent"
@@ -112,27 +120,26 @@ export default function OfferSlider({ nav }) {
         ))}
       </Swiper>
 
-      <div className="flex flex-row items-center justify-center sm:justify-end gap-20 sm:gap-20 px-2 sm:px-4 mt-4">
-        <div className="flex gap-20">
-          <button
-            onClick={prevSlide}
-            className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
-          >
-            <ArrowLeft size={20} />
-          </button>
-          <div className="text-center mt-2">
-          <Link href={`${nav}`} className="text-sm text-gray-500">
-            View all
-          </Link>
-        </div>
+      <div className="flex flex-row items-center justify-between sm:justify-end gap-10 sm:gap-20 px-2 sm:px-4 mt-4 xl:gap-20 2xl:gap-25">
+        <button
+          onClick={prevSlide}
+          className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 xl:p-4 2xl:p-5"
+          aria-label="Previous Slide"
+        >
+          <ArrowLeft size={20} />
+        </button>
 
-          <button
-            onClick={nextSlide}
-            className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
-          >
-            <ArrowRight size={20} />
-          </button>
-        </div>
+        <Link href={`${nav}`} className="text-sm sm:text-base xl:text-lg 2xl:text-xl text-gray-500">
+          View all
+        </Link>
+
+        <button
+          onClick={nextSlide}
+          className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 xl:p-4 2xl:p-5"
+          aria-label="Next Slide"
+        >
+          <ArrowRight size={20} />
+        </button>
       </div>
     </div>
   );

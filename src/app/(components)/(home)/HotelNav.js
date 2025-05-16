@@ -7,12 +7,12 @@ export default function HotelNav() {
     {
       name: "Heritage Hotel",
       href: "/hotels/heritage-hotel",
-      position: "top-[32%] left-[38%]",
+      position: "top-[32%] left-[40%]",
     },
     {
       name: "Blue Waters Lake Resort",
       href: "/hotels/blue-waters",
-      position: "top-[20%] left-[40%]",
+      position: "top-[20%] left-[38%]",
     },
     {
       name: "Kambri Beach",
@@ -27,12 +27,12 @@ export default function HotelNav() {
     {
       name: "Waters Edge",
       href: "/hotels/waters-edge",
-      position: "top-[42%] left-[45%]",
+      position: "top-[42%] left-[40%]",
     },
     {
       name: "Lotus Hotel",
       href: "/hotels/lotus-hotel",
-      position: "top-[63%] left-[54%]",
+      position: "top-[63%] left-[60%]",
     },
     {
       name: "Bamboo Boutique",
@@ -42,7 +42,7 @@ export default function HotelNav() {
     {
       name: "Serendib Suite",
       href: "/hotels/serendib-travels",
-      position: "top-[55%] left-[62%]",
+      position: "top-[55%] left-[60%]",
     },
     
   ];
@@ -56,8 +56,8 @@ export default function HotelNav() {
               <div
                 className={`flex flex-row absolute right-0 gap-1 ${hotel.position}`}
               >
-                <MapPin color="red" size={15}/>
-                <h4 className="hover:text-orange-600 transition duration-300 text-[8px] sm:text-[12px] font-semibold">
+                <MapPin color="red" size={18}/>
+                <h4 className="hover:text-orange-600 transition duration-300 text-[10px] sm:text-[12px] lg:text-[15px] font-semibold">
                   {hotelName}
                 </h4>
               </div>

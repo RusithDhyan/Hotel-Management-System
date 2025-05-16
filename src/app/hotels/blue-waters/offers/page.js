@@ -80,38 +80,25 @@ export default function BlueWatersOffer() {
       {/* Offer Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
         {allOffers.map((offer, index) => (
-          <div key={index} className="relative overflow-hidden shadow-md group bg-white">
+          <div
+            key={index}
+            className="relative overflow-hidden shadow-md group bg-white"
+          >
             {/* Image */}
-            <Image
-              src={offer.image}
-              alt={offer.title}
-              width={1000}
-              height={100}
-              className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
-            />
+            <Link href={offer.url}>
+              <Image
+                src={offer.image}
+                alt={offer.title}
+                width={1000}
+                height={100}
+                className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </Link>
 
             {/* MOBILE VIEW (info always visible below image) */}
-            <div className="md:hidden p-4">
+            <div className=" p-4">
               <h2 className="text-lg font-semibold">{offer.title}</h2>
               <p className="text-sm font-light my-2">{offer.description}</p>
-              <Link
-                href={offer.url}
-                className="text-[#FF741E] text-sm font-medium hover:underline"
-              >
-                Learn more
-              </Link>
-            </div>
-
-            {/* DESKTOP VIEW (hover slide-in detail) */}
-            <div className="hidden md:flex absolute inset-0 flex-col p-4 bg-white/60 backdrop-blur-sm translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500">
-              <h2 className="text-lg font-semibold">{offer.title}</h2>
-              <p className="text-sm font-light my-2">{offer.description}</p>
-              <Link
-                href={offer.url}
-                className="text-gray-500 font-semibold hover:text-[#FF741E] duration-300"
-              >
-                Learn more
-              </Link>
             </div>
           </div>
         ))}

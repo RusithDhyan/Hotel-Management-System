@@ -1,61 +1,110 @@
-"use client";
-import Accommodation from "@/app/(components)/(hotels)/(lotus-hotel)/Accommodation";
-import Experience from "@/app/(components)/(hotels)/(lotus-hotel)/Experience";
-import Gallery from "@/app/(components)/(hotels)/(lotus-hotel)/Gallery";
-import OfferSlider from "@/app/(components)/(hotels)/(lotus-hotel)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 
-export default function LotusHotel() {
-  const [isActive, setIsActive] = useState(false);
-  const navLink = "/hotels/lotus-hotel/offers";
+export default function BlueWatersOffer() {
+  const allOffers = [
+    {
+      url: "/hotels/lotus-hotel/offers/weekend-gateway",
+      title: "Weekend Gateway at Lotus Hotel",
+      image: "/hotels/heritage/offers/offer1.jpg",
+      description:
+        "Escape the city for a relaxing weekend and enjoy exclusive savings on your stay. Perfect for a quick recharge!",
+    },
+    {
+      url: "/hotels/lotus-hotel/offers/luxury-spa",
+      title: "Luxury Spa Retreat at Lotus Hotel",
+      image: "/hotels/heritage/offers/offer2.jpg",
+      description:
+        "Indulge in a serene spa experience with our luxury retreat offer. Book in advance and pamper yourself for less.",
+    },
+    {
+      url: "/hotels/lotus-hotel/offers/early-bird",
+      title: "Early Bird Offer at Lotus Hotel",
+      image: "/hotels/heritage/offers/offer3.jpg",
+      description:
+        "Plan ahead and save up to 20%! Secure your dream getaway by booking 90 days in advance.",
+    },
+    {
+      url: "/hotels/lotus-hotel/offers/extend-stay",
+      title: "Extended Stay Discount at Lotus Hotel",
+      image: "/hotels/heritage/offers/offer4.jpg",
+      description:
+        "Make the most of your trip with our extended stay rates. Stay longer and enjoy more value with every extra night.",
+    },
+    {
+      url: "/hotels/lotus-hotel/offers/business",
+      title: "Business Traveler Special at Lotus Hotel",
+      image: "/hotels/heritage/offers/offer5.jpg",
+      description:
+        "Tailored for busy professionals — enjoy comfort, convenience, and savings when you book your business trip early.",
+    },
+    {
+      url: "/hotels/lotus-hotel/offers/family-vacation",
+      title: "Family Vacation Package at Lotus Hotel",
+      image: "/hotels/heritage/offers/offer6.jpg",
+      description:
+        "Create unforgettable family memories with our special package. Great rates, spacious rooms, and fun for all ages!",
+    },
+  ];
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Header Image Section */}
+      {/* Header Image with title */}
       <div className="w-full h-auto relative">
         <Image
-          src="/hotels/lotus-hotel.jpg"
+          src="/hotels/blue-waters/offers/offer-home.jpg"
           alt=""
           width={1500}
-          height={100}
-          className="object-cover h-100 sm:max-h-screen w-full"
+          height={10}
+          className="h-100 object-cover w-full"
         />
-        <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl text-white pb-4 font-bold px-4">
-          Lotus Hotel
+        <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
+          All Lotus Hotel Offers
         </h1>
       </div>
 
-      {/* Intro Section */}
-      <div className="flex flex-col md:flex-row items-center p-5 sm:p-10 gap-5">
-        <Image
-          src="/hotels/lotus-hotel/lotus-img1.jpeg"
-          alt="lotus-img1"
-          width={1500}
-          height={100}
-          className="w-full sm:w-1/3 h-80 object-cover"
-        />
-
-        <div className="flex flex-col items-center justify-center gap-4 w-full md:w-1/2 px-2">
-          <h1 className="text-xl sm:text-2xl md:text-3xl text-center md:text-left">
-            Chic Comfort Awaits The City’s Quiet Corner of Style and Simplicity
-          </h1>
-          <p className="text-sm sm:text-base text-center md:text-left">
-            Located on Glyn Jones Road, Blantyre, Lotus Hotel offers comfortable
-            accommodations with easy access to the city's attractions. The hotel
-            provides a range of amenities catering to both business and leisure
-            travelers, ensuring a pleasant stay in the vibrant city of Blantyre.
-          </p>
-        </div>
+      {/* Intro Text */}
+      <div className="flex flex-col items-center justify-center gap-3 mt-10 px-6 sm:px-12 md:px-20 text-center">
+        <h1 className="text-xl sm:text-2xl">
+          Unbeatable Hotel Offers Just for You!
+        </h1>
+        <p className="font-extralight text-sm sm:text-base">
+          Enjoy a luxurious stay at unbeatable prices with our exclusive hotel
+          offers! Whether you're planning a romantic getaway, a family vacation,
+          or a quick business trip, we have special deals tailored for every
+          traveler.
+        </p>
       </div>
 
-      {/* Accommodation Section */}
-      <Accommodation />
+      {/* Offer Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
+        {allOffers.map((offer, index) => (
+          <div key={index} className="relative overflow-hidden shadow-md group bg-white">
+            {/* Image */}
+            <Image
+              src={offer.image}
+              alt={offer.title}
+              width={1000}
+              height={100}
+              className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
+            />
 
-      <Experience />
-      <Gallery />
-      <OfferSlider nav={navLink} />
+            {/* MOBILE VIEW (info always visible below image) */}
+            <div className=" p-4">
+              <h2 className="text-lg font-semibold">{offer.title}</h2>
+              <p className="text-sm font-light my-2">{offer.description}</p>
+              <Link
+                href={offer.url}
+                className="text-gray-400 hover:text-[#FF741E] text-sm font-medium hover:underline"
+              >
+                Learn more
+              </Link>
+            </div>
+
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
