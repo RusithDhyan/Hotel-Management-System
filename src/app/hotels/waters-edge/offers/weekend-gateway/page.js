@@ -1,4 +1,3 @@
-"use client";
 import InquiryForm from "@/app/(components)/(offer)/InquiryForm";
 import {Goal } from "lucide-react";
 import Image from "next/image";
