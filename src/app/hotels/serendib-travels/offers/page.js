@@ -53,13 +53,13 @@ export default function BlueWatersOffer() {
       {/* Header Image with title */}
       <div className="w-full h-auto relative">
         <Image
-          src="/hotels/blue-waters/offers/offer-home.jpg"
+          src="/hotels/offer-bg.jpg"
           alt=""
           width={1500}
           height={10}
           className="h-100 object-cover w-full"
         />
-        <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
+        <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
           All Serendib Suites Offers
         </h1>
       </div>

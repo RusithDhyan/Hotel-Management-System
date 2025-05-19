@@ -16,7 +16,7 @@ const hotels = [
     description:
       "Our hotel offers a relaxing stay with modern amenities, warm hospitality, and a beautiful setting in Malawi.Enjoy a peaceful retreat with stunning views.",
   },
- 
+
   {
     id: 2,
     image: "/hotels/h3.jpeg",
@@ -161,7 +161,7 @@ export default function HotelSlider() {
                   opacity: isMobile && i !== index ? 0 : 1,
                 }}
               >
-                <div className="bg-white p-2">
+                <div className="bg-white p-2 items-center justify-between">
                   <Image
                     src={hotel.image}
                     alt={hotel.title}
@@ -177,9 +177,11 @@ export default function HotelSlider() {
                       {hotel.location}
                     </h4>
                     {i === index && (
-                      <p className="sm:text-sm md:text-md lg:text-lg px-2 ">{hotel.description}</p>
+                      <p className="sm:text-sm md:text-md lg:text-lg px-2 ">
+                        {hotel.description}
+                      </p>
                     )}
-                    <div className="flex flex-row justify-start px-2 mt-8">
+                    <div className="flex flex-row justify-start px-2 mt-5">
                       {i === index && (
                         <Link
                           href={hotel.url}
@@ -209,27 +211,30 @@ export default function HotelSlider() {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex flex-row items-center justify-between sm:justify-end gap-10 sm:gap-20 px-2 sm:px-4 mt-10 xl:gap-20 2xl:gap-25">
-        <button
-          onClick={prevSlide}
-          className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 2xl:p-4"
-          aria-label="Previous Slide"
-        >
-          <ArrowLeft size={20} />
-        </button>
+          <div className="flex flex-row items-center justify-between sm:justify-end gap-10 sm:gap-20 px-2 sm:px-4 mt-10 xl:gap-20 2xl:gap-25 mt-20">
+            <button
+              onClick={prevSlide}
+              className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 2xl:p-4"
+              aria-label="Previous Slide"
+            >
+              <ArrowLeft size={20} />
+            </button>
 
-        <Link href="/our-collections" className="text-sm sm:text-base xl:text-lg 2xl:text-xl text-gray-500">
-          View all
-        </Link>
+            <Link
+              href="/our-collections"
+              className="text-sm sm:text-base xl:text-lg 2xl:text-xl text-gray-500"
+            >
+              View all
+            </Link>
 
-        <button
-          onClick={nextSlide}
-          className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 2xl:p-4"
-          aria-label="Next Slide"
-        >
-          <ArrowRight size={20} />
-        </button>
-      </div>
+            <button
+              onClick={nextSlide}
+              className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 2xl:p-4"
+              aria-label="Next Slide"
+            >
+              <ArrowRight size={20} />
+            </button>
+          </div>
         </div>
       </div>
     </div>

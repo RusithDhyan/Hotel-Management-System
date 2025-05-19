@@ -2,8 +2,8 @@
 import Accommodation from "@/app/(components)/(hotels)/(blue-waters)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(blue-waters)/Experience";
 import Gallery from "@/app/(components)/(hotels)/(blue-waters)/Gallery";
+import InquiryForm from "@/app/(components)/(hotels)/(blue-waters)/InquiryForm";
 import OfferSlider from "@/app/(components)/(hotels)/(blue-waters)/OfferSlider";
-import InquiryForm from "@/app/(components)/(hotels)/(heritage)/InquiryForm";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";

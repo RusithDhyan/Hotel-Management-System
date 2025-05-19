@@ -2,6 +2,7 @@
 import Accommodation from "@/app/(components)/(hotels)/(bamboo-boutique)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(bamboo-boutique)/Experience";
 import Gallery from "@/app/(components)/(hotels)/(bamboo-boutique)/Gallery";
+import InquiryForm from "@/app/(components)/(hotels)/(bamboo-boutique)/InquiryForm";
 import OfferSlider from "@/app/(components)/(hotels)/(bamboo-boutique)/OfferSlider";
 import Image from "next/image";
 import React from "react";
@@ -84,6 +85,7 @@ export default function BambooBoutique() {
             </div>
       <Gallery />
       <OfferSlider nav={navLink} />
+      <InquiryForm/>
     </div>
   );
 }
