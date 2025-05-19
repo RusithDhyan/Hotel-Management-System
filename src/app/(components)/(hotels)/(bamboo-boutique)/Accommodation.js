@@ -229,15 +229,15 @@ export default function Accommodation() {
         <div className="flex justify-between sm:justify-end items-center gap-40 mt-10 px-4">
           <button
             onClick={goToPrevious}
-            className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
+            className="p-3 bg-gray-200 rounded-full hover:bg-gray-300"
           >
-            <ArrowLeft size={18}/>
+            <ArrowLeft size={20}/>
           </button>
           <button
             onClick={goToNext}
-            className="p-2 bg-gray-200 rounded-full hover:bg-gray-300"
+            className="p-3 bg-gray-200 rounded-full hover:bg-gray-300"
           >
-            <ArrowRight size={18} />
+            <ArrowRight size={20} />
           </button>
         </div>
       </div>

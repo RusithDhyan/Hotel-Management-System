@@ -2,6 +2,7 @@
 import Accommodation from "@/app/(components)/(hotels)/(serendib-travels)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(serendib-travels)/Experience";
 import Gallery from "@/app/(components)/(hotels)/(serendib-travels)/Gallery";
+import InquiryForm from "@/app/(components)/(hotels)/(serendib-travels)/InquiryForm";
 import OfferSlider from "@/app/(components)/(hotels)/(serendib-travels)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
@@ -88,6 +89,7 @@ export default function BambooBoutique() {
             </div>
       <Gallery />
       <OfferSlider nav={navLink} />
+      <InquiryForm/>
     </div>
   );
 }

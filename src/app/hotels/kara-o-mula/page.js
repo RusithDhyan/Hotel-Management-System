@@ -2,6 +2,7 @@
 import Accommodation from "@/app/(components)/(hotels)/(kara-o-mula)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(kara-o-mula)/Experience";
 import Gallery from "@/app/(components)/(hotels)/(kara-o-mula)/Gallery";
+import InquiryForm from "@/app/(components)/(hotels)/(kara-o-mula)/InquiryForm";
 import OfferSlider from "@/app/(components)/(hotels)/(kara-o-mula)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
@@ -87,6 +88,7 @@ export default function KaraOMula() {
             </div>
       <Gallery />
       <OfferSlider nav={navLink} />
+      <InquiryForm/>
     </div>
   );
 }

@@ -114,7 +114,7 @@ export default function OfferSlider({ nav }) {
       <div className="flex flex-row items-center justify-between sm:justify-end gap-10 sm:gap-20 px-2 sm:px-4 mt-4 xl:gap-20 2xl:gap-25">
         <button
           onClick={prevSlide}
-          className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 xl:p-4 2xl:p-5"
+          className="p-3 rounded-full bg-gray-200 hover:bg-gray-300"
           aria-label="Previous Slide"
         >
           <ArrowLeft size={20} />
@@ -126,7 +126,7 @@ export default function OfferSlider({ nav }) {
 
         <button
           onClick={nextSlide}
-          className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 xl:p-4 2xl:p-5"
+          className="p-3 rounded-full bg-gray-200 hover:bg-gray-300"
           aria-label="Next Slide"
         >
           <ArrowRight size={20} />

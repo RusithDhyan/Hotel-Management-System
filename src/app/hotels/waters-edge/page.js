@@ -2,6 +2,7 @@
 import Accommodation from "@/app/(components)/(hotels)/(waters-edge)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(waters-edge)/Experience";
 import Gallery from "@/app/(components)/(hotels)/(waters-edge)/Gallery";
+import InquiryForm from "@/app/(components)/(hotels)/(waters-edge)/InquiryForm";
 import OfferSlider from "@/app/(components)/(hotels)/(waters-edge)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
@@ -86,6 +87,7 @@ export default function WatersEdge() {
             </div>
       <Gallery />
       <OfferSlider nav={navLink} />
+      <InquiryForm/>
     </div>
   );
 }

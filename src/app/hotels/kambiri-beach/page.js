@@ -2,6 +2,7 @@
 import Accommodation from "@/app/(components)/(hotels)/(kambiri-beach)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(kambiri-beach)/Experience";
 import Gallery from "@/app/(components)/(hotels)/(kambiri-beach)/Gallery";
+import InquiryForm from "@/app/(components)/(hotels)/(kambiri-beach)/InquiryForm";
 import OfferSlider from "@/app/(components)/(hotels)/(kambiri-beach)/OfferSlider";
 import Image from "next/image";
 import Link from "next/link";
@@ -86,6 +87,7 @@ export default function KambiriBeach() {
       <Gallery />
 
       <OfferSlider nav={navLink} />
+      <InquiryForm/>
     </div>
   );
 }
