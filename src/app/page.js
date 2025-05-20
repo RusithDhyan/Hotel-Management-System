@@ -1,4 +1,4 @@
-import Navbar from "./(components)/Navbar";
+import Form from "./Form";
 import Home from "./home/page";
 
 
@@ -6,7 +6,8 @@ export default function Main() {
   return (
     <div>
       {/* <Navbar/> */}
-      <Home/>      
+      <Home/> 
+      <Form/>   
     </div>
   );
 }

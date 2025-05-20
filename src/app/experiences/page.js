@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import ExperienceForm from "../ExperienceForm";
+import { useEffect, useState } from "react";
 
 const experiences = [
   {
@@ -55,6 +57,18 @@ const experiences = [
 ];
 
 export default function ExperiencePage() {
+    const [experience, setExperience] = useState([]);
+
+  const fetchExperience = async () => {
+      const res = await fetch("/api/experience");
+      const data = await res.json();
+      if (data.success) setExperience(data.data);
+    };
+  
+    useEffect(() => {
+      fetchExperience();
+    }, []);
+  
   return (
     <div className="min-h-screen">
       {/* Top Cover */}
@@ -87,13 +101,13 @@ export default function ExperiencePage() {
       <div className="container mx-auto px-4 md:px-6 pt-10">
         {/* Blog Cards in Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {experiences.map((exp) => (
+          {experience.map((exp) => (
             <div
-              key={exp.id}
+              key={exp._id}
               className="w-full bg-white shadow-md hover:shadow-lg transition overflow-hidden"
             >
               <div className="relative h-48 md:h-60 w-full group">
-                <Link href={exp.url}>
+                <Link href="">
                 <Image
                   src={exp.image}
                   alt={exp.title}
@@ -112,6 +126,7 @@ export default function ExperiencePage() {
           ))}
         </div>
       </div>
+      <ExperienceForm/>
     </div>
   );
 }

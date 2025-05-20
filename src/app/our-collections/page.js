@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import HotelForm from "../HotelForm";
 
 export default function OurCollection() {
   const hotels = [
@@ -129,6 +130,7 @@ export default function OurCollection() {
           </div>
         ))}
       </div>
+      <HotelForm/>
     </div>
   );
 }

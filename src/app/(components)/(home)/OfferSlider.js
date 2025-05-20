@@ -89,9 +89,7 @@ export default function OfferSlider({ nav }) {
                 />
               </div>
               <div className="flex flex-col items-center gap-3 text-sm md:text-md lg:text-lg text-center sm:text-left max-w-xl xl:max-w-2xl 2xl:max-w-3xl">
-                <h1 className="xl:text-2xl font-semibold">
-                  {slide.title}
-                </h1>
+                <h1 className="xl:text-2xl font-semibold">{slide.title}</h1>
                 <h2 className=" xl:text-xl  text-gray-600">
                   {slide.offerType}
                 </h2>
@@ -129,7 +127,10 @@ export default function OfferSlider({ nav }) {
           <ArrowLeft size={20} />
         </button>
 
-        <Link href={`${nav}`} className="text-sm sm:text-base xl:text-lg 2xl:text-xl text-gray-500">
+        <Link
+          href={`${nav}`}
+          className="text-sm sm:text-base xl:text-lg 2xl:text-xl text-gray-500"
+        >
           View all
         </Link>
 
