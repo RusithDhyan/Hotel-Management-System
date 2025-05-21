@@ -5,7 +5,16 @@ import { useEffect, useState } from "react";
 
 export default function ExperienceForm() {
   const [experience, setExperience] = useState([]);
-  const [form, setForm] = useState({ name: "", email: "", image: null });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    main_title: "",
+    main_description: "",
+    body_title: "",
+    body_description: "",
+    image: null,
+    image_slider:[],
+  });
   const [editingExpId, setEditingExpId] = useState(null);
 
   const fetchExperience = async () => {
@@ -28,7 +37,16 @@ export default function ExperienceForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ title: form.title, description: form.description,image: form.image }),
+        body: JSON.stringify({
+          title: form.title,
+          description: form.description,
+          main_title: form.main_title,
+          main_description: form.main_description,
+          body_title: form.body_title,
+          body_description: form.body_description,
+          image: form.image,
+          image_slider: form.image_slider,
+        }),
       });
 
       const result = await res.json();
@@ -36,7 +54,16 @@ export default function ExperienceForm() {
         alert("Experience not found.");
       } else {
         setEditingExpId(null);
-        setForm({ title: "", description: "", image: null });
+        setForm({
+          title: "",
+          description: "",
+          main_title: "",
+          main_description: "",
+          body_title: "",
+          body_description: "",
+          image: null,
+          image_slider:[],
+        });
         fetchExperience();
       }
     } else {
@@ -44,7 +71,13 @@ export default function ExperienceForm() {
       const formData = new FormData();
       formData.append("title", form.title);
       formData.append("description", form.description);
+      formData.append("main_title", form.main_title);
+      formData.append("main_description", form.main_description);
+      formData.append("body_title", form.body_title);
+      formData.append("body_description", form.body_description);
       if (form.image) formData.append("image", form.image);
+      form.image_slider.forEach((image_slider) => formData.append("image_slider", form.image_slider));
+
 
       const res = await fetch("/api/experience", {
         method: "POST",
@@ -53,7 +86,16 @@ export default function ExperienceForm() {
 
       const result = await res.json();
       if (result.success) {
-        setForm({ title: "", description: "", image: null });
+        setForm({
+          title: "",
+          description: "",
+          main_title: "",
+          main_description: "",
+          body_title: "",
+          body_description: "",
+          image: null,
+          image_slider:[],
+        });
         fetchExperience();
       } else {
         alert("Error: " + result.error);
@@ -77,7 +119,16 @@ export default function ExperienceForm() {
   };
 
   const handleEdit = (experience) => {
-    setForm({ title: experience.title, description: experience.description, image: null }); // image not edited here
+    setForm({
+      title: experience.title,
+      description: experience.description,
+      main_title: experience.main_title,
+      main_description: experience.main_description,
+      body_title: experience.body_title,
+      body_description: experience.body_description,
+      image: experience.image,
+      image_slider:[],
+    }); // image not edited here
     setEditingExpId(experience._id);
   };
 
@@ -104,6 +155,46 @@ export default function ExperienceForm() {
           className="w-full p-2 border rounded"
           required
         />
+        <input
+          type="text"
+          name="main_title"
+          placeholder="Main Title"
+          value={form.main_title}
+          onChange={(e) => setForm({ ...form, main_title: e.target.value })}
+          className="w-full p-2 border rounded"
+          required
+        />
+        <input
+          type="text"
+          name="main_description"
+          placeholder="Main Description"
+          value={form.main_description}
+          onChange={(e) =>
+            setForm({ ...form, main_description: e.target.value })
+          }
+          className="w-full p-2 border rounded"
+          required
+        />
+        <input
+          type="text"
+          name="body_title"
+          placeholder="Body Title"
+          value={form.body_title}
+          onChange={(e) => setForm({ ...form, body_title: e.target.value })}
+          className="w-full p-2 border rounded"
+          required
+        />
+        <input
+          type="text"
+          name="body_description"
+          placeholder="Body Description"
+          value={form.body_description}
+          onChange={(e) =>
+            setForm({ ...form, body_description: e.target.value })
+          }
+          className="w-full p-2 border rounded"
+          required
+        />
         {!editingExpId && (
           <input
             type="file"
@@ -112,6 +203,14 @@ export default function ExperienceForm() {
             className="w-full"
           />
         )}
+        <input
+  type="file"
+  accept="image/*"
+  multiple
+  onChange={(e) => setForm({ ...form, image_slider: Array.from(e.target.files) })}
+  className="w-full"
+/>
+
         <button
           type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded"
@@ -147,7 +246,7 @@ export default function ExperienceForm() {
             )}
             <div className="flex-1">
               <p>
-                {exp.title} ({exp.description}) 
+                {exp.title} ({exp.description})
               </p>
               <div className="space-x-2 mt-2">
                 <button

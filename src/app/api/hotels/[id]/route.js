@@ -36,3 +36,20 @@ export async function DELETE(request, { params }) {
     return NextResponse.json({ message: "Failed to delete Hotel", error }, { status: 500 });
   }
 }
+
+
+export async function GET(req, { params }) {
+  try {
+    await connectDB();
+    const hotel = await Hotel.findById(params.id);
+
+    if (!hotel) {
+      return NextResponse.json({ error: "Hotel not found" }, { status: 404 });
+    }
+
+    return NextResponse.json(hotel);
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  }
+}

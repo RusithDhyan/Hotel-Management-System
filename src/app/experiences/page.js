@@ -107,7 +107,7 @@ export default function ExperiencePage() {
               className="w-full bg-white shadow-md hover:shadow-lg transition overflow-hidden"
             >
               <div className="relative h-48 md:h-60 w-full group">
-                <Link href="">
+                <Link href={`/experiences/${exp._id}`}>
                 <Image
                   src={exp.image}
                   alt={exp.title}

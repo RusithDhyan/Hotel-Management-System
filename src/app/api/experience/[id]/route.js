@@ -36,3 +36,20 @@ export async function DELETE(request, { params }) {
     return NextResponse.json({ message: "Failed to delete Experience", error }, { status: 500 });
   }
 }
+
+
+export async function GET(req, { params }) {
+  try {
+    await connectDB();
+    const experience = await Experience.findById(params.id);
+
+    if (!experience) {
+      return NextResponse.json({ error: "experience not found" }, { status: 404 });
+    }
+
+    return NextResponse.json(experience);
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  }
+}
