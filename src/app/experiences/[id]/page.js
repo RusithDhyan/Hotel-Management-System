@@ -75,6 +75,7 @@ export default function ExperienceInnerPage() {
         {experience.image_slider?.map((img, i) => (
 
           <Image
+          key={i}
             src={img[index]}
             alt="Exp"
             fill
