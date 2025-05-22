@@ -13,7 +13,7 @@ export default function ExperienceForm() {
     body_title: "",
     body_description: "",
     image: null,
-    image_slider:[],
+    image_slider: [],
   });
   const [editingExpId, setEditingExpId] = useState(null);
 
@@ -62,7 +62,7 @@ export default function ExperienceForm() {
           body_title: "",
           body_description: "",
           image: null,
-          image_slider:[],
+          image_slider: [],
         });
         fetchExperience();
       }
@@ -76,8 +76,9 @@ export default function ExperienceForm() {
       formData.append("body_title", form.body_title);
       formData.append("body_description", form.body_description);
       if (form.image) formData.append("image", form.image);
-      form.image_slider.forEach((image_slider) => formData.append("image_slider", form.image_slider));
-
+      form.image_slider.forEach((img) => {
+        formData.append("image_slider", img);
+      });
 
       const res = await fetch("/api/experience", {
         method: "POST",
@@ -94,7 +95,7 @@ export default function ExperienceForm() {
           body_title: "",
           body_description: "",
           image: null,
-          image_slider:[],
+          image_slider: [],
         });
         fetchExperience();
       } else {
@@ -127,7 +128,7 @@ export default function ExperienceForm() {
       body_title: experience.body_title,
       body_description: experience.body_description,
       image: experience.image,
-      image_slider:[],
+      image_slider: [],
     }); // image not edited here
     setEditingExpId(experience._id);
   };
@@ -204,12 +205,14 @@ export default function ExperienceForm() {
           />
         )}
         <input
-  type="file"
-  accept="image/*"
-  multiple
-  onChange={(e) => setForm({ ...form, image_slider: Array.from(e.target.files) })}
-  className="w-full"
-/>
+          type="file"
+          accept="image/*"
+          multiple
+          onChange={(e) =>
+            setForm({ ...form, image_slider: Array.from(e.target.files) })
+          }
+          className="w-full"
+        />
 
         <button
           type="submit"

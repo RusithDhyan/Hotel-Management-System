@@ -16,9 +16,9 @@ const images = [
 export default function ExperienceInnerPage() {
   const [index, setIndex] = useState(0);
 
-   const [experience, setExperience] = useState(null);
-    const { id } = useParams();
-  
+  const [experience, setExperience] = useState(null);
+  const { id } = useParams();
+
   const nextSlide = () => {
     setIndex((prev) => (prev + 1) % images.length);
   };
@@ -44,7 +44,6 @@ export default function ExperienceInnerPage() {
   }, [id]);
 
   if (!experience) return <div>Loading...</div>;
-
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -72,24 +71,26 @@ export default function ExperienceInnerPage() {
       {/* Image Slider and Description */}
       <div className="flex flex-col md:flex-row items-center w-full px-4 sm:px-10 gap-5 mt-6">
         <div className="w-full h-80 relative aspect-video">
-        {experience.image_slider?.map((img, i) => (
-
-          <Image
-          key={i}
-            src={img[index]}
-            alt="Exp"
-            fill
-            className="object-cover transition-opacity duration-500"
-          />
-        ))}
+          {experience.image_slider?.map((img, i) => (
+            <Image
+              key={i}
+              src={img[i]}
+              alt="Exp"
+              fill
+              className="object-cover transition-opacity duration-500"
+            />
+          ))}
           <div className="absolute inset-0 flex items-center justify-between gap-5 px-2">
             <button
               onClick={prevSlide}
               className="p-1 rounded-full hover:bg-black/50"
             >
-              <CircleChevronLeft size={30} color="white"/>
+              <CircleChevronLeft size={30} color="white" />
             </button>
-            <button onClick={nextSlide} className="p-1 rounded-full hover:bg-black/50">
+            <button
+              onClick={nextSlide}
+              className="p-1 rounded-full hover:bg-black/50"
+            >
               <CircleChevronRight size={30} color="white" />
             </button>
           </div>
@@ -98,10 +99,8 @@ export default function ExperienceInnerPage() {
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
             {experience.body_title}
           </h1>
-          <p>
-            {experience.body_description}
-          </p>
-        </div>        
+          <p>{experience.body_description}</p>
+        </div>
       </div>
 
       <InquiryForm />

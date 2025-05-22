@@ -39,14 +39,29 @@ export default function HotelInnerPage() {
         </h1>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center p-4 sm:p-6 md:p-10 gap-5">
-       
-        <div className="flex flex-col items-center justify-center gap-4 md:w-200 px-2">
-          <p className="text-sm sm:text-base">
-            {hotel.description}
-          </p>
-        </div>
-      </div>
+      <div className="flex flex-col md:flex-row items-center p-5 md:p-10 gap-6">
+              <Image
+                src={hotel.image}
+                alt="blue-waters-img1"
+                width={1500}
+                height={100}
+                className="w-full sm:w-1/3 h-80 object-cover"
+              />
+      
+              <div className="flex flex-col items-center justify-center gap-4 text-center md:text-left md:w-1/2">
+                <h1 className="text-2xl md:text-3xl font-semibold">
+                  Where Lake Dreams Begin Serenity by the Shoreline of Salima
+                </h1>
+                <p className="text-sm md:text-base text-gray-600">
+                  Nestled along the serene shores of Lake Malawi, Blue Waters Lake
+                  Resort offers a tranquil escape with rustic luxury. Guests can enjoy
+                  lakeview accommodations, a tranquil waterside pool, and exceptional
+                  event spaces accommodating up to 300 guests. The resort's "Pier
+                  Deck" and "Rain Tree" restaurants are renowned for their culinary
+                  delights, enhancing every occasion.
+                </p>
+              </div>
+            </div>
 
       <Accommodation hotelId={hotel._id} />
 
