@@ -10,7 +10,7 @@ export async function PUT(request, { params }) {
 
   try {
     await connectDB();
-    const updatedHotel = await Hotel.findByIdAndUpdate(id, data, { new: true });
+    const updatedHotel = await Hotel.findByIdAndUpdate(id, data, { new: true }).lean();
     if (!updatedHotel) {
       return NextResponse.json({ message: "Hotel not found" }, { status: 404 });
     }
@@ -27,7 +27,7 @@ export async function DELETE(request, { params }) {
 
   try {
     await connectDB();
-    const deletedHotel = await Hotel.findByIdAndDelete(id);
+    const deletedHotel = await Hotel.findByIdAndDelete(id).lean();
     if (!deletedHotel) {
       return NextResponse.json({ message: "Hotel not found" }, { status: 404 });
     }
@@ -41,7 +41,7 @@ export async function DELETE(request, { params }) {
 export async function GET(req, { params }) {
   try {
     await connectDB();
-    const hotel = await Hotel.findById(params.id);
+    const hotel = await Hotel.findById(params.id).lean();
 
     if (!hotel) {
       return NextResponse.json({ error: "Hotel not found" }, { status: 404 });

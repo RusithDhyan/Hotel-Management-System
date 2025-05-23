@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function ExperienceForm() {
-  const [experience, setExperience] = useState([]);
+export default function BlogForm() {
+  const [blogs, setBlog] = useState([]);
   const [form, setForm] = useState({
     title: "",
     description: "",
@@ -13,26 +13,25 @@ export default function ExperienceForm() {
     body_title: "",
     body_description: "",
     image: null,
-    image_slider: [],
   });
-  const [editingExpId, setEditingExpId] = useState(null);
+  const [editingBlogId, setEditingBlogId] = useState(null);
 
-  const fetchExperience = async () => {
-    const res = await fetch("/api/experience");
+  const fetchBlog = async () => {
+    const res = await fetch("/api/blogs");
     const data = await res.json();
-    if (data.success) setExperience(data.data);
+    if (data.success) setBlog(data.data);
   };
 
   useEffect(() => {
-    fetchExperience();
+    fetchBlog();
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (editingExpId) {
+    if (editingBlogId) {
       // Update logic (optional image update can be added separately)
-      const res = await fetch(`/api/experience/${editingExpId}`, {
+      const res = await fetch(`/api/blogs/${editingBlogId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -45,15 +44,14 @@ export default function ExperienceForm() {
           body_title: form.body_title,
           body_description: form.body_description,
           image: form.image,
-          image_slider: form.image_slider,
         }),
       });
 
       const result = await res.json();
-      if (result.message === "Expereince not found") {
-        alert("Experience not found.");
+      if (result.message === "Blogs not found") {
+        alert("Blogs not found.");
       } else {
-        setEditingExpId(null);
+        setEditingBlogId(null);
         setForm({
           title: "",
           description: "",
@@ -64,7 +62,7 @@ export default function ExperienceForm() {
           image: null,
           image_slider: [],
         });
-        fetchExperience();
+        fetchBlog();
       }
     } else {
       // Create new user with image
@@ -76,11 +74,9 @@ export default function ExperienceForm() {
       formData.append("body_title", form.body_title);
       formData.append("body_description", form.body_description);
       if (form.image) formData.append("image", form.image);
-      form.image_slider.forEach((img) => {
-        formData.append("image_slider", img);
-      });
 
-      const res = await fetch("/api/experience", {
+
+      const res = await fetch("/api/blogs", {
         method: "POST",
         body: formData,
       });
@@ -95,9 +91,8 @@ export default function ExperienceForm() {
           body_title: "",
           body_description: "",
           image: null,
-          image_slider: [],
         });
-        fetchExperience();
+        fetchBlog();
       } else {
         alert("Error: " + result.error);
       }
@@ -105,32 +100,31 @@ export default function ExperienceForm() {
   };
 
   const handleDelete = async (id) => {
-    if (!confirm("Are you sure you want to delete this exp?")) return;
+    if (!confirm("Are you sure you want to delete this blog?")) return;
 
-    const res = await fetch(`/api/experience/${id}`, {
+    const res = await fetch(`/api/blogs/${id}`, {
       method: "DELETE",
     });
 
     const result = await res.json();
-    if (result.message === "Experience deleted") {
-      fetchExperience();
+    if (result.message === "Blog deleted") {
+      fetchBlog();
     } else {
       alert("Delete failed.");
     }
   };
 
-  const handleEdit = (experience) => {
+  const handleEdit = (blog) => {
     setForm({
-      title: experience.title,
-      description: experience.description,
-      main_title: experience.main_title,
-      main_description: experience.main_description,
-      body_title: experience.body_title,
-      body_description: experience.body_description,
-      image: experience.image,
-      image_slider: [],
+      title: blog.title,
+      description: blog.description,
+      main_title: blog.main_title,
+      main_description: blog.main_description,
+      body_title: blog.body_title,
+      body_description: blog.body_description,
+      image: blog.image,
     }); // image not edited here
-    setEditingExpId(experience._id);
+    setEditingBlogId(blog._id);
   };
 
   return (
@@ -196,7 +190,7 @@ export default function ExperienceForm() {
           className="w-full p-2 border rounded"
           required
         />
-        {!editingExpId && (
+        {!editingBlogId && (
           <input
             type="file"
             accept="image/*"
@@ -204,28 +198,28 @@ export default function ExperienceForm() {
             className="w-full"
           />
         )}
-        <input
-          type="file"
-          accept="image/*"
-          multiple
-          onChange={(e) =>
-            setForm({ ...form, image_slider: Array.from(e.target.files) })
-          }
-          className="w-full"
-        />
+    
 
         <button
           type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded"
         >
-          {editingExpId ? "Update" : "Submit"}
+          {editingBlogId ? "Update" : "Submit"}
         </button>
-        {editingExpId && (
+        {editingBlogId && (
           <button
             type="button"
             onClick={() => {
-              setForm({ title: "", description: "", image: null });
-              setEditingExpId(null);
+              setForm({
+                title: "",
+                description: "",
+                main_title: "",
+                main_description: "",
+                body_title: "",
+                body_description: "",
+                image: null,
+              });
+             setEditingBlogId(null);
             }}
             className="ml-2 bg-gray-500 text-white px-4 py-2 rounded"
           >
@@ -234,32 +228,32 @@ export default function ExperienceForm() {
         )}
       </form>
 
-      <h2 className="text-xl font-semibold mt-6">Submitted Experience</h2>
+      <h2 className="text-xl font-semibold mt-6">Submitted Blog</h2>
       <div className="mt-4 space-y-4">
-        {experience.map((exp) => (
-          <div key={exp._id} className="border-b pb-4 flex items-center gap-4">
-            {exp.image && (
+        {blogs.map((blog) => (
+          <div key={blog._id} className="border-b pb-4 flex items-center gap-4">
+            {blog.image && (
               <Image
                 width={1000}
                 height={100}
-                src={exp.image}
+                src={blog.image}
                 alt="hello"
                 className="w-16 h-16 object-cover rounded"
               />
             )}
             <div className="flex-1">
               <p>
-                {exp.title} ({exp.description})
+                {blog.title} ({blog.description})
               </p>
               <div className="space-x-2 mt-2">
                 <button
-                  onClick={() => handleEdit(exp)}
+                  onClick={() => handleEdit(blog)}
                   className="bg-green-500 text-white px-3 py-1 rounded"
                 >
                   Edit
                 </button>
                 <button
-                  onClick={() => handleDelete(exp._id)}
+                  onClick={() => handleDelete(blog._id)}
                   className="bg-red-500 text-white px-3 py-1 rounded"
                 >
                   Delete

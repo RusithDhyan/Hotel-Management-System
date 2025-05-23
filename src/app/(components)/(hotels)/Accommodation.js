@@ -200,7 +200,8 @@ export default function Accommodation({ hotelId }) {
 
             <div className="w-full md:w-1/2 relative bg-black h-64 md:h-full">
             <Image
-              src={room?.images?.[imageIndex] || "/fallback.jpg"} // fallback optional
+              // src={room?.images?.[imageIndex] || "/fallback.jpg"}
+              src={room.image} // fallback optional
               alt="Room Image"
               fill
               className="object-cover"

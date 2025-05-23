@@ -197,7 +197,6 @@ export default function AccommodationForm({hotelId}) {
       </form>
 
       <h2 className="text-xl font-semibold mt-6">Submitted Accommodations</h2>
-      <h1>{hotelId}</h1>
       <div className="mt-4 space-y-4">
         {accommodations.map((accommodation) => (
           <div

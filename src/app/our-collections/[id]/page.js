@@ -1,13 +1,13 @@
 // pages/hotels/[id]/page.jsx
 "use client";
 import { useEffect, useState } from "react";
-import Accommodation from "@/app/(components)/(hotels)/(heritage)/Accommodation";
 import Experience from "@/app/(components)/(hotels)/(heritage)/Experience";
 import Gallery from "@/app/(components)/(hotels)/(heritage)/Gallery";
 import InquiryForm from "@/app/(components)/(hotels)/(heritage)/InquiryForm";
 import OfferSlider from "@/app/(components)/(hotels)/(heritage)/OfferSlider";
 import Image from "next/image";
 import { useParams } from "next/navigation";
+import Accommodation from "@/app/(components)/(hotels)/Accommodation";
 
 export default function HotelInnerPage() {
   const [hotel, setHotel] = useState(null);
@@ -20,7 +20,7 @@ export default function HotelInnerPage() {
       setHotel(data);
     };
     if (id) fetchHotel();
-  }, [id]);
+  },[]);
 
   if (!hotel) return <div>Loading...</div>;
 

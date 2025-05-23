@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useData } from "@/app/context/DataContext";
 
 // ✅ Hotels array
 const hotels = [
@@ -83,6 +84,9 @@ const hotels = [
 ];
 
 export default function HotelSlider() {
+
+  const {hotels} = useData();
+
   const [isActive, setIsActive] = useState(false);
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -148,9 +152,9 @@ export default function HotelSlider() {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            {hotels.map((hotel, i) => (
+            {hotels.map((h, i) => (
               <div
-                key={hotel.id}
+                key={h._id}
                 className={`flex-shrink-0 ${
                   isMobile ? "w-full" : "w-[33.33%]"
                 }  transition-all duration-500 ${
@@ -163,28 +167,28 @@ export default function HotelSlider() {
               >
                 <div className="bg-white p-2 items-center justify-between">
                   <Image
-                    src={hotel.image}
-                    alt={hotel.title}
+                    src={h.image}
+                    alt={h.title}
                     className="w-full h-50 sm:h-80 object-cover"
                     width={1000}
                     height={100}
                   />
                   <div className={`lg:p-4 ${i === index ? "h-40" : "h-auto"}`}>
                     <h3 className="sm:text-sm md:text-md lg:text-lg font-semibold px-2">
-                      {hotel.title}
+                      {h.title}
                     </h3>
                     <h4 className="text-gray-400 sm:text-sm md:text-md lg:text-lg px-2">
-                      {hotel.location}
+                      {h.location}
                     </h4>
                     {i === index && (
                       <p className="sm:text-sm md:text-md lg:text-lg px-2 ">
-                        {hotel.description}
+                        {h.description}
                       </p>
                     )}
                     <div className="flex flex-row justify-start px-2 mt-5">
                       {i === index && (
                         <Link
-                          href={hotel.url}
+                          href={`/our-collections/${h._id}`}
                           className="text-sm lg:text-lg md:text-md"
                         >
                           <button

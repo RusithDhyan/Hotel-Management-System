@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import BlogForm from "../BlogForm";
+import { useData } from "../context/DataContext";
 
 const blogPosts = [
   {
@@ -59,6 +61,8 @@ const blogPosts = [
 ];
 
 export default function BlogPage() {
+  const {blogs} = useData();
+
   return (
     <div className="min-h-screen">
       {/* Top Cover */}
@@ -89,13 +93,13 @@ export default function BlogPage() {
       <div className="container mx-auto px-4 md:px-6 pt-10">
         {/* Blog Cards Grid View */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blogPosts.map((blog) => (
+          {blogs.map((blog) => (
             <div
-              key={blog.id}
+              key={blog._id}
               className="w-full bg-white shadow-md hover:shadow-lg transition overflow-hidden"
             >
               <div className="relative h-48 md:h-60 w-full group">
-                <Link href={blog.url}>
+                <Link href={`/blogs/${blog._id}`}>
                 <Image
                   src={blog.image}
                   alt={blog.title}
@@ -107,7 +111,7 @@ export default function BlogPage() {
               </div>
               <div className="p-2">
                 <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
-                <h5 className="text-gray-500">{blog.date}</h5>
+                <h5 className="text-gray-500">dd</h5>
                 <p className="text-sm md:text-base">{blog.description}</p>
                
               </div>
@@ -115,6 +119,7 @@ export default function BlogPage() {
           ))}
         </div>
       </div>
+      <BlogForm/>
     </div>
   );
 }

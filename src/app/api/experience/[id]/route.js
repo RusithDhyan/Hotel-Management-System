@@ -10,7 +10,7 @@ export async function PUT(request, { params }) {
 
   try {
     await connectDB();
-    const updatedExperience = await Experience.findByIdAndUpdate(id, data, { new: true });
+    const updatedExperience = await Experience.findByIdAndUpdate(id, data, { new: true }).lean();
     if (!updatedExperience) {
       return NextResponse.json({ message: "Experience not found" }, { status: 404 });
     }
@@ -25,7 +25,7 @@ export async function DELETE(request, { params }) {
 
   try {
     await connectDB();
-    const deletedExperience = await Experience.findByIdAndDelete(id);
+    const deletedExperience = await Experience.findByIdAndDelete(id).lean();
     if (!deletedExperience) {
       return NextResponse.json({ message: "Experience not found" }, { status: 404 });
     }

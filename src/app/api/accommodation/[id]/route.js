@@ -10,7 +10,7 @@ export async function PUT(request, { params }) {
 
   try {
     await connectDB();
-    const updatedAccommodation = await Accommodation.findByIdAndUpdate(id, data, { new: true });
+    const updatedAccommodation = await Accommodation.findByIdAndUpdate(id, data, { new: true }).lean();
     if (!updatedAccommodation) {
       return NextResponse.json({ message: "Accommodation not found" }, { status: 404 });
     }
@@ -25,12 +25,29 @@ export async function DELETE(request, { params }) {
 
   try {
     await connectDB();
-    const deletedAccommodation = await Accommodation.findByIdAndDelete(id);
+    const deletedAccommodation = await Accommodation.findByIdAndDelete(id).lean();
     if (!deletedAccommodation) {
       return NextResponse.json({ message: "Accommodation not found" }, { status: 404 });
     }
     return NextResponse.json({ message: "Accommodation deleted" }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ message: "Failed to delete Accommodation", error }, { status: 500 });
+  }
+}
+
+
+export async function GET(req, { params }) {
+  try {
+    await connectDB();
+    const room = await Accommodation.findById(params.id).lean();
+
+    if (!room) {
+      return NextResponse.json({ error: "room not found" }, { status: 404 });
+    }
+
+    return NextResponse.json({room});
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
