@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function ExperienceForm() {
-  const [experience, setExperience] = useState([]);
+  const [experiences, setExperience] = useState([]);
   const [form, setForm] = useState({
     title: "",
     description: "",
@@ -12,7 +12,7 @@ export default function ExperienceForm() {
     main_description: "",
     body_title: "",
     body_description: "",
-    image: null,
+    image: "",
     image_slider: [],
   });
   const [editingExpId, setEditingExpId] = useState(null);
@@ -29,6 +29,7 @@ export default function ExperienceForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("form:",form);
 
     if (editingExpId) {
       // Update logic (optional image update can be added separately)
@@ -61,7 +62,7 @@ export default function ExperienceForm() {
           main_description: "",
           body_title: "",
           body_description: "",
-          image: null,
+          image: "",
           image_slider: [],
         });
         fetchExperience();
@@ -76,9 +77,11 @@ export default function ExperienceForm() {
       formData.append("body_title", form.body_title);
       formData.append("body_description", form.body_description);
       if (form.image) formData.append("image", form.image);
-      form.image_slider.forEach((img) => {
-        formData.append("image_slider", img);
-      });
+      if (form.image_slider && form.image_slider.length > 0) {
+        form.image_slider.forEach((img) => {
+          formData.append("image_slider", img); // NOTE: "images" matches API handler
+        });
+      }
 
       const res = await fetch("/api/experience", {
         method: "POST",
@@ -94,7 +97,7 @@ export default function ExperienceForm() {
           main_description: "",
           body_title: "",
           body_description: "",
-          image: null,
+          image: "",
           image_slider: [],
         });
         fetchExperience();
@@ -205,14 +208,13 @@ export default function ExperienceForm() {
           />
         )}
         <input
-          type="file"
-          accept="image/*"
-          multiple
-          onChange={(e) =>
-            setForm({ ...form, image_slider: Array.from(e.target.files) })
-          }
-          className="w-full"
-        />
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={(e) =>
+              setForm({ ...form, image_slider: Array.from(e.target.files) })
+            }
+          />
 
         <button
           type="submit"
@@ -224,7 +226,16 @@ export default function ExperienceForm() {
           <button
             type="button"
             onClick={() => {
-              setForm({ title: "", description: "", image: null });
+              setForm({
+                title: "",
+                description: "",
+                main_title: "",
+                main_description: "",
+                body_title: "",
+                body_description: "",
+                image: "",
+                image_slider: [],
+              });
               setEditingExpId(null);
             }}
             className="ml-2 bg-gray-500 text-white px-4 py-2 rounded"
@@ -236,7 +247,7 @@ export default function ExperienceForm() {
 
       <h2 className="text-xl font-semibold mt-6">Submitted Experience</h2>
       <div className="mt-4 space-y-4">
-        {experience.map((exp) => (
+        {experiences.map((exp) => (
           <div key={exp._id} className="border-b pb-4 flex items-center gap-4">
             {exp.image && (
               <Image
@@ -247,6 +258,15 @@ export default function ExperienceForm() {
                 className="w-16 h-16 object-cover rounded"
               />
             )}
+            {Array.isArray(exp.image_slider) &&
+              exp.image_slider.map((img, idx) => (
+                <img
+                  key={idx}
+                  src={img}
+                  alt="room"
+                  className="w-16 h-16 object-cover rounded"
+                />
+              ))}
             <div className="flex-1">
               <p>
                 {exp.title} ({exp.description})

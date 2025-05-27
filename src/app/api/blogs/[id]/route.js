@@ -45,7 +45,7 @@ export async function GET(req, { params }) {
       return NextResponse.json({ error: "blog not found" }, { status: 404 });
     }
 
-    return NextResponse.json(blog);
+  return NextResponse.json({blog});
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: "Server error" }, { status: 500 });

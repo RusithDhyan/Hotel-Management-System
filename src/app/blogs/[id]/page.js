@@ -16,29 +16,36 @@ const images = [
 export default function BlogInnerPage() {
   const [index, setIndex] = useState(0);
 
-  const [blog, setBlogs] = useState(null);
+  const [blog, setBlogs] = useState({});
   const { id } = useParams();
 
   const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % images.length);
+    setIndex((prev) => (prev + 1) % blog.image_slider.length);
   };
 
   const prevSlide = () => {
-    setIndex((prev) => (prev - 1 + images.length) % images.length);
+    setIndex(
+      (prev) => (prev - 1 + blog.image_slider.length) % blog.image_slider.length
+    );
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+    const images = blog?.image_slider || [];
+
+    if (images.length > 0) {
+      const interval = setInterval(() => {
+        setIndex((prev) => (prev + 1) % images.length);
+      }, 4000);
+
+      return () => clearInterval(interval);
+    }
+  }, [blog]);
 
   useEffect(() => {
     const fetchBlog = async () => {
       const res = await fetch(`/api/blogs/${id}`);
       const data = await res.json();
-      setBlogs(data);
+      setBlogs(data.blog);
     };
     if (id) fetchBlog();
   }, [id]);
@@ -49,20 +56,20 @@ export default function BlogInnerPage() {
     <div className="flex flex-col min-h-screen">
       {/* Top Image */}
       <div className="w-full h-auto relative">
-        <Image
-          src={blog.image}
-          alt="blog-img"
-          width={1500}
-          height={10}
-          className="h-100 object-cover w-full"
-        />
+        {blog.image ? (
+          <Image
+            src={blog.image}
+            alt="contact-img"
+            width={1500}
+            height={800}
+            className="w-full h-100 object-cover"
+          />
+        ) : null}
       </div>
 
       {/* Header Section */}
       <div className="flex flex-col items-center justify-center gap-3 mt-10 px-4 sm:px-8 md:px-16 lg:px-24">
-        <h1 className="text-xl sm:text-2xl text-center">
-          {blog.main_title}
-        </h1>
+        <h1 className="text-xl sm:text-2xl text-center">{blog.main_title}</h1>
         <p className="font-light text-sm sm:text-base text-justify">
           {blog.main_description}
         </p>
@@ -71,12 +78,13 @@ export default function BlogInnerPage() {
       {/* Image Slider and Description */}
       <div className="flex flex-col md:flex-row items-center w-full px-4 sm:px-10 gap-5 mt-6">
         <div className="w-full h-80 relative aspect-video">
-            <Image
-              src={blog.image}
-              alt="Exp"
-              fill
-              className="object-cover transition-opacity duration-500"
+          {blog?.image_slider?.length > 0 && (
+            <img
+              src={blog.image_slider[index]}
+              alt={`room-${index}`}
+              className="w-full h-full object-cover"
             />
+          )}
           <div className="absolute inset-0 flex items-center justify-between gap-5 px-2">
             <button
               onClick={prevSlide}

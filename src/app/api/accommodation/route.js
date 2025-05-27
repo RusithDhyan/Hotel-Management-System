@@ -1,26 +1,28 @@
 // app/api/accommodation/route.js
 import { NextResponse } from "next/server";
-import Accommodation from "@/models/Accommodation"; // Your Mongoose model
-import { connectDB } from "@/lib/mongodb";
 import mongoose from "mongoose";
+import { connectDB } from "@/lib/mongodb";
+import Accommodation from "@/models/Accommodation";
 
 export async function GET(req) {
   const url = new URL(req.url);
   const hotelId = url.searchParams.get("hotelId");
 
   if (!hotelId) {
-    return NextResponse.json({ error: "Missing hotelId" }, { status: 400 });
+    return NextResponse.json({ success: false, error: "Missing hotelId" }, { status: 400 });
   }
 
   try {
     await connectDB();
+
     const accommodations = await Accommodation.find({
       hotelId: new mongoose.Types.ObjectId(hotelId),
     });
-        return NextResponse.json(accommodations); // ✅ must return an array
+
+    return NextResponse.json({ success: true, data: accommodations }); // ✅ wrapped in success/data
   } catch (error) {
     console.error("GET /api/accommodation error:", error);
-    return NextResponse.json({ error: "Failed to fetch" }, { status: 500 });
+    return NextResponse.json({ success: false, error: "Failed to fetch" }, { status: 500 });
   }
 }
 
@@ -33,13 +35,25 @@ export async function POST(req) {
   const size = formData.get("size");
   const description = formData.get("description"); 
   const image = formData.get("image");
+  const images = formData.getAll("images");
 
   let base64Image = "";
+  let base64Images = [];
 
   if (image && typeof image === "object") {
     const buffer = Buffer.from(await image.arrayBuffer());
     base64Image = `data:${image.type};base64,${buffer.toString("base64")}`;
   }
+  
+
+  for (const img of images) {
+    if (img && typeof img === "object") {
+      const buffer = Buffer.from(await img.arrayBuffer());
+      const base64 = `data:${img.type};base64,${buffer.toString("base64")}`;
+      base64Images.push(base64);
+    }
+  }
+
 
   try {
     await connectDB();
@@ -50,10 +64,11 @@ export async function POST(req) {
       size,
       description,
       image: base64Image,
+      images: base64Images,
     });
-    return Response.json({ success: true, data: newAccommodation });
+    return NextResponse.json({ success: true, data: newAccommodation });
   } catch (error) {
-    return Response.json(
+    return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }
     );

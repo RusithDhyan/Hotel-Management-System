@@ -1,6 +1,7 @@
 // app/api/submit/route.js
 import { connectDB } from "@/lib/mongodb";
 import Experience from "@/models/Experience";
+import { NextResponse } from "next/server";
 
 export async function POST(req) {
   const formData = await req.formData();
@@ -16,10 +17,11 @@ export async function POST(req) {
   let base64Image = "";
   let base64Images = [];
 
-  for (const image of image_slider) {
-    if (image && typeof image === "object") {
-      const buffer = Buffer.from(await image.arrayBuffer());
-      const base64 = `data:${image.type};base64,${buffer.toString("base64")}`;
+  
+  for (const img of image_slider) {
+    if (img && typeof img === "object") {
+      const buffer = Buffer.from(await img.arrayBuffer());
+      const base64 = `data:${img.type};base64,${buffer.toString("base64")}`;
       base64Images.push(base64);
     }
   }
@@ -41,9 +43,9 @@ export async function POST(req) {
       image: base64Image,
       image_slider: base64Images,
     });
-    return Response.json({ success: true, data: newExperience });
+    return NextResponse.json({ success: true, data: newExperience });
   } catch (error) {
-    return Response.json(
+    return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }
     );
@@ -54,9 +56,9 @@ export async function GET() {
   try {
     await connectDB();
     const exp = await Experience.find({});
-    return Response.json({ success: true, data: exp });
+    return NextResponse.json({ success: true, data: exp });
   } catch (error) {
-    return Response.json(
+    return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }
     );

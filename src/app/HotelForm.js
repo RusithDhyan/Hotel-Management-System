@@ -36,7 +36,7 @@ export default function HotelForm() {
         alert("Hotel not found.");
       } else {
         setEditingHotelId(null);
-        setForm({ title: "",location: "", description: "", image: null });
+        setForm({ title: "",location: "", description: "", image: "" });
         fetchHotel();
       }
     } else {
@@ -117,8 +117,9 @@ export default function HotelForm() {
         {!editingHotelId && (
           <input
             type="file"
+            name="image"
             accept="image/*"
-            onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
+            onChange={(e) => setForm({ ...form, image: e.target.files[4] })}
             className="w-full"
           />
         )}
@@ -132,7 +133,7 @@ export default function HotelForm() {
           <button
             type="button"
             onClick={() => {
-              setForm({ title: "",location: "", description: "", image: null });
+              setForm({ title: "",location: "", description: "", image: "" });
               setEditingHotelId(null);
             }}
             className="ml-2 bg-gray-500 text-white px-4 py-2 rounded"

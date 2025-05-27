@@ -9,6 +9,7 @@ const BlogSchema = new mongoose.Schema({
   body_title: String,
   body_description: String,
   image: String,
+  image_slider: [String]
 
   
 });

@@ -188,7 +188,7 @@ export default function HotelSlider() {
                     <div className="flex flex-row justify-start px-2 mt-5">
                       {i === index && (
                         <Link
-                          href={`/our-collections/${h._id}`}
+                          href={`/our-collection/${h._id}`}
                           className="text-sm lg:text-lg md:text-md"
                         >
                           <button

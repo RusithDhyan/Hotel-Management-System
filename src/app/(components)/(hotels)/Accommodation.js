@@ -12,17 +12,14 @@ export default function Accommodation({ hotelId }) {
   const [centerIndex, setCenterIndex] = useState(0);
 
   const [accommodations, setAccommodations] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const [room, setOneRoom] = useState({});
-  
+
   const openPopup = (roomId) => {
     setSelectedRoom(roomId); // only store the ID
     setImageIndex(0);
     fetchOneRoom(roomId); // pass roomId to fetch
   };
-  
-
 
   const fetchOneRoom = async (id) => {
     try {
@@ -30,37 +27,26 @@ export default function Accommodation({ hotelId }) {
       const data = await res.json();
       console.log("Fetched room:", data); // 🐞 LOG
       setOneRoom(data.room);
-      console.log("room",room);
+      console.log("room", room);
     } catch (err) {
       console.error("Error fetching room:", err);
     }
   };
-  
-  
+
+  const fetchAccommodation = async () => {
+    const res = await fetch(`/api/accommodation?hotelId=${hotelId}`);
+    const data = await res.json();
+    console.log("Fetched accommodations..:", data.data); // <- add this
+
+    if (data.success) setAccommodations(data.data);
+  };
 
   useEffect(() => {
-    if (!hotelId) return;
+    fetchAccommodation();
+    setImageIndex(0);
+  }, [room]);
 
-    const fetchAccommodations = async () => {
-      try {
-        const res = await fetch(`/api/accommodation?hotelId=${hotelId}`);
-        const data = await res.json();
-        if (Array.isArray(data)) {
-          setAccommodations(data);
-        } else {
-          console.error("Expected array, got:", data);
-        }
-      } catch (error) {
-        console.error("Error fetching accommodations:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchAccommodations();
-  }, [hotelId]);
-
-  if (loading) return <p>Loading accommodations...</p>;
+  // if (loading) return <p>Loading accommodations...</p>;
 
   // if (accommodations.length === 0) return <p>No accommodations found.</p>;
 
@@ -93,10 +79,12 @@ export default function Accommodation({ hotelId }) {
 
   const nextImage = () =>
     setImageIndex((prev) => (prev + 1) % (room?.images?.length || 1));
-  
+
   const prevImage = () =>
-    setImageIndex((prev) => (prev - 1 + (room?.images?.length || 1)) % (room?.images?.length || 1));
-  
+    setImageIndex(
+      (prev) =>
+        (prev - 1 + (room?.images?.length || 1)) % (room?.images?.length || 1)
+    );
 
   return (
     <div className="relative z-10 px-4 sm:px-6 md:px-10">
@@ -127,7 +115,7 @@ export default function Accommodation({ hotelId }) {
                 }}
               >
                 <Image
-                  src={accommodation.image}
+                  src={accommodation.image} //check this
                   alt={accommodation.room_type}
                   width={1000}
                   height={500}
@@ -199,14 +187,13 @@ export default function Accommodation({ hotelId }) {
             </button>
 
             <div className="w-full md:w-1/2 relative bg-black h-64 md:h-full">
-            <Image
-              // src={room?.images?.[imageIndex] || "/fallback.jpg"}
-              src={room.image} // fallback optional
-              alt="Room Image"
-              fill
-              className="object-cover"
-            />
-
+              {room?.images?.length > 0 && (
+                <img
+                  src={room.images[imageIndex]}
+                  alt={`room-${imageIndex}`}
+                  className="w-full h-full object-cover"
+                />
+              )}
               <button
                 className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1 rounded-full"
                 onClick={prevImage}
@@ -228,13 +215,11 @@ export default function Accommodation({ hotelId }) {
               <h2 className="text-md font-semibold text-gray-700">
                 Price: ${room.price}
               </h2>
-              <p className="text-sm text-gray-600 mb-1">
-                Size: {room.size}sqm
-              </p>
+              <p className="text-sm text-gray-600 mb-1">Size: {room.size}sqm</p>
               <p className="text-sm mb-4">{room.description}</p>
 
               {/* features */}
-{/* 
+              {/* 
               <div>
                 <h1 className="font-semibold text-gray-600">What's Inside</h1>
                 <div className="grid grid-cols-2 gap-2 pb-5 mt-2">

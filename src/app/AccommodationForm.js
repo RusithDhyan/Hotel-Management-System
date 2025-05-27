@@ -3,20 +3,23 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function AccommodationForm({hotelId}) {
+export default function AccommodationForm({ hotelId }) {
   const [accommodations, setAccommodations] = useState([]);
   const [form, setForm] = useState({
     room_type: "",
     price: "",
     size: "",
     description: "",
-    image: null,
+    image: "",
+    images: [],
   });
   const [editingAccommodationId, setEditingAccommodationId] = useState(null);
 
   const fetchAccommodation = async () => {
     const res = await fetch(`/api/accommodation?hotelId=${hotelId}`);
     const data = await res.json();
+    console.log("Fetched accommodations:", data.data); // <- add this
+
     if (data.success) setAccommodations(data.data);
   };
 
@@ -42,6 +45,7 @@ export default function AccommodationForm({hotelId}) {
           size: form.size,
           description: form.description,
           image: form.image,
+          images: form.images,
         }),
       });
 
@@ -55,20 +59,27 @@ export default function AccommodationForm({hotelId}) {
           price: "",
           size: "",
           description: "",
-          image: null,
+          image: "",
+          images: [],
         });
         fetchAccommodation();
       }
     } else {
       // Create new user with image
       const formData = new FormData();
-      formData.append("hotelId",hotelId);
+      formData.append("hotelId", hotelId);
       formData.append("room_type", form.room_type);
       formData.append("price", form.price);
       formData.append("size", form.size);
       formData.append("description", form.description);
 
       if (form.image) formData.append("image", form.image);
+
+      if (form.images && form.images.length > 0) {
+        form.images.forEach((img) => {
+          formData.append("images", img); // NOTE: "images" matches API handler
+        });
+      }
 
       const res = await fetch("/api/accommodation", {
         method: "POST",
@@ -82,7 +93,8 @@ export default function AccommodationForm({hotelId}) {
           price: "",
           size: "",
           description: "",
-          image: null,
+          image: "",
+          images: [],
         });
         fetchAccommodation();
       } else {
@@ -112,14 +124,15 @@ export default function AccommodationForm({hotelId}) {
       price: accommodation.price,
       size: accommodation.size,
       description: accommodation.description,
-      image: null,
+      image: accommodation.image,
+      images: [],
     }); // image not edited here
     setEditingAccommodationId(accommodation._id);
   };
 
   return (
     <main className="p-6 max-w-xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">User Form</h1>
+      <h1 className="text-2xl font-bold mb-4">Accommodation Form</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <select
@@ -162,14 +175,22 @@ export default function AccommodationForm({hotelId}) {
           className="w-full p-2 border rounded"
           required
         />
-        {!editingAccommodationId && (
+        {/* {!editingAccommodationId && ( */}
           <input
             type="file"
             accept="image/*"
             onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
             className="w-full"
           />
-        )}
+        {/* )} */}
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={(e) =>
+              setForm({ ...form, images: Array.from(e.target.files) })
+            }
+          />
         <button
           type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded"
@@ -185,7 +206,8 @@ export default function AccommodationForm({hotelId}) {
                 price: "",
                 size: "",
                 description: "",
-                image: null,
+                image: "",
+                images: [],
               });
               setEditingAccommodationId(null);
             }}
@@ -204,14 +226,22 @@ export default function AccommodationForm({hotelId}) {
             className="border-b pb-4 flex items-center gap-4"
           >
             {accommodation.image && (
-              <Image
-                width={1000}
-                height={100}
+              <img
                 src={accommodation.image}
                 alt={accommodation.room_type}
-                className="w-16 h-16 object-cover rounded"
+                className="w-16 h-16 object-cover"
               />
             )}
+            {Array.isArray(accommodation.images) &&
+              accommodation.images.map((img, idx) => (
+                <img
+                  key={idx}
+                  src={img}
+                  alt="room"
+                  className="w-16 h-16 object-cover rounded"
+                />
+              ))}
+
             <div className="flex-1">
               <p>
                 {accommodation.room_type} ({accommodation.size})

@@ -1,8 +1,10 @@
+import { useData } from "@/app/context/DataContext";
 import { MapPin } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 export default function HotelNav() {
+
   const hotels = [
     {
       name: "Heritage Hotel",

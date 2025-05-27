@@ -111,7 +111,6 @@ export default function BlogPage() {
               </div>
               <div className="p-2">
                 <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
-                <h5 className="text-gray-500">dd</h5>
                 <p className="text-sm md:text-base">{blog.description}</p>
                
               </div>

@@ -12,6 +12,8 @@ const AccommodationSchema = new mongoose.Schema({
   size: Number,
   description: String,
   image: String,
+  images: [String],
+
 });
 
 export default mongoose.models.Accommodation ||

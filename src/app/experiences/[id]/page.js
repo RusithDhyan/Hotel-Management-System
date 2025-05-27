@@ -5,57 +5,62 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const images = [
-  "/experience/exp1-cable-walk/exp1.jpeg",
-  "/experience/exp1-cable-walk/exp2.jpg",
-  "/experience/exp1-cable-walk/exp3.jpeg",
-  "/experience/exp1-cable-walk/exp4.jpeg",
-  "/experience/exp1-cable-walk/exp5.jpeg",
-];
-
 export default function ExperienceInnerPage() {
   const [index, setIndex] = useState(0);
 
-  const [experience, setExperience] = useState(null);
+  const [experience, setExperience] = useState({});
   const { id } = useParams();
 
   const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % images.length);
+    setIndex((prev) => (prev + 1) % experience.image_slider.length);
   };
 
   const prevSlide = () => {
-    setIndex((prev) => (prev - 1 + images.length) % images.length);
+    setIndex(
+      (prev) =>
+        (prev - 1 + experience.image_slider.length) %
+        experience.image_slider.length
+    );
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+    const images = experience?.image_slider || [];
+
+    if (images.length > 0) {
+      const interval = setInterval(() => {
+        setIndex((prev) => (prev + 1) % images.length);
+      }, 4000);
+
+      return () => clearInterval(interval);
+    }
+  }, [experience]);
 
   useEffect(() => {
     const fetchExperience = async () => {
       const res = await fetch(`/api/experience/${id}`);
       const data = await res.json();
-      setExperience(data);
+      console.log("Fetched oneExp:", data.data);
+
+      setExperience(data.experience);
     };
     if (id) fetchExperience();
   }, [id]);
 
-  if (!experience) return <div>Loading...</div>;
+  // if (!experience) return <div>Loading...</div>;
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Top Image */}
       <div className="w-full h-auto relative">
-        <Image
-          src={experience.image}
-          alt="contact-img"
-          width={1500}
-          height={10}
-          className="h-100 object-cover w-full"
-        />
+        {experience.image ? (
+          <Image
+            src={experience.image}
+            alt="contact-img"
+            width={1500}
+            height={800}
+            className="w-full h-100 object-cover"
+          />
+        ) : null}
       </div>
 
       {/* Header Section */}
@@ -71,15 +76,13 @@ export default function ExperienceInnerPage() {
       {/* Image Slider and Description */}
       <div className="flex flex-col md:flex-row items-center w-full px-4 sm:px-10 gap-5 mt-6">
         <div className="w-full h-80 relative aspect-video">
-          {experience.image_slider?.map((img, i) => (
-            <Image
-              key={i}
-              src={img[i]}
-              alt="Exp"
-              fill
-              className="object-cover transition-opacity duration-500"
+          {experience?.image_slider?.length > 0 && (
+            <img
+              src={experience.image_slider[index]}
+              alt={`room-${index}`}
+              className="w-full h-full object-cover"
             />
-          ))}
+          )}
           <div className="absolute inset-0 flex items-center justify-between gap-5 px-2">
             <button
               onClick={prevSlide}

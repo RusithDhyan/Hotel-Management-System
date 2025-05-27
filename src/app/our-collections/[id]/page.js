@@ -1,13 +1,13 @@
 // pages/hotels/[id]/page.jsx
 "use client";
 import { useEffect, useState } from "react";
-import Experience from "@/app/(components)/(hotels)/(heritage)/Experience";
-import Gallery from "@/app/(components)/(hotels)/(heritage)/Gallery";
-import InquiryForm from "@/app/(components)/(hotels)/(heritage)/InquiryForm";
-import OfferSlider from "@/app/(components)/(hotels)/(heritage)/OfferSlider";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import Accommodation from "@/app/(components)/(hotels)/Accommodation";
+import OfferSlider from "@/app/(components)/(hotels)/OfferSlider";
+import Experience from "@/app/(components)/(hotels)/Experience";
+import Gallery from "@/app/(components)/(hotels)/Gallery";
+import InquiryForm from "@/app/(components)/(experience)/InquiryForm";
 
 export default function HotelInnerPage() {
   const [hotel, setHotel] = useState(null);
@@ -64,10 +64,15 @@ export default function HotelInnerPage() {
             </div>
 
       <Accommodation hotelId={hotel._id} />
+      
+      <h1 className="text-2xl sm:text-3xl text-center mt-10">
+        Experience in {hotel.title}
+      </h1>
 
-      <Experience />
+      <Experience hotelId={hotel._id}/>
       <Gallery />
-      <OfferSlider nav={`/hotels/${id}/offers`} />
+      {/* <OfferSlider nav={`/hotels/${id}/offers`} /> */}
+      <OfferSlider hotelId={hotel._id}/>
       <InquiryForm />
     </div>
   );

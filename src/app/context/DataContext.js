@@ -9,7 +9,7 @@ export const DataProvider = ({ children }) => {
   const [experiences, setExperiences] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const [galleries, setGalleries] = useState([]);
-  const [foods, setFoods] = useState([]);
+  const [offers, setOffer] = useState([]);
 
   // Fetch hotels only once
   useEffect(() => {
@@ -44,11 +44,11 @@ export const DataProvider = ({ children }) => {
       .then(data => setGalleries(data.data));
   }, []);
 
-  // Fetch food
+  // Fetch offers
   useEffect(() => {
-    fetch("/api/food")
+    fetch("/api/offer")
       .then(res => res.json())
-      .then(data => setFoods(data.data));
+      .then(data => setOffer(data.data));
   }, []);
 
   return (
@@ -57,7 +57,7 @@ export const DataProvider = ({ children }) => {
       experiences,
       blogs,
       galleries,
-      foods
+      offers
     }}>
       {children}
     </DataContext.Provider>

@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -12,7 +11,8 @@ export default function BlogForm() {
     main_description: "",
     body_title: "",
     body_description: "",
-    image: null,
+    image: "",
+    image_slider: []
   });
   const [editingBlogId, setEditingBlogId] = useState(null);
 
@@ -28,7 +28,7 @@ export default function BlogForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("my form",form);
     if (editingBlogId) {
       // Update logic (optional image update can be added separately)
       const res = await fetch(`/api/blogs/${editingBlogId}`, {
@@ -44,6 +44,7 @@ export default function BlogForm() {
           body_title: form.body_title,
           body_description: form.body_description,
           image: form.image,
+          image_slider: form.image_slider
         }),
       });
 
@@ -59,7 +60,7 @@ export default function BlogForm() {
           main_description: "",
           body_title: "",
           body_description: "",
-          image: null,
+          image: "",
           image_slider: [],
         });
         fetchBlog();
@@ -74,6 +75,11 @@ export default function BlogForm() {
       formData.append("body_title", form.body_title);
       formData.append("body_description", form.body_description);
       if (form.image) formData.append("image", form.image);
+      if (form.image_slider && form.image_slider.length > 0) {
+        form.image_slider.forEach((img) => {
+          formData.append("image_slider", img); // NOTE: "images" matches API handler
+        });
+      }
 
 
       const res = await fetch("/api/blogs", {
@@ -90,7 +96,8 @@ export default function BlogForm() {
           main_description: "",
           body_title: "",
           body_description: "",
-          image: null,
+          image: "",
+          image_slider: []
         });
         fetchBlog();
       } else {
@@ -123,13 +130,14 @@ export default function BlogForm() {
       body_title: blog.body_title,
       body_description: blog.body_description,
       image: blog.image,
+      image_slider: blog.image_slider
     }); // image not edited here
     setEditingBlogId(blog._id);
   };
 
   return (
     <main className="p-6 max-w-xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">User Form</h1>
+      <h1 className="text-2xl font-bold mb-4">Blog Form</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -198,6 +206,14 @@ export default function BlogForm() {
             className="w-full"
           />
         )}
+        <input
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={(e) =>
+              setForm({ ...form, image_slider: Array.from(e.target.files) })
+            }
+          />
     
 
         <button
@@ -217,7 +233,8 @@ export default function BlogForm() {
                 main_description: "",
                 body_title: "",
                 body_description: "",
-                image: null,
+                image: "",
+                image_slider: []
               });
              setEditingBlogId(null);
             }}
@@ -241,6 +258,15 @@ export default function BlogForm() {
                 className="w-16 h-16 object-cover rounded"
               />
             )}
+             {Array.isArray(blog.image_slider) &&
+              blog.image_slider.map((img, idx) => (
+                <img
+                  key={idx}
+                  src={img}
+                  alt="room"
+                  className="w-16 h-16 object-cover rounded"
+                />
+              ))}
             <div className="flex-1">
               <p>
                 {blog.title} ({blog.description})
