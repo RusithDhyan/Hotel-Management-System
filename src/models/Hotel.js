@@ -5,6 +5,7 @@ const HotelSchema = new mongoose.Schema({
   title: String,
   location:String,
   description: String,
+  thumbnail: String,
   image: String,
   
 });

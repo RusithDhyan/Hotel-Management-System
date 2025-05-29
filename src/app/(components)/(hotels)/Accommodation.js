@@ -219,27 +219,22 @@ export default function Accommodation({ hotelId }) {
               <p className="text-sm mb-4">{room.description}</p>
 
               {/* features */}
-              {/* 
+              
               <div>
-                <h1 className="font-semibold text-gray-600">What's Inside</h1>
-                <div className="grid grid-cols-2 gap-2 pb-5 mt-2">
-                  {selectedRoom.specs?.map((spec, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between text-sm"
-                    >
-                      <span>{spec.title}</span>
-                      <Image
-                        src={spec.url}
-                        alt={spec.title}
-                        width={20}
-                        height={20}
-                        className="w-5 h-5 mr-7"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div> */}
+  <h1 className="font-semibold text-gray-600">What's Inside</h1>
+  <div className="grid grid-cols-2 gap-2 pb-5 mt-2">
+    {room?.spec_type?.map((spec, index) => (
+      <div
+        key={index}
+        className="flex items-center justify-between text-sm"
+      >
+        <span>{spec}</span>
+        
+      </div>
+    ))}
+  </div>
+</div>
+
 
               <Link href="/booking">
                 <button className="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-700 w-full sm:w-auto">

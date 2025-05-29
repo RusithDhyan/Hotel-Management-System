@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import HotelForm from "../HotelForm";
 import { useData } from "../context/DataContext";
 
@@ -44,7 +44,7 @@ export default function OurCollection() {
             <div className="relative w-full h-[200px] sm:h-[300px]">
               <Link href={`/our-collections/${hotel._id}`}>
                 <Image
-                  src={hotel.image}
+                  src={hotel.thumbnail}
                   alt={hotel.title}
                   fill
                   className="object-cover transition-all duration-500 group-hover:brightness-75"

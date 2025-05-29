@@ -6,86 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useData } from "@/app/context/DataContext";
 
-// ✅ Hotels array
-const hotels = [
-  {
-    id: 1,
-    image: "/hotels/h1.jpeg",
-    title: "Blue Waters Lake Resort",
-    url: "/hotels/blue-waters",
-    location: "Senga Bay,Salima",
-    description:
-      "Our hotel offers a relaxing stay with modern amenities, warm hospitality, and a beautiful setting in Malawi.Enjoy a peaceful retreat with stunning views.",
-  },
-
-  {
-    id: 2,
-    image: "/hotels/h3.jpeg",
-    title: "Heritage Hotel",
-    url: "/hotels/heritage-hotel",
-    location: "Milward Road, Limbe, Blantyre, Malawi",
-    description:
-      "A blend of colonial charm and modern comfort, this hotel features 40 elegantly furnished rooms, a spa, outdoor pool.",
-  },
-  {
-    id: 3,
-    image: "/hotels/h4.jpeg",
-    title: "Kambiri Beach",
-    url: "/hotels/kambiri-beach",
-    location: "Senga Bay,Salima",
-    description:
-      "Located on the shores of Lake Malawi, this resort offers beachfront cottages, a restaurant, and various water sports, providing a serene getaway.",
-  },
-  {
-    id: 4,
-    image: "/hotels/h12.jpg",
-    title: "Kara O Mula",
-    url: "/hotels/kara-o-mula",
-    location: "Boma Path – Bush, Mulanje, Malawi",
-    description:
-      "Nestled at the foot of Mount Mulanje, this lodge provides cozy rooms, a restaurant, and opportunities for hiking and exploring the surrounding nature.",
-  },
-  {
-    id: 5,
-    image: "/hotels/h11.jpg",
-    title: "Lotus Hotel",
-    url: "/hotels/lotus-hotel",
-    location: "Glyn Jones Road, Namiwawa Avenue, Blantyre, Malawi",
-    description:
-      "A modern hotel located in the capital city, offering comfortable rooms, dining facilities, and convenient access to government and commercial centers.",
-  },
-  {
-    id: 6,
-    image: "/hotels/h8.jpg",
-    title: "Waters Edge",
-    url: "/hotels/waters-edge",
-    location: "Senga Bay,Salima",
-    description:
-      "A quiet hotel by the Shire River with river-view suites, a pool, and boat safaris. Great for nature lovers and those looking for calm surroundings.",
-  },
-  {
-    id: 7,
-    image: "/hotels/h9.jpg",
-    title: "Bamboo Boutique",
-    url: "/hotels/bamboo-boutique",
-    location: "Mdoka Street, Area 12, Lilongwe, Malawi",
-    description:
-      "A modern and quiet hotel in Lilongwe with comfy rooms, a relaxing garden, and tasty meals — ideal for both business and casual stays.",
-  },
-  {
-    id: 8,
-    image: "/hotels/h10.jpg",
-    title: "Serendib Travels",
-    url: "/hotels/serendib-travels",
-    location: "Senga Bay,Salima",
-    description:
-      "Our hotel offers a relaxing stay with modern amenities, warm hospitality, and a beautiful setting in Malawi.Enjoy a peaceful retreat with stunning views.",
-  },
-];
-
 export default function HotelSlider() {
-
-  const {hotels} = useData();
+  const { hotels } = useData();
 
   const [isActive, setIsActive] = useState(false);
   const [index, setIndex] = useState(0);
@@ -167,7 +89,7 @@ export default function HotelSlider() {
               >
                 <div className="bg-white p-2 items-center justify-between">
                   <Image
-                    src={h.image}
+                    src={h.thumbnail}
                     alt={h.title}
                     className="w-full h-50 sm:h-80 object-cover"
                     width={1000}
@@ -188,7 +110,7 @@ export default function HotelSlider() {
                     <div className="flex flex-row justify-start px-2 mt-5">
                       {i === index && (
                         <Link
-                          href={`/our-collection/${h._id}`}
+                          href={`/our-collections/${h._id}`}
                           className="text-sm lg:text-lg md:text-md"
                         >
                           <button

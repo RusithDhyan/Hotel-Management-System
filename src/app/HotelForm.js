@@ -5,7 +5,13 @@ import { useEffect, useState } from "react";
 
 export default function HotelForm() {
   const [hotel, setHotel] = useState([]);
-  const [form, setForm] = useState({ title: "", location: "", description: "", image: null });
+  const [form, setForm] = useState({
+    title: "",
+    location: "",
+    description: "",
+    thumbnail: null,
+    image: null,
+  });
   const [editingHotelId, setEditingHotelId] = useState(null);
 
   const fetchHotel = async () => {
@@ -28,7 +34,13 @@ export default function HotelForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ title: form.title,location: form.location, description: form.description,image: form.image }),
+        body: JSON.stringify({
+          title: form.title,
+          location: form.location,
+          description: form.description,
+          thumbnail: form.thumbnail,
+          image: form.image,
+        }),
       });
 
       const result = await res.json();
@@ -36,7 +48,7 @@ export default function HotelForm() {
         alert("Hotel not found.");
       } else {
         setEditingHotelId(null);
-        setForm({ title: "",location: "", description: "", image: "" });
+        setForm({ title: "", location: "", description: "",thumbnail: "", image: "" });
         fetchHotel();
       }
     } else {
@@ -45,6 +57,7 @@ export default function HotelForm() {
       formData.append("title", form.title);
       formData.append("location", form.location);
       formData.append("description", form.description);
+      if (form.thumbnail) formData.append("thumbnail", form.thumbnail);
       if (form.image) formData.append("image", form.image);
 
       const res = await fetch("/api/hotels", {
@@ -54,7 +67,7 @@ export default function HotelForm() {
 
       const result = await res.json();
       if (result.success) {
-        setForm({ title: "",location: "", description: "", image: null });
+        setForm({ title: "", location: "", description: "", thumbnail: "", image: "" });
         fetchHotel();
       } else {
         alert("Error: " + result.error);
@@ -78,7 +91,13 @@ export default function HotelForm() {
   };
 
   const handleEdit = (hotel) => {
-    setForm({ title: hotel.title, location: hotel.location, description: hotel.description, image: null }); // image not edited here
+    setForm({
+      title: hotel.title,
+      location: hotel.location,
+      description: hotel.description,
+      thumbnail: null,
+      image: null,
+    }); // image not edited here
     setEditingHotelId(hotel._id);
   };
 
@@ -96,7 +115,7 @@ export default function HotelForm() {
           className="w-full p-2 border rounded"
           required
         />
-         <input
+        <input
           type="text"
           name="location"
           placeholder="Location"
@@ -117,9 +136,18 @@ export default function HotelForm() {
         {!editingHotelId && (
           <input
             type="file"
+            name="thumbnail"
+            accept="image/*"
+            onChange={(e) => setForm({ ...form, thumbnail: e.target.files[0] })}
+            className="w-full"
+          />
+        )}
+        {!editingHotelId && (
+          <input
+            type="file"
             name="image"
             accept="image/*"
-            onChange={(e) => setForm({ ...form, image: e.target.files[4] })}
+            onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
             className="w-full"
           />
         )}
@@ -133,7 +161,13 @@ export default function HotelForm() {
           <button
             type="button"
             onClick={() => {
-              setForm({ title: "",location: "", description: "", image: "" });
+              setForm({
+                title: "",
+                location: "",
+                description: "",
+                thumbnail: "",
+                image: "",
+              });
               setEditingHotelId(null);
             }}
             className="ml-2 bg-gray-500 text-white px-4 py-2 rounded"
@@ -147,18 +181,18 @@ export default function HotelForm() {
       <div className="mt-4 space-y-4">
         {hotel.map((h) => (
           <div key={h._id} className="border-b pb-4 flex items-center gap-4">
-            {h.image && (
+            {h.thumbnail && (
               <Image
                 width={1000}
                 height={100}
-                src={h.image}
+                src={h.thumbnail}
                 alt="hello"
                 className="w-16 h-16 object-cover rounded"
               />
             )}
             <div className="flex-1">
               <p>
-                {h.title} ({h.description}) 
+                {h.title} ({h.description})
               </p>
               <div className="space-x-2 mt-2">
                 <button

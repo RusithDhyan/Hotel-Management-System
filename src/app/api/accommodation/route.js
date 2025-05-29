@@ -36,6 +36,7 @@ export async function POST(req) {
   const description = formData.get("description"); 
   const image = formData.get("image");
   const images = formData.getAll("images");
+  const spec_type = formData.getAll("spec_type")
 
   let base64Image = "";
   let base64Images = [];
@@ -65,6 +66,7 @@ export async function POST(req) {
       description,
       image: base64Image,
       images: base64Images,
+      spec_type,
     });
     return NextResponse.json({ success: true, data: newAccommodation });
   } catch (error) {

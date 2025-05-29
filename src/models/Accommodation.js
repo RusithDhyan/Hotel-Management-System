@@ -13,6 +13,7 @@ const AccommodationSchema = new mongoose.Schema({
   description: String,
   image: String,
   images: [String],
+  spec_type: [String]
 
 });
 

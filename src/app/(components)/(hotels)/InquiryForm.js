@@ -2,16 +2,16 @@
 import React, { useState } from "react";
 
 export default function InquiryForm() {
-  const [formData, setFormData] = useState({
+  const [form, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    checkIn: "",
-    checkOut: "",
+    check_in: "",
+    check_out: "",
     guests: "",
-    inquiryType: "",
+    inquiry_type: "",
     hotel: "",
-    roomType: "",
+    room_type: "",
     message: "",
   });
 
@@ -19,23 +19,66 @@ export default function InquiryForm() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+//   const handleChange = (e) => {
+//   setFormData({ ...formData, [e.target.name]: e.target.value });
+// };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
+    // console.log("Form Submitted:", formData);
     alert("Thank you for your inquiry!");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      checkIn: "",
-      checkOut: "",
-      guests: "",
-      inquiryType: "",
-      hotel: "",
-      roomType: "",
-      message: "",
+
+    // setFormData({
+    //   name: "",
+    //   email: "",
+    //   phone: "",
+    //   check_in: "",
+    //   check_out: "",
+    //   guests: "",
+    //   inquiry_type: "",
+    //   hotel: "",
+    //   room_type: "",
+    //   message: "",
+    // });
+
+    const formData = new FormData();
+      formData.append("name", form.name);
+      formData.append("email", form.email);
+      formData.append("phone", form.phone);
+      formData.append("check_in", form.check_in);
+      formData.append("check_out", form.check_out);
+      formData.append("guests", form.guests);
+      formData.append("inquiry_type", form.inquiry_type);
+      formData.append("hotel", form.hotel);
+      formData.append("room_type", form.room_type);
+      formData.append("message", form.message);
+
+
+
+    const res = await fetch("/api/inquiry", {
+      method: "POST",
+      body: formData,
     });
+    const result = await res.json();
+      if (result.success) {
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          check_in: "",
+          check_out: "",
+          guests: "",
+          inquiry_type: "",
+          hotel: "",
+          room_type: "",
+          message: "",
+        });
+        // fetchExperience();
+      } else {
+        alert("Error: " + result.error);
+      }
+
   };
 
   return (
@@ -54,7 +97,7 @@ export default function InquiryForm() {
               <input
                 type="text"
                 name="name"
-                value={formData.name}
+                value={form.name}
                 onChange={handleChange}
                 placeholder="Full Name"
                 required
@@ -63,7 +106,7 @@ export default function InquiryForm() {
               <input
                 type="email"
                 name="email"
-                value={formData.email}
+                value={form.email}
                 onChange={handleChange}
                 placeholder="Email Address"
                 required
@@ -72,7 +115,7 @@ export default function InquiryForm() {
               <input
                 type="tel"
                 name="phone"
-                value={formData.phone}
+                value={form.phone}
                 onChange={handleChange}
                 placeholder="Phone Number"
                 className="border-b px-4 py-2"
@@ -80,16 +123,16 @@ export default function InquiryForm() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <input
                   type="date"
-                  name="checkIn"
-                  value={formData.checkIn}
+                  name="check_in"
+                  value={form.check_in}
                   onChange={handleChange}
                   required
                   className="border-b px-4 py-2 w-full"
                 />
                 <input
                   type="date"
-                  name="checkOut"
-                  value={formData.checkOut}
+                  name="check_out"
+                  value={form.check_out}
                   onChange={handleChange}
                   required
                   className="border-b px-4 py-2 w-full"
@@ -98,7 +141,7 @@ export default function InquiryForm() {
               <input
                 type="number"
                 name="guests"
-                value={formData.guests}
+                value={form.guests}
                 onChange={handleChange}
                 placeholder="Number of Guests"
                 min="1"
@@ -110,8 +153,8 @@ export default function InquiryForm() {
             {/* Right Column */}
             <div className="flex flex-col gap-4 w-full">
               <select
-                name="inquiryType"
-                value={formData.inquiryType}
+                name="inquiry_type"
+                value={form.inquiry_type}
                 onChange={handleChange}
                 className="border-b px-4 py-2"
                 required
@@ -124,7 +167,7 @@ export default function InquiryForm() {
               </select>
               <select
                 name="hotel"
-                value={formData.hotel}
+                value={form.hotel}
                 onChange={handleChange}
                 className="border-b px-4 py-2"
                 required
@@ -140,8 +183,8 @@ export default function InquiryForm() {
                 <option value="Waters Edge">Waters Edge</option>
               </select>
               <select
-                name="roomType"
-                value={formData.roomType}
+                name="room_type"
+                value={form.room_type}
                 onChange={handleChange}
                 className="border-b px-4 py-2"
                 required
@@ -154,7 +197,7 @@ export default function InquiryForm() {
               </select>
               <textarea
                 name="message"
-                value={formData.message}
+                value={form.message}
                 onChange={handleChange}
                 placeholder="Special Requests or Message"
                 rows={3}

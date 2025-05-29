@@ -4,33 +4,36 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import GalleryForm from "@/app/GalleryForm";
 
-const images = [
-  { image: "/hotels/heritage/gallery/gallery-img1.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img2.jpeg" },
-  { image: "/hotels/heritage/gallery/gallery-img3.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img4.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img5.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img6.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img7.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img8.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img9.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img10.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img11.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img12.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img13.jpg" },
-  { image: "/hotels/heritage/gallery/gallery-img14.jpg" },
-];
-
-const Gallery = () => {
+const Gallery = ({ hotelId }) => {
   const [isActive, setIsActive] = useState(false);
   const activateHover = () => setIsActive(true);
   const deactivateHover = () => setIsActive(false);
 
-  const [selectedImage, setSelectedImage] = useState(images[0].image);
+  const [allImages, setAllImages] = useState([]); // flattened images array
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const scrollRef = useRef(null);
   const thumbnailRefs = useRef([]);
   const indexRef = useRef(0);
+
+  const fetchGallery = async () => {
+    const res = await fetch(`/api/gallery?hotelId=${hotelId}`);
+    const data = await res.json();
+    console.log("Fetched Gallery..:", data.data);
+
+    if (data.success && data.data.length > 0) {
+      // Flatten all image_slider arrays into one array of image URLs
+      const images = data.data.flatMap((item) => item.image_slider || []);
+      setAllImages(images);
+      setSelectedImage(images[0] || null);
+    }
+  };
+
+  useEffect(() => {
+    fetchGallery();
+  }, []);
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -41,7 +44,7 @@ const Gallery = () => {
         behavior: "auto",
       });
     }
-  }, []);
+  }, [allImages]);
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -57,19 +60,20 @@ const Gallery = () => {
           left: nextThumb.offsetLeft - 16,
           behavior: "smooth",
         });
-        setSelectedImage(images[indexRef.current].image);
+        setSelectedImage(allImages[indexRef.current]);
       }
     };
 
     const interval = setInterval(scrollNext, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [allImages]);
 
   const scrollLeft = () => {
     const container = scrollRef.current;
     if (!container) return;
 
-    indexRef.current = (indexRef.current - 1 + images.length) % images.length;
+    indexRef.current =
+      (indexRef.current - 1 + allImages.length) % allImages.length;
     const prevThumb = thumbnailRefs.current[indexRef.current];
 
     if (prevThumb) {
@@ -77,7 +81,7 @@ const Gallery = () => {
         left: prevThumb.offsetLeft - 16,
         behavior: "smooth",
       });
-      setSelectedImage(images[indexRef.current].image);
+      setSelectedImage(allImages[indexRef.current]);
     }
   };
 
@@ -85,7 +89,7 @@ const Gallery = () => {
     const container = scrollRef.current;
     if (!container) return;
 
-    indexRef.current = (indexRef.current + 1) % images.length;
+    indexRef.current = (indexRef.current + 1) % allImages.length;
     const nextThumb = thumbnailRefs.current[indexRef.current];
 
     if (nextThumb) {
@@ -93,7 +97,7 @@ const Gallery = () => {
         left: nextThumb.offsetLeft - 16,
         behavior: "smooth",
       });
-      setSelectedImage(images[indexRef.current].image);
+      setSelectedImage(allImages[indexRef.current]);
     }
   };
 
@@ -127,18 +131,20 @@ const Gallery = () => {
       </Link>
 
       {/* Main Image */}
-      <div className="w-full aspect-[21/9] relative overflow-hidden shadow-lg mt-5">
-        <Image
-          src={selectedImage}
-          alt="Selected Food"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
+      {selectedImage && (
+        <div className="w-full h-70 sm:w-250 sm:h-100 relative overflow-hidden shadow-lg mt-5">
+          <Image
+            src={selectedImage}
+            alt="Selected Food"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      )}
 
       {/* Arrow Buttons */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center mt-2">
         <button
           onClick={scrollLeft}
           className="p-1 bg-white shadow hover:bg-gray-300"
@@ -158,23 +164,21 @@ const Gallery = () => {
         ref={scrollRef}
         className="flex gap-3 overflow-x-auto py-2 px-1 scrollbar-hide scroll-smooth"
       >
-        {images.map((img, index) => (
+        {allImages.map((img, index) => (
           <div
             key={index}
             ref={(el) => (thumbnailRefs.current[index] = el)}
             className={`min-w-[80px] sm:min-w-[100px] md:min-w-[120px] h-20 sm:h-24 cursor-pointer overflow-hidden border-2 ${
-              selectedImage === img.image
-                ? "border-blue-500"
-                : "border-transparent"
+              selectedImage === img ? "border-blue-500" : "border-transparent"
             }`}
             onClick={() => {
               indexRef.current = index;
-              setSelectedImage(img.image);
+              setSelectedImage(img);
             }}
           >
             <div className="relative w-full h-full">
               <Image
-                src={img.image}
+                src={img}
                 alt={`Thumbnail ${index + 1}`}
                 fill
                 className="object-cover"
@@ -183,6 +187,7 @@ const Gallery = () => {
           </div>
         ))}
       </div>
+      <GalleryForm hotelId={hotelId} />
     </div>
   );
 };

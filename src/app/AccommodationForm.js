@@ -1,7 +1,16 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const options = [
+  "Bath Tub",
+  "Kitchen",
+  "TV",
+  "Air Condition",
+  "Tea & Coffee",
+  "Refrigerator",
+  "Wifi",
+];
 
 export default function AccommodationForm({ hotelId }) {
   const [accommodations, setAccommodations] = useState([]);
@@ -12,8 +21,20 @@ export default function AccommodationForm({ hotelId }) {
     description: "",
     image: "",
     images: [],
+    spec_type: [],
   });
   const [editingAccommodationId, setEditingAccommodationId] = useState(null);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef();
+
+  const toggleOption = (value) => {
+    const newSelected = form.spec_type.includes(value)
+      ? form.spec_type.filter((item) => item !== value)
+      : [...form.spec_type, value];
+
+    setForm({ ...form, spec_type: newSelected });
+  };
 
   const fetchAccommodation = async () => {
     const res = await fetch(`/api/accommodation?hotelId=${hotelId}`);
@@ -25,6 +46,16 @@ export default function AccommodationForm({ hotelId }) {
 
   useEffect(() => {
     fetchAccommodation();
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const handleSubmit = async (e) => {
@@ -45,7 +76,8 @@ export default function AccommodationForm({ hotelId }) {
           size: form.size,
           description: form.description,
           image: form.image,
-          images: form.images,
+          // images: form.images,
+          spec_type: form.spec_type,
         }),
       });
 
@@ -60,7 +92,8 @@ export default function AccommodationForm({ hotelId }) {
           size: "",
           description: "",
           image: "",
-          images: [],
+          // images: [],
+          spec_type: [],
         });
         fetchAccommodation();
       }
@@ -80,6 +113,11 @@ export default function AccommodationForm({ hotelId }) {
           formData.append("images", img); // NOTE: "images" matches API handler
         });
       }
+      if (form.spec_type && form.spec_type.length > 0) {
+        form.spec_type.forEach((spec) => {
+          formData.append("spec_type", spec); // NOTE: "images" matches API handler
+        });
+      }
 
       const res = await fetch("/api/accommodation", {
         method: "POST",
@@ -95,6 +133,7 @@ export default function AccommodationForm({ hotelId }) {
           description: "",
           image: "",
           images: [],
+          spec_type: [],
         });
         fetchAccommodation();
       } else {
@@ -125,7 +164,7 @@ export default function AccommodationForm({ hotelId }) {
       size: accommodation.size,
       description: accommodation.description,
       image: accommodation.image,
-      images: [],
+      spec_type: [],
     }); // image not edited here
     setEditingAccommodationId(accommodation._id);
   };
@@ -175,22 +214,54 @@ export default function AccommodationForm({ hotelId }) {
           className="w-full p-2 border rounded"
           required
         />
-        {/* {!editingAccommodationId && ( */}
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
-            className="w-full"
-          />
-        {/* )} */}
-          <input
-            type="file"
-            accept="image/*"
-            multiple
-            onChange={(e) =>
-              setForm({ ...form, images: Array.from(e.target.files) })
-            }
-          />
+        {!editingAccommodationId && (
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
+          className="w-full"
+        />
+        )} 
+        {!editingAccommodationId && (
+        <input
+          type="file"
+          accept="image/*"
+          multiple
+          onChange={(e) =>
+            setForm({ ...form, images: Array.from(e.target.files) })
+          }
+        />
+        )}
+        <div className="relative w-full" ref={dropdownRef}>
+          <div
+            onClick={() => setIsOpen(!isOpen)}
+            className="border p-2 rounded cursor-pointer bg-white"
+          >
+            {form.spec_type.length > 0
+              ? form.spec_type.join(", ")
+              : "Select specifications"}
+          </div>
+
+          {isOpen && (
+            <div className="absolute z-10 mt-1 w-full bg-white border rounded shadow-md max-h-60 overflow-y-auto">
+              {options.map((option) => (
+                <label
+                  key={option}
+                  className="flex items-center px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    checked={form.spec_type.includes(option)}
+                    onChange={() => toggleOption(option)}
+                    className="mr-2"
+                  />
+                  {option}
+                </label>
+              ))}
+            </div>
+          )}
+        </div>
+
         <button
           type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded"
@@ -208,6 +279,7 @@ export default function AccommodationForm({ hotelId }) {
                 description: "",
                 image: "",
                 images: [],
+                spec_type: [],
               });
               setEditingAccommodationId(null);
             }}
