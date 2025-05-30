@@ -10,8 +10,6 @@ const BlogSchema = new mongoose.Schema({
   body_description: String,
   image: String,
   image_slider: [String]
-
-  
 });
 
 export default mongoose.models.Blog || mongoose.model("Blog", BlogSchema);

@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import OurStory from "../(components)/(home)/OurStory";
-import ServiceCardSlider from "../(components)/(home)/ServiceCardSlider";
 import OfferSlider from "../(components)/(home)/OfferSlider";
 import Link from "next/link";
 import HomeSlider from "../(components)/(home)/HomeSlider";
