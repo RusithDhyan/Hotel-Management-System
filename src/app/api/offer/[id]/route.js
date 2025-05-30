@@ -39,13 +39,13 @@ export async function DELETE(request, { params }) {
 export async function GET(req, { params }) {
   try {
     await connectDB();
-    const room = await Offer.findById(params.id).lean();
+    const offer = await Offer.findById(params.id).lean();
 
-    if (!room) {
-      return NextResponse.json({ error: "room not found" }, { status: 404 });
+    if (!offer) {
+      return NextResponse.json({ error: "offer not found" }, { status: 404 });
     }
 
-    return NextResponse.json({room});
+    return NextResponse.json({offer});
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: "Server error" }, { status: 500 });

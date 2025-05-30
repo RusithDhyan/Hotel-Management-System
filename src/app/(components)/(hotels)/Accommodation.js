@@ -2,8 +2,38 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, X } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Bath,
+  Bed,
+  CheckCircle,
+  Coffee,
+  Fan,
+  Refrigerator,
+  Snowflake,
+  Thermometer,
+  Tv,
+  Utensils,
+  Wifi,
+  X,
+} from "lucide-react";
 import AccommodationForm from "@/app/AccommodationForm";
+
+const specIconMap = {
+  "Bath Tub": <Bath size={16} />,
+  Kitchen: <Utensils size={16} />,
+  TV: <Tv size={16} />,
+  "Air Condition": <Snowflake size={16} />,
+  Heater: <Thermometer size={16} />,
+  "Tea & Coffee": <Coffee size={16} />,
+  Refrigerator: <Refrigerator size={16} />,
+  Wifi: <Wifi size={16} />,
+  "Queen Bed": <Bed size={16} />,
+  "Private Bathroom": <Bath size={16} />,
+  // fallback
+  default: <CheckCircle size={16} />,
+};
 
 export default function Accommodation({ hotelId }) {
   const [selectedRoom, setSelectedRoom] = useState(null);
@@ -219,22 +249,21 @@ export default function Accommodation({ hotelId }) {
               <p className="text-sm mb-4">{room.description}</p>
 
               {/* features */}
-              
-              <div>
-  <h1 className="font-semibold text-gray-600">What's Inside</h1>
-  <div className="grid grid-cols-2 gap-2 pb-5 mt-2">
-    {room?.spec_type?.map((spec, index) => (
-      <div
-        key={index}
-        className="flex items-center justify-between text-sm"
-      >
-        <span>{spec}</span>
-        
-      </div>
-    ))}
-  </div>
-</div>
 
+              <div>
+                <h1 className="font-semibold text-gray-600">What's Inside</h1>
+                <div className="grid grid-cols-2 gap-2 pb-5 mt-2">
+                  {room?.spec_type?.map((spec, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-2 text-sm text-gray-700"
+                    >
+                      {specIconMap[spec] || specIconMap["default"]}
+                      <span>{spec}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
               <Link href="/booking">
                 <button className="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-700 w-full sm:w-auto">
@@ -246,7 +275,7 @@ export default function Accommodation({ hotelId }) {
         </div>
       )}
 
-      <AccommodationForm hotelId={hotelId} />
+      {/* <AccommodationForm hotelId={hotelId} /> */}
     </div>
   );
 }

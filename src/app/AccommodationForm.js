@@ -1,15 +1,28 @@
 "use client";
-
+import {
+  Bath,
+  Bed,
+  Coffee,
+  Refrigerator,
+  Snowflake,
+  Thermometer,
+  Tv,
+  Utensils,
+  Wifi,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const options = [
-  "Bath Tub",
-  "Kitchen",
-  "TV",
-  "Air Condition",
-  "Tea & Coffee",
-  "Refrigerator",
-  "Wifi",
+const optionsWithIcons = [
+  { label: "Bath Tub", icon: Bath },
+  { label: "Kitchen", icon: Utensils },
+  { label: "TV", icon: Tv },
+  { label: "Air Condition", icon: Snowflake },
+  { label: "Heater", icon: Thermometer },
+  { label: "Tea & Coffee", icon: Coffee },
+  { label: "Refrigerator", icon: Refrigerator },
+  { label: "Wifi", icon: Wifi },
+  { label: "Queen Bed", icon: Bed },
+  { label: "Private Bathroom", icon: Bath },
 ];
 
 export default function AccommodationForm({ hotelId }) {
@@ -215,22 +228,22 @@ export default function AccommodationForm({ hotelId }) {
           required
         />
         {!editingAccommodationId && (
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
-          className="w-full"
-        />
-        )} 
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
+            className="w-full"
+          />
+        )}
         {!editingAccommodationId && (
-        <input
-          type="file"
-          accept="image/*"
-          multiple
-          onChange={(e) =>
-            setForm({ ...form, images: Array.from(e.target.files) })
-          }
-        />
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={(e) =>
+              setForm({ ...form, images: Array.from(e.target.files) })
+            }
+          />
         )}
         <div className="relative w-full" ref={dropdownRef}>
           <div
@@ -244,18 +257,19 @@ export default function AccommodationForm({ hotelId }) {
 
           {isOpen && (
             <div className="absolute z-10 mt-1 w-full bg-white border rounded shadow-md max-h-60 overflow-y-auto">
-              {options.map((option) => (
+              {optionsWithIcons.map(({ label, icon: Icon }) => (
                 <label
-                  key={option}
-                  className="flex items-center px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                  key={label}
+                  className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 cursor-pointer"
                 >
                   <input
                     type="checkbox"
-                    checked={form.spec_type.includes(option)}
-                    onChange={() => toggleOption(option)}
+                    checked={form.spec_type.includes(label)}
+                    onChange={() => toggleOption(label)}
                     className="mr-2"
                   />
-                  {option}
+                  <Icon className="w-4 h-4 text-red-300" />
+                  {label}
                 </label>
               ))}
             </div>

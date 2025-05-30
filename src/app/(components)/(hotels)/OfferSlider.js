@@ -98,15 +98,15 @@ export default function OfferSlider({hotelId}) {
               </div>
               <div className="flex flex-col items-center gap-3 text-sm md:text-md lg:text-lg text-center sm:text-left max-w-xl xl:max-w-2xl 2xl:max-w-3xl">
                 <h1 className="xl:text-2xl font-semibold">
-                  {offer.title}
+                  {offer.offer_type}
                 </h1>
                 <h2 className=" xl:text-xl  text-gray-600">
-                  {offers.title}
+                  {offer.title}
                 </h2>
                 <p className="text-center my-10 xl:my-12 2xl:my-16">
                   {offer.description}
                 </p>
-                <Link href="">
+                <Link href={`/offers/${offer._id}`}>
                   <button
                     className="relative text-black py-1 border-b-2 border-transparent"
                     onMouseEnter={activateHover}
@@ -149,7 +149,7 @@ export default function OfferSlider({hotelId}) {
           <ArrowRight size={20} />
         </button>
       </div>
-      <OfferForm hotelId={hotelId}/>
+      {/* <OfferForm hotelId={hotelId}/> */}
     </div>
   );
 }

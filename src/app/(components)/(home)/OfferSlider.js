@@ -62,7 +62,7 @@ export default function OfferSlider({ nav }) {
                 <p className="text-center my-10 xl:my-12 2xl:my-16">
                   {offer.description}
                 </p>
-                <Link href="">
+                <Link href={`/offers/${offer._id}`}>
                   <button
                     className="relative text-black py-1 border-b-2 border-transparent"
                     onMouseEnter={activateHover}
