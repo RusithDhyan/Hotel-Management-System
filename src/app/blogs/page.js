@@ -118,7 +118,7 @@ export default function BlogPage() {
           ))}
         </div>
       </div>
-      <BlogForm/>
+      {/* <BlogForm/> */}
     </div>
   );
 }

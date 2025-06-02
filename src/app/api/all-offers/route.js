@@ -31,7 +31,7 @@ export async function GET(req) {
     return NextResponse.json({
       success: true,
       data: {
-        hotelName: hotel.title,
+        hotelName: hotel.hotel_name,
         Id:offer._id,
         offerType: offer.offer_type,
       },

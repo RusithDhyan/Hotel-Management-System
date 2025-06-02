@@ -63,7 +63,7 @@ export default function HotelGallery() {
         >
           {hotels.map((hotel) => (
             <option key={hotel._id} value={hotel._id}>
-              {hotel.title}
+              {hotel.hotel_name}
             </option>
           ))}
         </select>

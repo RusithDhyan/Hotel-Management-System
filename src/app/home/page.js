@@ -7,6 +7,7 @@ import Link from "next/link";
 import HomeSlider from "../(components)/(home)/HomeSlider";
 import HotelNav from "../(components)/(home)/HotelNav";
 import HotelSlider from "../(components)/(home)/HotelSlider";
+import Form from "../Form";
 
 export default function Home() {
   const [isActive, setIsActive] = useState(false);
@@ -87,7 +88,7 @@ export default function Home() {
         <HotelSlider />
       </div>
 
-      <div className="w-full max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center justify-center sm:gap-20 xl:gap-32 md:justify-between mt-20 px-5 sm:px-10">
+      <div className="w-full mx-auto flex flex-col md:flex-row items-center justify-center sm:gap-20 xl:gap-60 md:justify-between mt-20 px-5 sm:px-10">
         <div className="flex flex-col text-left text-sm sm:text-base md:text-md lg:text-lg max-w-xl">
           <h1 className="text-lg sm:text-xl md:text-3xl lg:text-4xl mb-4">
             Explore Malawi...
@@ -169,7 +170,7 @@ export default function Home() {
       {/* <ServiceCardSlider /> */}
       <OfferSlider nav={navLink} />
       <OurStory />
-      
+      <Form/>
     </div>
   );
 }

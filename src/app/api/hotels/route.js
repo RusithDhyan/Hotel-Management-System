@@ -4,6 +4,7 @@ import Hotel from "@/models/Hotel";
 
 export async function POST(req) {
   const formData = await req.formData();
+  const hotel_name = formData.get("hotel_name");
   const title = formData.get("title");
   const location = formData.get("location");
   const description = formData.get("description");
@@ -26,6 +27,7 @@ export async function POST(req) {
   try {
     await connectDB();
     const newHotel = await Hotel.create({
+      hotel_name,
       title,
       location,
       description,

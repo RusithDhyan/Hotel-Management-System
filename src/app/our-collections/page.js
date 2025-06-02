@@ -53,10 +53,10 @@ export default function OurCollection() {
             </div>
             <div className="p-1 bg-white">
               <h2 className="text-md sm:text-lg font-semibold">
-                {hotel.title}
+                {hotel.hotel_name}
               </h2>
               <h3 className="text-gray-600 text-sm">{hotel.location}</h3>
-              <p className="text-sm mt-2">{hotel.description}</p>
+              <p className="text-sm mt-2">{hotel.title}</p>
             </div>
           </div>
             ))
@@ -64,7 +64,7 @@ export default function OurCollection() {
             <p>Loading or invalid data</p>
           )}
       </div>
-      {/* <HotelForm/> */}
+      <HotelForm/>
     </div>
   );
 }

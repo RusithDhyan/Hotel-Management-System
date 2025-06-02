@@ -14,7 +14,7 @@ export default function OfferSlider({ nav }) {
   const [isActive, setIsActive] = useState(false);
   const [index, setIndex] = useState(0);
   const swiperRef = useRef(null);
-      const {offers} = useData();
+  const { offers } = useData();
 
   const activateHover = () => setIsActive(true);
   const deactivateHover = () => setIsActive(false);
@@ -42,24 +42,24 @@ export default function OfferSlider({ nav }) {
         onSlideChange={(swiper) => setIndex(swiper.realIndex)}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
-        {offers.map((offer, idx) => (
-          <SwiperSlide key={idx}>
+        {offers.map((offer) => (
+          <SwiperSlide key={offer._id}>
             <div className="flex flex-col items-center sm:flex-row gap-5 sm:gap-20 mt-10 xl:gap-32 2xl:gap-40">
-              <div className="relative w-80 h-80 sm:h-125 sm:w-125 xl:w-[600px] xl:h-[450px] 2xl:w-[700px] 2xl:h-[600px]">
+              <div className="relative ">
                 <Image
                   src={offer.image}
                   alt="offer-image"
-                  layout="fill"
-                  objectFit="cover"
-                  className="w-100 h-100"
+                  width={1500}
+                  height={100}
+                  className="w-80 h-80 sm:h-125 sm:w-125 xl:w-[450px] xl:h-[450px] 2xl:w-[600px] 2xl:h-[600px] object-cover"
                 />
               </div>
-              <div className="flex flex-col items-center gap-3 text-sm md:text-md lg:text-lg text-center sm:text-left max-w-xl xl:max-w-2xl 2xl:max-w-3xl">
-                <h1 className="xl:text-2xl font-semibold">{offer.title}</h1>
-                <h2 className=" xl:text-xl  text-gray-600">
+              <div className="flex flex-col items-center gap-3 text-sm md:text-md lg:text-lg text-center sm:text-left max-w-xl xl:max-w-2xl 2xl:max-w-3xl ">
+                <h1 className="xl:text-2xl font-semibold">
                   {offer.offer_type}
-                </h2>
-                <p className="text-center my-10 xl:my-12 2xl:my-16">
+                </h1>
+                <h2 className=" xl:text-xl  text-gray-600">{offer.title}</h2>
+                <p className="text-center my-3 xl:my-12 2xl:my-16">
                   {offer.description}
                 </p>
                 <Link href={`/offers/${offer._id}`}>

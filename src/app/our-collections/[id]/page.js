@@ -42,7 +42,7 @@ export default function HotelInnerPage() {
           className="object-cover h-100 sm:max-h-screen w-full"
         />
         <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl text-white pb-4 font-bold px-4">
-          {hotel.title}
+          {hotel.hotel_name}
         </h1>
       </div>
 
@@ -57,15 +57,10 @@ export default function HotelInnerPage() {
 
         <div className="flex flex-col items-center justify-center gap-4 text-center md:text-left md:w-1/2">
           <h1 className="text-2xl md:text-3xl font-semibold">
-            Where Lake Dreams Begin Serenity by the Shoreline of Salima
+            {hotel.title}
           </h1>
           <p className="text-sm md:text-base text-gray-600">
-            Nestled along the serene shores of Lake Malawi, Blue Waters Lake
-            Resort offers a tranquil escape with rustic luxury. Guests can enjoy
-            lakeview accommodations, a tranquil waterside pool, and exceptional
-            event spaces accommodating up to 300 guests. The resort's "Pier
-            Deck" and "Rain Tree" restaurants are renowned for their culinary
-            delights, enhancing every occasion.
+            {hotel.description}
           </p>
         </div>
       </div>
@@ -73,7 +68,7 @@ export default function HotelInnerPage() {
       <Accommodation hotelId={hotel._id} />
 
       <h1 className="text-2xl sm:text-3xl text-center mt-10">
-        Experience in {hotel.title}
+        Experience in {hotel.hotel_name}
       </h1>
 
       <Experience hotelId={hotel._id} />

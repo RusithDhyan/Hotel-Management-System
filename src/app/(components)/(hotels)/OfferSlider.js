@@ -10,53 +10,24 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import OfferForm from "@/app/OfferForm";
 
-const slider = [
-  {
-    image: "/hotels/heritage/offers/slider/offer1.jpeg",
-    url:"/hotels/heritage-hotel/offers/early-bird",
-    title: "Get 50% Off Your Second Night",
-    offerType: "Just One More Night",
-    description:
-      "Stay 2 nights & get 50% off your second night at selection hotels",
-  },
-  {
-    image: "/hotels/heritage/offers/slider/offer2.jpeg",
-    url:"/hotels/heritage-hotel/offers/early-bird",
-    title: "Early Bird Discount",
-    offerType: "Just One More Night",
-    description:
-      "Book 30 days in advance and get 15% off your stay,plus a welcome drink",
-  },
-  {
-    image: "/hotels/heritage/offers/slider/offer3.jpeg",
-    url:"/hotels/heritage-hotel/offers/early-bird",
-    title: "Spa & Stay Retreat",
-    offerType: "Just One More Night",
-    description:
-      "Escape to paradise! Enjoy a 🌿✨  luxurious stay with exclusive spa treatments",
-  },
-];
-
-export default function OfferSlider({hotelId}) {
+export default function OfferSlider({ hotelId }) {
   const [isActive, setIsActive] = useState(false);
   const [index, setIndex] = useState(0);
-  const [offers,setOffers] = useState([]);
+  const [offers, setOffers] = useState([]);
 
   const swiperRef = useRef(null);
 
+  const fetchOffer = async () => {
+    const res = await fetch(`/api/offer?hotelId=${hotelId}`);
+    const data = await res.json();
+    console.log("Fetched offers..:", data.data); // <- add this
 
-    const fetchOffer = async () => {
-      const res = await fetch(`/api/offer?hotelId=${hotelId}`);
-      const data = await res.json();
-      console.log("Fetched offers..:", data.data); // <- add this
-  
-      if (data.success) setOffers(data.data);
-    };
-  
-    useEffect(() => {
-      fetchOffer();
-    }, []);
+    if (data.success) setOffers(data.data);
+  };
 
+  useEffect(() => {
+    fetchOffer();
+  }, []);
 
   const activateHover = () => setIsActive(true);
   const deactivateHover = () => setIsActive(false);
@@ -87,22 +58,20 @@ export default function OfferSlider({hotelId}) {
         {offers.map((offer) => (
           <SwiperSlide key={offer._id}>
             <div className="flex flex-col items-center sm:flex-row gap-5 sm:gap-20 mt-10 xl:gap-32 2xl:gap-40">
-              <div className="relative w-80 h-80 sm:h-125 sm:w-125 xl:w-[600px] xl:h-[450px] 2xl:w-[700px] 2xl:h-[600px]">
+              <div className="relative ">
                 <Image
                   src={offer.image}
                   alt="offer-image"
                   width={1500}
                   height={100}
-                  className="w-125 h-125 object-cover"
+                  className="w-80 h-80 sm:h-125 sm:w-125 xl:w-[600px] xl:h-[450px] 2xl:w-[700px] 2xl:h-[600px] object-cover"
                 />
               </div>
               <div className="flex flex-col items-center gap-3 text-sm md:text-md lg:text-lg text-center sm:text-left max-w-xl xl:max-w-2xl 2xl:max-w-3xl">
                 <h1 className="xl:text-2xl font-semibold">
                   {offer.offer_type}
                 </h1>
-                <h2 className=" xl:text-xl  text-gray-600">
-                  {offer.title}
-                </h2>
+                <h2 className=" xl:text-xl  text-gray-600">{offer.title}</h2>
                 <p className="text-center my-10 xl:my-12 2xl:my-16">
                   {offer.description}
                 </p>
@@ -137,7 +106,10 @@ export default function OfferSlider({hotelId}) {
           <ArrowLeft size={20} />
         </button>
 
-        <Link href="" className="text-sm sm:text-base xl:text-lg 2xl:text-xl text-gray-500">
+        <Link
+          href=""
+          className="text-sm sm:text-base xl:text-lg 2xl:text-xl text-gray-500"
+        >
           View all
         </Link>
 

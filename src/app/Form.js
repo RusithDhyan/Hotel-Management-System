@@ -1,30 +1,48 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function PageExpForm({ hotelId }) {
+export default function Form() {
   const [experiences, setExperience] = useState([]);
   const [form, setForm] = useState({
-    
     image_right: "",
     description_right: "",
     image_left: "",
-    description_left: ""
+    description_left: "",
   });
   const [editingExpId, setEditingExpId] = useState(null);
+  const [hotels, setHotels] = useState([]);
+  const [selectedHotelId, setSelectedHotelId] = useState(null);
 
-  const fetchExperience = async () => {
+  useEffect(() => {
+    // Fetch hotels initially
+    fetch("/api/hotels") // You’ll need to create this endpoint
+      .then((res) => res.json())
+      .then((data) => {
+        setHotels(data.data);
+        if (data.data.length > 0) {
+          const firstHotelId = data.data[0]._id;
+          setSelectedHotelId(firstHotelId);
+          fetchExperience(firstHotelId);
+        }
+      });
+  }, []);
+
+  const fetchExperience = async (hotelId) => {
     const res = await fetch(`/api/page-exp?hotelId=${hotelId}`);
     const data = await res.json();
-    console.log("Fetched experience:", data.data); // <- add this
+    console.log("Fetched experience:", data.data);
+    console.log("hotelId", hotelId);
 
     if (data.success) setExperience(data.data);
   };
 
-  useEffect(() => {
-    fetchExperience();
-  }, []);
+  const handleSelectChange = (e) => {
+    const id = e.target.value;
+    console.log("log", id);
+    setSelectedHotelId(id);
+    fetchExperience(id);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,7 +60,7 @@ export default function PageExpForm({ hotelId }) {
           image_right: form.image_right,
           description_right: form.description_right,
           image_left: form.image_left,
-          description_left: form.description_left,        
+          description_left: form.description_left,
         }),
       });
 
@@ -55,14 +73,14 @@ export default function PageExpForm({ hotelId }) {
           image_right: "",
           description_right: "",
           image_left: "",
-          description_left: "",       
+          description_left: "",
         });
         fetchExperience();
       }
     } else {
       // Create new user with image
       const formData = new FormData();
-      formData.append("hotelId", hotelId);
+      formData.append("selectedHotelId", selectedHotelId);
       if (form.image_right) formData.append("image_right", form.image_right);
       formData.append("description_right", form.description_right);
       if (form.image_left) formData.append("image_left", form.image_left);
@@ -76,12 +94,11 @@ export default function PageExpForm({ hotelId }) {
       const result = await res.json();
       if (result.success) {
         setForm({
-            image_right: "",
-            description_right: "",
-            image_left: "",
-            description_left: "",
-           
-          });
+          image_right: "",
+          description_right: "",
+          image_left: "",
+          description_left: "",
+        });
         fetchExperience();
       } else {
         alert("Error: " + result.error);
@@ -119,29 +136,42 @@ export default function PageExpForm({ hotelId }) {
       <h1 className="text-2xl font-bold mb-4">Experience Form</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-      <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setForm({ ...form, image_right: e.target.files[0] })}
-            className="w-full"
-          />
-       
+        <select
+          onChange={handleSelectChange}
+          value={selectedHotelId || ""}
+          className="px-4 py-2 border border-gray-300 rounded-md shadow-sm"
+        >
+          {hotels.map((hotel) => (
+            <option key={hotel._id} value={hotel._id}>
+              {hotel.hotel_name}
+            </option>
+          ))}
+        </select>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setForm({ ...form, image_right: e.target.files[0] })}
+          className="w-full"
+        />
+
         <input
           type="text"
           name="description_right"
           placeholder="Description Right"
           value={form.description_right}
-          onChange={(e) => setForm({ ...form, description_right: e.target.value })}
+          onChange={(e) =>
+            setForm({ ...form, description_right: e.target.value })
+          }
           className="w-full p-2 border rounded"
           required
         />
         {/* {!editingAccommodationId && ( */}
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setForm({ ...form, image_left: e.target.files[0] })}
-            className="w-full"
-          />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setForm({ ...form, image_left: e.target.files[0] })}
+          className="w-full"
+        />
 
         {/* )} */}
         <input
@@ -149,11 +179,13 @@ export default function PageExpForm({ hotelId }) {
           name="description_left"
           placeholder="Description Left"
           value={form.description_left}
-          onChange={(e) => setForm({ ...form, description_left: e.target.value })}
+          onChange={(e) =>
+            setForm({ ...form, description_left: e.target.value })
+          }
           className="w-full p-2 border rounded"
           required
         />
-         
+
         <button
           type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded"
@@ -164,13 +196,12 @@ export default function PageExpForm({ hotelId }) {
           <button
             type="button"
             onClick={() => {
-                setForm({
-                    image_right: "",
-                    description_right: "",
-                    image_left: "",
-                    description_left: "",
-                   
-                  });
+              setForm({
+                image_right: "",
+                description_right: "",
+                image_left: "",
+                description_left: "",
+              });
               setEditingExpId(null);
             }}
             className="ml-2 bg-gray-500 text-white px-4 py-2 rounded"

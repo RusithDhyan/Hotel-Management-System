@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
+
 function About() {
   const hotels = [
     { image: "/logo/blue.png", name: "Blue Waters Lake Resort" },
@@ -57,7 +58,6 @@ function About() {
             height={100}
             className="w-full h-64 sm:h-80 md:h-96 object-cover"
           />
-        
         </div>
 
         {/* Right Content */}
@@ -66,13 +66,13 @@ function About() {
             Discover Authentic Malawian Hospitality
           </h1>
           <div className="relative w-full">
-          <p className="text-sm sm:text-base">
-            From the moment you arrive at Heritage Hotel, you are welcomed with
-            warm hospitality and a refreshing welcome drink, setting the tone
-            for an unforgettable stay. The hotel’s charming blend of traditional
-            elegance and modern luxury offers a unique experience in a tranquil
-            setting.
-          </p>
+            <p className="text-sm sm:text-base">
+              From the moment you arrive at Heritage Hotel, you are welcomed
+              with warm hospitality and a refreshing welcome drink, setting the
+              tone for an unforgettable stay. The hotel’s charming blend of
+              traditional elegance and modern luxury offers a unique experience
+              in a tranquil setting.
+            </p>
           </div>
         </div>
       </div>

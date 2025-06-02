@@ -26,15 +26,13 @@ export async function GET(req) {
   }
 }
 
-
 export async function POST(req) {
   const formData = await req.formData();
-  const hotelId = formData.get("hotelId");
+  const hotelId = formData.get("selectedHotelId");
   const image_right = formData.get("image_right");
   const description_right = formData.get("description_right");
   const image_left = formData.get("image_left");
   const description_left = formData.get("description_left");
-
 
   let base64Image = "";
   let base64Image1 = "";

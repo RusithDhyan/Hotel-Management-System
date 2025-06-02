@@ -97,14 +97,14 @@ export default function HotelSlider() {
                   />
                   <div className={`lg:p-4 ${i === index ? "h-40" : "h-auto"}`}>
                     <h3 className="sm:text-sm md:text-md lg:text-lg font-semibold px-2">
-                      {h.title}
+                      {h.hotel_name}
                     </h3>
                     <h4 className="text-gray-400 sm:text-sm md:text-md lg:text-lg px-2">
                       {h.location}
                     </h4>
                     {i === index && (
-                      <p className="sm:text-sm md:text-md lg:text-lg px-2 ">
-                        {h.description}
+                      <p className="sm:text-sm md:text-md lg:text-lg px-2">
+                        {h.title}
                       </p>
                     )}
                     <div className="flex flex-row justify-start px-2 mt-5">
@@ -137,7 +137,7 @@ export default function HotelSlider() {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex flex-row items-center justify-between sm:justify-end gap-10 sm:gap-20 px-2 sm:px-4 mt-10 xl:gap-20 2xl:gap-25 mt-20">
+          <div className="flex flex-row items-center justify-between sm:justify-end sm:gap-20 px-2 sm:px-4 xl:gap-20 2xl:gap-25">
             <button
               onClick={prevSlide}
               className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 2xl:p-4"

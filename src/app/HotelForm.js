@@ -6,11 +6,12 @@ import { useEffect, useState } from "react";
 export default function HotelForm() {
   const [hotel, setHotel] = useState([]);
   const [form, setForm] = useState({
+    hotel_name: "",
     title: "",
     location: "",
     description: "",
-    thumbnail: null,
-    image: null,
+    thumbnail: "",
+    image: "",
   });
   const [editingHotelId, setEditingHotelId] = useState(null);
 
@@ -35,6 +36,7 @@ export default function HotelForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          hotel_name: form.hotel_name,
           title: form.title,
           location: form.location,
           description: form.description,
@@ -48,12 +50,20 @@ export default function HotelForm() {
         alert("Hotel not found.");
       } else {
         setEditingHotelId(null);
-        setForm({ title: "", location: "", description: "",thumbnail: "", image: "" });
+        setForm({
+          hotel_name: "",
+          title: "",
+          location: "",
+          description: "",
+          thumbnail: "",
+          image: "",
+        });
         fetchHotel();
       }
     } else {
       // Create new user with image
       const formData = new FormData();
+      formData.append("hotel_name", form.hotel_name);
       formData.append("title", form.title);
       formData.append("location", form.location);
       formData.append("description", form.description);
@@ -67,7 +77,14 @@ export default function HotelForm() {
 
       const result = await res.json();
       if (result.success) {
-        setForm({ title: "", location: "", description: "", thumbnail: "", image: "" });
+        setForm({
+              hotel_name: "",
+          title: "",
+          location: "",
+          description: "",
+          thumbnail: "",
+          image: "",
+        });
         fetchHotel();
       } else {
         alert("Error: " + result.error);
@@ -92,11 +109,12 @@ export default function HotelForm() {
 
   const handleEdit = (hotel) => {
     setForm({
+      hotel_name: hotel.hotel_name,
       title: hotel.title,
       location: hotel.location,
       description: hotel.description,
-      thumbnail: null,
-      image: null,
+      thumbnail: hotel.thumbnail,
+      image: hotel.image,
     }); // image not edited here
     setEditingHotelId(hotel._id);
   };
@@ -106,6 +124,15 @@ export default function HotelForm() {
       <h1 className="text-2xl font-bold mb-4">User Form</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        <input
+          type="text"
+          name="hotel_name"
+          placeholder="Hotel Name"
+          value={form.hotel_name}
+          onChange={(e) => setForm({ ...form, hotel_name: e.target.value })}
+          className="w-full p-2 border rounded"
+          required
+        />
         <input
           type="text"
           name="title"
@@ -162,6 +189,7 @@ export default function HotelForm() {
             type="button"
             onClick={() => {
               setForm({
+                hotel_name: "",
                 title: "",
                 location: "",
                 description: "",
@@ -192,7 +220,7 @@ export default function HotelForm() {
             )}
             <div className="flex-1">
               <p>
-                {h.title} ({h.description})
+                {h.hotel_name} ({h.title})
               </p>
               <div className="space-x-2 mt-2">
                 <button
