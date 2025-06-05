@@ -31,11 +31,11 @@ function Contact() {
       {/* Header image */}
       <div className="w-full relative">
         <Image
-          src="/contact/contact-img1.jpg"
+          src="/contact/contact.jpg"
           alt="contact-img"
           width={1500}
           height={300}
-          className="object-cover w-full h-[300px]"
+          className="object-cover w-full h-100"
         />
         <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
           Contact Us

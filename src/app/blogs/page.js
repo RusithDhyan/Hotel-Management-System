@@ -5,61 +5,6 @@ import Link from "next/link";
 import BlogForm from "../BlogForm";
 import { useData } from "../context/DataContext";
 
-const blogPosts = [
-  {
-    id: 1,
-    title: "A Culinary Journey Through Fine Dining",
-    description:
-      "Enjoy an exquisite selection of dishes crafted by our expert chefs.",
-    image: "/blogs/blog1.jpg",
-    url: "/blogs/blog1-dining-in-malawi",
-    date: "April 20, 2025",
-  },
-  {
-    id: 2,
-    title: "Exploring Luxury at Heritage by Serendib",
-    description:
-      "Discover the elegance and comfort of our hotel with world-class amenities.",
-    image: "/blogs/blog2.jpeg",
-    url: "/blogs",
-    date: "April 20, 2025",
-  },
-  {
-    id: 3,
-    title: "Top Attractions Near Limbe, Blantyre",
-    description:
-      "Explore beautiful sites and local experiences just minutes away from our hotel.",
-    image: "/blogs/blog3.jpeg",
-    url: "/blogs",
-    date: "April 20, 2025",
-  },
-  {
-    id: 4,
-    title: "Top 10 Travel Tips for 2025",
-    description:
-      "Make your next trip unforgettable with these expert tips and tricks.",
-    image: "/blogs/blog4.jpg",
-    url: "/blogs",
-    date: "April 20, 2025",
-  },
-  {
-    id: 5,
-    title: "Why Malawi is Africa’s Hidden Gem",
-    description: "Explore Malawi’s best-kept secrets and cultural wonders.",
-    image: "/blogs/blog5.jpg",
-    url: "/blogs",
-    date: "April 18, 2025",
-  },
-  {
-    id: 6,
-    title: "Hotel Trends to Watch This Year",
-    description: "From eco-luxury to AI concierge—what’s changing in hospitality.",
-    image: "/blogs/blog6.jpg",
-    url: "/blogs",
-    date: "April 15, 2025",
-  },
-];
-
 export default function BlogPage() {
   const {blogs} = useData();
 
@@ -68,14 +13,14 @@ export default function BlogPage() {
       {/* Top Cover */}
       <div className="w-full relative">
         <Image
-          src="/images/blogs.jpeg"
+          src="/images/blogs.JPG"
           alt="Blog Cover"
           width={1500}
           height={100}
           className="object-cover w-full h-100"
         />
         <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold text-center px-4">
-          Blogs
+          Serendib Stories
         </h1>
       </div>
 
@@ -123,7 +68,7 @@ export default function BlogPage() {
       </div>
       )}
 
-      {/* <BlogForm/> */}
+      <BlogForm/>
     </div>
   );
 }
