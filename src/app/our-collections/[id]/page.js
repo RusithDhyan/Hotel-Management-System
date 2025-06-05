@@ -10,10 +10,11 @@ import Gallery from "@/app/(components)/(hotels)/Gallery";
 import InquiryForm from "@/app/(components)/(hotels)/InquiryForm";
 
 const items = [
-  { url: "/icons/hotels/bed-single.png", title: "Modern & Spacious Rooms" },
-  { url: "/icons/hotels/leaf.png", title: "Wellness & Spa Services" },
-  { url: "/icons/hotels/coffee.png", title: "Evening Tea & Coffee" },
-  { url: "/icons/hotels/wine.png", title: "Mini Bar" },
+  { url: "/icons/hotels/plane.png", title: "Airport Transfers" },
+  { url: "/icons/hotels/washing-machine.png", title: "Laundry Services" },
+  { url: "/icons/hotels/room.png", title: "Room Service" },
+  { url: "/icons/hotels/key.png", title: "24 Hour Security" },
+  { url: "/icons/hotels/bell.png", title: "24 Hour Reception Services" },
 ];
 
 export default function HotelInnerPage() {

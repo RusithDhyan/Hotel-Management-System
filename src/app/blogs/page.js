@@ -88,7 +88,12 @@ export default function BlogPage() {
         </p>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 pt-10">
+      {blogs.length === 0 ? (
+        <div className="flex flex-col items-center justify-center my-10 text-gray-500">
+          <p>No blogs available at the moment.</p>
+        </div>
+      ) : (
+        <div className="container mx-auto px-4 md:px-6 pt-10">
         {/* Blog Cards Grid View */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogs.map((blog) => (
@@ -116,7 +121,9 @@ export default function BlogPage() {
           ))}
         </div>
       </div>
-      <BlogForm/>
+      )}
+
+      {/* <BlogForm/> */}
     </div>
   );
 }
