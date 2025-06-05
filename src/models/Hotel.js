@@ -8,6 +8,7 @@ const HotelSchema = new mongoose.Schema({
   description: String,
   thumbnail: String,
   image: String,
+  cover_image: String
   
 });
 

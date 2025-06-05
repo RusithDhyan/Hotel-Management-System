@@ -68,7 +68,7 @@ export default function BlogPage() {
       {/* Top Cover */}
       <div className="w-full relative">
         <Image
-          src="/images/blogs.jpg"
+          src="/images/blogs.jpeg"
           alt="Blog Cover"
           width={1500}
           height={100}
@@ -81,12 +81,10 @@ export default function BlogPage() {
 
       <div className="flex flex-col items-center justify-center gap-4 mt-10 px-4 md:px-10 text-center">
         <h1 className="text-xl md:text-2xl font-semibold">
-          Discover Travel & Hospitality Insights
+          Explore Malawi with Us
         </h1>
         <p className="font-light max-w-6xl text-sm md:text-base">
-          Welcome to our blog! Dive into the latest stories, tips, and industry
-          updates in the world of travel, tourism, and hospitality. Whether
-          you're a traveler or a hotelier, we’ve got something for you.
+          Travel stories, local insights, and unforgettable moments from Serendib Hotels & Resorts.
         </p>
       </div>
 
@@ -118,7 +116,7 @@ export default function BlogPage() {
           ))}
         </div>
       </div>
-      {/* <BlogForm/> */}
+      <BlogForm/>
     </div>
   );
 }

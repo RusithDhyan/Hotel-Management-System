@@ -9,12 +9,14 @@ export default function HotelNav() {
   // Position styles based on index (0-based)
   const positions = [
     "top-[30] left-[-100]",
-    "top-[-150] left-[-180]",
+    "top-[-150] left-[-230]",
     "top-[100] left-[-80]",
-    "top-[-220] left-[-200]",
-    "top-[-200] left-[-180]",
-    "top-[10] left-[-180]",
-    "top-[40] left-[-160]",
+    "top-[-300] left-[-220]",
+    "top-[-245] left-[-185]",
+    "top-[-50] left-[-180]",
+    "top-[20] left-[-250]",
+    "top-[180] left-[-130]",
+
   ];
 
   return (

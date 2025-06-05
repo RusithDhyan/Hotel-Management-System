@@ -36,17 +36,16 @@ export default function Home() {
           className="flex flex-col gap-4 text-sm md:text-base lg:text-lg xl:text-xl px-1 md:px-10 mt-10 max-w-4xl"
         >
           <h1 className="text-2xl md:text-3xl lg:text-5xl">
-            Eco Luxury Escapes <br /> in Malawi
+            Welcome to Serendib Hotels & Resorts
+            <br />
           </h1>
 
           <p className="text-justify">
-            We are a renowned collection of charming boutique hotels and serene
-            tea bungalows, offering a blend of sophisticated yet laid-back
-            luxury experiences across Malawi. Each of our 7 hotels boasts its
-            own unique character and narrative, while sharing a common
-            dedication to preserving historic landmarks, protecting the
-            environment, celebrating the rich local culture, and showcasing
-            Malawi’s extraordinary natural beauty and vibrant local cuisine.
+            From lakeside escapes to vibrant city stays, Serendib Hotels offers
+            distinctive hospitality across Malawi. Whether you're seeking
+            relaxation, adventure, or business convenience, each of Serendip
+            properties are thoughtfully designed to reflect the charm and spirit
+            of its location.
           </p>
 
           <div>
@@ -94,14 +93,18 @@ export default function Home() {
             Explore Malawi...
           </h1>
           <p className="leading-relaxed">
-            Malawi is a landlocked country in southeastern Africa, bordered by
-            Tanzania, Mozambique, and Zambia. It is known as the "Warm Heart of
-            Africa" due to the friendliness of its people. The country features
-            stunning landscapes,
+            Malawi is a landlocked jewel in southeastern Africa, renowned for
+            its warm, welcoming people and breathtaking natural beauty.
+            Dominated by the expansive Lake Malawi—Africa’s third-largest
+            lake—this vibrant country offers golden beaches, crystal-clear
+            waters, and a rich variety of marine life. Beyond the lake, rolling
+            highlands, dramatic mountains, and fertile valleys create a diverse
+            and stunning landscape.
             <br className="hidden sm:block" />
-            including Lake Malawi, one of Africa’s largest and most biodiverse
-            lakes, which offers pristine beaches, water activities, and
-            wildlife.
+            Malawi is also home to thriving wildlife reserves, vibrant cultural
+            traditions, and a deep sense of community. Whether you're seeking
+            adventure, relaxation, or connection, Malawi offers an experience
+            that is both authentic and unforgettable.
           </p>
         </div>
 
@@ -132,18 +135,14 @@ export default function Home() {
 
         <div className="flex flex-col text-left text-sm sm:text-base md:text-md lg:text-lg w-full md:w-[50%]">
           <h1 className="text-lg sm:text-xl md:text-3xl lg:text-4xl mb-4">
-            Lakeside Adventure
+            From the Heart of Malawi: Stories, Tips & Travel Inspiration
           </h1>
           <p className="leading-relaxed">
-            Handpicked adventures nestled in the heart of Lake Malawi, the
-            islands of Likoma and Chizumulu offer a secluded paradise filled
-            with crystal-clear waters, sandy beaches, and vibrant marine life.
-            Unlike the bustling mainland, these islands provide an intimate and
-            laid-back experience, perfect for relaxation and adventure. As you
-            arrive, whether by boat or a small charter plane, you’ll be greeted
-            by warm Malawian hospitality and breathtaking views of the
-            shimmering lake stretching to the horizon. The gentle lapping of
-            waves against the shore sets the tone for a peaceful escape.
+            Sub Content Dive into the Serendib experience through our
+            blog—featuring travel guides, hidden gems, local cuisine spotlights,
+            hotel highlights, and behind-the-scenes glimpses. Whether you're
+            planning your first visit or reliving your favorite memories, our
+            stories bring Malawi to life.
           </p>
 
           <div className="mt-4">
@@ -170,7 +169,7 @@ export default function Home() {
       {/* <ServiceCardSlider /> */}
       <OfferSlider nav={navLink} />
       <OurStory />
-      <Form/>
+      {/* <Form /> */}
     </div>
   );
 }

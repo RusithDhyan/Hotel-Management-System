@@ -165,7 +165,6 @@ export default function BlogForm() {
           value={form.main_title}
           onChange={(e) => setForm({ ...form, main_title: e.target.value })}
           className="w-full p-2 border rounded"
-          required
         />
         <input
           type="text"
@@ -176,7 +175,6 @@ export default function BlogForm() {
             setForm({ ...form, main_description: e.target.value })
           }
           className="w-full p-2 border rounded"
-          required
         />
         <input
           type="text"

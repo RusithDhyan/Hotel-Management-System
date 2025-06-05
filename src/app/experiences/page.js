@@ -12,7 +12,7 @@ export default function ExperiencePage() {
       {/* Top Cover */}
       <div className="w-full relative">
         <Image
-          src="/experience/exp-bg.jpg"
+          src="/experience/exp-bg.jpeg"
           alt="Experience Cover"
           width={1500}
           height={100}

@@ -2,27 +2,74 @@
 import {
   Bath,
   Bed,
+  Beer,
+  Box,
+  Briefcase,
+  Brush,
+  Clock,
+  CloudSun,
   Coffee,
+  CupSoda,
+  DoorOpen,
+  Flame,
+  ForkKnife,
+  LampDesk,
+  Lock,
+  Monitor,
+  Network,
+  Phone,
+  PillBottle,
   Refrigerator,
+  Shield,
+  ShowerHead,
   Snowflake,
+  Sofa,
   Thermometer,
+  Toilet,
   Tv,
+  Tv2,
   Utensils,
   Wifi,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const optionsWithIcons = [
-  { label: "Bath Tub", icon: Bath },
-  { label: "Kitchen", icon: Utensils },
-  { label: "TV", icon: Tv },
+  { label: "Private Bathroom with Shower", icon: Bath },
+  { label: "Kitchen Utensils", icon: Utensils },
+  { label: "Flat-Screen TV", icon: Tv },
   { label: "Air Condition", icon: Snowflake },
-  { label: "Heater", icon: Thermometer },
+  { label: "Hot Water", icon: Thermometer },
   { label: "Tea & Coffee", icon: Coffee },
-  { label: "Refrigerator", icon: Refrigerator },
-  { label: "Wifi", icon: Wifi },
+  { label: "Mini Fridge", icon: Refrigerator },
+  { label: "Complimentary Wi-Fi", icon: Wifi },
   { label: "Queen Bed", icon: Bed },
-  { label: "Private Bathroom", icon: Bath },
+  { label: "King Size Bed", icon: Bed },
+  {label: "Double Bed", icon: Bed},
+  { label: "Ensuite Bathroom", icon: Bath },
+    { label: "Toiletries", icon: Toilet },
+
+    { label: "Bathrobe", icon: ShowerHead },
+  { label: "In-room Safe", icon: Shield },
+  { label: "Mini Bar", icon: Beer },
+  { label: "Bottled Water", icon: PillBottle },
+  { label: "Telephone", icon: Phone },
+  { label: "24/7 Front Desk", icon: Clock },
+  { label: "Tv with Stand", icon: Tv2 },
+  { label: "Sitting area & Lounge chair", icon: Sofa },
+  { label: "Dining Set", icon: ForkKnife },
+  { label: "Microwave", icon: Monitor },
+  { label: "Cooker or mini Cooker", icon: Flame },
+  { label: "Tea Station", icon: CupSoda },
+  { label: "Luggage Rack", icon: Briefcase },
+  { label: "Wardrobe", icon: Box },
+  { label: "Dressing table with chair", icon: Brush },
+    { label: "Hair Dryer", icon: CloudSun },
+  {label: "Office desk & chair", icon: LampDesk},
+  { label: "Safe Box", icon: Lock },
+  {label: "Ultimate High-Speed Internet Access", icon: Network},
+    { label: "Private Balcony", icon: DoorOpen },
+
+
 ];
 
 export default function AccommodationForm({ hotelId }) {
@@ -187,7 +234,7 @@ export default function AccommodationForm({ hotelId }) {
       <h1 className="text-2xl font-bold mb-4">Accommodation Form</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        <select
+        {/* <select
           name="room_type"
           value={form.room_type}
           onChange={(e) => setForm({ ...form, room_type: e.target.value })}
@@ -199,7 +246,16 @@ export default function AccommodationForm({ hotelId }) {
           <option value="Family">Family</option>
           <option value="Deluxe">Deluxe</option>
           <option value="Premier">Premier</option>
-        </select>
+        </select> */}
+        <input
+          type="text"
+          name="room_type"
+          placeholder="Room Type"
+          value={form.room_type}
+          onChange={(e) => setForm({ ...form, room_type: e.target.value })}
+          className="w-full p-2 border rounded"
+          required
+        />
         <input
           type="number"
           name="price"
@@ -236,6 +292,7 @@ export default function AccommodationForm({ hotelId }) {
           />
         )}
         {!editingAccommodationId && (
+
           <input
             type="file"
             accept="image/*"

@@ -29,6 +29,8 @@ export default function OfferSlider({ hotelId }) {
     fetchOffer();
   }, []);
 
+  if (offers.length === 0) return null; // <-- Add this line
+
   const activateHover = () => setIsActive(true);
   const deactivateHover = () => setIsActive(false);
 
@@ -42,6 +44,7 @@ export default function OfferSlider({ hotelId }) {
 
   return (
     <div className="w-full mt-5 px-4 sm:px-10 xl:px-20 2xl:px-40">
+
       <h1 className="text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl text-center font-semibold">
         Special Offers
       </h1>
@@ -121,7 +124,8 @@ export default function OfferSlider({ hotelId }) {
           <ArrowRight size={20} />
         </button>
       </div>
-      {/* <OfferForm hotelId={hotelId}/> */}
+      <OfferForm hotelId={hotelId}/>
+      
     </div>
   );
 }

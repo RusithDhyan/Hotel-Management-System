@@ -35,7 +35,7 @@ export default function HotelInnerPage() {
     <div className="flex flex-col min-h-screen">
       <div className="w-full h-auto relative">
         <Image
-          src={hotel.thumbnail}
+          src={hotel.cover_image}
           alt="Hotel banner"
           width={1500}
           height={100}

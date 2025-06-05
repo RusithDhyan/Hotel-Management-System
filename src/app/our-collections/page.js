@@ -20,7 +20,7 @@ export default function OurCollection() {
           className="w-full h-100 object-cover"
         />
         <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
-          Our Collection
+          Our Malawi Hotel Collection
         </h1>
       </div>
 
@@ -64,7 +64,7 @@ export default function OurCollection() {
             <p>Loading or invalid data</p>
           )}
       </div>
-      <HotelForm/>
+      {/* <HotelForm/> */}
     </div>
   );
 }

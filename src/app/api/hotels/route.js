@@ -10,9 +10,11 @@ export async function POST(req) {
   const description = formData.get("description");
   const thumbnail = formData.get("thumbnail");
   const image = formData.get("image");
+  const cover_image = formData.get("cover_image");
 
   let base64Image = "";
   let base64Image1 = "";
+  let base64Image2 = "";
 
   if (image && typeof image === "object") {
     const buffer = Buffer.from(await image.arrayBuffer());
@@ -24,6 +26,11 @@ export async function POST(req) {
     base64Image1 = `data:${thumbnail.type};base64,${buffer.toString("base64")}`;
   }
 
+   if (cover_image && typeof cover_image === "object") {
+    const buffer = Buffer.from(await cover_image.arrayBuffer());
+    base64Image2 = `data:${cover_image.type};base64,${buffer.toString("base64")}`;
+  }
+
   try {
     await connectDB();
     const newHotel = await Hotel.create({
@@ -33,6 +40,7 @@ export async function POST(req) {
       description,
       thumbnail:base64Image1,
       image: base64Image,
+      cover_image: base64Image2
     });
     return Response.json({ success: true, data: newHotel });
   } catch (error) {

@@ -12,6 +12,7 @@ export default function HotelForm() {
     description: "",
     thumbnail: "",
     image: "",
+    cover_image: ""
   });
   const [editingHotelId, setEditingHotelId] = useState(null);
 
@@ -42,6 +43,7 @@ export default function HotelForm() {
           description: form.description,
           thumbnail: form.thumbnail,
           image: form.image,
+          cover_image: form.cover_image
         }),
       });
 
@@ -57,6 +59,7 @@ export default function HotelForm() {
           description: "",
           thumbnail: "",
           image: "",
+          cover_image: ""
         });
         fetchHotel();
       }
@@ -69,6 +72,8 @@ export default function HotelForm() {
       formData.append("description", form.description);
       if (form.thumbnail) formData.append("thumbnail", form.thumbnail);
       if (form.image) formData.append("image", form.image);
+            if (form.cover_image) formData.append("cover_image", form.cover_image);
+
 
       const res = await fetch("/api/hotels", {
         method: "POST",
@@ -84,6 +89,7 @@ export default function HotelForm() {
           description: "",
           thumbnail: "",
           image: "",
+          cover_image: ""
         });
         fetchHotel();
       } else {
@@ -115,6 +121,7 @@ export default function HotelForm() {
       description: hotel.description,
       thumbnail: hotel.thumbnail,
       image: hotel.image,
+      cover_image: hotel.cover_image
     }); // image not edited here
     setEditingHotelId(hotel._id);
   };
@@ -178,6 +185,15 @@ export default function HotelForm() {
             className="w-full"
           />
         )}
+         {!editingHotelId && (
+          <input
+            type="file"
+            name="cover_image"
+            accept="image/*"
+            onChange={(e) => setForm({ ...form, cover_image: e.target.files[0] })}
+            className="w-full"
+          />
+        )}
         <button
           type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded"
@@ -195,6 +211,7 @@ export default function HotelForm() {
                 description: "",
                 thumbnail: "",
                 image: "",
+                cover_image: ""
               });
               setEditingHotelId(null);
             }}

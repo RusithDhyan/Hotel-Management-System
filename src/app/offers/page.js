@@ -6,6 +6,7 @@ import { useData } from "../context/DataContext";
 
 export default function Offers() {
   const {offers} = useData();
+
   
   return (
     <div className="flex flex-col min-h-screen">
@@ -33,7 +34,14 @@ export default function Offers() {
         </p>
       </div>
 
-      <OfferGrid offers={offers} />
+       {offers.length === 0 ? (
+        <div className="flex flex-col items-center justify-center my-10 text-gray-500">
+          <p>No offers available at the moment.</p>
+        </div>
+      ) : (
+        <OfferGrid offers={offers} />
+      )}
+
     </div>
   );
 }

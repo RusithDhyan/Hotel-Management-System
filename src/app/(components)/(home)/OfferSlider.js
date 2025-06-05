@@ -26,6 +26,8 @@ export default function OfferSlider({ nav }) {
   const prevSlide = () => {
     swiperRef.current?.slidePrev();
   };
+  if (offers.length === 0) return null; // <-- Add this line
+
 
   return (
     <div className="w-full mt-5 px-4 sm:px-10 xl:px-20 2xl:px-40">
