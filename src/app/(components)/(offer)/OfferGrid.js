@@ -7,19 +7,19 @@ const OfferGrid = ({ offers }) => {
       {offers.map((offer, index) => (
         <div key={index} className="relative overflow-hidden shadow-lg">
           {/* Offer Image */}
-          <Link href={`${offer.url}`}>
+          <Link href={`/offers/${offer._id}`}>
             <Image
               src={`${offer.image}`}
               alt={offer.title}
               width={1000}
               height={100}
-              className="w-full h-60 object-cover"
+              className="w-full h-65 object-cover"
             />
           </Link>
 
           {/* Offer Title */}
           <div className="absolute bottom-0 left-0 w-full bg-gray-300 bg-opacity-60 text-black text-center p-3 text-lg">
-            {offer.title}
+            {offer.offer_type}
           </div>
         </div>
       ))}

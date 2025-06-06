@@ -31,11 +31,11 @@ function Contact() {
       {/* Header image */}
       <div className="w-full relative">
         <Image
-          src="/contact/contact-img1.jpg"
+          src="/contact/contact.jpg"
           alt="contact-img"
           width={1500}
           height={300}
-          className="object-cover w-full h-[300px]"
+          className="object-cover w-full h-100"
         />
         <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
           Contact Us
@@ -48,9 +48,9 @@ function Contact() {
           Contact Serendib Hotels – We're Here to Assist You!
         </h1>
         <p className="font-extralight max-w-3xl text-sm md:text-base">
-          Have questions or need assistance with bookings? Get in touch with
-          Serendib Hotels for reservations, inquiries, or special requests. Our
-          team is ready to make your stay unforgettable.
+          We'd love to hear from you! Whether you're planning your stay, have a
+          special request, or simply need more information, the Serendib Hotels
+          & Resorts team is here to assist you.
         </p>
       </div>
 
@@ -68,12 +68,17 @@ function Contact() {
 
       {/* Form Section */}
       <div className="mx-4 md:mx-10 mt-10 p-6 md:pt-10 flex flex-col items-center">
-        <h2 className="text-xl md:text-2xl font-bold mb-4 text-center">Ask Any Questions?</h2>
+        <h2 className="text-xl md:text-2xl font-bold mb-4 text-center">
+          Ask Any Questions?
+        </h2>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="flex flex-col md:flex-row gap-4">
             <div className="w-full">
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Name
               </label>
               <input
@@ -89,7 +94,10 @@ function Contact() {
             </div>
 
             <div className="w-full">
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Email
               </label>
               <input
@@ -106,7 +114,10 @@ function Contact() {
           </div>
 
           <div>
-            <label htmlFor="question" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="question"
+              className="block text-sm font-medium text-gray-700"
+            >
               Ask Any Questions
             </label>
             <textarea

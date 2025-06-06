@@ -1,66 +1,18 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
-
-const experiences = [
-  {
-    id: 1,
-    title: "Cable Walk",
-    description:
-      "Experience comfort and elegance with our top-tier suites and personalized services.",
-    image: "/experience/cable-walk.jpg",
-    url: "/experiences/exp1-walk-in-cable",
-  },
-  {
-    id: 2,
-    title: "Into The Wild",
-    description:
-      "Experience comfort and elegance with our top-tier suites and personalized services.",
-    image: "/experience/into-wild.jpg",
-    url: "/experiences/exp2-into-the-wild",
-  },
-  {
-    id: 3,
-    title: "Malawi Lake",
-    description:
-      "Experience comfort and elegance with our top-tier suites and personalized services.",
-    image: "/experience/malawi-lake.jpeg",
-    url: "/experiences/exp3-malawi-lake",
-  },
-  {
-    id: 4,
-    title: "Luxury Stay",
-    description:
-      "Experience comfort and elegance with our top-tier suites and personalized services.",
-    image: "/experience/luxury-stay.jpg",
-    url: "/experiences/exp3-malawi-lake",
-  },
-  {
-    id: 5,
-    title: "Adventure Tours",
-    description:
-      "Discover thrilling adventures and breathtaking landscapes with guided tours.",
-    image: "/experience/adventure-tour.jpeg",
-    url: "/experiences/exp3-malawi-lake",
-  },
-  {
-    id: 6,
-    title: "Relaxing Spa",
-    description:
-      "Rejuvenate your senses with our world-class spa treatments and therapies.",
-    image: "/experience/relaxing-spa.jpg",
-    url: "/experiences/exp3-malawi-lake",
-  },
-];
+import ExperienceForm from "../ExperienceForm";
+import { useData } from "../context/DataContext";
 
 export default function ExperiencePage() {
+  const { experiences } = useData();
+
   return (
     <div className="min-h-screen">
       {/* Top Cover */}
       <div className="w-full relative">
         <Image
-          src="/experience/exp-bg.jpg"
+          src="/experience/exp-bg.jpeg"
           alt="Experience Cover"
           width={1500}
           height={100}
@@ -84,34 +36,41 @@ export default function ExperiencePage() {
         </p>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 pt-10">
+      
+      {experiences.length === 0 ? (
+        <div className="flex flex-col items-center justify-center my-10 text-gray-500">
+          <p>No experiences available at the moment.</p>
+        </div>
+      ) : (
+        <div className="container mx-auto px-4 md:px-6 pt-10">
         {/* Blog Cards in Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {experiences.map((exp) => (
             <div
-              key={exp.id}
+              key={exp._id}
               className="w-full bg-white shadow-md hover:shadow-lg transition overflow-hidden"
             >
               <div className="relative h-48 md:h-60 w-full group">
-                <Link href={exp.url}>
-                <Image
-                  src={exp.image}
-                  alt={exp.title}
-                  layout="fill"
-                  objectFit="cover"
-                  className=" transition-transform duration-300 group-hover:scale-105"
-                />
+                <Link href={`/experiences/${exp._id}`}>
+                  <Image
+                    src={exp.image}
+                    alt={exp.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className=" transition-transform duration-300 group-hover:scale-105"
+                  />
                 </Link>
               </div>
               <div className="p-2">
                 <h2 className="text-xl font-semibold mb-2">{exp.title}</h2>
                 <p className="text-sm md:text-base">{exp.description}</p>
-                
               </div>
             </div>
           ))}
         </div>
       </div>
+      )}
+      {/* <ExperienceForm /> */}
     </div>
   );
 }

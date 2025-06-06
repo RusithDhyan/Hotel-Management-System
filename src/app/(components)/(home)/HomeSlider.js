@@ -39,24 +39,12 @@ export default function HomeSlider({ sectionRef }) {
 
   const homeSlider = [
     {
-      url: "/images/bg1.jpg",
-      title: "Relax,Unwind & Expreience Luxury in the Heart of Malawi...",
+      url: "/images/cover-img2.jpg",
+      // title: "Discovering the Wild Wonders of Malawi",
     },
     {
-      url: "/images/bg2.jpg",
-      title: "A Pool with a View Unwind in Malawi's Hidden Oasis",
-    },
-    {
-      url: "/images/bg3.jpg",
-      title: "Discovering the Wild Wonders of Malawi",
-    },
-    {
-      url: "/images/bg4.jpg",
-      title: "Malawi's Safari Magic : Where Nature Comes Alive",
-    },
-    {
-      url: "/images/bg5.jpg",
-      title: "Embracing The Warm Heart Malawi : A Cultural Journey",
+      url: "/images/cover-img1.jpg",
+      // title: "Discovering the Wild Wonders of Malawi",
     },
   ];
   return (
@@ -87,7 +75,7 @@ export default function HomeSlider({ sectionRef }) {
               {/* Title container with responsive position */}
               <div className="absolute inset-0 flex justify-center items-center sm:px-10">
                 <h1 className="text-2xl md:text-3xl lg:text-6xl text-white font-bold px-2 text-center drop-shadow-md mb-2">
-                  {slide.title}
+                  Experience Malawi, Stay Serendib
                 </h1>
               </div>
               <div className="sm:hidden absolute inset-0 flex justify-center items-end mb-20">

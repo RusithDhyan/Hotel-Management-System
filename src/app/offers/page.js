@@ -1,44 +1,16 @@
+"use client"
 import Image from "next/image";
 import React from "react";
 import OfferGrid from "../(components)/(offer)/OfferGrid";
+import { useData } from "../context/DataContext";
 
 export default function Offers() {
-  const offers = [
-    {
-      image: "/offers/offer2.jpg",
-      title: "Early Bird Offer",
-      url: "/offers/early-bird",
-    },
-    {
-      image: "/offers/offer3.jpeg",
-      title: "Luxury Spa Retreat",
-      url: "/offers/spa-retreat",
-    },
+  const {offers} = useData();
 
-    {
-      image: "/offers/offer6.jpg",
-      title: "Family Vacation Package",
-      url: "/offers/family-vacation",
-    },
-    {
-      image: "/offers/offer4.jpg",
-      title: "Extended Stay Discount",
-      url: "/offers/extend-stay",
-    },
-
-    {
-      image: "/offers/offer1.jpg",
-      title: "Weekend Getaway Package",
-      url: "/offers/weekend-getaway",
-    },
-    {
-      image: "/offers/offer5.jpg",
-      title: "Business Traveler Special",
-      url: "/offers/business-travel",
-    },
-  ];
+  
   return (
     <div className="flex flex-col min-h-screen">
+      
       <div className="w-full h-auto relative">
         <Image
           src="/images/offer.jpg"
@@ -62,7 +34,14 @@ export default function Offers() {
         </p>
       </div>
 
-      <OfferGrid offers={offers} />
+       {offers.length === 0 ? (
+        <div className="flex flex-col items-center justify-center my-10 text-gray-500">
+          <p>No offers available at the moment.</p>
+        </div>
+      ) : (
+        <OfferGrid offers={offers} />
+      )}
+
     </div>
   );
 }

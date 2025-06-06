@@ -6,49 +6,15 @@ import "swiper/css/autoplay";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
-const slider = [
-  {
-    image: "/offer-slider/offer1.jpg",
-    url: "/hotels/heritage-hotel/offers/family-vacation",
-    title: "Family Vacation Package",
-    offerType: "Just One More Night",
-    description:
-      "Stay 2 nights & get 50% off your second night at selection hotels",
-  },
-  {
-    image: "/offer-slider/offer2.jpeg",
-    url: "/hotels/heritage-hotel/offers/extend-stay",
-    title: "Get 50% Off Your Second Night",
-    offerType: "Just One More Night",
-    description:
-      "Stay 2 nights & get 50% off your second night at selection hotels",
-  },
-  {
-    image: "/offer-slider/offer3.jpeg",
-    url: "/hotels/heritage-hotel/offers/early-bird",
-    title: "Early Bird Discount",
-    offerType: "Just One More Night",
-    description:
-      "Book 30 days in advance and get 15% off your stay,plus a welcome drink",
-  },
-  {
-    image: "/offer-slider/offer4.jpeg",
-    url: "/hotels/heritage-hotel/offers/luxury-spa",
-    title: "Spa & Stay Retreat",
-    offerType: "Just One More Night",
-    description:
-      "Escape to paradise! Enjoy a  luxurious stay with exclusive spa treatments",
-  },
-];
+import { useData } from "@/app/context/DataContext";
 
 export default function OfferSlider({ nav }) {
   const [isActive, setIsActive] = useState(false);
   const [index, setIndex] = useState(0);
-
   const swiperRef = useRef(null);
+  const { offers } = useData();
 
   const activateHover = () => setIsActive(true);
   const deactivateHover = () => setIsActive(false);
@@ -60,6 +26,8 @@ export default function OfferSlider({ nav }) {
   const prevSlide = () => {
     swiperRef.current?.slidePrev();
   };
+  if (offers.length === 0) return null; // <-- Add this line
+
 
   return (
     <div className="w-full mt-5 px-4 sm:px-10 xl:px-20 2xl:px-40">
@@ -76,29 +44,27 @@ export default function OfferSlider({ nav }) {
         onSlideChange={(swiper) => setIndex(swiper.realIndex)}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
-        {slider.map((slide, idx) => (
-          <SwiperSlide key={idx}>
+        {offers.map((offer) => (
+          <SwiperSlide key={offer._id}>
             <div className="flex flex-col items-center sm:flex-row gap-5 sm:gap-20 mt-10 xl:gap-32 2xl:gap-40">
-              <div className="relative w-80 h-80 sm:h-125 sm:w-125 xl:w-[600px] xl:h-[450px] 2xl:w-[700px] 2xl:h-[600px]">
+              <div className="relative ">
                 <Image
-                  src={slide.image}
-                  alt="slide-image"
-                  layout="fill"
-                  objectFit="cover"
-                  className="w-100 h-100"
+                  src={offer.image}
+                  alt="offer-image"
+                  width={1500}
+                  height={100}
+                  className="w-80 h-80 sm:h-125 sm:w-125 xl:w-[450px] xl:h-[450px] 2xl:w-[600px] 2xl:h-[600px] object-cover"
                 />
               </div>
-              <div className="flex flex-col items-center gap-3 text-sm md:text-md lg:text-lg text-center sm:text-left max-w-xl xl:max-w-2xl 2xl:max-w-3xl">
+              <div className="flex flex-col items-center gap-3 text-sm md:text-md lg:text-lg text-center sm:text-left max-w-xl xl:max-w-2xl 2xl:max-w-3xl ">
                 <h1 className="xl:text-2xl font-semibold">
-                  {slide.title}
+                  {offer.offer_type}
                 </h1>
-                <h2 className=" xl:text-xl  text-gray-600">
-                  {slide.offerType}
-                </h2>
-                <p className="text-center my-10 xl:my-12 2xl:my-16">
-                  {slide.description}
+                <h2 className=" xl:text-xl  text-gray-600">{offer.title}</h2>
+                <p className="text-center my-3 xl:my-12 2xl:my-16">
+                  {offer.description}
                 </p>
-                <Link href={slide.url}>
+                <Link href={`/offers/${offer._id}`}>
                   <button
                     className="relative text-black py-1 border-b-2 border-transparent"
                     onMouseEnter={activateHover}
@@ -129,7 +95,10 @@ export default function OfferSlider({ nav }) {
           <ArrowLeft size={20} />
         </button>
 
-        <Link href={`${nav}`} className="text-sm sm:text-base xl:text-lg 2xl:text-xl text-gray-500">
+        <Link
+          href="/offers"
+          className="text-sm sm:text-base xl:text-lg 2xl:text-xl text-gray-500"
+        >
           View all
         </Link>
 

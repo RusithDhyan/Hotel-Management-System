@@ -19,11 +19,14 @@ export default function OurStory() {
               Iconic Elegance & Luxury
             </h1>
             <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed">
-              Create unforgettable memories with the perfect father-and-son
-              getaway at Lake Malawi. Enjoy thrilling water sports, scenic boat
-              rides, and fishing adventures on the crystal-clear waters.
-              Explore the rich wildlife, unwind on pristine beaches, and share
-              stories around a cozy lakeside campfire.
+              From the glistening shores of Lake Malawi to the lush highlands of
+              Mulanje, our carefully curated destinations reflect the beauty,
+              tranquility, and vibrant culture of this breathtaking country.
+              Whether you're unwinding on the lakeside at Blue Waters Lake
+              Resort, enjoying the colonial charm of Heritage Hotel in Limbe, or
+              embracing mountain serenity at Kara O’Mula in Mulanje, each
+              Serendib property is a gateway to authentic Malawian hospitality
+              and adventure.
             </p>
             <div>
               <Link

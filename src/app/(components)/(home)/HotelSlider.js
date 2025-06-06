@@ -4,85 +4,11 @@ import { useState, useEffect, useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-// ✅ Hotels array
-const hotels = [
-  {
-    id: 1,
-    image: "/hotels/h1.jpeg",
-    title: "Blue Waters Lake Resort",
-    url: "/hotels/blue-waters",
-    location: "Senga Bay,Salima",
-    description:
-      "Our hotel offers a relaxing stay with modern amenities, warm hospitality, and a beautiful setting in Malawi.Enjoy a peaceful retreat with stunning views.",
-  },
-
-  {
-    id: 2,
-    image: "/hotels/h3.jpeg",
-    title: "Heritage Hotel",
-    url: "/hotels/heritage-hotel",
-    location: "Milward Road, Limbe, Blantyre, Malawi",
-    description:
-      "A blend of colonial charm and modern comfort, this hotel features 40 elegantly furnished rooms, a spa, outdoor pool.",
-  },
-  {
-    id: 3,
-    image: "/hotels/h4.jpeg",
-    title: "Kambiri Beach",
-    url: "/hotels/kambiri-beach",
-    location: "Senga Bay,Salima",
-    description:
-      "Located on the shores of Lake Malawi, this resort offers beachfront cottages, a restaurant, and various water sports, providing a serene getaway.",
-  },
-  {
-    id: 4,
-    image: "/hotels/h12.jpg",
-    title: "Kara O Mula",
-    url: "/hotels/kara-o-mula",
-    location: "Boma Path – Bush, Mulanje, Malawi",
-    description:
-      "Nestled at the foot of Mount Mulanje, this lodge provides cozy rooms, a restaurant, and opportunities for hiking and exploring the surrounding nature.",
-  },
-  {
-    id: 5,
-    image: "/hotels/h11.jpg",
-    title: "Lotus Hotel",
-    url: "/hotels/lotus-hotel",
-    location: "Glyn Jones Road, Namiwawa Avenue, Blantyre, Malawi",
-    description:
-      "A modern hotel located in the capital city, offering comfortable rooms, dining facilities, and convenient access to government and commercial centers.",
-  },
-  {
-    id: 6,
-    image: "/hotels/h8.jpg",
-    title: "Waters Edge",
-    url: "/hotels/waters-edge",
-    location: "Senga Bay,Salima",
-    description:
-      "A quiet hotel by the Shire River with river-view suites, a pool, and boat safaris. Great for nature lovers and those looking for calm surroundings.",
-  },
-  {
-    id: 7,
-    image: "/hotels/h9.jpg",
-    title: "Bamboo Boutique",
-    url: "/hotels/bamboo-boutique",
-    location: "Mdoka Street, Area 12, Lilongwe, Malawi",
-    description:
-      "A modern and quiet hotel in Lilongwe with comfy rooms, a relaxing garden, and tasty meals — ideal for both business and casual stays.",
-  },
-  {
-    id: 8,
-    image: "/hotels/h10.jpg",
-    title: "Serendib Travels",
-    url: "/hotels/serendib-travels",
-    location: "Senga Bay,Salima",
-    description:
-      "Our hotel offers a relaxing stay with modern amenities, warm hospitality, and a beautiful setting in Malawi.Enjoy a peaceful retreat with stunning views.",
-  },
-];
+import { useData } from "@/app/context/DataContext";
 
 export default function HotelSlider() {
+  const { hotels } = useData();
+
   const [isActive, setIsActive] = useState(false);
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -148,9 +74,9 @@ export default function HotelSlider() {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            {hotels.map((hotel, i) => (
+            {hotels.map((h, i) => (
               <div
-                key={hotel.id}
+                key={h._id}
                 className={`flex-shrink-0 ${
                   isMobile ? "w-full" : "w-[33.33%]"
                 }  transition-all duration-500 ${
@@ -163,28 +89,28 @@ export default function HotelSlider() {
               >
                 <div className="bg-white p-2 items-center justify-between">
                   <Image
-                    src={hotel.image}
-                    alt={hotel.title}
+                    src={h.thumbnail}
+                    alt={h.title}
                     className="w-full h-50 sm:h-80 object-cover"
                     width={1000}
                     height={100}
                   />
                   <div className={`lg:p-4 ${i === index ? "h-40" : "h-auto"}`}>
                     <h3 className="sm:text-sm md:text-md lg:text-lg font-semibold px-2">
-                      {hotel.title}
+                      {h.hotel_name}
                     </h3>
                     <h4 className="text-gray-400 sm:text-sm md:text-md lg:text-lg px-2">
-                      {hotel.location}
+                      {h.location}
                     </h4>
                     {i === index && (
-                      <p className="sm:text-sm md:text-md lg:text-lg px-2 ">
-                        {hotel.description}
+                      <p className="sm:text-sm md:text-md lg:text-lg px-2">
+                        {h.title}
                       </p>
                     )}
                     <div className="flex flex-row justify-start px-2 mt-5">
                       {i === index && (
                         <Link
-                          href={hotel.url}
+                          href={`/our-collections/${h._id}`}
                           className="text-sm lg:text-lg md:text-md"
                         >
                           <button
@@ -211,7 +137,7 @@ export default function HotelSlider() {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex flex-row items-center justify-between sm:justify-end gap-10 sm:gap-20 px-2 sm:px-4 mt-10 xl:gap-20 2xl:gap-25 mt-20">
+          <div className="flex flex-row items-center justify-between sm:justify-end sm:gap-20 px-2 sm:px-4 xl:gap-20 2xl:gap-25">
             <button
               onClick={prevSlide}
               className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 2xl:p-4"
