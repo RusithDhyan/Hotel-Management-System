@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 
 const InquirySchema = new mongoose.Schema({
+   hotelId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Hotel",
+      required: true,
+    },
   name: String,
   email: String,
   phone: String,

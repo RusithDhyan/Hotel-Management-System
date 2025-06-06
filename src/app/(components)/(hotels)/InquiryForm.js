@@ -1,7 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function InquiryForm() {
+  const [hotels, setHotels] = useState([]);
+  const [selectedHotelId, setSelectedHotelId] = useState(null);
+    const [selectedHotelName, setSelectedHotelName] = useState(null);
+
+
   const [form, setFormData] = useState({
     name: "",
     email: "",
@@ -15,13 +20,37 @@ export default function InquiryForm() {
     message: "",
   });
 
+  useEffect(() => {
+    // Fetch hotels initially
+    fetch("/api/hotels") // You’ll need to create this endpoint
+      .then((res) => res.json())
+      .then((data) => {
+        setHotels(data.data);
+        if (data.data.length > 0) {
+          const firstHotelId = data.data[0]._id;
+          const firstHotelName = data.data[0].hotel_name;
+          setSelectedHotelId(firstHotelId);
+          setSelectedHotelName(firstHotelName);
+        }
+      });
+  }, []);
+
+  const handleSelectChange = (e) => {
+    const id = e.target.value;
+    console.log("log", id);
+    setSelectedHotelId(id);
+
+    const selectedHotel = hotels.find((hotel) => hotel._id === id);
+    if (!selectedHotel) return;
+
+    const hotelName = selectedHotel.hotel_name;
+    setSelectedHotelName(hotelName);
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-//   const handleChange = (e) => {
-//   setFormData({ ...formData, [e.target.name]: e.target.value });
-// };
 
 
   const handleSubmit = async (e) => {
@@ -29,56 +58,41 @@ export default function InquiryForm() {
     // console.log("Form Submitted:", formData);
     alert("Thank you for your inquiry!");
 
-    // setFormData({
-    //   name: "",
-    //   email: "",
-    //   phone: "",
-    //   check_in: "",
-    //   check_out: "",
-    //   guests: "",
-    //   inquiry_type: "",
-    //   hotel: "",
-    //   room_type: "",
-    //   message: "",
-    // });
-
     const formData = new FormData();
-      formData.append("name", form.name);
-      formData.append("email", form.email);
-      formData.append("phone", form.phone);
-      formData.append("check_in", form.check_in);
-      formData.append("check_out", form.check_out);
-      formData.append("guests", form.guests);
-      formData.append("inquiry_type", form.inquiry_type);
-      formData.append("hotel", form.hotel);
-      formData.append("room_type", form.room_type);
-      formData.append("message", form.message);
-
-
+    formData.append("selectedHotelId", selectedHotelId);
+    formData.append("name", form.name);
+    formData.append("email", form.email);
+    formData.append("phone", form.phone);
+    formData.append("check_in", form.check_in);
+    formData.append("check_out", form.check_out);
+    formData.append("guests", form.guests);
+    formData.append("inquiry_type", form.inquiry_type);
+    formData.append("selectedHotelName", selectedHotelName);
+    formData.append("room_type", form.room_type);
+    formData.append("message", form.message);
 
     const res = await fetch("/api/inquiry", {
       method: "POST",
       body: formData,
     });
     const result = await res.json();
-      if (result.success) {
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          check_in: "",
-          check_out: "",
-          guests: "",
-          inquiry_type: "",
-          hotel: "",
-          room_type: "",
-          message: "",
-        });
-        // fetchExperience();
-      } else {
-        alert("Error: " + result.error);
-      }
-
+    if (result.success) {
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        check_in: "",
+        check_out: "",
+        guests: "",
+        inquiry_type: "",
+        hotel: "",
+        room_type: "",
+        message: "",
+      });
+      // fetchExperience();
+    } else {
+      alert("Error: " + result.error);
+    }
   };
 
   return (
@@ -163,24 +177,22 @@ export default function InquiryForm() {
                 <option value="Booking">Booking</option>
                 <option value="General">General</option>
                 <option value="Group Request">Group Request</option>
-                <option value="Special Requirements">Special Requirements</option>
+                <option value="Special Requirements">
+                  Special Requirements
+                </option>
               </select>
+
               <select
-                name="hotel"
-                value={form.hotel}
-                onChange={handleChange}
-                className="border-b px-4 py-2"
-                required
+                onChange={handleSelectChange}
+                value={selectedHotelId || ""}
+                className="px-4 py-2 border-b"
               >
                 <option value="">Select Hotel</option>
-                <option value="Bamboo Boutique">Bamboo Boutique</option>
-                <option value="Blue Waters">Blue Waters</option>
-                <option value="Heritage Hotel">Heritage Hotel</option>
-                <option value="Kambiri Beach">Kambiri Beach</option>
-                <option value="Kara O Mula">Kara O Mula</option>
-                <option value="Lotus Hotel">Lotus Hotel</option>
-                <option value="Serendib Travels">Serendib Travels</option>
-                <option value="Waters Edge">Waters Edge</option>
+                {hotels.map((hotel) => (
+                  <option key={hotel._id} value={hotel._id} value1={hotel.hotel_name}>
+                    {hotel.hotel_name}
+                  </option>
+                ))}
               </select>
               <select
                 name="room_type"

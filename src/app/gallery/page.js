@@ -61,6 +61,7 @@ export default function HotelGallery() {
           value={selectedHotelId || ""}
           className="px-4 py-2 border border-gray-300 rounded-md shadow-sm"
         >
+          <option value="">Select Hotel</option>
           {hotels.map((hotel) => (
             <option key={hotel._id} value={hotel._id}>
               {hotel.hotel_name}

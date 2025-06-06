@@ -68,7 +68,7 @@ export default function BlogPage() {
       </div>
       )}
 
-      <BlogForm/>
+      {/* <BlogForm/> */}
     </div>
   );
 }

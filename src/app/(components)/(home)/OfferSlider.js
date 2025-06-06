@@ -96,7 +96,7 @@ export default function OfferSlider({ nav }) {
         </button>
 
         <Link
-          href=""
+          href="/offers"
           className="text-sm sm:text-base xl:text-lg 2xl:text-xl text-gray-500"
         >
           View all

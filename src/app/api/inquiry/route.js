@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
   const formData = await req.formData();
+  const hotelId = formData.get("selectedHotelId");
   const name = formData.get("name");
   const email = formData.get("email");
   const phone = formData.get("phone");
@@ -12,13 +13,14 @@ export async function POST(req) {
   const check_in = new Date(formData.get("check_in"));
   const check_out = new Date(formData.get("check_out"));
   const inquiry_type = formData.get("inquiry_type");
-  const hotel = formData.get("hotel");
+  const hotel = formData.get("selectedHotelName");
   const room_type = formData.get("room_type");
   const message = formData.get("message");
 
   try {
     await connectDB();
     const newInquiry = await Inquiry.create({
+        hotelId,
         name,
         email,
         phone,
