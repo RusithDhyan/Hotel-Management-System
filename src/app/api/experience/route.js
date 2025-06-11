@@ -1,7 +1,6 @@
 
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
-import mongoose from "mongoose";
 import path from "path";
 import { writeFile } from "fs/promises";
 import Experience from "@/models/Experience";
@@ -57,7 +56,7 @@ export async function POST(req) {
       }
     }
 
-    const experience = await Experience.create({
+    const experiences = await Experience.create({
       title,
       description,
       main_title,
@@ -68,7 +67,7 @@ export async function POST(req) {
       image_slider: imageSliderUrl,
     });
 
-    return NextResponse.json({ success: true, data: experience });
+    return NextResponse.json({ success: true, data: experiences });
   } catch (error) {
     console.error("POST Exp Error:", error);
     return NextResponse.json(

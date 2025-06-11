@@ -97,7 +97,7 @@ export default function InquiryForm() {
 
   return (
     <div>
-      <div className="px-4 sm:px-10 lg:px-32 py-12 mt-10">
+      <div className="px-4 sm:px-10 lg:px-32">
         <h2 className="text-2xl font-semibold mb-6 text-center">
           Hotel Inquiry Form
         </h2>

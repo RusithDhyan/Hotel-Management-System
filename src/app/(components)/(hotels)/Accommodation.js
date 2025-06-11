@@ -49,6 +49,7 @@ const specIconMap = {
   "Tea & Coffee": <Coffee size={18} />,
   "Mini Fridge": <Refrigerator size={18} />,
   "Complimentary Wi-Fi": <Wifi size={18} />,
+  "Additional Twin-Bed Room": <Bed size={18}/>,
   "Queen Bed": <Bed size={18} />,
   "King Size Bed": <Bed size={18}/>,
   "Double Bed": <Bed size={18}/>,
@@ -70,6 +71,7 @@ const specIconMap = {
   "Wardrobe": <Box size={18}/>,
   "Dressing table with chair": <Brush size={18}/>,
   'Hair Dryer': <CloudSun size={18}/>,
+    'Hand Driers': <CloudSun size={18}/>,
   "Office desk & chair": <LampDesk size={18}/>,
   "Safe Box": <Lock size={18}/>,
   "Ultimate High-Speed Internet Access": <Network size={18}/>,
@@ -319,7 +321,7 @@ export default function Accommodation({ hotelId }) {
         </div>
       )}
 
-      <AccommodationForm hotelId={hotelId} />
+      {/* <AccommodationForm hotelId={hotelId} /> */}
     </div>
   );
 }
