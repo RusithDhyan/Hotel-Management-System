@@ -234,19 +234,6 @@ export default function AccommodationForm({ hotelId }) {
       <h1 className="text-2xl font-bold mb-4">Accommodation Form</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* <select
-          name="room_type"
-          value={form.room_type}
-          onChange={(e) => setForm({ ...form, room_type: e.target.value })}
-          className="w-full p-2 border rounded"
-          required
-        >
-          <option value="">Select Type of Room</option>
-          <option value="Executive">Executive</option>
-          <option value="Family">Family</option>
-          <option value="Deluxe">Deluxe</option>
-          <option value="Premier">Premier</option>
-        </select> */}
         <input
           type="text"
           name="room_type"
@@ -410,3 +397,6 @@ export default function AccommodationForm({ hotelId }) {
     </main>
   );
 }
+
+
+

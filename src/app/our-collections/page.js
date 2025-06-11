@@ -64,7 +64,7 @@ export default function OurCollection() {
             <p>Loading or invalid data</p>
           )}
       </div>
-      {/* <HotelForm/> */}
+      <HotelForm/>
     </div>
   );
 }

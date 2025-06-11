@@ -169,7 +169,7 @@ export default function Home() {
       {/* <ServiceCardSlider /> */}
       <OfferSlider nav={navLink} />
       <OurStory />
-      {/* <Form /> */}
+      <Form />
     </div>
   );
 }

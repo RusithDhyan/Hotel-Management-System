@@ -1,7 +1,24 @@
-// app/api/submit/route.js
-import { connectDB } from "@/lib/mongodb";
-import Experience from "@/models/Experience";
+
 import { NextResponse } from "next/server";
+import { connectDB } from "@/lib/mongodb";
+import mongoose from "mongoose";
+import path from "path";
+import { writeFile } from "fs/promises";
+import Experience from "@/models/Experience";
+
+export async function GET(req) {
+  try {
+    await connectDB();
+
+const experiences = await Experience.find(); // Fetches all documents
+    return NextResponse.json({ success: true, data: experiences });
+  } catch (error) {
+    return NextResponse.json(
+      { success: false, error: error.message },
+      { status: 500 }
+    );
+  }
+}
 
 export async function POST(req) {
   const formData = await req.formData();
@@ -14,50 +31,46 @@ export async function POST(req) {
   const image = formData.get("image");
   const image_slider = formData.getAll("image_slider");
 
-  let base64Image = "";
-  let base64Images = [];
-
-  
-  for (const img of image_slider) {
-    if (img && typeof img === "object") {
-      const buffer = Buffer.from(await img.arrayBuffer());
-      const base64 = `data:${img.type};base64,${buffer.toString("base64")}`;
-      base64Images.push(base64);
-    }
-  }
-
-  if (image && typeof image === "object") {
-    const buffer = Buffer.from(await image.arrayBuffer());
-    base64Image = `data:${image.type};base64,${buffer.toString("base64")}`;
-  }
-
   try {
     await connectDB();
-    const newExperience = await Experience.create({
+
+    let imageUrl = "";
+    let imageSliderUrl = [];
+
+    if (image && typeof image === "object") {
+      const buffer = Buffer.from(await image.arrayBuffer());
+      const filename = `${Date.now()}-${image.name}`;
+      const filepath = path.join(process.cwd(), "public/uploads", filename);
+      await writeFile(filepath, buffer);
+      imageUrl = `/uploads/${filename}`;
+    }
+
+    if (image_slider && image_slider.length > 0) {
+      for (const file of image_slider) {
+        if (file && typeof file === "object") {
+          const buffer = Buffer.from(await file.arrayBuffer());
+          const filename = `${Date.now()}-${file.name}`;
+          const filepath = path.join(process.cwd(), "public/uploads", filename);
+          await writeFile(filepath, buffer);
+          imageSliderUrl.push(`/uploads/${filename}`);
+        }
+      }
+    }
+
+    const experience = await Experience.create({
       title,
       description,
       main_title,
       main_description,
       body_title,
       body_description,
-      image: base64Image,
-      image_slider: base64Images,
+      image: imageUrl,
+      image_slider: imageSliderUrl,
     });
-    return NextResponse.json({ success: true, data: newExperience });
-  } catch (error) {
-    return NextResponse.json(
-      { success: false, error: error.message },
-      { status: 500 }
-    );
-  }
-}
 
-export async function GET() {
-  try {
-    await connectDB();
-    const exp = await Experience.find({});
-    return NextResponse.json({ success: true, data: exp });
+    return NextResponse.json({ success: true, data: experience });
   } catch (error) {
+    console.error("POST Exp Error:", error);
     return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }

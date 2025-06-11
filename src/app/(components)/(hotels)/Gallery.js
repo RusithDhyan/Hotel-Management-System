@@ -187,7 +187,7 @@ const Gallery = ({ hotelId }) => {
           </div>
         ))}
       </div>
-      {/* <GalleryForm hotelId={hotelId} /> */}
+      <GalleryForm hotelId={hotelId} />
     </div>
   );
 };
