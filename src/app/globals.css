@@ -1,4 +1,17 @@
 @import "tailwindcss";
 
+/* app/globals.css or styles/globals.css */
+@font-face {
+  font-family: 'Argue Demo';
+  src: url('/fonts/ArgueDemo-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Argue Demo', sans-serif;
+}
+
+
 
 

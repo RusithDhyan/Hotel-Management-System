@@ -37,14 +37,7 @@ import "./globals.css";
 import Footer from "./(components)/Footer";
 import Navbar from "./(components)/Navbar";
 import { DataProvider } from "./context/DataContext";
-import localFont from 'next/font/local';
 
-
-const argueDemo = localFont({
-  src: '/fonts/ArgueDemo-Regular.ttf',
-  variable: '--font-argue', // optional for CSS variable use
-  display: 'swap', // improves rendering
-});
 
 export const metadata = {
   title: "Serendib Resort",
@@ -53,7 +46,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={argueDemo.className}>
+    <html lang="en">
       <link rel="icon" href="/favicon.ico" />
       <body>
         <DataProvider>
