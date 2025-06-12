@@ -81,7 +81,7 @@ export default function Experience({hotelId}) {
         </div>
       </div>
 ))}
-      <PageExpForm hotelId={hotelId}/>
+      {/* <PageExpForm hotelId={hotelId}/> */}
     </div>
   );
 }
