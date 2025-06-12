@@ -28,14 +28,14 @@ export default function OurStory() {
               Serendib property is a gateway to authentic Malawian hospitality
               and adventure.
             </p>
-            <div>
+            {/* <div>
               <Link
                 href="/about"
                 className="text-white text-xs sm:text-sm md:text-base"
               >
                 View more
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

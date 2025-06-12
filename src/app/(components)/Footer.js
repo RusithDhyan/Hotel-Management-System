@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="flex flex-col items-center justify-center gap-2">
 
           <Link href="/blogs">Blogs</Link>
-          <Link href="/blogs">Galery</Link>
+          <Link href="/blogs">Gallery</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
           </div>
