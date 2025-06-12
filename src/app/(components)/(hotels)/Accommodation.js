@@ -321,7 +321,7 @@ export default function Accommodation({ hotelId }) {
         </div>
       )}
 
-      {/* <AccommodationForm hotelId={hotelId} /> */}
+      <AccommodationForm hotelId={hotelId} />
     </div>
   );
 }

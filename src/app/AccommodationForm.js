@@ -126,41 +126,10 @@ export default function AccommodationForm({ hotelId }) {
     console.log("Form Submitted:", form);
 
     if (editingAccommodationId) {
-      // Update logic (optional image update can be added separately)
-      const res = await fetch(`/api/accommodation/${editingAccommodationId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          room_type: form.room_type,
-          price: form.price,
-          size: form.size,
-          description: form.description,
-          image: form.image,
-          // images: form.images,
-          spec_type: form.spec_type,
-        }),
-      });
-
-      const result = await res.json();
-      if (result.message === "Accommodation not found") {
-        alert("Accommodation not found.");
-      } else {
-        setEditingAccommodationId(null);
-        setForm({
-          room_type: "",
-          price: "",
-          size: "",
-          description: "",
-          image: "",
-          // images: [],
-          spec_type: [],
-        });
-        fetchAccommodation();
-      }
-    } else {
-      // Create new user with image
+      alert("Editing not fully supported yet for image update.");
+      return;
+    }
+     // Create new user with image
       const formData = new FormData();
       formData.append("hotelId", hotelId);
       formData.append("room_type", form.room_type);
@@ -201,7 +170,7 @@ export default function AccommodationForm({ hotelId }) {
       } else {
         alert("Error: " + result.error);
       }
-    }
+    
   };
 
   const handleDelete = async (id) => {
@@ -228,7 +197,7 @@ export default function AccommodationForm({ hotelId }) {
       image: accommodation.image,
       spec_type: [],
     }); // image not edited here
-    setEditingAccommodationId(accommodation._id);
+    // setEditingAccommodationId(accommodation._id);
   };
 
   return (

@@ -49,35 +49,11 @@ export default function Form() {
 
     console.log("Form Submitted:", form);
 
-    if (editingExpId) {
-      // Update logic (optional image update can be added separately)
-      const res = await fetch(`/api/page-exp/${editingExpId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          image_right: form.image_right,
-          description_right: form.description_right,
-          image_left: form.image_left,
-          description_left: form.description_left,
-        }),
-      });
-
-      const result = await res.json();
-      if (result.message === "expereince not found") {
-        alert("experienc not found.");
-      } else {
-        setEditingExpId(null);
-        setForm({
-          image_right: "",
-          description_right: "",
-          image_left: "",
-          description_left: "",
-        });
-        fetchExperience();
-      }
-    } else {
+    if (editingExpId) 
+      {
+      alert("Editing not fully supported yet for image update.");
+      return;
+    }
       // Create new user with image
       const formData = new FormData();
       formData.append("selectedHotelId", selectedHotelId);
@@ -86,6 +62,7 @@ export default function Form() {
       if (form.image_left) formData.append("image_left", form.image_left);
       formData.append("description_left", form.description_left);
 
+        
       const res = await fetch("/api/page-exp", {
         method: "POST",
         body: formData,
@@ -103,7 +80,7 @@ export default function Form() {
       } else {
         alert("Error: " + result.error);
       }
-    }
+    
   };
 
   const handleDelete = async (id) => {
@@ -128,7 +105,7 @@ export default function Form() {
       image_left: expereince.image_left,
       description_left: expereince.description_left,
     }); // image not edited here
-    setEditingExpId(expereince._id);
+    // setEditingExpId(expereince._id);
   };
 
   return (

@@ -70,7 +70,7 @@ export default function ExperiencePage() {
         </div>
       </div>
       )}
-      {/* <ExperienceForm /> */}
+      <ExperienceForm />
     </div>
   );
 }

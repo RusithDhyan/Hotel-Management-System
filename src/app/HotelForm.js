@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 export default function OfferForm() {
-   const [hotels, setHotel] = useState([]);
+  const [hotels, setHotel] = useState([]);
   const [form, setForm] = useState({
     hotel_name: "",
     title: "",
@@ -10,7 +10,7 @@ export default function OfferForm() {
     description: "",
     thumbnail: "",
     image: "",
-    cover_image: ""
+    cover_image: "",
   });
   const [editingHotelId, setEditingHotelId] = useState(null);
 
@@ -31,14 +31,14 @@ export default function OfferForm() {
       alert("Editing not fully supported yet for image update.");
       return;
     }
-const formData = new FormData();
-      formData.append("hotel_name", form.hotel_name);
-      formData.append("title", form.title);
-      formData.append("location", form.location);
-      formData.append("description", form.description);
-      if (form.thumbnail) formData.append("thumbnail", form.thumbnail);
-      if (form.image) formData.append("image", form.image);
-            if (form.cover_image) formData.append("cover_image", form.cover_image);
+    const formData = new FormData();
+    formData.append("hotel_name", form.hotel_name);
+    formData.append("title", form.title);
+    formData.append("location", form.location);
+    formData.append("description", form.description);
+    if (form.thumbnail) formData.append("thumbnail", form.thumbnail);
+    if (form.image) formData.append("image", form.image);
+    if (form.cover_image) formData.append("cover_image", form.cover_image);
 
     const res = await fetch("/api/hotels", {
       method: "POST",
@@ -47,15 +47,16 @@ const formData = new FormData();
 
     const result = await res.json();
     if (result.success) {
-setForm({
-              hotel_name: "",
-          title: "",
-          location: "",
-          description: "",
-          thumbnail: "",
-          image: "",
-          cover_image: ""
-        });      fetchHotel();
+      setForm({
+        hotel_name: "",
+        title: "",
+        location: "",
+        description: "",
+        thumbnail: "",
+        image: "",
+        cover_image: "",
+      });
+      fetchHotel();
     } else {
       alert("Error: " + result.error);
     }
@@ -81,9 +82,9 @@ setForm({
       description: hotel.description,
       thumbnail: hotel.thumbnail,
       image: hotel.image,
-      cover_image: hotel.cover_image
+      cover_image: hotel.cover_image,
     });
-    setEditingHotelId(offer._id);
+    // setEditingHotelId(offer._id);
   };
 
   return (
@@ -126,7 +127,7 @@ setForm({
           className="w-full p-2 border rounded"
           required
         />
-        {!editingHotelId && (
+        {/* {!editingHotelId && ( */}
           <input
             type="file"
             name="thumbnail"
@@ -134,8 +135,8 @@ setForm({
             onChange={(e) => setForm({ ...form, thumbnail: e.target.files[0] })}
             className="w-full"
           />
-        )}
-        {!editingHotelId && (
+        {/* )} */}
+        {/* {!editingHotelId && ( */}
           <input
             type="file"
             name="image"
@@ -143,16 +144,18 @@ setForm({
             onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
             className="w-full"
           />
-        )}
-         {!editingHotelId && (
+        {/* )} */}
+        {/* {!editingHotelId && ( */}
           <input
             type="file"
             name="cover_image"
             accept="image/*"
-            onChange={(e) => setForm({ ...form, cover_image: e.target.files[0] })}
+            onChange={(e) =>
+              setForm({ ...form, cover_image: e.target.files[0] })
+            }
             className="w-full"
           />
-        )}
+        {/* )} */}
         <button
           type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded"
@@ -170,7 +173,7 @@ setForm({
                 description: "",
                 thumbnail: "",
                 image: "",
-                cover_image: ""
+                cover_image: "",
               });
               setEditingHotelId(null);
             }}
@@ -184,7 +187,10 @@ setForm({
       <h2 className="text-xl font-semibold mt-6">Submitted Offers</h2>
       <div className="mt-4 space-y-4">
         {hotels.map((hotel) => (
-          <div key={hotel._id} className="border-b pb-4 flex items-center gap-4">
+          <div
+            key={hotel._id}
+            className="border-b pb-4 flex items-center gap-4"
+          >
             {hotel.image && (
               <img
                 src={hotel.image}
@@ -218,7 +224,6 @@ setForm({
     </main>
   );
 }
-
 
 // "use client";
 // import Image from "next/image";
@@ -294,7 +299,6 @@ setForm({
 //       if (form.thumbnail) formData.append("thumbnail", form.thumbnail);
 //       if (form.image) formData.append("image", form.image);
 //             if (form.cover_image) formData.append("cover_image", form.cover_image);
-
 
 //       const res = await fetch("/api/hotels", {
 //         method: "POST",

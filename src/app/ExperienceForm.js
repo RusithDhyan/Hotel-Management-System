@@ -278,42 +278,10 @@ export default function ExperienceForm() {
     console.log("form:",form);
 
     if (editingExpId) {
-      // Update logic (optional image update can be added separately)
-      const res = await fetch(`/api/experience/${editingExpId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: form.title,
-          description: form.description,
-          main_title: form.main_title,
-          main_description: form.main_description,
-          body_title: form.body_title,
-          body_description: form.body_description,
-          image: form.image,
-          image_slider: form.image_slider,
-        }),
-      });
-
-      const result = await res.json();
-      if (result.message === "Expereince not found") {
-        alert("Experience not found.");
-      } else {
-        setEditingExpId(null);
-        setForm({
-          title: "",
-          description: "",
-          main_title: "",
-          main_description: "",
-          body_title: "",
-          body_description: "",
-          image: "",
-          image_slider: [],
-        });
-        fetchExperience();
-      }
-    } else {
+       alert("Editing not fully supported yet for image update.");
+      return;
+    }
+     
       // Create new user with image
       const formData = new FormData();
       formData.append("title", form.title);
@@ -350,7 +318,6 @@ export default function ExperienceForm() {
       } else {
         alert("Error: " + result.error);
       }
-    }
   };
 
   const handleDelete = async (id) => {
@@ -379,7 +346,7 @@ export default function ExperienceForm() {
       image: experience.image,
       image_slider: [],
     }); // image not edited here
-    setEditingExpId(experience._id);
+    // setEditingExpId(experience._id);
   };
 
   return (
@@ -445,14 +412,14 @@ export default function ExperienceForm() {
           className="w-full p-2 border rounded"
           required
         />
-        {!editingExpId && (
+        {/* {!editingExpId && ( */}
           <input
             type="file"
             accept="image/*"
             onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
             className="w-full"
           />
-        )}
+        {/* )} */}
         <input
             type="file"
             accept="image/*"
