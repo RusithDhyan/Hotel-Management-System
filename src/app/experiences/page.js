@@ -39,7 +39,7 @@ export default function ExperiencePage() {
       
       {experiences.length === 0 ? (
         <div className="flex flex-col items-center justify-center my-10 text-gray-500">
-          <p>No experiences available at the moment..</p>
+          <p>No experiences available at the moment.</p>
         </div>
       ) : (
         <div className="container mx-auto px-4 md:px-6 pt-10">
