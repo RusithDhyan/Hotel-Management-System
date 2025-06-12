@@ -13,7 +13,7 @@ export default function OurStory() {
           height={500}
           className="w-full h-[200px] sm:h-[400px] md:h-[500px] object-cover"
         />
-        <div className="absolute inset-0 flex items-start sm:items-center px-2">
+        <div className="absolute inset-0 flex items-start sm:items-center px-10">
           <div className="mt-5 max-w-2xl">
             <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-white font-semibold mb-2">
               Iconic Elegance & Luxury
