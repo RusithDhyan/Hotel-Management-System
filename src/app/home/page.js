@@ -146,7 +146,7 @@ export default function Home() {
           </p>
 
           <div className="mt-4">
-            <Link href="/blogs" className="text-sm lg:text-lg md:text-md">
+            <Link href="/experiences" className="text-sm lg:text-lg md:text-md">
               <button
                 className="relative text-black py-1 border-b-2 border-transparent"
                 onMouseEnter={activateHover}

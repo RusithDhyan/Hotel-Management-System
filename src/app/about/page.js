@@ -105,7 +105,7 @@ function About() {
                 World-Class Service
               </h3>
               <p className="text-gray-600">
-                At Serendib, hospitality is more than a profession it our
+                At Serendib, hospitality is more than a profession it's our
                 promise. From the moment you arrive at our doorstep, our
                 dedicated staff ensures that every detail is handled with care,
                 warmth, and professionalism. Whether you’re staying at a serene
