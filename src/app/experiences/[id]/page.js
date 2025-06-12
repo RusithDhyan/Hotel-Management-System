@@ -54,7 +54,7 @@ export default function ExperienceInnerPage() {
       <div className="w-full h-auto relative">
         {experience.image ? (
           <Image
-            src={experience.image}
+            src="/experience/exp-inner-bg.jpg"
             alt="contact-img"
             width={1500}
             height={800}

@@ -35,7 +35,7 @@ export default function BlogPage() {
 
       {blogs.length === 0 ? (
         <div className="flex flex-col items-center justify-center my-10 text-gray-500">
-          <p>No blogs available at the moment.</p>
+          <p>Nothing here just yet—but great reads are on the way. Check back shortly!</p>
         </div>
       ) : (
         <div className="container mx-auto px-4 md:px-6 pt-10">

@@ -1,16 +1,14 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React from "react";
 import OfferGrid from "../(components)/(offer)/OfferGrid";
 import { useData } from "../context/DataContext";
 
 export default function Offers() {
-  const {offers} = useData();
+  const { offers } = useData();
 
-  
   return (
     <div className="flex flex-col min-h-screen">
-      
       <div className="w-full h-auto relative">
         <Image
           src="/images/offer.jpg"
@@ -29,19 +27,19 @@ export default function Offers() {
           Exclusive Deals & Luxurious Offers
         </h1>
         <p className="font-extralight text-center text-sm sm:text-base">
-          Discover unbeatable deals and exclusive packages tailored for a
-          luxurious stay. Indulge in comfort and elegance at the best value.
+          Indulge in the finest experiences at unbeatable value. From special
+          rates to exclusive perks, our curated offers bring you luxury,
+          comfort, and unforgettable moments, all for less.
         </p>
       </div>
 
-       {offers.length === 0 ? (
+      {offers.length === 0 ? (
         <div className="flex flex-col items-center justify-center my-10 text-gray-500">
-          <p>No offers available at the moment.</p>
+          <p>Hang tight! Great offers are on the way</p>
         </div>
       ) : (
         <OfferGrid offers={offers} />
       )}
-
     </div>
   );
 }

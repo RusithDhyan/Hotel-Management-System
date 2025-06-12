@@ -124,6 +124,8 @@ export default function OfferSlider({ hotelId }) {
           <ArrowRight size={20} />
         </button>
       </div>
+      {/* <UploadForm hotelId={hotelId}/> */}
+
       <OfferForm hotelId={hotelId}/>
       
     </div>
