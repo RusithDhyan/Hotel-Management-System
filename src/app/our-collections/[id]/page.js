@@ -30,7 +30,20 @@ export default function HotelInnerPage() {
     if (id) fetchHotel();
   }, []);
 
-  if (!hotel) return <div>Loading...</div>;
+if (!hotel) {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-50 to-white text-gray-800">
+      <div className="relative w-16 h-16 mb-6">
+        <div className="absolute inset-0 rounded-full border-4 border-t-orange-500 border-r-transparent border-b-transparent border-l-blue-300 animate-spin"></div>
+        <div className="absolute inset-0 flex items-center justify-center text-xl font-bold text-blue-500">
+          🏨
+        </div>
+      </div>
+      <p className="text-lg animate-pulse">Preparing your stay...</p>
+    </div>
+  );
+}
+
 
   return (
     <div className="flex flex-col min-h-screen">
