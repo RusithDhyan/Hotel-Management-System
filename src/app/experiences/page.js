@@ -129,12 +129,12 @@ export default function ExperiencePage() {
               .map((exp, index) => (
                 <div
                   key={exp._id}
-                  className="shadow-md overflow-hidden bg-white"
+                  className="shadow-md overflow-hidden bg-white hover:shadow-lg transition group"
                 >
                   <img
                     src={exp.image}
                     alt={exp.title}
-                    className="w-full h-60 object-cover"
+                    className="w-full h-60 object-cover  transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="flex flex-col items-center p-4">
                     <h3 className="text-xl font-semibold mb-2">{exp.title}</h3>
@@ -179,12 +179,12 @@ export default function ExperiencePage() {
               .map((exp, index) => (
                 <div
                   key={exp.type}
-                  className="shadow-md overflow-hidden bg-white"
+                  className="shadow-md overflow-hidden bg-white hover:shadow-lg transition group"
                 >
                   <img
                     src={exp.image}
                     alt={exp.title}
-                    className="w-full h-60 object-cover"
+                    className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="flex flex-col items-center p-4">
                     <h3 className="text-xl font-semibold mb-2">{exp.title}</h3>
@@ -229,12 +229,12 @@ export default function ExperiencePage() {
               .map((exp, index) => (
                 <div
                   key={exp.type}
-                  className="shadow-md overflow-hidden bg-white"
+                  className="shadow-md overflow-hidden hover:shadow-lg transition group bg-white"
                 >
                   <img
                     src={exp.image}
                     alt={exp.title}
-                    className="w-full h-60 object-cover"
+                    className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="flex flex-col items-center p-4">
                     <h3 className="text-xl font-semibold mb-2">{exp.title}</h3>
