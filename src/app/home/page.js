@@ -8,6 +8,7 @@ import HomeSlider from "../(components)/(home)/HomeSlider";
 import HotelNav from "../(components)/(home)/HotelNav";
 import HotelSlider from "../(components)/(home)/HotelSlider";
 import Form from "../Form";
+import Experience from "../(components)/(home)/Experience";
 
 export default function Home() {
   const [isActive, setIsActive] = useState(false);
@@ -167,6 +168,7 @@ export default function Home() {
       </div>
 
       {/* <ServiceCardSlider /> */}
+      <Experience/>
       <OfferSlider nav={navLink} />
       <OurStory />
       {/* <Form /> */}

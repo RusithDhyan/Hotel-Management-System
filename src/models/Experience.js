@@ -2,6 +2,7 @@
 import mongoose from "mongoose";
 
 const ExperienceSchema = new mongoose.Schema({
+  type: String,
   title: String,
   description: String,
   main_title: String,
