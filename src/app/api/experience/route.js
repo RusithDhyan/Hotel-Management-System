@@ -105,6 +105,7 @@ export async function GET(req) {
 
 export async function POST(req) {
   const formData = await req.formData();
+  const type = formData.get("type");
   const title = formData.get("title");
   const description = formData.get("description");
   const main_title = formData.get("main_title");
@@ -145,6 +146,7 @@ export async function POST(req) {
     }
 
     const experiences = await Experience.create({
+      type,
       title,
       description,
       main_title,

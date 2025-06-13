@@ -250,8 +250,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function ExperienceForm() {
+  const [selectedType, setSelectedType] = useState("");
   const [experiences, setExperience] = useState([]);
   const [form, setForm] = useState({
+    type: "",
     title: "",
     description: "",
     main_title: "",
@@ -275,49 +277,51 @@ export default function ExperienceForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("form:",form);
+    console.log("form:", form);
 
     if (editingExpId) {
-       alert("Editing not fully supported yet for image update.");
+      alert("Editing not fully supported yet for image update.");
       return;
     }
-     
-      // Create new user with image
-      const formData = new FormData();
-      formData.append("title", form.title);
-      formData.append("description", form.description);
-      formData.append("main_title", form.main_title);
-      formData.append("main_description", form.main_description);
-      formData.append("body_title", form.body_title);
-      formData.append("body_description", form.body_description);
-      if (form.image) formData.append("image", form.image);
-      if (form.image_slider && form.image_slider.length > 0) {
-        form.image_slider.forEach((img) => {
-          formData.append("image_slider", img); // NOTE: "images" matches API handler
-        });
-      }
 
-      const res = await fetch("/api/experience", {
-        method: "POST",
-        body: formData,
+    // Create new user with image
+    const formData = new FormData();
+    formData.append("type", form.type);
+    formData.append("title", form.title);
+    formData.append("description", form.description);
+    formData.append("main_title", form.main_title);
+    formData.append("main_description", form.main_description);
+    formData.append("body_title", form.body_title);
+    formData.append("body_description", form.body_description);
+    if (form.image) formData.append("image", form.image);
+    if (form.image_slider && form.image_slider.length > 0) {
+      form.image_slider.forEach((img) => {
+        formData.append("image_slider", img); // NOTE: "images" matches API handler
       });
+    }
 
-      const result = await res.json();
-      if (result.success) {
-        setForm({
-          title: "",
-          description: "",
-          main_title: "",
-          main_description: "",
-          body_title: "",
-          body_description: "",
-          image: "",
-          image_slider: [],
-        });
-        fetchExperience();
-      } else {
-        alert("Error: " + result.error);
-      }
+    const res = await fetch("/api/experience", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await res.json();
+    if (result.success) {
+      setForm({
+        type: "",
+        title: "",
+        description: "",
+        main_title: "",
+        main_description: "",
+        body_title: "",
+        body_description: "",
+        image: "",
+        image_slider: [],
+      });
+      fetchExperience();
+    } else {
+      alert("Error: " + result.error);
+    }
   };
 
   const handleDelete = async (id) => {
@@ -337,6 +341,7 @@ export default function ExperienceForm() {
 
   const handleEdit = (experience) => {
     setForm({
+      type: experience.type,
       title: experience.title,
       description: experience.description,
       main_title: experience.main_title,
@@ -349,11 +354,29 @@ export default function ExperienceForm() {
     // setEditingExpId(experience._id);
   };
 
+  const handleSelectChange = (e) => {
+  const type = e.target.value;
+  setSelectedType(type);
+  setForm((prev) => ({ ...prev, type })); // <-- this is the missing part
+};
+
+
   return (
     <main className="p-6 max-w-xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">User Form</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        <select
+          id="type"
+          value={selectedType}
+          onChange={handleSelectChange}
+          className="border px-4 py-2 rounded"
+        >
+          <option value="">-- Select Type --</option>
+          <option value="nature">Nature</option>
+          <option value="city">City</option>
+          <option value="culture">Cultural</option>
+        </select>
         <input
           type="text"
           name="title"
@@ -379,7 +402,6 @@ export default function ExperienceForm() {
           value={form.main_title}
           onChange={(e) => setForm({ ...form, main_title: e.target.value })}
           className="w-full p-2 border rounded"
-
         />
         <input
           type="text"
@@ -390,7 +412,6 @@ export default function ExperienceForm() {
             setForm({ ...form, main_description: e.target.value })
           }
           className="w-full p-2 border rounded"
-
         />
         <input
           type="text"
@@ -413,21 +434,21 @@ export default function ExperienceForm() {
           required
         />
         {/* {!editingExpId && ( */}
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
-            className="w-full"
-          />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
+          className="w-full"
+        />
         {/* )} */}
         <input
-            type="file"
-            accept="image/*"
-            multiple
-            onChange={(e) =>
-              setForm({ ...form, image_slider: Array.from(e.target.files) })
-            }
-          />
+          type="file"
+          accept="image/*"
+          multiple
+          onChange={(e) =>
+            setForm({ ...form, image_slider: Array.from(e.target.files) })
+          }
+        />
 
         <button
           type="submit"
