@@ -103,8 +103,8 @@ const Gallery = ({ hotelId }) => {
 
   return (
     <div className="space-y-2 max-w-full md:max-w-5xl mx-auto px-4 py-6 sm:py-20">
-      <h2 className="text-xl sm:text-2xl font-bold text-center">
-        Delicious Foods Gallery
+      <h2 className="text-2xl sm:text-3xl font-bold text-center">
+        Gallery
       </h2>
       <p className="text-sm sm:text-base text-center text-gray-600 max-w-xl mx-auto">
         Explore our mouth-watering meals served with love and elegance in a
