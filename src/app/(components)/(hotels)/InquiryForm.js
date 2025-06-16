@@ -4,8 +4,9 @@ import React, { useEffect, useState } from "react";
 export default function InquiryForm() {
   const [hotels, setHotels] = useState([]);
   const [selectedHotelId, setSelectedHotelId] = useState(null);
-    const [selectedHotelName, setSelectedHotelName] = useState(null);
-
+  const [selectedHotelName, setSelectedHotelName] = useState(null);
+  const [accommodation, setAccommodation] = useState([]);
+  const [selectedRoom, setSelectedRoom] = useState("");
 
   const [form, setFormData] = useState({
     name: "",
@@ -28,35 +29,50 @@ export default function InquiryForm() {
         setHotels(data.data);
         if (data.data.length > 0) {
           const firstHotelId = data.data[0]._id;
-          const firstHotelName = data.data[0].hotel_name;
           setSelectedHotelId(firstHotelId);
-          setSelectedHotelName(firstHotelName);
         }
       });
   }, []);
 
-  const handleSelectChange = (e) => {
-    const id = e.target.value;
-    console.log("log", id);
-    setSelectedHotelId(id);
+  const fetchAccommodation = async (hotelId) => {
+    const res = await fetch(`/api/accommodation?hotelId=${hotelId}`);
+    const data = await res.json();
+    console.log("Fetched accommodation:", data.data);
+    console.log("hotelId", hotelId);
 
-    const selectedHotel = hotels.find((hotel) => hotel._id === id);
-    if (!selectedHotel) return;
-
-    const hotelName = selectedHotel.hotel_name;
-    setSelectedHotelName(hotelName);
+    if (data.success) setAccommodation(data.data);
   };
+
+  const handleSelectChange = (e) => {
+  const id = e.target.value;
+  setSelectedHotelId(id);
+
+  const hotelObj = hotels.find((hotel) => hotel._id === id);
+  const hotelName = hotelObj ? hotelObj.hotel_name : "";
+
+  setSelectedHotelName(hotelName);
+
+  // Update form.hotel
+  setFormData((prev) => ({
+    ...prev,
+    hotel: hotelName,
+  }));
+
+  fetchAccommodation(id);
+};
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log("Form Submitted:", formData);
     alert("Thank you for your inquiry!");
+
+    console.log("inquiry", form);
 
     const formData = new FormData();
     formData.append("selectedHotelId", selectedHotelId);
@@ -67,10 +83,10 @@ export default function InquiryForm() {
     formData.append("check_out", form.check_out);
     formData.append("guests", form.guests);
     formData.append("inquiry_type", form.inquiry_type);
-    formData.append("selectedHotelName", selectedHotelName);
-    formData.append("room_type", form.room_type);
+    formData.append("hotel", form.hotel);
+    formData.append("room_type", form.room_type)
     formData.append("message", form.message);
-
+    
     const res = await fetch("/api/inquiry", {
       method: "POST",
       body: formData,
@@ -189,24 +205,36 @@ export default function InquiryForm() {
               >
                 <option value="">Select Hotel</option>
                 {hotels.map((hotel) => (
-                  <option key={hotel._id} value={hotel._id} value1={hotel.hotel_name}>
+                  <option
+                    key={hotel._id}
+                    value={hotel._id}
+                    value1={hotel.hotel_name}
+                  >
                     {hotel.hotel_name}
                   </option>
                 ))}
               </select>
-              <select
-                name="room_type"
-                value={form.room_type}
-                onChange={handleChange}
-                className="border-b px-4 py-2"
-                required
-              >
-                <option value="">Select Room Type</option>
-                <option value="Executive">Executive</option>
-                <option value="Family">Family</option>
-                <option value="Deluxe">Deluxe</option>
-                <option value="Premier">Premier</option>
-              </select>
+              {selectedHotelName && (
+                <select
+                  value={selectedRoom}
+                  onChange={(e) => {
+                    const roomType = e.target.value;
+                    setSelectedRoom(roomType);
+                    setFormData((prev) => ({
+                      ...prev,
+                      room_type: roomType,
+                    }));
+                  }}
+                  className="w-full border border-gray-300 px-4 py-2"
+                >
+                  <option value="">Select Room Type</option>
+                  {accommodation.map((room) => (
+                    <option key={room._id} value={room.room_type}>
+                      {room.room_type}
+                    </option>
+                  ))}
+                </select>
+              )}
               <textarea
                 name="message"
                 value={form.message}

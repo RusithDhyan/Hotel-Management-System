@@ -13,7 +13,7 @@ export async function POST(req) {
   const check_in = new Date(formData.get("check_in"));
   const check_out = new Date(formData.get("check_out"));
   const inquiry_type = formData.get("inquiry_type");
-  const hotel = formData.get("selectedHotelName");
+  const hotel = formData.get("hotel");
   const room_type = formData.get("room_type");
   const message = formData.get("message");
 
