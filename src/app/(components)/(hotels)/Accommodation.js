@@ -41,41 +41,41 @@ import {
 import AccommodationForm from "@/app/AccommodationForm";
 
 const specIconMap = {
-  "Private Bathroom with Shower": <Bath size={18} />,
-  "Kitchen Utensils": <Utensils size={18} />,
-  "Flat-Screen TV": <Tv size={18} />,
-  "Air Condition": <Snowflake size={18} />,
-  "Hot Water": <Thermometer size={18} />,
-  "Tea & Coffee": <Coffee size={18} />,
-  "Mini Fridge": <Refrigerator size={18} />,
-  "Complimentary Wi-Fi": <Wifi size={18} />,
-  "Additional Twin-Bed Room": <Bed size={18}/>,
-  "Queen Bed": <Bed size={18} />,
-  "King Size Bed": <Bed size={18}/>,
-  "Double Bed": <Bed size={18}/>,
-  "Ensuite Bathroom": <Bath size={18} />,
-  "Toiletries": <Toilet size={18}/>,
-  "Bathrobe": <ShowerHead scale={18}/>,
-  "In-room Safe": <Shield size={18}/>,
-  "Mini Bar": <Beer size={18}/>,
-  "Bottled Water": <PillBottle size={18}/>,
-  "Telephone": <Phone size={18}/>,
-  "24/7 Front Desk": <Clock size={18}/>,
-  "Tv with Stand": <Tv2 size={18}/>,
-  "Sitting area & Lounge chair": <Sofa size={18}/>,
-  "Dining Set": <ForkKnife size={18}/>,
-  "Microwave": <Monitor size={18}/>,
-  "Cooker or mini Cooker": <Flame size={18}/>,
-  "Tea Station": <CupSoda size={18}/>,
-  "Luggage Rack": <Briefcase size={18}/>,
-  "Wardrobe": <Box size={18}/>,
-  "Dressing table with chair": <Brush size={18}/>,
-  'Hair Dryer': <CloudSun size={18}/>,
-    'Hand Driers': <CloudSun size={18}/>,
-  "Office desk & chair": <LampDesk size={18}/>,
-  "Safe Box": <Lock size={18}/>,
-  "Ultimate High-Speed Internet Access": <Network size={18}/>,
-  "Private Balcony": <DoorOpen size={18}/>,
+  "Private Bathroom with Shower": <Bath size={15} />,
+  "Kitchen Utensils": <Utensils size={15} />,
+  "Flat-Screen TV": <Tv size={15} />,
+  "Air Condition": <Snowflake size={15} />,
+  "Hot Water": <Thermometer size={15} />,
+  "Tea & Coffee": <Coffee size={15} />,
+  "Mini Fridge": <Refrigerator size={15} />,
+  "Complimentary Wi-Fi": <Wifi size={15} />,
+  "Additional Twin-Bed Room": <Bed size={15}/>,
+  "Queen Bed": <Bed size={15} />,
+  "King Size Bed": <Bed size={15}/>,
+  "Double Bed": <Bed size={15}/>,
+  "Ensuite Bathroom": <Bath size={15} />,
+  "Toiletries": <Toilet size={15}/>,
+  "Bathrobe": <ShowerHead scale={15}/>,
+  "In-room Safe": <Shield size={15}/>,
+  "Mini Bar": <Beer size={15}/>,
+  "Bottled Water": <PillBottle size={15}/>,
+  "Telephone": <Phone size={15}/>,
+  "24/7 Front Desk": <Clock size={15}/>,
+  "Tv with Stand": <Tv2 size={15}/>,
+  "Sitting area & Lounge chair": <Sofa size={15}/>,
+  "Dining Set": <ForkKnife size={15}/>,
+  "Microwave": <Monitor size={15}/>,
+  "Cooker or mini Cooker": <Flame size={15}/>,
+  "Tea Station": <CupSoda size={15}/>,
+  "Luggage Rack": <Briefcase size={15}/>,
+  "Wardrobe": <Box size={15}/>,
+  "Dressing table with chair": <Brush size={15}/>,
+  'Hair Dryer': <CloudSun size={15}/>,
+    'Hand Driers': <CloudSun size={15}/>,
+  "Office desk & chair": <LampDesk size={15}/>,
+  "Safe Box": <Lock size={15}/>,
+  "Ultimate High-Speed Internet Access": <Network size={15}/>,
+  "Private Balcony": <DoorOpen size={15}/>,
 
   // fallback
   default: <CheckCircle size={16} />,
@@ -252,7 +252,7 @@ export default function Accommodation({ hotelId }) {
           onClick={closePopup}
         >
           <div
-            className="bg-white/50 w-full max-w-3xl h-[60vh] sm:h-[70vh] shadow-2xl flex flex-col md:flex-row relative border border-gray-300 overflow-hidden"
+            className="bg-white/50 w-full max-w-5xl h-[60vh] sm:h-[80vh] shadow-2xl flex flex-col md:flex-row relative border border-gray-300 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -284,7 +284,7 @@ export default function Accommodation({ hotelId }) {
               </button>
             </div>
 
-            <div className="w-full md:w-1/2 p-4 sm:p-6 overflow-y-auto">
+            <div className="w-full md:w-1/2 p-2 sm:p-3 overflow-y-auto">
               <h1 className="text-lg sm:text-xl font-bold mb-2">
                 {room.room_type}
               </h1>
@@ -298,7 +298,7 @@ export default function Accommodation({ hotelId }) {
 
               <div>
                 <h1 className="font-semibold text-gray-600">What's Inside</h1>
-                <div className="grid grid-cols-2 gap-2 pb-5 mt-2">
+                <div className="grid grid-cols-2 pr-10 gap-2 pb-5 mt-2">
                   {room?.spec_type?.map((spec, index) => (
                     <div
                       key={index}

@@ -19,7 +19,7 @@ export default function OurCollection() {
           height={100}
           className="w-full h-100 object-cover"
         />
-        <h1 className="absolute inset-0 flex items-end justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
+        <h1 className="absolute inset-0 flex items-center justify-center text-3xl md:text-5xl text-white pb-4 font-bold">
           Our Malawi Hotel Collection
         </h1>
       </div>

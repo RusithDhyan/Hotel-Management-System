@@ -44,7 +44,7 @@ export default function Home() {
           <p className="text-justify">
             From lakeside escapes to vibrant city stays, Serendib Hotels offers
             distinctive hospitality across Malawi. Whether you're seeking
-            relaxation, adventure, or business convenience, each of Serendip
+            relaxation, adventure, or business convenience, each of Serendib
             properties are thoughtfully designed to reflect the charm and spirit
             of its location.
           </p>
@@ -139,7 +139,7 @@ export default function Home() {
             From the Heart of Malawi: Stories, Tips & Travel Inspiration
           </h1>
           <p className="leading-relaxed">
-            Sub Content Dive into the Serendib experience through our
+            Dive into the Serendib experience through our
             blog—featuring travel guides, hidden gems, local cuisine spotlights,
             hotel highlights, and behind-the-scenes glimpses. Whether you're
             planning your first visit or reliving your favorite memories, our

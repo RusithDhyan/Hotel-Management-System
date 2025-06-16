@@ -77,7 +77,7 @@ export default function Footer() {
       <div className="w-full bg-black text-white px-5 py-2 flex flex-col sm:flex-row items-center justify-center gap-1 text-center text-xs sm:text-sm">
         <Copyright className="w-4 sm:w-5" />
         <span>
-          2025 Serandib Hotels. All Rights Reserved | Designed & Developed By
+          2025 Serandib. All Rights Reserved | Designed & Developed By
           Perl Vista
         </span>
       </div>

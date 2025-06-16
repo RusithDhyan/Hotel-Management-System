@@ -99,7 +99,7 @@ function About() {
                 alt="Excellence"
                 width={1500}
                 height={200}
-                className="mb-4 object-cover"
+                className="mb-4 sm:h-50 object-cover"
               />
               <h3 className="text-xl font-semibold mb-2">
                 World-Class Service
@@ -122,7 +122,7 @@ function About() {
                 alt="Authenticity"
                 width={1500}
                 height={200}
-                className="mb-4 object-cover"
+                className="mb-4 sm:h-50 object-cover"
               />
               <h3 className="text-xl font-semibold mb-2">
                 Local Connection: Stay Where Malawi Lives
@@ -142,7 +142,7 @@ function About() {
                 alt="Sustainability"
                 width={1500}
                 height={200}
-                className="mb-4 object-cover"
+                className="mb-4 sm:h-50 object-cover"
               />
               <h3 className="text-xl font-semibold mb-2">
                 Authentic Experience

@@ -58,7 +58,7 @@ export default function HotelGallery() {
       <div className="w-full flex justify-center my-6">
         <select
           onChange={handleSelectChange}
-          value={selectedHotelId || ""}
+          value={selectedHotelId || "Select Hotel"}
           className="px-4 py-2 border border-gray-300 rounded-md shadow-sm"
         >
           <option value="">Select Hotel</option>
