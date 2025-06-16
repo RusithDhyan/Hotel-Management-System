@@ -121,7 +121,7 @@ export default function ExperiencePage() {
         </p>
       </div>
       <section id="nature" className="p-8 scroll-mt-24">
-        <h2 className="text-2xl font-bold mb-4">Nature Experience</h2>
+        <h2 className="text-2xl text-center font-bold mb-4">Nature Experience</h2>
         {experiences.filter((exp) => exp.type === "nature").length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
             {experiences
@@ -171,7 +171,7 @@ export default function ExperiencePage() {
       </section>
 
       <section id="city" className="p-8 scroll-mt-24">
-        <h2 className="text-2xl font-bold mb-4">City Experience</h2>
+        <h2 className="text-2xl text-center font-bold mb-4">City Experience</h2>
         {experiences.filter((exp) => exp.type === "city").length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
             {experiences
@@ -221,7 +221,7 @@ export default function ExperiencePage() {
       </section>
 
       <section id="culture" className="p-8 scroll-mt-24">
-        <h2 className="text-2xl font-bold mb-4">Cultural Experience</h2>
+        <h2 className="text-2xl text-center font-bold mb-4">Cultural Experience</h2>
         {experiences.filter((exp) => exp.type === "culture").length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
             {experiences

@@ -225,7 +225,7 @@ export default function InquiryForm() {
                       room_type: roomType,
                     }));
                   }}
-                  className="w-full border border-gray-300 px-4 py-2"
+                  className="w-full border-b px-4 py-2"
                 >
                   <option value="">Select Room Type</option>
                   {accommodation.map((room) => (

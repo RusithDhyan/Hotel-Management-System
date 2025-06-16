@@ -1,28 +1,27 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
+
 export default function BookingPage() {
   const [accommodation, setAccommodation] = useState([]);
   const [selectedRoom, setSelectedRoom] = useState("");
+  const [selectedHotel, setSelectedHotel] = useState("");
+  const [selectedHotelId, setSelectedHotelId] = useState("");
+  const [hotels, setHotels] = useState([]);
+  const [checkIn, setCheckIn] = useState("");
+  const [checkOut, setCheckOut] = useState("");
+  const [availableRooms, setAvailableRooms] = useState([]);
 
   const selectedRoomObj = accommodation.find(
     (room) => room.room_type === selectedRoom
   );
 
-  const [selectedHotel, setSelectedHotel] = useState("");
-  const [selectedHotelId, setSelectedHotelId] = useState(null);
-  const [hotels, setHotels] = useState([]);
-
-  const [checkIn, setCheckIn] = useState("");
-  const [checkOut, setCheckOut] = useState("");
-
-  const [availableRooms, setAvailableRooms] = useState([]);
-
   useEffect(() => {
     fetch("/api/hotels")
       .then((res) => res.json())
       .then((data) => {
-        setHotels(data.data);
+        setHotels(data.data || []);
         if (data.data.length > 0) {
           const firstHotel = data.data[0];
           setSelectedHotelId(firstHotel._id);
@@ -32,27 +31,23 @@ export default function BookingPage() {
   }, []);
 
   const fetchAccommodation = async (hotelId) => {
-    const res = await fetch(`/api/accommodation?hotelId=${hotelId}`);
+    const res = await fetch(
+      `/api/check-availability?hotelId=${hotelId}&checkIn=${checkIn}&checkOut=${checkOut}`
+    );
     const data = await res.json();
-    console.log("Fetched accommodation:", data.data);
-    console.log("hotelId", hotelId);
-    setAvailableRooms(data.data);
-
-    if (data.success) setAccommodation(data.data);
+    if (data.success) {
+      setAccommodation(data.data);
+      setAvailableRooms(data.data);
+    }
   };
 
   const handleSelectChange = (e) => {
     const id = e.target.value;
     setSelectedHotelId(id);
     fetchAccommodation(id);
-
-    // Find the hotel object by id
     const hotelObj = hotels.find((hotel) => hotel._id === id);
-
     if (hotelObj) {
       setSelectedHotel(hotelObj.hotel_name);
-    } else {
-      setSelectedHotel("");
     }
   };
 
@@ -61,16 +56,17 @@ export default function BookingPage() {
       alert("Please select a hotel and dates.");
       return;
     }
+
     const res = await fetch("/api/check-availability", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      // body: JSON.stringify({ hotel: selectedHotel, checkIn, checkOut }),
       body: JSON.stringify({ hotelId: selectedHotelId, checkIn, checkOut }),
     });
 
     const data = await res.json();
-    console.log(data); // data.availableRooms should be an array
-    setAvailableRooms(data.availableRooms);
+    if (data.success) {
+      setAvailableRooms(data.availableRooms);
+    }
   };
 
   return (
@@ -80,15 +76,16 @@ export default function BookingPage() {
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Left Column - Booking Form */}
+        {/* Left Column */}
         <div className="bg-white shadow-xl p-6">
-          <h2 className="text-xl font-semibold mb-4">Guest Information</h2>
-          <form className="space-y-4">
-            {/* Hotel Dropdown */}
+          <h2 className="text-xl text-center font-semibold mb-4">
+            Guest Information
+          </h2>
+          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
             <select
               onChange={handleSelectChange}
-              value={selectedHotelId || ""}
-              className="px-4 py-2 border border-gray-300 rounded-md shadow-sm"
+              value={selectedHotelId}
+              className="px-4 py-2 border border-gray-300 rounded-md shadow-sm w-full"
             >
               {hotels.map((hotel) => (
                 <option key={hotel._id} value={hotel._id}>
@@ -117,7 +114,7 @@ export default function BookingPage() {
                 className="w-full border border-gray-300 px-4 py-2"
               >
                 <option value="">Select Room Type</option>
-                {accommodation.map((room) => (
+                {availableRooms.map((room) => (
                   <option key={room._id} value={room.room_type}>
                     {room.room_type}
                   </option>
@@ -127,38 +124,24 @@ export default function BookingPage() {
           </form>
         </div>
 
-        {/* Right Column - Room Summary + Price */}
+        {/* Right Column */}
         <div className="bg-gray-100 shadow-xl p-6 space-y-6">
+          <h2 className="text-xl text-center font-semibold mb-2">
+            Your Selection
+          </h2>
+          {selectedRoomObj && (
+            <Image
+              src={selectedRoomObj.image}
+              alt={selectedRoomObj.room_type}
+              width={1000}
+              height={400}
+              className="w-full h-60 object-cover"
+            />
+          )}
+
           <div>
-            <h2 className="text-xl font-semibold mb-2">Your Selection </h2>
-{/* 
-            <div className="grid grid-cols-1 items-start sm:items-center gap-4">
-              {accommodation.map((acc) => (
-                <div className="flex items-center justify-between px-4 mb-4">
-                  <h1>{acc.room_type}</h1>
-                  <Image
-                    src={acc.image}
-                    alt={acc.room_type}
-                    width={1000}
-                    height={100}
-                    className="w-20 sm:h-20 object-cover"
-                  />
-                </div>
-              ))}
-            </div> */}
-            {selectedRoomObj && (
-              <Image
-                src={selectedRoomObj.image}
-                alt="ff"
-                width={1000}
-                height={100}
-                className="w-full h-50 sm:h-60 object-cover"
-              />
-            )}
-            <div>
-              <p className="font-medium">Room Type: {selectedRoom}</p>
-              <p className="text-sm text-gray-500">Hotel: {selectedHotel}</p>
-            </div>
+            <p className="font-medium">Room Type: {selectedRoom}</p>
+            <p className="text-sm text-gray-500">Hotel: {selectedHotel}</p>
           </div>
 
           {selectedHotel && selectedRoom && selectedRoomObj && (
@@ -166,27 +149,19 @@ export default function BookingPage() {
               <h2 className="text-xl font-semibold mb-2">Price Details</h2>
               <div className="space-y-2 text-sm text-gray-700">
                 <div className="flex justify-between">
-                  <span>3 nights</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Taxes & Fees</span>
+                  <span>Per night</span>
                   <span>${selectedRoomObj.price}</span>
-                </div>
-                <div className="flex justify-between font-bold">
-                  <span>Total</span>
                 </div>
               </div>
             </div>
           )}
 
-          <div>
-            <button
-              onClick={checkAvailability}
-              className="w-full bg-gray-400 hover:bg-gray-500 text-black font-bold py-3 transition"
-            >
-              Check Availability
-            </button>
-          </div>
+          <button
+            onClick={checkAvailability}
+            className="w-full bg-gray-400 hover:bg-gray-500 text-black font-bold py-3 transition"
+          >
+            Check Availability
+          </button>
         </div>
       </div>
 
@@ -196,9 +171,9 @@ export default function BookingPage() {
             Available Rooms
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            {availableRooms.map((room, index) => (
+            {availableRooms.map((room) => (
               <div
-                key={index}
+                key={room._id}
                 className="bg-white shadow-lg rounded-md overflow-hidden"
               >
                 <Image
